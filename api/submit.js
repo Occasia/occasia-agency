@@ -35,12 +35,23 @@ module.exports = async function handler(req, res) {
             }
         }
 
-        const { fullName, workEmail, phone, companyName, dealSize, targetClients } = body || {};
+        const { fullName, workEmail, phone, companyName, dealSize, targetClients, type, notes } = body || {};
 
         if (!fullName || !workEmail || !phone) {
             return res.status(400).json({ 
                 error: 'Missing required contact fields: fullName, workEmail, and phone are mandatory.' 
             });
+        }
+
+        // Determine tags and source based on submission type
+        const isDinner = type === 'dinner';
+        const tags = isDinner 
+            ? ['dinner-candidate', 'executive-dinner'] 
+            : ['website-lead', 'executive-dinners'];
+
+        // Add average contract size / deal size as a tag
+        if (dealSize && dealSize.trim()) {
+            tags.push(dealSize.trim());
         }
 
         // 1. Upsert contact in GoHighLevel
@@ -57,26 +68,31 @@ module.exports = async function handler(req, res) {
                 email: workEmail.trim(),
                 phone: phone.trim(),
                 companyName: (companyName || '').trim(),
-                tags: ['website-lead', 'executive-dinners'],
-                source: 'occasia.agency website'
+                tags: tags,
+                source: isDinner ? 'occasia.agency next dinner RSVP' : 'occasia.agency website'
             })
         });
 
         const upsertData = await upsertResponse.json();
         const contactId = upsertData?.contact?.id;
 
-        // 2. Attach strategy consultation note with deal details
+        // 2. Attach detailed note with deal and company details
         if (contactId) {
+            const noteHeading = isDinner 
+                ? '🍷 NEW DINNER INVITATION REQUEST (occasia.agency/dinner):' 
+                : '🎯 NEW STRATEGY CONSULTATION REQUEST (occasia.agency):';
+
             const noteBody = [
-                '🎯 NEW STRATEGY CONSULTATION REQUEST (occasia.agency):',
+                noteHeading,
                 `• Full Name: ${fullName}`,
                 `• Work Email: ${workEmail}`,
                 `• Direct Phone: ${phone}`,
-                `• Company & Website: ${companyName || 'Not specified'}`,
+                `• Company Name: ${companyName || 'Not specified'}`,
                 `• Deal Size / ACV: ${dealSize || 'Not specified'}`,
-                `• Target Dream Clients: ${targetClients || 'Not specified'}`,
+                isDinner && notes ? `• Additional Notes / Dietary: ${notes}` : null,
+                !isDinner && targetClients ? `• Target Dream Clients: ${targetClients}` : null,
                 `• Submitted At: ${new Date().toISOString()}`
-            ].join('\n');
+            ].filter(Boolean).join('\n');
 
             await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
                 method: 'POST',

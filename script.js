@@ -69,6 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const GHL_LOCATION_ID = 'jHbmtYzLJIFF9GbAX6mz';
 
     async function submitToGHLDirectly(formData) {
+        const isDinner = formData.type === 'dinner';
+        const tags = isDinner 
+            ? ['dinner-candidate', 'executive-dinner'] 
+            : ['website-lead', 'executive-dinners'];
+
+        if (formData.dealSize && formData.dealSize.trim()) {
+            tags.push(formData.dealSize.trim());
+        }
+
         // Upsert contact in GoHighLevel
         const upsertRes = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
             method: 'POST',
@@ -83,8 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 email: formData.workEmail,
                 phone: formData.phone,
                 companyName: formData.companyName || '',
-                tags: ['website-lead', 'executive-dinners'],
-                source: 'occasia.agency website'
+                tags: tags,
+                source: isDinner ? 'occasia.agency next dinner RSVP' : 'occasia.agency website'
             })
         });
 
@@ -93,16 +102,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Attach consultation notes
         if (contactId) {
+            const noteHeading = isDinner 
+                ? '🍷 NEW DINNER INVITATION REQUEST (occasia.agency/dinner):' 
+                : '🎯 NEW STRATEGY CONSULTATION REQUEST (occasia.agency):';
+
             const noteBody = [
-                '🎯 NEW STRATEGY CONSULTATION REQUEST (occasia.agency):',
+                noteHeading,
                 `• Full Name: ${formData.fullName}`,
                 `• Work Email: ${formData.workEmail}`,
                 `• Direct Phone: ${formData.phone}`,
-                `• Company & Website: ${formData.companyName || 'Not specified'}`,
+                `• Company Name: ${formData.companyName || 'Not specified'}`,
                 `• Deal Size / ACV: ${formData.dealSize || 'Not specified'}`,
-                `• Target Dream Clients: ${formData.targetClients || 'Not specified'}`,
+                formData.notes ? `• Additional Notes: ${formData.notes}` : null,
+                formData.targetClients ? `• Target Dream Clients: ${formData.targetClients}` : null,
                 `• Submitted At: ${formData.submittedAt}`
-            ].join('\n');
+            ].filter(Boolean).join('\n');
 
             await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
                 method: 'POST',
