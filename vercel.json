@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/leor-dinner.html",
+      "destination": "/leor-dinner",
+      "permanent": true
+    }
+  ]
+}
