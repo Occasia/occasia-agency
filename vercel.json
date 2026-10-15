@@ -5,6 +5,11 @@
       "source": "/leor-dinner.html",
       "destination": "/leor-dinner",
       "permanent": true
+    },
+    {
+      "source": "/olsisoft-dinner.html",
+      "destination": "/olsisoft-dinner",
+      "permanent": true
     }
   ]
 }
