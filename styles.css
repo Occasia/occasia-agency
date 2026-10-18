@@ -419,58 +419,6 @@ a {
 }
 
 
-/* ==========================================
-   3-COLUMN PHOTO STRIP GALLERY (cxoand.co grid-15)
-   ========================================== */
-.photo-strip-section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 40px auto 0;
-    padding: 0 24px;
-}
-
-.photo-strip-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    border-radius: 18px;
-    overflow: hidden;
-}
-
-.photo-strip-item {
-    position: relative;
-    height: 240px;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid var(--border-glass);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.photo-strip-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.photo-strip-item:hover img {
-    transform: scale(1.05);
-}
-
-.photo-strip-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 14px 16px;
-    background: linear-gradient(180deg, transparent 0%, rgba(8, 8, 10, 0.92) 100%);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    letter-spacing: 0.04em;
-}
 
 /* Step tag pill helper */
 .step-tag-pill {
@@ -1102,7 +1050,6 @@ a {
 /* Responsive Styles */
 @media (max-width: 992px) {
     .hero-title { font-size: 2.75rem; }
-    .photo-strip-grid,
     .comparison-grid, .system-steps-grid, .fit-grid,
     .testimonials-grid, .events-grid { 
         grid-template-columns: 1fr; 
@@ -1118,8 +1065,6 @@ a {
     .nav-cta { padding: 6px 12px; font-size: 0.725rem; }
     .modal-container { padding: 28px 20px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-    .photo-strip-section { padding: 0 16px; }
-    .photo-strip-item { height: 180px; }
 }
 
 /* ==========================================
