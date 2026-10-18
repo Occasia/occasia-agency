@@ -452,60 +452,6 @@ a {
 }
 
 /* ==========================================
-   HERO UPCOMING EVENTS STRIP (cxoand.co style)
-   ========================================== */
-.hero-events-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    max-width: 980px;
-    margin: 34px auto 0;
-    text-align: left;
-}
-
-.hero-event-chip {
-    background: rgba(28, 16, 41, 0.7);
-    border: 1px solid var(--border-glass);
-    border-radius: 14px;
-    padding: 16px 20px;
-    text-decoration: none;
-    transition: var(--transition-fast);
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.hero-event-chip:hover {
-    border-color: var(--accent-rose-light);
-    transform: translateY(-2px);
-    background: rgba(44, 22, 64, 0.85);
-    box-shadow: 0 10px 28px rgba(232, 34, 107, 0.22);
-}
-
-.chip-date {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--accent-rose-light);
-    text-transform: uppercase;
-}
-
-.chip-title {
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #FFFFFF;
-}
-
-.chip-meta {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-}
-
-/* ==========================================
    DINING SHOWCASE BANNER (Full-width cinema visual)
    ========================================== */
 .dining-showcase-banner {
@@ -1348,7 +1294,7 @@ a {
 @media (max-width: 992px) {
     .hero-title { font-size: 2.75rem; }
     .metrics-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .hero-events-strip, .commitments-grid, .photo-strip-grid,
+    .commitments-grid, .photo-strip-grid,
     .comparison-grid, .system-steps-grid, .fit-grid, .quote-banner,
     .testimonials-grid, .events-grid { 
         grid-template-columns: 1fr; 
