@@ -1,53 +1,49 @@
 /* ==========================================
    OCCASIA AGENCY - DESIGN SYSTEM
    Domain: occasia.agency
-   Typography: Instrument Serif (Editorial Accents) + Sora (Headings) + Manrope (Body) + IBM Plex Mono (Kickers)
+   Typography: Sora (Headings) + Manrope (Body) + JetBrains Mono (Kickers)
    ========================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-    /* Warm Luxury Night Palette (Inspired by CXO & Co & Private Dining) */
-    --bg-onyx: #120A1A;                 /* Deep midnight plum/wine base instead of harsh black */
-    --bg-darker: #0D0613;
-    --bg-surface: rgba(28, 16, 41, 0.75); /* Rich plum velvet surface */
-    --bg-surface-elevated: rgba(38, 20, 56, 0.88); /* Elevated card background */
-    --bg-card: #1A0E26;
+    /* Color Tokens */
+    --bg-onyx: #08080A;
+    --bg-surface: rgba(18, 18, 22, 0.72);
+    --bg-surface-elevated: rgba(26, 26, 32, 0.85);
     
-    /* Primary Brand Accents (Crimson / Radiant Rose / Magenta) */
-    --accent-rose: #E8226B;
-    --accent-rose-light: #F47BAA;
-    --accent-rose-deep: #9B1650;
-    --accent-rose-glow: rgba(232, 34, 107, 0.35);
-    --accent-rose-subtle: rgba(232, 34, 107, 0.12);
+    /* Primary Brand Accents (Crimson / Rose) */
+    --accent-rose: #E11D48;
+    --accent-rose-light: #FB7185;
+    --accent-rose-deep: #9F1239;
+    --accent-rose-glow: rgba(225, 29, 72, 0.32);
+    --accent-rose-subtle: rgba(225, 29, 72, 0.08);
     
     /* Secondary Warm Highlights */
     --accent-amber: #F59E0B;
-    --accent-plum: #49314F;
-    --accent-violet: #684675;
+    --accent-indigo: #6366F1;
     
     /* Text Tokens */
     --text-primary: #FFFFFF;
-    --text-secondary: #EBE5EE;
-    --text-muted: #B8A8BD;
-    --text-dim: #84728A;
+    --text-secondary: #E4E4E7;
+    --text-muted: #A1A1AA;
+    --text-dim: #71717A;
     
     /* Borders & Glass */
-    --border-glass: rgba(104, 70, 117, 0.28);
-    --border-glass-bright: rgba(232, 34, 107, 0.35);
-    --border-rose: rgba(232, 34, 107, 0.32);
-    --border-rose-bright: rgba(244, 123, 170, 0.55);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glass-bright: rgba(255, 255, 255, 0.16);
+    --border-rose: rgba(225, 29, 72, 0.22);
+    --border-rose-bright: rgba(225, 29, 72, 0.45);
     
     /* Shadows */
-    --shadow-card: 0 16px 40px rgba(10, 4, 16, 0.65);
-    --shadow-rose: 0 12px 35px rgba(232, 34, 107, 0.22);
-    --shadow-rose-glow: 0 0 45px rgba(232, 34, 107, 0.38);
+    --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.55);
+    --shadow-rose: 0 10px 30px rgba(225, 29, 72, 0.15);
+    --shadow-rose-glow: 0 0 35px rgba(225, 29, 72, 0.35);
     
     /* Typography */
-    --font-serif: 'Instrument Serif', Georgia, serif;
     --font-display: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     
     /* Transitions */
     --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
@@ -100,32 +96,23 @@ body {
 .orb-rose {
     top: -12%;
     right: 2%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(232, 34, 107, 0.22) 0%, transparent 70%);
+    width: 650px;
+    height: 650px;
+    background: var(--accent-rose);
 }
 
 .orb-indigo {
     bottom: 5%;
     left: -5%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(73, 49, 79, 0.28) 0%, transparent 70%);
-    opacity: 0.2;
+    width: 600px;
+    height: 600px;
+    background: #4338CA;
+    opacity: 0.12;
 }
 
 @keyframes pulseOrb {
-    0% { transform: scale(1) translateY(0); opacity: 0.16; }
-    100% { transform: scale(1.15) translateY(35px); opacity: 0.25; }
-}
-
-/* Editorial Serif Accent (Inspired by CXO & Co / Vogue / Monocle) */
-.serif-accent {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-weight: 400;
-    color: var(--accent-rose-light);
-    letter-spacing: -0.01em;
+    0% { transform: scale(1) translateY(0); opacity: 0.14; }
+    100% { transform: scale(1.15) translateY(35px); opacity: 0.22; }
 }
 
 /* Typography Headings */
@@ -436,7 +423,7 @@ a {
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--border-glass);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 45px rgba(232, 34, 107, 0.18);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(225, 29, 72, 0.18);
     height: 380px;
 }
 
@@ -456,7 +443,7 @@ a {
 .dining-showcase-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(18, 10, 26, 0.15) 0%, rgba(18, 10, 26, 0.88) 90%);
+    background: linear-gradient(180deg, rgba(8, 8, 10, 0.15) 0%, rgba(8, 8, 10, 0.9) 90%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -493,7 +480,7 @@ a {
 }
 
 .commitment-card {
-    background: rgba(28, 16, 41, 0.7);
+    background: var(--bg-surface);
     border: 1px solid var(--border-glass);
     border-radius: 18px;
     padding: 36px 30px;
@@ -506,7 +493,7 @@ a {
 .commitment-card:hover {
     transform: translateY(-4px);
     border-color: var(--border-rose-bright);
-    background: rgba(38, 20, 56, 0.88);
+    background: var(--bg-surface-elevated);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), var(--shadow-rose);
 }
 
@@ -579,7 +566,7 @@ a {
     left: 0;
     right: 0;
     padding: 14px 16px;
-    background: linear-gradient(180deg, transparent 0%, rgba(18, 10, 26, 0.92) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(8, 8, 10, 0.92) 100%);
     font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 600;
@@ -596,8 +583,8 @@ a {
     font-size: 0.72rem;
     font-weight: 600;
     color: #FFFFFF;
-    background: rgba(232, 34, 107, 0.12);
-    border: 1px solid rgba(232, 34, 107, 0.3);
+    background: rgba(225, 29, 72, 0.08);
+    border: 1px solid rgba(225, 29, 72, 0.25);
     padding: 5px 12px;
     border-radius: 999px;
     width: fit-content;
@@ -679,12 +666,12 @@ a {
 }
 
 .comparison-card.negative {
-    background: rgba(28, 16, 41, 0.55);
-    border: 1px solid rgba(239, 68, 68, 0.25);
+    background: rgba(18, 18, 22, 0.45);
+    border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 .comparison-card.positive {
-    background: linear-gradient(145deg, rgba(232, 34, 107, 0.12) 0%, rgba(38, 20, 56, 0.88) 100%);
+    background: linear-gradient(145deg, rgba(225, 29, 72, 0.08) 0%, rgba(18, 18, 22, 0.8) 100%);
     border: 1px solid var(--border-rose-bright);
     box-shadow: var(--shadow-rose);
 }
@@ -798,7 +785,7 @@ a {
 .quote-banner {
     padding: 44px 36px;
     border-radius: 20px;
-    background: linear-gradient(135deg, rgba(232, 34, 107, 0.1) 0%, rgba(38, 20, 56, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(225, 29, 72, 0.08) 0%, rgba(18, 18, 22, 0.85) 100%);
     border: 1px solid var(--border-rose);
     box-shadow: var(--shadow-rose);
     display: grid;
@@ -892,7 +879,7 @@ a {
     text-align: center;
     padding: 65px 24px;
     border-radius: 22px;
-    background: radial-gradient(circle at 50% 25%, rgba(232, 34, 107, 0.22) 0%, rgba(28, 16, 41, 0.92) 75%);
+    background: radial-gradient(circle at 50% 25%, rgba(225, 29, 72, 0.16) 0%, rgba(18, 18, 22, 0.85) 75%);
     border: 1px solid var(--border-rose-bright);
     box-shadow: var(--shadow-rose-glow);
 }
@@ -1038,8 +1025,8 @@ a {
 }
 
 .testimonial-card.featured-partner {
-    background: linear-gradient(135deg, rgba(232, 34, 107, 0.08) 0%, rgba(38, 20, 56, 0.9) 100%);
-    border-color: rgba(232, 34, 107, 0.35);
+    background: linear-gradient(135deg, rgba(225, 29, 72, 0.06) 0%, rgba(18, 18, 22, 0.85) 100%);
+    border-color: rgba(225, 29, 72, 0.28);
 }
 
 .testimonial-header-badge {
