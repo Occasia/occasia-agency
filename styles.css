@@ -330,8 +330,17 @@ a {
 
 /* Hero Section (Centralized & High-Impact) */
 .hero-section {
-    padding-top: 160px;
-    padding-bottom: 60px;
+    position: relative;
+    padding-top: 170px;
+    padding-bottom: 90px;
+    background-image: 
+        radial-gradient(ellipse at 50% 45%, rgba(8, 8, 10, 0.74) 0%, rgba(8, 8, 10, 0.9) 68%, #08080A 100%),
+        linear-gradient(180deg, rgba(8, 8, 10, 0.65) 0%, rgba(8, 8, 10, 0.96) 100%),
+        url('assets/images/executive_dining.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .hero-center-content {
@@ -445,7 +454,7 @@ a {
     background: rgba(14, 14, 18, 0.35);
     overflow: hidden;
     position: relative;
-    margin-top: 50px;
+    margin-top: 0;
 }
 
 .logo-slider-title {
