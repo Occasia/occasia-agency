@@ -550,7 +550,19 @@ a {
     color: #FFFFFF;
 }
 
-/* 5-Step System Grid (Typography-first, clean glassmorphism) */
+/* 5-Step System Section with Cinema Dining Background */
+.system-section {
+    position: relative;
+    background-image: 
+        linear-gradient(180deg, rgba(8, 8, 10, 0.88) 0%, rgba(8, 8, 10, 0.78) 50%, rgba(8, 8, 10, 0.92) 100%),
+        url('assets/images/luxury_table_hero.jpg');
+    background-size: cover;
+    background-position: center 42%;
+    background-repeat: no-repeat;
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+}
+
 .system-steps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -563,13 +575,16 @@ a {
     flex-direction: column;
     justify-content: space-between;
     border-radius: 18px;
-    background: var(--bg-surface);
+    background: rgba(14, 14, 18, 0.8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--border-glass);
     padding: 30px 26px;
     transition: var(--transition-smooth);
 }
 
 .step-card:hover {
+    background: rgba(22, 22, 28, 0.92);
     border-color: var(--border-rose-bright);
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), var(--shadow-rose);
     transform: translateY(-4px);
