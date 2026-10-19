@@ -559,6 +559,52 @@ a {
     color: #FFFFFF;
 }
 
+/* ==========================================
+   4-IMAGE PHOTO STRIP GALLERY
+   ========================================== */
+.photo-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.photo-strip-item {
+    position: relative;
+    height: 220px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-glass);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    background: var(--bg-surface);
+}
+
+.photo-strip-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.photo-strip-item:hover img {
+    transform: scale(1.05);
+}
+
+.photo-strip-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 14px;
+    background: linear-gradient(180deg, transparent 0%, rgba(8, 8, 10, 0.92) 100%);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    letter-spacing: 0.04em;
+}
+
 /* 5-Step System Section with Cinema Dining Background */
 .system-section {
     position: relative;
@@ -823,7 +869,7 @@ a {
     position: relative;
     padding: 90px 0;
     background-image: 
-        linear-gradient(180deg, rgba(8, 8, 10, 0.88) 0%, rgba(8, 8, 10, 0.78) 50%, rgba(8, 8, 10, 0.92) 100%),
+        linear-gradient(180deg, rgba(8, 8, 10, 0.96) 0%, rgba(8, 8, 10, 0.92) 50%, rgba(8, 8, 10, 0.97) 100%),
         url('assets/images/founders_dinner_bg.jpg');
     background-size: cover;
     background-position: center 35%;
@@ -1089,6 +1135,10 @@ a {
     .testimonials-grid, .events-grid { 
         grid-template-columns: 1fr; 
     }
+    .photo-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
     .nav-links { display: none; }
 }
 
@@ -1098,6 +1148,13 @@ a {
     .hero-actions { flex-direction: column; width: 100%; }
     .btn { width: 100%; }
     .nav-cta { padding: 6px 12px; font-size: 0.725rem; }
+    .photo-strip-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .photo-strip-item {
+        height: 180px;
+    }
     .modal-container { padding: 28px 20px; }
     .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
 }
