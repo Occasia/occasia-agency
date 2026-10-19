@@ -820,8 +820,16 @@ a {
    TESTIMONIALS & SOCIAL PROOF GRID
    ========================================== */
 .testimonials-section {
-    padding: 90px 0;
     position: relative;
+    padding: 90px 0;
+    background-image: 
+        linear-gradient(180deg, rgba(8, 8, 10, 0.88) 0%, rgba(8, 8, 10, 0.78) 50%, rgba(8, 8, 10, 0.92) 100%),
+        url('assets/images/founders_dinner_bg.jpg');
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
 }
 
 .testimonials-grid {
@@ -832,7 +840,9 @@ a {
 }
 
 .testimonial-card {
-    background: var(--bg-surface);
+    background: rgba(14, 14, 18, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--border-glass);
     border-radius: 18px;
     padding: 28px 24px 22px;
@@ -845,13 +855,14 @@ a {
 
 .testimonial-card:hover {
     transform: translateY(-4px);
+    background: rgba(22, 22, 28, 0.92);
     border-color: var(--border-rose-bright);
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), var(--shadow-rose);
 }
 
 .testimonial-card.featured-partner {
-    background: linear-gradient(135deg, rgba(225, 29, 72, 0.06) 0%, rgba(18, 18, 22, 0.85) 100%);
-    border-color: rgba(225, 29, 72, 0.28);
+    background: linear-gradient(135deg, rgba(225, 29, 72, 0.08) 0%, rgba(18, 18, 22, 0.88) 100%);
+    border-color: rgba(225, 29, 72, 0.35);
 }
 
 .testimonial-header-badge {
