@@ -747,20 +747,12 @@ a {
 
 /* CTA Box */
 .cta-banner {
-    position: relative;
     text-align: center;
-    padding: 70px 32px;
-    border-radius: 24px;
-    background-image: 
-        radial-gradient(ellipse at 50% 30%, rgba(225, 29, 72, 0.22) 0%, rgba(8, 8, 10, 0.8) 55%, rgba(8, 8, 10, 0.94) 100%),
-        linear-gradient(180deg, rgba(8, 8, 10, 0.72) 0%, rgba(8, 8, 10, 0.92) 100%),
-        url('assets/images/founders_dinner_bg.jpg');
-    background-size: cover;
-    background-position: center 30%;
-    background-repeat: no-repeat;
+    padding: 65px 24px;
+    border-radius: 22px;
+    background: radial-gradient(circle at 50% 25%, rgba(225, 29, 72, 0.16) 0%, rgba(18, 18, 22, 0.85) 75%);
     border: 1px solid var(--border-rose-bright);
-    box-shadow: var(--shadow-rose-glow), 0 24px 60px rgba(0, 0, 0, 0.7);
-    overflow: hidden;
+    box-shadow: var(--shadow-rose-glow);
 }
 
 /* Modal styling */
