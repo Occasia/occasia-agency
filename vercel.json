@@ -15,6 +15,11 @@
       "source": "/proforce-dinner.html",
       "destination": "/proforce-dinner",
       "permanent": true
+    },
+    {
+      "source": "/tech-and-ai-dinner.html",
+      "destination": "/tech-and-ai-dinner",
+      "permanent": true
     }
   ]
 }
