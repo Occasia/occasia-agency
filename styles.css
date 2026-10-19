@@ -334,8 +334,8 @@ a {
     padding-top: 170px;
     padding-bottom: 90px;
     background-image: 
-        radial-gradient(ellipse at 50% 45%, rgba(8, 8, 10, 0.74) 0%, rgba(8, 8, 10, 0.9) 68%, #08080A 100%),
-        linear-gradient(180deg, rgba(8, 8, 10, 0.65) 0%, rgba(8, 8, 10, 0.96) 100%),
+        radial-gradient(ellipse at 50% 48%, rgba(8, 8, 10, 0.48) 0%, rgba(8, 8, 10, 0.72) 65%, #08080A 100%),
+        linear-gradient(180deg, rgba(8, 8, 10, 0.38) 0%, rgba(8, 8, 10, 0.88) 100%),
         url('assets/images/executive_dining.jpg');
     background-size: cover;
     background-position: center 30%;
@@ -357,6 +357,7 @@ a {
     color: #FFFFFF;
     text-align: center;
     max-width: 980px;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9), 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 /* Deeper, radiant crimson accent for Dream Clients */
@@ -399,12 +400,13 @@ a {
 
 .hero-subtitle {
     font-size: 1.35rem;
-    color: #D4D4D8;
+    color: #E4E4E7;
     line-height: 1.5;
     margin: 0 auto 36px;
     max-width: 620px;
     font-weight: 400;
     text-align: center;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.95);
 }
 
 .hero-actions {
