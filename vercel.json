@@ -17,6 +17,11 @@
       "permanent": true
     },
     {
+      "source": "/oriso-dinner.html",
+      "destination": "/oriso-dinner",
+      "permanent": true
+    },
+    {
       "source": "/tech-and-ai-dinner.html",
       "destination": "/tech-and-ai-dinner",
       "permanent": true
