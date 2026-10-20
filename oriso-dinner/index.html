@@ -9,7 +9,7 @@
     <title>The Executive Dinner Series | Hosted by Oriso × Occasia</title>
     <meta name="title" content="The Executive Dinner Series | Hosted by Oriso × Occasia">
     <meta name="description"
-        content="Une soirée intime à huis clos réunissant Directeurs TI, CISOs et VPs Infrastructure d'entreprises québécoises réglementées. Présentation stratégique et table ronde sur la Loi 25, la souveraineté des données et la fin des coûts cloud imprévisibles. Organisé par Oriso, co-organisé par Occasia.">
+        content="Une soirée intime à huis clos réunissant Directeurs TI, CISOs et décideurs d'entreprises québécoises autour d'une table gastronomique. Organisé par Oriso, co-organisé par Occasia.">
     <link rel="canonical" href="https://occasia.agency/oriso-dinner">
     <meta name="theme-color" content="#08080A">
 
@@ -19,7 +19,7 @@
     <meta property="og:site_name" content="Oriso × Occasia">
     <meta property="og:title" content="The Executive Dinner Series | Hosted by Oriso × Occasia">
     <meta property="og:description"
-        content="Une table ronde privée et un briefing exécutif pour les décideurs TI sur la conformité Loi 25, l'évitement du CLOUD Act américain et la maîtrise des coûts cloud.">
+        content="Une table ronde privée réunissant des décideurs TI pour échanger entre pairs dans un salon gastronomique à Montréal.">
     <meta property="og:image" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
 
     <!-- Favicon -->
@@ -50,7 +50,7 @@
         .prospects-summary {
             list-style: none;
             cursor: pointer;
-            padding: 24px 28px;
+            padding: 22px 26px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -216,76 +216,7 @@
             max-width: 360px;
         }
 
-        /* ==========================================
-           POSITIONING / PRESENTATION SLIDE STYLES
-           ========================================== */
-        .positioning-grid {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 24px !important;
-            margin-top: 36px !important;
-        }
-        .positioning-card {
-            background: var(--bg-surface, rgba(18, 18, 22, 0.72));
-            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
-            border-radius: 18px;
-            padding: 28px 24px;
-            display: flex;
-            flex-direction: column;
-            transition: transform var(--transition-smooth, 0.35s ease), border-color var(--transition-smooth, 0.35s ease), box-shadow var(--transition-smooth, 0.35s ease);
-            position: relative;
-        }
-        .positioning-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-rose-bright, rgba(225, 29, 72, 0.45));
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), var(--shadow-rose, 0 10px 30px rgba(225, 29, 72, 0.15));
-        }
-        .positioning-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-mono, monospace);
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--accent-rose-light, #FB7185);
-            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.08));
-            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.22));
-            padding: 5px 12px;
-            border-radius: 999px;
-            margin-bottom: 18px;
-            width: fit-content;
-        }
-        .positioning-title {
-            font-family: var(--font-display, 'Sora', sans-serif);
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-        .positioning-desc {
-            font-size: 0.9rem;
-            color: var(--text-secondary, #E4E4E7);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        .positioning-meta-box {
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.06));
-            border-radius: 12px;
-            padding: 14px 16px;
-            font-size: 0.825rem;
-            color: var(--text-muted, #A1A1AA);
-            line-height: 1.5;
-        }
-        .positioning-meta-box strong {
-            color: #FFFFFF;
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        /* 5 Operational Pillars Grid */
+        /* 5 Operational Pillars Grid (Clean, No Subtext) */
         .role-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -296,33 +227,34 @@
             background: var(--bg-surface, rgba(18, 18, 22, 0.72));
             border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
             border-radius: 14px;
-            padding: 20px 16px;
+            padding: 24px 18px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            position: relative;
+            gap: 12px;
+            align-items: flex-start;
+            transition: all 0.25s ease;
+        }
+        .role-card:hover {
+            border-color: var(--border-rose-bright, rgba(225, 29, 72, 0.45));
+            transform: translateY(-2px);
         }
         .role-step-num {
             font-family: var(--font-mono, monospace);
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             color: var(--accent-rose-light, #FB7185);
             background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.08));
             border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.22));
-            width: fit-content;
-            padding: 2px 8px;
+            padding: 4px 10px;
             border-radius: 6px;
             font-weight: 700;
         }
         .role-title {
             font-family: var(--font-display, 'Sora', sans-serif);
-            font-size: 0.95rem;
+            font-size: 1.02rem;
             font-weight: 700;
             color: #FFFFFF;
-        }
-        .role-desc {
-            font-size: 0.8rem;
-            color: var(--text-muted, #A1A1AA);
-            line-height: 1.45;
+            line-height: 1.35;
+            margin: 0;
         }
 
         /* Referral Engine Banner */
@@ -349,7 +281,7 @@
         /* Activation / Offer Grid */
         .activation-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
+            grid-template-columns: 1.35fr 1fr;
             gap: 24px;
             margin-top: 28px;
             align-items: stretch;
@@ -394,23 +326,22 @@
         .activation-deliverables {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin: 16px 0;
+            gap: 12px;
+            margin: 20px 0 10px;
         }
         .deliverable-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 12px;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: var(--text-secondary, #E4E4E7);
-            line-height: 1.45;
+            line-height: 1.4;
         }
         .deliverable-check {
             color: var(--accent-rose-light, #FB7185);
             font-weight: 800;
             font-size: 1rem;
             flex-shrink: 0;
-            line-height: 1.2;
         }
         .activation-guarantee-card {
             background: var(--bg-surface, rgba(18, 18, 22, 0.72));
@@ -426,7 +357,7 @@
         }
         .step-row {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 12px;
             margin-bottom: 12px;
         }
@@ -447,7 +378,6 @@
             font-size: 0.75rem;
             font-weight: 700;
             flex-shrink: 0;
-            margin-top: 2px;
         }
 
         /* Hero specs strip */
@@ -801,7 +731,6 @@
                 padding: 40px 20px;
             }
             .dinner-hero-grid,
-            .positioning-grid,
             .role-grid,
             .activation-grid {
                 grid-template-columns: 1fr !important;
@@ -823,7 +752,7 @@
                 </a>
                 <div class="deck-badge-pill">
                     <span class="deck-badge-dot"></span>
-                    <span>Executive Briefing</span>
+                    <span>Executive Dinner</span>
                 </div>
             </div>
 
@@ -834,53 +763,49 @@
                 </a>
                 <a href="#concept" class="deck-nav-item" data-slide-index="1">
                     <span class="deck-nav-num">02</span>
-                    <span class="deck-nav-title">Cold vs Dîner Exécutif</span>
+                    <span class="deck-nav-title">Cold vs Dîner Privé</span>
                 </a>
-                <a href="#positionnement" class="deck-nav-item" data-slide-index="2">
+                <a href="#notre-role" class="deck-nav-item" data-slide-index="2">
                     <span class="deck-nav-num">03</span>
-                    <span class="deck-nav-title">Dîner + Présentation</span>
-                </a>
-                <a href="#notre-role" class="deck-nav-item" data-slide-index="3">
-                    <span class="deck-nav-num">04</span>
                     <span class="deck-nav-title">Notre Rôle &amp; Referral</span>
                 </a>
-                <a href="#deroulement" class="deck-nav-item" data-slide-index="4">
-                    <span class="deck-nav-num">05</span>
+                <a href="#deroulement" class="deck-nav-item" data-slide-index="3">
+                    <span class="deck-nav-num">04</span>
                     <span class="deck-nav-title">Le Déroulement</span>
                 </a>
-                <a href="#invites" class="deck-nav-item" data-slide-index="5">
-                    <span class="deck-nav-num">06</span>
+                <a href="#invites" class="deck-nav-item" data-slide-index="4">
+                    <span class="deck-nav-num">05</span>
                     <span class="deck-nav-title">Profils Invités (ICP)</span>
                 </a>
-                <a href="#comptes-cibles" class="deck-nav-item" data-slide-index="6">
-                    <span class="deck-nav-num">07</span>
+                <a href="#comptes-cibles" class="deck-nav-item" data-slide-index="5">
+                    <span class="deck-nav-num">06</span>
                     <span class="deck-nav-title">20 Comptes Cibles</span>
                 </a>
-                <a href="#evenements-passes" class="deck-nav-item" data-slide-index="7">
-                    <span class="deck-nav-num">08</span>
+                <a href="#evenements-passes" class="deck-nav-item" data-slide-index="6">
+                    <span class="deck-nav-num">07</span>
                     <span class="deck-nav-title">Événements Passés</span>
                 </a>
-                <a href="#temoignages" class="deck-nav-item" data-slide-index="8">
-                    <span class="deck-nav-num">09</span>
+                <a href="#temoignages" class="deck-nav-item" data-slide-index="7">
+                    <span class="deck-nav-num">08</span>
                     <span class="deck-nav-title">Avis Dirigeants</span>
                 </a>
-                <a href="#offre" class="deck-nav-item" data-slide-index="9">
-                    <span class="deck-nav-num">10</span>
+                <a href="#offre" class="deck-nav-item" data-slide-index="8">
+                    <span class="deck-nav-num">09</span>
                     <span class="deck-nav-title">Offre Pilote Clé en Main</span>
                 </a>
-                <a href="#invitation" class="deck-nav-item" data-slide-index="10">
-                    <span class="deck-nav-num">11</span>
+                <a href="#invitation" class="deck-nav-item" data-slide-index="9">
+                    <span class="deck-nav-num">10</span>
                     <span class="deck-nav-title">Invitation Privée</span>
                 </a>
             </nav>
 
             <div class="deck-sidebar-footer">
                 <div class="deck-progress-row">
-                    <span>Slide <strong id="deck-current-num">01</strong> / 11</span>
-                    <span id="deck-progress-percent">9%</span>
+                    <span>Slide <strong id="deck-current-num">01</strong> / 10</span>
+                    <span id="deck-progress-percent">10%</span>
                 </div>
                 <div class="deck-progress-track">
-                    <div class="deck-progress-fill" id="deck-progress-fill" style="width: 9.09%;"></div>
+                    <div class="deck-progress-fill" id="deck-progress-fill" style="width: 10%;"></div>
                 </div>
                 <div class="deck-ctrl-btns">
                     <button type="button" id="deck-btn-prev" class="deck-ctrl-btn" title="Slide précédente (↑)">
@@ -906,7 +831,7 @@
             </a>
             <div style="display: flex; align-items: center; gap: 10px;">
                 <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-rose-light);">
-                    Slide <strong id="deck-mobile-current-num">01</strong>/11
+                    Slide <strong id="deck-mobile-current-num">01</strong>/10
                 </span>
                 <button type="button" class="deck-mobile-toggle" id="deck-mobile-toggle">
                     <span>☰ Sommaire</span>
@@ -922,7 +847,7 @@
             <section class="deck-slide section-padding" id="hero" style="padding-top: 70px; padding-bottom: 70px;">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 01 / 11</span>
+                        <span class="slide-num-pill">SLIDE 01 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · INTRODUCTION</span>
                     </div>
                     <div class="dinner-hero-grid">
@@ -931,14 +856,14 @@
                             <p class="section-kicker">Organisé par Oriso · Co-organisé par Occasia · Montréal</p>
                             <h1 class="hero-title" style="text-align: left; margin-bottom: 24px; font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.15;">
                                 12–14 Décideurs TI Réunis.<br>
-                                Un Briefing Loi 25 &amp; Souveraineté.<br>
-                                <span class="hero-dream-clients">4 heures d'autorité à table.</span>
+                                Un Dîner Exécutif Privé.<br>
+                                <span class="hero-dream-clients">4 heures d'échange direct à table.</span>
                             </h1>
 
                             <div class="dinner-spec-bar" style="margin: 20px 0 28px;">
                                 <div class="spec-item">
                                     <span class="spec-label">Format</span>
-                                    <span class="spec-value" style="color: var(--accent-rose-light);">Dîner + Présentation (20 min)</span>
+                                    <span class="spec-value" style="color: var(--accent-rose-light);">Dîner Exécutif Privé</span>
                                 </div>
                                 <div class="spec-item">
                                     <span class="spec-label">Horaire</span>
@@ -958,8 +883,8 @@
                                 <a href="#concept" class="btn btn-secondary">
                                     Le Concept &rarr;
                                 </a>
-                                <a href="#positionnement" class="btn btn-secondary">
-                                    Dîner + Présentation &rarr;
+                                <a href="#notre-role" class="btn btn-secondary">
+                                    Notre Rôle &rarr;
                                 </a>
                                 <a href="#comptes-cibles" class="btn btn-secondary">
                                     20 Comptes Cibles &rarr;
@@ -990,7 +915,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 02: LE CONCEPT (COLD OUTREACH VS DINER EXECUTIF) -->
+            <!-- SLIDE 02: LE CONCEPT (COLD OUTREACH VS DINER PRIVE) -->
             <section class="deck-slide section-padding" id="concept" style="border-top: 1px solid var(--border-glass);">
                 <div class="slide-bg-blur" aria-hidden="true">
                     <img src="../assets/images/private_dining_card.png" class="slide-bg-blur-img" alt="" loading="lazy">
@@ -998,43 +923,43 @@
                 </div>
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 02 / 11</span>
+                        <span class="slide-num-pill">SLIDE 02 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · LE CONCEPT</span>
                     </div>
                     <div class="section-header text-center" style="margin-bottom: 32px;">
                         <div class="badge">
                             <span class="badge-dot"></span> Le Constat Stratégique
                         </div>
-                        <h2 class="section-title">Cold Outreach vs. Dîner Exécutif</h2>
+                        <h2 class="section-title">Cold Outreach vs. Dîner Privé</h2>
                         <p class="section-subtitle">
-                            L'infrastructure souveraine ne se vend pas par courriels froids. Une table fermée scelle la confiance.
+                            L'infrastructure et la sécurité ne se vendent pas par courriels froids. Une table fermée scelle la confiance.
                         </p>
                     </div>
 
                     <div class="comparison-grid">
                         <div class="glass-card comparison-card negative">
                             <p class="section-kicker" style="color: #F87171;">✕ Prospection Traditionnelle TI</p>
-                            <h3 class="comparison-card-title">Ce que font les revendeurs de cloud classiques</h3>
+                            <h3 class="comparison-card-title">Ce que font la plupart des fournisseurs</h3>
                             <ul class="comparison-list">
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>Des dizaines d'inmails LinkedIn ignorés par les Directeurs TI blasés.</div>
+                                    <div>DMs LinkedIn et courriels froids ignorés par les Directeurs TI.</div>
                                 </li>
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>Essayer de prouver la Loi 25 et la souveraineté dans un appel Zoom de 15 minutes.</div>
+                                    <div>Tenter d'expliquer une offre d'infrastructure dans un appel Teams de 15 minutes.</div>
                                 </li>
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>Cycles de vente interminables (6 à 12 mois) bloqués par la peur du changement.</div>
+                                    <div>Cycles de vente interminables (6 à 12 mois) bloqués par le risque.</div>
                                 </li>
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>Mise en concurrence artificielle face aux crédits d'accueil AWS ou Azure.</div>
+                                    <div>Mise en concurrence avec des dizaines d'autres prestataires.</div>
                                 </li>
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>Zéro relation personnelle directe avec les véritables signataires.</div>
+                                    <div>Zéro lien de confiance direct avec les véritables signataires.</div>
                                 </li>
                             </ul>
                         </div>
@@ -1049,19 +974,19 @@
                                 </li>
                                 <li>
                                     <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div>Un briefing exécutif de 20 minutes sur la Loi 25 et le piège des coûts cloud.</div>
+                                    <div>4 heures d'attention exclusive dans un cadre confidentiel et haut de gamme.</div>
                                 </li>
                                 <li>
                                     <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div>4 heures de débat franc entre pairs sur les risques du US CLOUD Act.</div>
+                                    <div>Échanges francs entre pairs sur leurs défis réels d'infrastructure.</div>
                                 </li>
                                 <li>
                                     <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div>François Michaud et Oriso positionnés comme le tiers de confiance québécois.</div>
+                                    <div>Oriso positionné comme l'hôte et le partenaire de référence.</div>
                                 </li>
                                 <li>
                                     <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div>Débouché naturel sous 48h sur des audits de conformité et des migrations récurrentes.</div>
+                                    <div>Des opportunités concrètes et des mandats récurrents scellés naturellement.</div>
                                 </li>
                             </ul>
                         </div>
@@ -1069,65 +994,11 @@
                 </div>
             </section>
 
-            <!-- SLIDE 03: POSITIONNEMENT (DINER + PRESENTATION) -->
-            <section class="deck-slide section-padding" id="positionnement" style="border-top: 1px solid var(--border-glass);">
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 03 / 11</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · POSITIONNEMENT DE L'ÉVÉNEMENT</span>
-                    </div>
-                    <div class="section-header text-center" style="margin-bottom: 24px;">
-                        <div class="badge">
-                            <span class="badge-dot"></span> Formule Hybride
-                        </div>
-                        <h2 class="section-title">Dîner Privé + Présentation Stratégique</h2>
-                        <p class="section-subtitle">
-                            Un Executive Briefing de 20 minutes pour ouvrir le débat, suivi de la table ronde gastronomique.
-                        </p>
-                    </div>
-
-                    <div class="positioning-grid">
-                        <div class="positioning-card">
-                            <div class="positioning-badge">Pilier 01</div>
-                            <h3 class="positioning-title">Le Briefing (20 min)</h3>
-                            <p class="positioning-desc" style="margin-bottom: 12px; font-weight: 600; color: #FFFFFF;">
-                                Une raison réglementaire et financière incontournable de bloquer sa soirée.
-                            </p>
-                            <div class="positioning-meta-box">
-                                <strong>Thème :</strong> « Loi 25, Souveraineté &amp; Coûts Cloud : comment sortir du piège des hyperscalers américains sans risque opérationnel. »
-                            </div>
-                        </div>
-
-                        <div class="positioning-card" style="border-color: rgba(225, 29, 72, 0.35); background: linear-gradient(135deg, rgba(225, 29, 72, 0.06) 0%, rgba(18, 18, 22, 0.85) 100%);">
-                            <div class="positioning-badge" style="background: var(--accent-rose); color: #FFFFFF; border-color: var(--accent-rose-light);">Pilier 02</div>
-                            <h3 class="positioning-title">L'Autorité de Pair</h3>
-                            <p class="positioning-desc" style="margin-bottom: 12px; font-weight: 600; color: #FFFFFF;">
-                                François Michaud s'établit comme le tiers de confiance québécois.
-                            </p>
-                            <div class="positioning-meta-box">
-                                <strong>Posture :</strong> 20 ans d'infrastructure locale, centres de données souverains (Mtl/Toronto), Vullify et KeepSec. Pur échange d'expertise, 0 pitch agressif.
-                            </div>
-                        </div>
-
-                        <div class="positioning-card">
-                            <div class="positioning-badge">Pilier 03</div>
-                            <h3 class="positioning-title">Le Débat Ouvert</h3>
-                            <p class="positioning-desc" style="margin-bottom: 12px; font-weight: 600; color: #FFFFFF;">
-                                Des discussions sans filtre dès le premier service.
-                            </p>
-                            <div class="positioning-meta-box">
-                                <strong>Dynamique :</strong> Chaque DSI partage ses audits Loi 25 réels, ses frayeurs de cyberattaques et l'explosion de ses frais d'egress. Les opportunités d'audit émergent spontanément.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 04: NOTRE ROLE & REFERRAL ENGINE -->
+            <!-- SLIDE 03: NOTRE ROLE & REFERRAL ENGINE -->
             <section class="deck-slide section-padding" id="notre-role" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 04 / 11</span>
+                        <span class="slide-num-pill">SLIDE 03 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · NOTRE RÔLE &amp; REFERRAL ENGINE</span>
                     </div>
                     <div class="section-header text-center" style="margin-bottom: 28px;">
@@ -1136,64 +1007,58 @@
                         </div>
                         <h2 class="section-title">Notre rôle</h2>
                         <p class="section-subtitle">
-                            Vous présentez votre vision et vous vous asseyez à table. Occasia s'occupe de tout le reste.
+                            Vous vous asseyez à table en tant qu'hôte. On s'occupe de tout le reste.
                         </p>
                     </div>
 
+                    <!-- 5 Operational Pillars (Clean, No Subtext) -->
                     <div class="role-grid">
                         <div class="role-card">
                             <div class="role-step-num">01</div>
                             <h3 class="role-title">Sourcing Ciblé</h3>
-                            <p class="role-desc">Sélection chirurgicale des Directeurs TI et CISOs de PME québécoises 50–500 employés.</p>
                         </div>
 
                         <div class="role-card">
                             <div class="role-step-num">02</div>
                             <h3 class="role-title">Invitations &amp; RSVPs</h3>
-                            <p class="role-desc">Outreach multicanal personnalisé, relances téléphoniques et garantie stricte des présences.</p>
                         </div>
 
                         <div class="role-card">
                             <div class="role-step-num">03</div>
-                            <h3 class="role-title">Lieu Privatif</h3>
-                            <p class="role-desc">Privatisation du salon gastronomique avec écran haute définition et acoustique soignée.</p>
+                            <h3 class="role-title">Salon Privé Gastronomique</h3>
                         </div>
 
                         <div class="role-card">
                             <div class="role-step-num">04</div>
                             <h3 class="role-title">Jour J &amp; Modération</h3>
-                            <p class="role-desc">Accueil confidentiel, gestion rigoureuse du timing (briefing 20 min) et service gastronomique.</p>
                         </div>
 
                         <div class="role-card">
                             <div class="role-step-num">05</div>
-                            <h3 class="role-title">Suivi &amp; Audits</h3>
-                            <p class="role-desc">Débrief individuel sous 48h avec chaque décideur pour enclencher les audits d'infrastructure.</p>
+                            <h3 class="role-title">Suivi &amp; Referral</h3>
                         </div>
                     </div>
 
+                    <!-- Clean Referral Engine Banner -->
                     <div class="referral-engine-banner" style="margin-top: 24px; padding: 22px 26px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
                             <div>
-                                <div class="card-kicker" style="color: var(--accent-rose-light); margin-bottom: 4px;">Le Referral Engine TI &amp; Cybersécurité</div>
-                                <h3 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.15rem; font-weight: 700; color: #FFFFFF; line-height: 1.3;">
-                                    15 directeurs TI à table → 30 décideurs qualifiés dans votre réseau
+                                <div class="card-kicker" style="color: var(--accent-rose-light); margin-bottom: 4px;">Le Referral Engine</div>
+                                <h3 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.15rem; font-weight: 700; color: #FFFFFF; line-height: 1.3; margin: 0;">
+                                    15 invités à table → 30 opportunités &amp; recommandations de pairs
                                 </h3>
-                                <p style="color: var(--text-secondary, #E4E4E7); font-size: 0.88rem; line-height: 1.5; margin-top: 6px; max-width: 760px;">
-                                    Au débrief à J+3, chaque participant recommande 1 à 2 confrères DSI confrontés aux mêmes exigences Loi 25. Votre réputation souveraine s'étend organiquement entre pairs.
-                                </p>
                             </div>
                             <div class="referral-stat-pill" style="margin: 0;">
                                 <span>15 Invités</span>
                                 <span>➔</span>
-                                <span>30 Leads Chauds</span>
+                                <span>30 Contacts Clés</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 05: LE DEROULEMENT (19H00 – 23H00) -->
+            <!-- SLIDE 04: LE DEROULEMENT (19H00 – 23H00) -->
             <section class="deck-slide section-padding" id="deroulement" style="border-top: 1px solid var(--border-glass);">
                 <div class="slide-bg-blur" aria-hidden="true">
                     <img src="../assets/images/cocktail_mixer_card.png" class="slide-bg-blur-img" alt="" loading="lazy">
@@ -1201,14 +1066,14 @@
                 </div>
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 05 / 11</span>
+                        <span class="slide-num-pill">SLIDE 04 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · LE DÉROULEMENT (19H00 – 23H00)</span>
                     </div>
                     <div class="section-header" style="margin-bottom: 28px;">
                         <p class="section-kicker">Programme de la Soirée</p>
                         <h2 class="section-title">Le Déroulement</h2>
                         <p class="section-desc">
-                            19h00 à 23h00 (4 heures). 20 minutes d'éclairage stratégique, suivies d'une table ronde gastronomique sans filtre.
+                            19h00 à 23h00 (4 heures). Une soirée fluide et conviviale sans protocole lourd.
                         </p>
                     </div>
 
@@ -1234,40 +1099,28 @@
                                 <div class="timeline-card">
                                     <div class="timeline-time">19h00</div>
                                     <div class="timeline-info">
-                                        <h4>Accueil &amp; Cocktails de Bienvenue</h4>
-                                        <p>Arrivée des Directeurs TI, CISOs et VPs. Premiers échanges informels et placement stratégique des convives.</p>
+                                        <h4>Accueil &amp; Cocktails</h4>
                                     </div>
                                 </div>
 
                                 <div class="timeline-card" style="border-left: 3px solid var(--accent-rose); background: rgba(225, 29, 72, 0.04);">
                                     <div class="timeline-time" style="color: var(--accent-rose-light);">19h30</div>
                                     <div class="timeline-info">
-                                        <h4 style="color: #FFFFFF;">Executive Briefing (20 min) — Par François Michaud</h4>
-                                        <p>Keynote : <em>« Loi 25 &amp; Facturation Cloud : Comment reprendre le contrôle total de ses données d'entreprise »</em>.</p>
+                                        <h4 style="color: #FFFFFF;">Mot de bienvenue de l'Hôte</h4>
                                     </div>
                                 </div>
 
                                 <div class="timeline-card">
-                                    <div class="timeline-time">19h50</div>
+                                    <div class="timeline-time">20h00</div>
                                     <div class="timeline-info">
-                                        <h4>Entrées &amp; Lancement de la Table Ronde</h4>
-                                        <p>Ouverture du débat modéré : état des lieux de la conformité Loi 25 et gestion des données sensibles au Québec.</p>
+                                        <h4>Dîner gastronomique &amp; Table ronde</h4>
                                     </div>
                                 </div>
 
                                 <div class="timeline-card">
-                                    <div class="timeline-time">20h30</div>
+                                    <div class="timeline-time">22h00 – 23h00</div>
                                     <div class="timeline-info">
-                                        <h4>Plat Principal &amp; Débat TI sans filtre</h4>
-                                        <p>Échanges francs entre pairs : sauvegardes immuables (BaaS), cyber-résilience (Vullify) et fin des frais de transfert.</p>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-card">
-                                    <div class="timeline-time">22h15 – 23h00</div>
-                                    <div class="timeline-info">
-                                        <h4>Dessert &amp; Échanges libres 1-on-1</h4>
-                                        <p>Discussions individuelles entre l'équipe Oriso et les dirigeants pour caler les audits d'infrastructure sous 48h.</p>
+                                        <h4>Dessert &amp; Échanges 1-on-1</h4>
                                     </div>
                                 </div>
                             </div>
@@ -1276,55 +1129,52 @@
                 </div>
             </section>
 
-            <!-- SLIDE 06: GUEST PROFILES (ICP D'ORISO) -->
+            <!-- SLIDE 05: GUEST PROFILES (ICP D'ORISO) -->
             <section class="deck-slide section-padding" id="invites" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 06 / 11</span>
+                        <span class="slide-num-pill">SLIDE 05 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · PROFILS INVITÉS (ICP)</span>
                     </div>
                     <div class="section-header" style="margin-bottom: 32px;">
                         <p class="section-kicker">Profil des Décideurs Invités</p>
-                        <h2 class="section-title">L'ICP Précis d'Oriso à Table</h2>
-                        <p class="section-desc">
-                            Trois profils de leaders réunis pour des échanges pragmatiques sur les budgets, la sécurité et la conformité.
-                        </p>
+                        <h2 class="section-title">Qui S'assoit à la Table</h2>
                     </div>
 
                     <div class="criteria-grid">
                         <div class="glass-card criteria-card" style="padding: 24px;">
                             <div class="criteria-badge">Profil 01</div>
-                            <h3 style="font-size: 1.15rem;">Directeurs TI &amp; DSI</h3>
-                            <p style="font-size: 0.875rem;">PME et moyennes entreprises québécoises (50 à 500 employés). Enjeux : continuité 24/7, fin des factures imprévisibles AWS/Azure, support local bilingue réactif.</p>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Directeurs TI &amp; DSI</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">PME et moyennes entreprises québécoises (50 à 500 employés).</p>
                         </div>
 
                         <div class="glass-card criteria-card" style="padding: 24px;">
                             <div class="criteria-badge">Profil 02</div>
-                            <h3 style="font-size: 1.15rem;">CISOs &amp; Responsables Sécurité</h3>
-                            <p style="font-size: 0.875rem;">Secteurs hautement réglementés (Juridique, Finance, Santé, Assurances). Enjeux : conformité Loi 25, audits de vulnérabilité (Vullify), exclusion du US CLOUD Act.</p>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">CISOs &amp; Responsables Sécurité</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Secteurs réglementés avec exigences de conformité et données sensibles.</p>
                         </div>
 
                         <div class="glass-card criteria-card" style="padding: 24px;">
                             <div class="criteria-badge">Profil 03</div>
-                            <h3 style="font-size: 1.15rem;">VPs Finance &amp; CFOs</h3>
-                            <p style="font-size: 0.875rem;">Entreprises manipulant de gros volumes de données. Enjeux : stabilisation des coûts d'infrastructure, zéro frais de sortie (*egress*), rentabilité mesurable.</p>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">VPs Finance &amp; CFOs</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Gestionnaires budgétaires soucieux des coûts d'infrastructure.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SLIDE 07: 20 TARGET PROSPECTS (COMPTES CIBLES) -->
+            <!-- SLIDE 06: 20 TARGET PROSPECTS (COMPTES CIBLES) -->
             <section class="deck-slide section-padding" id="comptes-cibles" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 07 / 11</span>
+                        <span class="slide-num-pill">SLIDE 06 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · 20 COMPTES CIBLES PRÉSÉLECTIONNÉS</span>
                     </div>
                     <div class="section-header" style="margin-bottom: 28px;">
                         <p class="section-kicker">Curation Stratégique · 20 Entreprises Québécoises</p>
                         <h2 class="section-title">Les 20 Comptes Cibles Présélectionnés</h2>
-                        <p class="section-desc" style="max-width: 720px;">
-                            Sélection d'entreprises québécoises établies présentant des exigences strictes de Loi 25, des données critiques à souverainiser ou des factures cloud à rationaliser.
+                        <p class="section-desc">
+                            Échantillon de PME et entreprises québécoises ciblées pour leur pertinence opérationnelle.
                         </p>
                     </div>
 
@@ -1347,7 +1197,7 @@
 
                         <div class="prospects-content">
                             <div class="prospects-intro-bar">
-                                <span><strong>Curation Occasia :</strong> Comptes analysés pour leur adéquation avec le Cloud Souverain Oriso, BaaS M365, DRaaS et Vullify.</span>
+                                <span><strong>Curation Occasia :</strong> Comptes analysés pour leur adéquation avec les solutions d'infrastructure et de sécurité d'Oriso.</span>
                                 <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-rose-light);">20 Entreprises Vérifiées</span>
                             </div>
 
@@ -1359,7 +1209,7 @@
                                             <th>Entreprise &amp; Secteur</th>
                                             <th>Décideur Clé Cible</th>
                                             <th>Échelle</th>
-                                            <th>Déclencheur d'Infrastructure &amp; Pertinence Oriso</th>
+                                            <th>Déclencheur d'Infrastructure &amp; Pertinence</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1391,7 +1241,7 @@
                                             </td>
                                             <td class="p-leader">Directeur TI &amp; Cybersécurité</td>
                                             <td><span class="p-scale">500+ emp • 120M$+</span></td>
-                                            <td class="p-trigger">Protection de brevets et secrets commerciaux • Audits de vulnérabilités Loi 25 (Vullify) et reprise après sinistre (DRaaS).</td>
+                                            <td class="p-trigger">Protection de brevets et secrets commerciaux • Audits de vulnérabilités Loi 25 et reprise après sinistre (DRaaS).</td>
                                         </tr>
                                         <tr>
                                             <td class="p-num">04</td>
@@ -1461,7 +1311,7 @@
                                             </td>
                                             <td class="p-leader">Directeur Technologies &amp; Cybersécurité</td>
                                             <td><span class="p-scale">5 000+ emp • 1B$+</span></td>
-                                            <td class="p-trigger">Protection de la propriété intellectuelle industrielle • Audits de vulnérabilité Vullify et hébergement souverain.</td>
+                                            <td class="p-trigger">Protection de la propriété intellectuelle industrielle • Audits de vulnérabilité de sécurité et hébergement souverain.</td>
                                         </tr>
                                         <tr>
                                             <td class="p-num">11</td>
@@ -1511,7 +1361,7 @@
                                             </td>
                                             <td class="p-leader">Directeur des Systèmes d'Information</td>
                                             <td><span class="p-scale">5 000+ emp • 500M$+</span></td>
-                                            <td class="p-trigger">Protection des données clients et commandes web (Loi 25) • Centralisation des sauvegardes de 120+ succursales.</td>
+                                            <td class="p-trigger">Protection des données clients et commandes web • Centralisation des sauvegardes de 120+ succursales.</td>
                                         </tr>
                                         <tr>
                                             <td class="p-num">16</td>
@@ -1561,7 +1411,7 @@
                                             </td>
                                             <td class="p-leader">VP Systèmes d'Information</td>
                                             <td><span class="p-scale">8 000+ emp • 7B$+</span></td>
-                                            <td class="p-trigger">Réduction drastique des frais d'egress de données • Monitoring de sécurité 24/7 en français.</td>
+                                            <td class="p-trigger">Réduction drastique des frais de transfert de données • Monitoring de sécurité 24/7 en français.</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1571,11 +1421,11 @@
                 </div>
             </section>
 
-            <!-- SLIDE 08: EVENEMENTS PASSES (MONTRÉAL & TORONTO) -->
+            <!-- SLIDE 07: EVENEMENTS PASSES (MONTRÉAL & TORONTO) -->
             <section class="deck-slide section-padding" id="evenements-passes" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 08 / 11</span>
+                        <span class="slide-num-pill">SLIDE 07 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · ÉVÉNEMENTS PASSÉS (MONTRÉAL &amp; TORONTO)</span>
                     </div>
                     <div class="section-header text-center" style="margin-bottom: 32px;">
@@ -1707,11 +1557,11 @@
                 </div>
             </section>
 
-            <!-- SLIDE 09: RETOURS DES DIRIGEANTS -->
+            <!-- SLIDE 08: RETOURS DES DIRIGEANTS -->
             <section class="deck-slide section-padding" id="temoignages" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 09 / 11</span>
+                        <span class="slide-num-pill">SLIDE 08 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · RETOURS DES DIRIGEANTS</span>
                     </div>
                     <div class="section-header text-center" style="margin-bottom: 32px;">
@@ -1816,11 +1666,11 @@
                 </div>
             </section>
 
-            <!-- SLIDE 10: L'OFFRE D'ACTIVATION (PILOTE CLE EN MAIN - SANS PRIX) -->
+            <!-- SLIDE 09: L'OFFRE D'ACTIVATION (PILOTE CLE EN MAIN - SANS PRIX) -->
             <section class="deck-slide section-padding" id="offre" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 10 / 11</span>
+                        <span class="slide-num-pill">SLIDE 09 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · L'OFFRE D'ACTIVATION</span>
                     </div>
 
@@ -1849,10 +1699,6 @@
                                         <span class="activation-price-sub">Périmètre &amp; Cibles Sur Mesure</span>
                                     </div>
                                 </div>
-
-                                <p style="color: var(--text-secondary, #E4E4E7); font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">
-                                    Occasia prend en charge l'intégralité du processus de A à Z. Vous animez le briefing de 20 min, profitez de la soirée et convertissez les relations en audits d'infrastructure.
-                                </p>
 
                                 <div class="activation-deliverables">
                                     <div class="deliverable-item">
@@ -1891,7 +1737,7 @@
                                         Garantie de Présence
                                     </h4>
                                 </div>
-                                <p style="font-size: 0.88rem; line-height: 1.55; color: var(--text-secondary, #E4E4E7);">
+                                <p style="font-size: 0.88rem; line-height: 1.55; color: var(--text-secondary, #E4E4E7); margin: 0;">
                                     Moins de 7 décideurs qualifiés à table = <strong>100% remboursé</strong>. En cas d'impondérable d'agenda de votre part, la date est reportée sans frais.
                                 </p>
                             </div>
@@ -1904,21 +1750,18 @@
                                     <span class="step-num-badge">1</span>
                                     <div>
                                         <strong style="color: #FFFFFF; display: block; font-size: 0.88rem;">Validation de l'entente pilote (2 pages)</strong>
-                                        <span style="color: var(--text-muted, #A1A1AA); font-size: 0.82rem;">Accord simple pour bloquer la date et le lieu.</span>
                                     </div>
                                 </div>
                                 <div class="step-row">
                                     <span class="step-num-badge">2</span>
                                     <div>
                                         <strong style="color: #FFFFFF; display: block; font-size: 0.88rem;">Revue conjointe des 25 premiers comptes</strong>
-                                        <span style="color: var(--text-muted, #A1A1AA); font-size: 0.82rem;">Validation de vos cibles prioritaires au Québec.</span>
                                     </div>
                                 </div>
                                 <div class="step-row">
                                     <span class="step-num-badge">3</span>
                                     <div>
                                         <strong style="color: #FFFFFF; display: block; font-size: 0.88rem;">Lancement des invitations (J-21)</strong>
-                                        <span style="color: var(--text-muted, #A1A1AA); font-size: 0.82rem;">Occasia amorce l'outreach et sécurise les sièges.</span>
                                     </div>
                                 </div>
                             </div>
@@ -1933,7 +1776,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 11: BY INVITATION ONLY (INVITATION PRIVEE) -->
+            <!-- SLIDE 10: BY INVITATION ONLY (INVITATION PRIVEE) -->
             <section class="deck-slide section-padding" id="invitation" style="border-top: 1px solid var(--border-glass);">
                 <div class="slide-bg-blur" aria-hidden="true">
                     <img src="../assets/images/dinner_founders.png" class="slide-bg-blur-img" alt="" loading="lazy">
@@ -1942,7 +1785,7 @@
                 <div class="container deck-slide-container" style="text-align: center;">
                     <div style="max-width: 680px; margin: 0 auto;">
                         <div class="slide-kicker-bar" style="justify-content: center;">
-                            <span class="slide-num-pill">SLIDE 11 / 11</span>
+                            <span class="slide-num-pill">SLIDE 10 / 10</span>
                             <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · PROCHAINES ÉTAPES</span>
                         </div>
 
