@@ -278,22 +278,16 @@
             color: var(--accent-rose-light, #FB7185);
         }
 
-        /* Activation / Offer Grid */
+        /* Activation / Offer Card */
         .activation-grid {
-            display: grid;
-            grid-template-columns: 1.35fr 1fr;
-            gap: 24px;
-            margin-top: 28px;
-            align-items: stretch;
+            max-width: 860px;
+            margin: 24px auto 0;
         }
         .activation-pricing-card {
             background: linear-gradient(135deg, rgba(225, 29, 72, 0.08) 0%, rgba(18, 18, 22, 0.85) 100%);
             border: 1px solid var(--border-rose-bright, rgba(225, 29, 72, 0.4));
             border-radius: 20px;
-            padding: 32px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 36px 42px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(225, 29, 72, 0.15);
         }
         .activation-tier-pill {
@@ -314,70 +308,35 @@
         .activation-price-val {
             display: block;
             font-family: var(--font-display, 'Sora', sans-serif);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 800;
             line-height: 1.1;
         }
         .activation-price-sub {
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             color: var(--text-muted, #A1A1AA);
             font-family: var(--font-mono, monospace);
         }
         .activation-deliverables {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin: 20px 0 10px;
+            gap: 15px;
+            margin: 24px 0 0;
         }
         .deliverable-item {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.9rem;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 0.95rem;
             color: var(--text-secondary, #E4E4E7);
-            line-height: 1.4;
+            line-height: 1.5;
         }
         .deliverable-check {
             color: var(--accent-rose-light, #FB7185);
             font-weight: 800;
-            font-size: 1rem;
+            font-size: 1.05rem;
             flex-shrink: 0;
-        }
-        .activation-guarantee-card {
-            background: var(--bg-surface, rgba(18, 18, 22, 0.72));
-            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
-            border-radius: 18px;
-            padding: 22px 24px;
-        }
-        .activation-steps-card {
-            background: var(--bg-surface, rgba(18, 18, 22, 0.72));
-            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
-            border-radius: 18px;
-            padding: 22px 24px;
-        }
-        .step-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-        .step-row:last-child {
-            margin-bottom: 0;
-        }
-        .step-num-badge {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: rgba(225, 29, 72, 0.15);
-            border: 1px solid rgba(225, 29, 72, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-rose-light, #FB7185);
-            font-family: var(--font-mono, monospace);
-            font-size: 0.75rem;
-            font-weight: 700;
-            flex-shrink: 0;
+            margin-top: 1px;
         }
 
         /* Hero specs strip */
@@ -750,10 +709,6 @@
                     <img src="../assets/images/oriso-logo.png" alt="Oriso Solutions" class="deck-brand-logo-img">
                     <span class="deck-brand-name">ORISO <span class="deck-brand-cross">×</span> OCCASIA</span>
                 </a>
-                <div class="deck-badge-pill">
-                    <span class="deck-badge-dot"></span>
-                    <span>Executive Dinner</span>
-                </div>
             </div>
 
             <nav class="deck-sidebar-nav" aria-label="Sommaire de la présentation">
@@ -763,39 +718,39 @@
                 </a>
                 <a href="#concept" class="deck-nav-item" data-slide-index="1">
                     <span class="deck-nav-num">02</span>
-                    <span class="deck-nav-title">Cold vs Dîner Privé</span>
+                    <span class="deck-nav-title">Acquisition TI vs Dîner</span>
                 </a>
-                <a href="#notre-role" class="deck-nav-item" data-slide-index="2">
+                <a href="#invites" class="deck-nav-item" data-slide-index="2">
                     <span class="deck-nav-num">03</span>
-                    <span class="deck-nav-title">Notre Rôle &amp; Referral</span>
-                </a>
-                <a href="#deroulement" class="deck-nav-item" data-slide-index="3">
-                    <span class="deck-nav-num">04</span>
-                    <span class="deck-nav-title">Le Déroulement</span>
-                </a>
-                <a href="#invites" class="deck-nav-item" data-slide-index="4">
-                    <span class="deck-nav-num">05</span>
                     <span class="deck-nav-title">Profils Invités (ICP)</span>
                 </a>
-                <a href="#comptes-cibles" class="deck-nav-item" data-slide-index="5">
-                    <span class="deck-nav-num">06</span>
+                <a href="#pourquoi-ils-viennent" class="deck-nav-item" data-slide-index="3">
+                    <span class="deck-nav-num">04</span>
+                    <span class="deck-nav-title">Pourquoi ils viennent</span>
+                </a>
+                <a href="#comptes-cibles" class="deck-nav-item" data-slide-index="4">
+                    <span class="deck-nav-num">05</span>
                     <span class="deck-nav-title">20 Comptes Cibles</span>
                 </a>
-                <a href="#evenements-passes" class="deck-nav-item" data-slide-index="6">
-                    <span class="deck-nav-num">07</span>
+                <a href="#evenements-passes" class="deck-nav-item" data-slide-index="5">
+                    <span class="deck-nav-num">06</span>
                     <span class="deck-nav-title">Événements Passés</span>
                 </a>
-                <a href="#temoignages" class="deck-nav-item" data-slide-index="7">
-                    <span class="deck-nav-num">08</span>
+                <a href="#temoignages" class="deck-nav-item" data-slide-index="6">
+                    <span class="deck-nav-num">07</span>
                     <span class="deck-nav-title">Avis Dirigeants</span>
                 </a>
-                <a href="#offre" class="deck-nav-item" data-slide-index="8">
-                    <span class="deck-nav-num">09</span>
-                    <span class="deck-nav-title">Offre Pilote Clé en Main</span>
+                <a href="#deroulement" class="deck-nav-item" data-slide-index="7">
+                    <span class="deck-nav-num">08</span>
+                    <span class="deck-nav-title">Le Déroulement</span>
                 </a>
-                <a href="#invitation" class="deck-nav-item" data-slide-index="9">
+                <a href="#notre-role" class="deck-nav-item" data-slide-index="8">
+                    <span class="deck-nav-num">09</span>
+                    <span class="deck-nav-title">Notre Rôle &amp; Referral</span>
+                </a>
+                <a href="#offre" class="deck-nav-item" data-slide-index="9">
                     <span class="deck-nav-num">10</span>
-                    <span class="deck-nav-title">Invitation Privée</span>
+                    <span class="deck-nav-title">Offre Pilote Clé en Main</span>
                 </a>
             </nav>
 
@@ -845,6 +800,10 @@
 
             <!-- SLIDE 01: HERO / INTRODUCTION -->
             <section class="deck-slide section-padding" id="hero" style="padding-top: 70px; padding-bottom: 70px;">
+                <div class="slide-bg-blur" aria-hidden="true">
+                    <img src="../assets/images/executive_dining.jpg" class="slide-bg-blur-img" alt="" loading="lazy">
+                    <div class="slide-bg-blur-overlay"></div>
+                </div>
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
                         <span class="slide-num-pill">SLIDE 01 / 10</span>
@@ -854,10 +813,9 @@
                         
                         <div>
                             <p class="section-kicker">Organisé par Oriso · Co-organisé par Occasia · Montréal</p>
-                            <h1 class="hero-title" style="text-align: left; margin-bottom: 24px; font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.15;">
+                            <h1 class="hero-title" style="text-align: left; margin-bottom: 24px; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.15;">
                                 12–14 Décideurs TI Réunis.<br>
-                                Un Dîner Exécutif Privé.<br>
-                                <span class="hero-dream-clients">4 heures d'échange direct à table.</span>
+                                <span class="hero-dream-clients">4 heures d'échange.</span>
                             </h1>
 
                             <div class="dinner-spec-bar" style="margin: 20px 0 28px;">
@@ -869,22 +827,14 @@
                                     <span class="spec-label">Horaire</span>
                                     <span class="spec-value">19h00 – 23h00 (4h)</span>
                                 </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Places</span>
-                                    <span class="spec-value">Strictement 12–14 Décideurs</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Lieu</span>
-                                    <span class="spec-value">Salon Gastronomique Privé · Montréal</span>
-                                </div>
                             </div>
 
                             <div class="hero-actions" style="justify-content: flex-start;">
                                 <a href="#concept" class="btn btn-secondary">
                                     Le Concept &rarr;
                                 </a>
-                                <a href="#notre-role" class="btn btn-secondary">
-                                    Notre Rôle &rarr;
+                                <a href="#invites" class="btn btn-secondary">
+                                    Profils Invités &rarr;
                                 </a>
                                 <a href="#comptes-cibles" class="btn btn-secondary">
                                     20 Comptes Cibles &rarr;
@@ -899,15 +849,6 @@
                                     alt="Oriso Solutions et Occasia Executive Dinner Montreal" 
                                     class="dinner-visual-img"
                                 />
-                                <div class="dinner-visual-footer">
-                                    <div>
-                                        <strong style="color: #FFFFFF; display: block;">The Executive Dinner Series</strong>
-                                        <span>Montréal · Salon Privé à Huis Clos</span>
-                                    </div>
-                                    <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-rose-light); background: var(--accent-rose-subtle); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-rose);">
-                                        12–14 Décideurs TI Uniquement
-                                    </span>
-                                </div>
                             </div>
                         </div>
 
@@ -915,7 +856,7 @@
                 </div>
             </section>
 
-            <!-- SLIDE 02: LE CONCEPT (COLD OUTREACH VS DINER PRIVE) -->
+            <!-- SLIDE 02: ACQUISITION TI TRADITIONNELLE VS DINER PRIVE -->
             <section class="deck-slide section-padding" id="concept" style="border-top: 1px solid var(--border-glass);">
                 <div class="slide-bg-blur" aria-hidden="true">
                     <img src="../assets/images/private_dining_card.png" class="slide-bg-blur-img" alt="" loading="lazy">
@@ -924,69 +865,69 @@
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
                         <span class="slide-num-pill">SLIDE 02 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · LE CONCEPT</span>
+                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · LE CONSTAT STRATÉGIQUE</span>
                     </div>
                     <div class="section-header text-center" style="margin-bottom: 32px;">
                         <div class="badge">
                             <span class="badge-dot"></span> Le Constat Stratégique
                         </div>
-                        <h2 class="section-title">Cold Outreach vs. Dîner Privé</h2>
+                        <h2 class="section-title">Acquisition TI Traditionnelle vs. Dîner Privé</h2>
                         <p class="section-subtitle">
-                            L'infrastructure et la sécurité ne se vendent pas par courriels froids. Une table fermée scelle la confiance.
+                            Les kiosques bruyants et les courriels froids ne convertissent pas des DSI. Ce modèle donne un contrôle direct sur votre bouche-à-oreille.
                         </p>
                     </div>
 
                     <div class="comparison-grid">
                         <div class="glass-card comparison-card negative">
-                            <p class="section-kicker" style="color: #F87171;">✕ Prospection Traditionnelle TI</p>
-                            <h3 class="comparison-card-title">Ce que font la plupart des fournisseurs</h3>
+                            <p class="section-kicker" style="color: #F87171;">✕ Acquisition TI Traditionnelle</p>
+                            <h3 class="comparison-card-title">Kiosques, sollicitations &amp; passivité</h3>
                             <ul class="comparison-list">
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>DMs LinkedIn et courriels froids ignorés par les Directeurs TI.</div>
+                                    <div><strong>Salons &amp; Kiosques TI</strong> : 15 000 $+ pour parler à des curieux sans budget.</div>
                                 </li>
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>Tenter d'expliquer une offre d'infrastructure dans un appel Teams de 15 minutes.</div>
+                                    <div><strong>Cold outreach</strong> : Zéro DSI n'achète une infra critique sur un courriel froid.</div>
                                 </li>
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>Cycles de vente interminables (6 à 12 mois) bloqués par le risque.</div>
+                                    <div><strong>Bouche-à-oreille passif</strong> : Aucun contrôle sur le flux ou le timing des leads.</div>
                                 </li>
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>Mise en concurrence avec des dizaines d'autres prestataires.</div>
+                                    <div><strong>Appels d'offres (RFPs)</strong> : Processus de 6 mois et guerre de prix au rabais.</div>
                                 </li>
                                 <li>
                                     <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div>Zéro lien de confiance direct avec les véritables signataires.</div>
+                                    <div><strong>Zéro intimité</strong> : Impossible d'établir un lien de confiance avec les signataires.</div>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="glass-card comparison-card positive">
                             <p class="section-kicker" style="color: var(--accent-rose-light);">✓ Le Modèle Occasia × Oriso</p>
-                            <h3 class="comparison-card-title">Ce qu'on active pour Oriso Solutions</h3>
+                            <h3 class="comparison-card-title">Contrôle proactif des comptes &amp; références</h3>
                             <ul class="comparison-list">
                                 <li>
                                     <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div>12 à 14 DSI, CISOs et Directeurs TI assis à votre table en salon privé.</div>
+                                    <div><strong>12 à 14 DSI &amp; CISOs qualifiés</strong> assis à votre table en salon privé.</div>
                                 </li>
                                 <li>
                                     <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div>4 heures d'attention exclusive dans un cadre confidentiel et haut de gamme.</div>
+                                    <div><strong>4h d'attention exclusive</strong>, sans aucun bruit ni concurrent.</div>
                                 </li>
                                 <li>
                                     <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div>Échanges francs entre pairs sur leurs défis réels d'infrastructure.</div>
+                                    <div><strong>Contrôle des références</strong> : bouche-à-oreille transformé en moteur proactif (25–30 pairs).</div>
                                 </li>
                                 <li>
                                     <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div>Oriso positionné comme l'hôte et le partenaire de référence.</div>
+                                    <div><strong>Hôte de référence</strong> : perçu comme un pair d'autorité, jamais un simple vendeur.</div>
                                 </li>
                                 <li>
                                     <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div>Des opportunités concrètes et des mandats récurrents scellés naturellement.</div>
+                                    <div><strong>Deals scellés sur la confiance</strong> : projets d'infra souveraine amorcés naturellement.</div>
                                 </li>
                             </ul>
                         </div>
@@ -994,146 +935,11 @@
                 </div>
             </section>
 
-            <!-- SLIDE 03: NOTRE ROLE & REFERRAL ENGINE -->
-            <section class="deck-slide section-padding" id="notre-role" style="border-top: 1px solid var(--border-glass);">
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 03 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · NOTRE RÔLE &amp; REFERRAL ENGINE</span>
-                    </div>
-                    <div class="section-header text-center" style="margin-bottom: 28px;">
-                        <div class="badge">
-                            <span class="badge-dot"></span> 100% Pris en Charge
-                        </div>
-                        <h2 class="section-title">Notre rôle</h2>
-                        <p class="section-subtitle">
-                            Vous vous asseyez à table en tant qu'hôte. On s'occupe de tout le reste.
-                        </p>
-                    </div>
-
-                    <!-- 5 Operational Pillars (Clean, No Subtext) -->
-                    <div class="role-grid">
-                        <div class="role-card">
-                            <div class="role-step-num">01</div>
-                            <h3 class="role-title">Sourcing Ciblé</h3>
-                        </div>
-
-                        <div class="role-card">
-                            <div class="role-step-num">02</div>
-                            <h3 class="role-title">Invitations &amp; RSVPs</h3>
-                        </div>
-
-                        <div class="role-card">
-                            <div class="role-step-num">03</div>
-                            <h3 class="role-title">Salon Privé Gastronomique</h3>
-                        </div>
-
-                        <div class="role-card">
-                            <div class="role-step-num">04</div>
-                            <h3 class="role-title">Jour J &amp; Modération</h3>
-                        </div>
-
-                        <div class="role-card">
-                            <div class="role-step-num">05</div>
-                            <h3 class="role-title">Suivi &amp; Referral</h3>
-                        </div>
-                    </div>
-
-                    <!-- Clean Referral Engine Banner -->
-                    <div class="referral-engine-banner" style="margin-top: 24px; padding: 22px 26px;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-                            <div>
-                                <div class="card-kicker" style="color: var(--accent-rose-light); margin-bottom: 4px;">Le Referral Engine</div>
-                                <h3 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.15rem; font-weight: 700; color: #FFFFFF; line-height: 1.3; margin: 0;">
-                                    15 invités à table → 30 opportunités &amp; recommandations de pairs
-                                </h3>
-                            </div>
-                            <div class="referral-stat-pill" style="margin: 0;">
-                                <span>15 Invités</span>
-                                <span>➔</span>
-                                <span>30 Contacts Clés</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 04: LE DEROULEMENT (19H00 – 23H00) -->
-            <section class="deck-slide section-padding" id="deroulement" style="border-top: 1px solid var(--border-glass);">
-                <div class="slide-bg-blur" aria-hidden="true">
-                    <img src="../assets/images/cocktail_mixer_card.png" class="slide-bg-blur-img" alt="" loading="lazy">
-                    <div class="slide-bg-blur-overlay"></div>
-                </div>
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 04 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · LE DÉROULEMENT (19H00 – 23H00)</span>
-                    </div>
-                    <div class="section-header" style="margin-bottom: 28px;">
-                        <p class="section-kicker">Programme de la Soirée</p>
-                        <h2 class="section-title">Le Déroulement</h2>
-                        <p class="section-desc">
-                            19h00 à 23h00 (4 heures). Une soirée fluide et conviviale sans protocole lourd.
-                        </p>
-                    </div>
-
-                    <details class="prospects-details" open>
-                        <summary class="prospects-summary">
-                            <div class="prospects-summary-left">
-                                <div class="prospects-icon-badge">
-                                    ⏱️
-                                </div>
-                                <div>
-                                    <div class="prospects-summary-title">Déroulement chronologique de la soirée</div>
-                                    <div class="prospects-summary-desc">19h00 – 23h00 · Salon gastronomique privé · Montréal</div>
-                                </div>
-                            </div>
-                            <div class="prospects-trigger-btn">
-                                <span>Consulter l'horaire</span>
-                                <span class="prospects-chevron">▼</span>
-                            </div>
-                        </summary>
-
-                        <div class="prospects-content" style="padding-top: 24px;">
-                            <div class="timeline-container">
-                                <div class="timeline-card">
-                                    <div class="timeline-time">19h00</div>
-                                    <div class="timeline-info">
-                                        <h4>Accueil &amp; Cocktails</h4>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-card" style="border-left: 3px solid var(--accent-rose); background: rgba(225, 29, 72, 0.04);">
-                                    <div class="timeline-time" style="color: var(--accent-rose-light);">19h30</div>
-                                    <div class="timeline-info">
-                                        <h4 style="color: #FFFFFF;">Mot de bienvenue de l'Hôte</h4>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-card">
-                                    <div class="timeline-time">20h00</div>
-                                    <div class="timeline-info">
-                                        <h4>Dîner gastronomique &amp; Table ronde</h4>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-card">
-                                    <div class="timeline-time">22h00 – 23h00</div>
-                                    <div class="timeline-info">
-                                        <h4>Dessert &amp; Échanges 1-on-1</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <!-- SLIDE 05: GUEST PROFILES (ICP D'ORISO) -->
+            <!-- SLIDE 03: GUEST PROFILES (ICP D'ORISO) -->
             <section class="deck-slide section-padding" id="invites" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 05 / 10</span>
+                        <span class="slide-num-pill">SLIDE 03 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · PROFILS INVITÉS (ICP)</span>
                     </div>
                     <div class="section-header" style="margin-bottom: 32px;">
@@ -1163,11 +969,60 @@
                 </div>
             </section>
 
-            <!-- SLIDE 06: 20 TARGET PROSPECTS (COMPTES CIBLES) -->
+            <!-- SLIDE 04: POURQUOI ILS ACCEPTENT L'INVITATION -->
+            <section class="deck-slide section-padding" id="pourquoi-ils-viennent" style="border-top: 1px solid var(--border-glass);">
+                <div class="slide-bg-blur" aria-hidden="true">
+                    <img src="../assets/images/luxury_table_hero.jpg" class="slide-bg-blur-img" alt="" loading="lazy" style="object-position: 80% center; filter: blur(2px) brightness(0.68) contrast(1.08); transform: scale(1.02);">
+                    <div class="slide-bg-blur-overlay" style="background: linear-gradient(90deg, #08080A 0%, rgba(8, 8, 10, 0.94) 22%, rgba(8, 8, 10, 0.65) 55%, rgba(8, 8, 10, 0.15) 100%), linear-gradient(180deg, #08080A 0%, transparent 15%, transparent 85%, #08080A 100%);"></div>
+                </div>
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 04 / 10</span>
+                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · PSYCHOLOGIE DES DÉCIDEURS</span>
+                    </div>
+                    <div class="section-header text-center" style="margin-bottom: 32px;">
+                        <div class="badge">
+                            <span class="badge-dot"></span> Taux de Présence de 85%+
+                        </div>
+                        <h2 class="section-title">Pourquoi ils acceptent l'invitation</h2>
+                        <p class="section-subtitle">
+                            Trois piliers fondamentaux qui font déplacer des DSI et CISOs très sollicités.
+                        </p>
+                    </div>
+
+                    <div class="criteria-grid">
+                        <div class="glass-card criteria-card" style="padding: 24px; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
+                            <div class="criteria-badge" style="background: rgba(225, 29, 72, 0.15); color: var(--accent-rose-light); border: 1px solid rgba(225, 29, 72, 0.3);">Pilier 01</div>
+                            <h3 style="font-size: 1.15rem; margin: 12px 0 8px; color: #FFFFFF; font-family: var(--font-display, 'Sora', sans-serif); font-weight: 700;">1. La direction de l'industrie</h3>
+                            <p style="font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
+                                Échanger sans filtre entre pairs sur les virages critiques : Loi 25, souveraineté cloud et arbitrages budgétaires.
+                            </p>
+                        </div>
+
+                        <div class="glass-card criteria-card" style="padding: 24px; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
+                            <div class="criteria-badge" style="background: rgba(225, 29, 72, 0.15); color: var(--accent-rose-light); border: 1px solid rgba(225, 29, 72, 0.3);">Pilier 02</div>
+                            <h3 style="font-size: 1.15rem; margin: 12px 0 8px; color: #FFFFFF; font-family: var(--font-display, 'Sora', sans-serif); font-weight: 700;">2. La Garantie Zéro Pitch</h3>
+                            <p style="font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
+                                Aucun micro, aucune diapo, zéro vente forcée. Un salon privé à huis clos où la parole est 100% libre.
+                            </p>
+                        </div>
+
+                        <div class="glass-card criteria-card" style="padding: 24px; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
+                            <div class="criteria-badge" style="background: rgba(225, 29, 72, 0.15); color: var(--accent-rose-light); border: 1px solid rgba(225, 29, 72, 0.3);">Pilier 03</div>
+                            <h3 style="font-size: 1.15rem; margin: 12px 0 8px; color: #FFFFFF; font-family: var(--font-display, 'Sora', sans-serif); font-weight: 700;">3. La Curation &amp; le Statut</h3>
+                            <p style="font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
+                                Strictement 12 à 14 places nominatives. Une invitation sélective entre pairs qui valorise leur rôle d'expert.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 05: 20 TARGET PROSPECTS (COMPTES CIBLES) -->
             <section class="deck-slide section-padding" id="comptes-cibles" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 06 / 10</span>
+                        <span class="slide-num-pill">SLIDE 05 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · 20 COMPTES CIBLES PRÉSÉLECTIONNÉS</span>
                     </div>
                     <div class="section-header" style="margin-bottom: 28px;">
@@ -1421,11 +1276,11 @@
                 </div>
             </section>
 
-            <!-- SLIDE 07: EVENEMENTS PASSES (MONTRÉAL & TORONTO) -->
+            <!-- SLIDE 06: EVENEMENTS PASSES (MONTRÉAL & TORONTO) -->
             <section class="deck-slide section-padding" id="evenements-passes" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 07 / 10</span>
+                        <span class="slide-num-pill">SLIDE 06 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · ÉVÉNEMENTS PASSÉS (MONTRÉAL &amp; TORONTO)</span>
                     </div>
                     <div class="section-header text-center" style="margin-bottom: 32px;">
@@ -1557,11 +1412,11 @@
                 </div>
             </section>
 
-            <!-- SLIDE 08: RETOURS DES DIRIGEANTS -->
+            <!-- SLIDE 07: RETOURS DES DIRIGEANTS -->
             <section class="deck-slide section-padding" id="temoignages" style="border-top: 1px solid var(--border-glass);">
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 08 / 10</span>
+                        <span class="slide-num-pill">SLIDE 07 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · RETOURS DES DIRIGEANTS</span>
                     </div>
                     <div class="section-header text-center" style="margin-bottom: 32px;">
@@ -1666,11 +1521,150 @@
                 </div>
             </section>
 
-            <!-- SLIDE 09: L'OFFRE D'ACTIVATION (PILOTE CLE EN MAIN - SANS PRIX) -->
-            <section class="deck-slide section-padding" id="offre" style="border-top: 1px solid var(--border-glass);">
+            <!-- SLIDE 08: LE DEROULEMENT (19H00 – 23H00) -->
+            <section class="deck-slide section-padding" id="deroulement" style="border-top: 1px solid var(--border-glass);">
+                <div class="slide-bg-blur" aria-hidden="true">
+                    <img src="../assets/images/cocktail_mixer_card.png" class="slide-bg-blur-img" alt="" loading="lazy">
+                    <div class="slide-bg-blur-overlay"></div>
+                </div>
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 08 / 10</span>
+                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · LE DÉROULEMENT (19H00 – 23H00)</span>
+                    </div>
+                    <div class="section-header" style="margin-bottom: 28px;">
+                        <p class="section-kicker">Programme de la Soirée</p>
+                        <h2 class="section-title">Le Déroulement</h2>
+                        <p class="section-desc">
+                            19h00 à 23h00 (4 heures). Une soirée fluide et conviviale sans protocole lourd.
+                        </p>
+                    </div>
+
+                    <details class="prospects-details" open>
+                        <summary class="prospects-summary">
+                            <div class="prospects-summary-left">
+                                <div class="prospects-icon-badge">
+                                    ⏱️
+                                </div>
+                                <div>
+                                    <div class="prospects-summary-title">Déroulement chronologique de la soirée</div>
+                                    <div class="prospects-summary-desc">19h00 – 23h00 · Salon gastronomique privé · Montréal</div>
+                                </div>
+                            </div>
+                            <div class="prospects-trigger-btn">
+                                <span>Consulter l'horaire</span>
+                                <span class="prospects-chevron">▼</span>
+                            </div>
+                        </summary>
+
+                        <div class="prospects-content" style="padding-top: 24px;">
+                            <div class="timeline-container" style="gap: 12px; max-width: 860px;">
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
+                                    <div class="timeline-time">19h00</div>
+                                    <div class="timeline-info">
+                                        <h4 style="font-size: 1.05rem; margin: 0;">Accueil &amp; Cocktails</h4>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
+                                    <div class="timeline-time">20h00</div>
+                                    <div class="timeline-info">
+                                        <h4 style="font-size: 1.05rem; margin: 0;">Fin du networking &amp; Passage à table</h4>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px; border-left: 3px solid var(--accent-rose); background: rgba(225, 29, 72, 0.05);">
+                                    <div class="timeline-time" style="color: var(--accent-rose-light); background: rgba(225, 29, 72, 0.12); border-color: rgba(225, 29, 72, 0.3);">20h10</div>
+                                    <div class="timeline-info">
+                                        <h4 style="color: #FFFFFF; font-size: 1.05rem; margin: 0;">Mot de bienvenue de l'Hôte &amp; Service des entrées</h4>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
+                                    <div class="timeline-time">21h30</div>
+                                    <div class="timeline-info">
+                                        <h4 style="font-size: 1.05rem; margin: 0;">Fin du dîner &amp; Échanges libres</h4>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
+                                    <div class="timeline-time">23h00</div>
+                                    <div class="timeline-info">
+                                        <h4 style="font-size: 1.05rem; margin: 0;">Fin de la soirée</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- SLIDE 09: NOTRE ROLE & REFERRAL ENGINE -->
+            <section class="deck-slide section-padding" id="notre-role" style="border-top: 1px solid var(--border-glass);">
+                <div class="slide-bg-blur" aria-hidden="true">
+                    <img src="../assets/images/afro_business_club_dinner.png" class="slide-bg-blur-img" alt="" loading="lazy" style="object-position: 80% center; filter: blur(2px) brightness(0.68) contrast(1.08); transform: scale(1.02);">
+                    <div class="slide-bg-blur-overlay" style="background: linear-gradient(90deg, #08080A 0%, rgba(8, 8, 10, 0.94) 22%, rgba(8, 8, 10, 0.65) 55%, rgba(8, 8, 10, 0.15) 100%), linear-gradient(180deg, #08080A 0%, transparent 15%, transparent 85%, #08080A 100%);"></div>
+                </div>
                 <div class="container deck-slide-container">
                     <div class="slide-kicker-bar">
                         <span class="slide-num-pill">SLIDE 09 / 10</span>
+                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · NOTRE RÔLE &amp; REFERRAL ENGINE</span>
+                    </div>
+                    <div class="section-header text-center" style="margin-bottom: 28px;">
+                        <div class="badge">
+                            <span class="badge-dot"></span> 100% Pris en Charge
+                        </div>
+                        <h2 class="section-title">Notre rôle</h2>
+                        <p class="section-subtitle">
+                            Vous vous asseyez à table en tant qu'hôte. On s'occupe de tout le reste.
+                        </p>
+                    </div>
+
+                    <!-- 5 Operational Pillars (Clean, No Subtext) -->
+                    <div class="role-grid">
+                        <div class="role-card">
+                            <div class="role-step-num">01</div>
+                            <h3 class="role-title">Sourcing Ciblé</h3>
+                        </div>
+
+                        <div class="role-card">
+                            <div class="role-step-num">02</div>
+                            <h3 class="role-title">Invitations &amp; RSVPs</h3>
+                        </div>
+
+                        <div class="role-card">
+                            <div class="role-step-num">03</div>
+                            <h3 class="role-title">Salon Privé Gastronomique</h3>
+                        </div>
+
+                        <div class="role-card">
+                            <div class="role-step-num">04</div>
+                            <h3 class="role-title">Jour J &amp; Modération</h3>
+                        </div>
+
+                        <div class="role-card">
+                            <div class="role-step-num">05</div>
+                            <h3 class="role-title">Suivi &amp; Referral</h3>
+                        </div>
+                    </div>
+
+                    <!-- Clean Referral Engine Banner -->
+                    <div class="referral-engine-banner" style="margin-top: 24px; padding: 20px 26px;">
+                        <div>
+                            <div class="card-kicker" style="color: var(--accent-rose-light); margin-bottom: 4px;">Le Referral Engine · Contrôle Proactif des Références</div>
+                            <h3 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.15rem; font-weight: 700; color: #FFFFFF; line-height: 1.3; margin: 0;">
+                                12–14 invités à table → 25–30 opportunités &amp; recommandations directes
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: L'OFFRE D'ACTIVATION (PILOTE CLE EN MAIN - SANS PRIX) -->
+            <section class="deck-slide section-padding" id="offre" style="border-top: 1px solid var(--border-glass);">
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 10 / 10</span>
                         <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · L'OFFRE D'ACTIVATION</span>
                     </div>
 
@@ -1687,35 +1681,34 @@
                     <div class="activation-grid">
                         <div class="activation-pricing-card">
                             <div>
-                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
                                     <div>
-                                        <span class="activation-tier-pill">Forfait Pilote · Montréal</span>
+                                        <span class="activation-tier-pill">Formule Pilote · Montréal</span>
                                         <h3 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.35rem; font-weight: 700; color: #FFFFFF; margin-top: 6px;">
                                             Dîner Exécutif Clé en Main
                                         </h3>
                                     </div>
                                     <div class="activation-price-tag">
-                                        <span class="activation-price-val" style="color: var(--accent-rose-light);">Projet Pilote</span>
-                                        <span class="activation-price-sub">Périmètre &amp; Cibles Sur Mesure</span>
+                                        <span class="activation-price-val" style="color: var(--accent-rose-light);">100% Pris en Charge</span>
                                     </div>
                                 </div>
 
                                 <div class="activation-deliverables">
                                     <div class="deliverable-item">
                                         <span class="deliverable-check">✓</span>
-                                        <div><strong>12 à 14 décideurs qualifiés réunis</strong> à votre table (Directeurs TI, CISOs, DSI).</div>
+                                        <div><strong>12 à 14 décideurs qualifiés réunis</strong> à votre table.</div>
                                     </div>
                                     <div class="deliverable-item">
                                         <span class="deliverable-check">✓</span>
-                                        <div><strong>Sourcing &amp; qualification</strong> de 30 à 40 entreprises cibles selon vos critères stricts.</div>
+                                        <div><strong>Sourcing &amp; qualification de 120 profils cibles</strong> selon vos critères stricts d'ICP.</div>
                                     </div>
                                     <div class="deliverable-item">
                                         <span class="deliverable-check">✓</span>
-                                        <div><strong>Gestion intégrale des invitations</strong> : outreach personnalisé multicanal et relances.</div>
+                                        <div><strong>Gestion intégrale des invitations</strong> : outreach personnalisé multicanal &amp; conciergerie.</div>
                                     </div>
                                     <div class="deliverable-item">
                                         <span class="deliverable-check">✓</span>
-                                        <div><strong>Sélection du salon privé</strong> gastronomique et négociation directe avec le restaurant.</div>
+                                        <div><strong>Sélection &amp; privatisation d'un salon gastronomique</strong> d'exception à Montréal.</div>
                                     </div>
                                     <div class="deliverable-item">
                                         <span class="deliverable-check">✓</span>
@@ -1723,97 +1716,10 @@
                                     </div>
                                     <div class="deliverable-item">
                                         <span class="deliverable-check">✓</span>
-                                        <div><strong>Referral Engine activé sous 48h</strong> pour démultiplier le pipeline de recommandations.</div>
+                                        <div><strong>Activation du Referral Engine post-dîner</strong> pour démultiplier le pipeline de recommandations.</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div style="display: flex; flex-direction: column; gap: 18px; justify-content: space-between;">
-                            <div class="activation-guarantee-card">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                    <div class="guarantee-icon">🛡️</div>
-                                    <h4 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.05rem; font-weight: 700; color: #FFFFFF;">
-                                        Garantie de Présence
-                                    </h4>
-                                </div>
-                                <p style="font-size: 0.88rem; line-height: 1.55; color: var(--text-secondary, #E4E4E7); margin: 0;">
-                                    Moins de 7 décideurs qualifiés à table = <strong>100% remboursé</strong>. En cas d'impondérable d'agenda de votre part, la date est reportée sans frais.
-                                </p>
-                            </div>
-
-                            <div class="activation-steps-card">
-                                <h4 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.05rem; font-weight: 700; color: #FFFFFF; margin-bottom: 12px;">
-                                    Les 3 Prochaines Étapes
-                                </h4>
-                                <div class="step-row">
-                                    <span class="step-num-badge">1</span>
-                                    <div>
-                                        <strong style="color: #FFFFFF; display: block; font-size: 0.88rem;">Validation de l'entente pilote (2 pages)</strong>
-                                    </div>
-                                </div>
-                                <div class="step-row">
-                                    <span class="step-num-badge">2</span>
-                                    <div>
-                                        <strong style="color: #FFFFFF; display: block; font-size: 0.88rem;">Revue conjointe des 25 premiers comptes</strong>
-                                    </div>
-                                </div>
-                                <div class="step-row">
-                                    <span class="step-num-badge">3</span>
-                                    <div>
-                                        <strong style="color: #FFFFFF; display: block; font-size: 0.88rem;">Lancement des invitations (J-21)</strong>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <a href="https://www.linkedin.com/in/kevin-leumassi/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 13px 20px; font-size: 0.92rem; gap: 8px;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                <span>Activer le projet avec Kevin en DM</span>
-                                <span>&rarr;</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 10: BY INVITATION ONLY (INVITATION PRIVEE) -->
-            <section class="deck-slide section-padding" id="invitation" style="border-top: 1px solid var(--border-glass);">
-                <div class="slide-bg-blur" aria-hidden="true">
-                    <img src="../assets/images/dinner_founders.png" class="slide-bg-blur-img" alt="" loading="lazy">
-                    <div class="slide-bg-blur-overlay"></div>
-                </div>
-                <div class="container deck-slide-container" style="text-align: center;">
-                    <div style="max-width: 680px; margin: 0 auto;">
-                        <div class="slide-kicker-bar" style="justify-content: center;">
-                            <span class="slide-num-pill">SLIDE 10 / 10</span>
-                            <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · PROCHAINES ÉTAPES</span>
-                        </div>
-
-                        <div class="badge" style="margin-bottom: 20px;">
-                            <span class="badge-dot"></span> Calendrier Stratégique
-                        </div>
-
-                        <h2 class="hero-title" style="margin-bottom: 16px; font-size: clamp(2.2rem, 4vw, 3.2rem);">
-                            Prêt à asseoir l'autorité d'Oriso à table ?
-                        </h2>
-
-                        <p class="section-desc" style="margin: 0 auto 36px; font-size: 1rem; max-width: 580px;">
-                            Planifions un échange de 15 minutes pour valider vos 20 premiers comptes cibles et caler la date du dîner pilote à Montréal.
-                        </p>
-
-                        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px;">
-                            <a href="https://calendly.com/kevin-occasia/15min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 16px 36px; font-size: 1rem; box-shadow: 0 0 35px rgba(225, 29, 72, 0.4);">
-                                <span>Réserver un call de 15 min</span>
-                                <span>&rarr;</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/kevin-leumassi/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 16px 28px;">
-                                <span>Contacter Kevin sur LinkedIn</span>
-                            </a>
-                        </div>
-
-                        <div style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: rgba(18, 18, 22, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 999px;">
-                            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 8px #22C55E;"></span>
-                            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">Fenêtre disponible pour le dîner pilote : Prochain trimestre</span>
                         </div>
                     </div>
                 </div>
