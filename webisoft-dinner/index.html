@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<!--
+    =============================================================================
+    OCCASIA EXECUTIVE DINNER DECK — MASTER TEMPLATE (10 SLIDES)
+    =============================================================================
+    Standard validé pour toutes les présentations de dîners exécutifs B2B.
+    Pour créer un nouveau deck :
+    1. Dupliquez ce dossier : `cp -r _template-dinner/ [nomclient]-dinner/`
+    2. Cherchez-remplacez : "ORISO SOLUTIONS", "ORISO", et configurez le logo
+    3. Personnalisez l'ICP (Slide 03) et le tableau des 20 comptes (Slide 05)
+    4. Ajoutez la redirection dans `vercel.json`
+    =============================================================================
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>The Executive Dinner Series | Hosted by Webisoft × Occasia</title>
+    <meta name="title" content="The Executive Dinner Series | Hosted by Webisoft × Occasia">
+    <meta name="description"
+        content="Une soirée intime à huis clos réunissant Directeurs TI, CTOs et décideurs d'entreprises québécoises autour d'une table gastronomique. Organisé par Webisoft, co-organisé par Occasia.">
+    <link rel="canonical" href="https://occasia.agency/webisoft-dinner">
+    <meta name="theme-color" content="#08080A">
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://occasia.agency/webisoft-dinner">
+    <meta property="og:site_name" content="Webisoft × Occasia">
+    <meta property="og:title" content="The Executive Dinner Series | Hosted by Webisoft × Occasia">
+    <meta property="og:description"
+        content="Une table ronde privée réunissant des décideurs TI pour échanger entre pairs dans un salon gastronomique à Montréal.">
+    <meta property="og:image" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <!-- Fonts & Shared Design System -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <style>
+        /* Collapsible Prospects Accordion Styles */
+        .prospects-details {
+            background: rgba(18, 18, 22, 0.75);
+            border: 1px solid var(--border-glass-bright, rgba(255, 255, 255, 0.12));
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .prospects-details[open] {
+            border-color: var(--border-rose-bright, rgba(225, 29, 72, 0.45));
+            box-shadow: 0 0 35px rgba(225, 29, 72, 0.25);
+        }
+        .prospects-summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 22px 26px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            user-select: none;
+            transition: background 0.2s ease;
+        }
+        .prospects-summary::-webkit-details-marker {
+            display: none;
+        }
+        .prospects-summary:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .prospects-summary-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .prospects-icon-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-rose-light, #FB7185);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .prospects-summary-title {
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 2px;
+        }
+        .prospects-summary-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted, #A1A1AA);
+        }
+        .prospects-trigger-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-rose-light, #FB7185);
+            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.08));
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.22));
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .prospects-details[open] .prospects-trigger-btn {
+            background: var(--accent-rose, #E11D48);
+            color: #FFFFFF;
+            border-color: var(--accent-rose-light, #FB7185);
+        }
+        .prospects-chevron {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 0.85rem;
+            line-height: 1;
+        }
+        .prospects-details[open] .prospects-chevron {
+            transform: rotate(180deg);
+        }
+        .prospects-content {
+            padding: 0 28px 28px;
+            border-top: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
+            animation: fadeInProspects 0.3s ease-out;
+        }
+        @keyframes fadeInProspects {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .prospects-intro-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 16px 0;
+            font-size: 0.85rem;
+            color: var(--text-muted, #A1A1AA);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .prospects-table-wrapper {
+            overflow-x: auto;
+            margin-top: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
+            background: rgba(10, 10, 14, 0.6);
+        }
+        .prospects-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: left;
+            min-width: 920px;
+        }
+        .prospects-table th {
+            background: rgba(255, 255, 255, 0.03);
+            color: #FFFFFF;
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .prospects-table td {
+            padding: 13px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary, #E4E4E7);
+            vertical-align: top;
+            line-height: 1.45;
+        }
+        .prospects-table tr:hover td {
+            background: rgba(225, 29, 72, 0.03);
+        }
+        .p-num {
+            font-family: var(--font-mono, monospace);
+            color: var(--text-dim, #71717A);
+            font-weight: 600;
+            width: 36px;
+        }
+        .p-company {
+            font-weight: 700;
+            color: #FFFFFF;
+            font-size: 0.95rem;
+            display: block;
+        }
+        .p-sector {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.75rem;
+            color: var(--accent-rose-light, #FB7185);
+            margin-top: 2px;
+            display: inline-block;
+        }
+        .p-leader {
+            color: #F4F4F5;
+            font-weight: 500;
+        }
+        .p-scale {
+            display: inline-block;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.75rem;
+            color: var(--text-muted, #A1A1AA);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .p-trigger {
+            font-size: 0.825rem;
+            color: var(--text-muted, #A1A1AA);
+            max-width: 360px;
+        }
+
+        /* 5 Operational Pillars Grid (Clean, No Subtext) */
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+        }
+        .role-card {
+            background: var(--bg-surface, rgba(18, 18, 22, 0.72));
+            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
+            border-radius: 14px;
+            padding: 24px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+            transition: all 0.25s ease;
+        }
+        .role-card:hover {
+            border-color: var(--border-rose-bright, rgba(225, 29, 72, 0.45));
+            transform: translateY(-2px);
+        }
+        .role-step-num {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.78rem;
+            color: var(--accent-rose-light, #FB7185);
+            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.08));
+            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.22));
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+        .role-title {
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        /* Referral Engine Banner */
+        .referral-engine-banner {
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.12) 0%, rgba(18, 18, 22, 0.85) 100%);
+            border: 1px solid var(--border-rose-bright, rgba(225, 29, 72, 0.35));
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(225, 29, 72, 0.15);
+        }
+        .referral-stat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.3));
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--accent-rose-light, #FB7185);
+        }
+
+        /* Activation / Offer Card */
+        .activation-grid {
+            max-width: 860px;
+            margin: 24px auto 0;
+        }
+        .activation-pricing-card {
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.08) 0%, rgba(18, 18, 22, 0.85) 100%);
+            border: 1px solid var(--border-rose-bright, rgba(225, 29, 72, 0.4));
+            border-radius: 20px;
+            padding: 36px 42px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(225, 29, 72, 0.15);
+        }
+        .activation-tier-pill {
+            display: inline-block;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent-rose-light, #FB7185);
+            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.1));
+            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.25));
+            padding: 4px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+        .activation-price-tag {
+            text-align: right;
+        }
+        .activation-price-val {
+            display: block;
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-size: 1.3rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        .activation-price-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted, #A1A1AA);
+            font-family: var(--font-mono, monospace);
+        }
+        .activation-deliverables {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 24px 0 0;
+        }
+        .deliverable-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 0.95rem;
+            color: var(--text-secondary, #E4E4E7);
+            line-height: 1.5;
+        }
+        .deliverable-check {
+            color: var(--accent-rose-light, #FB7185);
+            font-weight: 800;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Hero specs strip */
+        .dinner-hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .dinner-spec-bar {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+        .spec-item {
+            background: rgba(18, 18, 22, 0.6);
+            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .spec-label {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            color: var(--text-muted, #A1A1AA);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .spec-value {
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        .dinner-visual-card {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-glass-bright, rgba(255, 255, 255, 0.12));
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            background: #0D0D12;
+        }
+        .dinner-visual-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+        .dinner-visual-footer {
+            padding: 16px 20px;
+            background: rgba(14, 14, 18, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.85rem;
+        }
+
+        /* Slide layout base */
+        .deck-wrapper {
+            display: flex;
+            min-height: 100vh;
+            background: #08080A;
+            color: #FFFFFF;
+        }
+        .deck-sidebar {
+            width: 290px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            left: 0;
+            background: rgba(10, 10, 14, 0.95);
+            border-right: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px 20px;
+            z-index: 50;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-shrink: 0;
+        }
+        .deck-sidebar-header {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .deck-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+        .deck-brand-logo-img {
+            height: 24px;
+            width: auto;
+            max-width: 90px;
+            object-fit: contain;
+        }
+        .deck-brand-name {
+            font-family: var(--font-display, 'Sora', sans-serif);
+            font-weight: 700;
+            font-size: 0.92rem;
+            letter-spacing: -0.01em;
+        }
+        .deck-brand-cross {
+            opacity: 0.45;
+            font-weight: 300;
+            margin: 0 2px;
+        }
+        .deck-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            color: var(--accent-rose-light, #FB7185);
+            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.08));
+            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.22));
+            padding: 4px 10px;
+            border-radius: 999px;
+            width: fit-content;
+        }
+        .deck-badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-rose, #E11D48);
+            box-shadow: 0 0 8px var(--accent-rose);
+        }
+        .deck-sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin: 16px 0;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .deck-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 12px;
+            border-radius: 10px;
+            color: var(--text-muted, #A1A1AA);
+            text-decoration: none;
+            font-size: 0.825rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .deck-nav-item:hover {
+            color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .deck-nav-item.active {
+            color: #FFFFFF;
+            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.12));
+            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.25));
+            font-weight: 600;
+        }
+        .deck-nav-num {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            color: var(--accent-rose-light, #FB7185);
+            width: 18px;
+        }
+        .deck-sidebar-footer {
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .deck-progress-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            font-family: var(--font-mono, monospace);
+            color: var(--text-muted, #A1A1AA);
+        }
+        .deck-progress-track {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .deck-progress-fill {
+            height: 100%;
+            background: var(--accent-rose, #E11D48);
+            transition: width 0.3s ease;
+        }
+        .deck-ctrl-btns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .deck-ctrl-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #FFFFFF;
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .deck-ctrl-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.16);
+        }
+        .deck-keyboard-hint {
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-dim, #71717A);
+        }
+        .deck-keyboard-hint kbd {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.68rem;
+        }
+        .deck-mobile-header {
+            display: none;
+        }
+        .deck-main {
+            flex-grow: 1;
+            max-width: calc(100vw - 290px);
+            overflow-x: hidden;
+        }
+        .deck-slide {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 60px 48px;
+        }
+        .deck-slide-container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .slide-kicker-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .slide-num-pill {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent-rose-light, #FB7185);
+            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.1));
+            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.25));
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+        .slide-kicker-text {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.75rem;
+            color: var(--text-dim, #71717A);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .slide-bg-blur {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .slide-bg-blur-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(40px) brightness(0.22);
+            transform: scale(1.08);
+        }
+        .slide-bg-blur-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 30%, #08080A 85%);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .deck-sidebar {
+                position: fixed;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: 20px 0 50px rgba(0, 0, 0, 0.8);
+            }
+            .deck-sidebar.open {
+                transform: translateX(0);
+            }
+            .deck-mobile-header {
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 58px;
+                background: rgba(10, 10, 14, 0.95);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding: 0 16px;
+                align-items: center;
+                justify-content: space-between;
+                z-index: 40;
+                backdrop-filter: blur(16px);
+            }
+            .deck-mobile-toggle {
+                background: rgba(225, 29, 72, 0.12);
+                border: 1px solid rgba(225, 29, 72, 0.25);
+                color: var(--accent-rose-light, #FB7185);
+                padding: 6px 12px;
+                border-radius: 8px;
+                font-size: 0.78rem;
+                font-weight: 600;
+                cursor: pointer;
+            }
+            .deck-mobile-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 45;
+                display: none;
+            }
+            .deck-mobile-overlay.open {
+                display: block;
+            }
+            .deck-main {
+                max-width: 100vw;
+                padding-top: 58px;
+            }
+            .deck-slide {
+                padding: 40px 20px;
+            }
+            .dinner-hero-grid,
+            .role-grid,
+            .activation-grid {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="deck-wrapper">
+
+        <!-- Left Fixed Deck Sidebar -->
+        <aside class="deck-sidebar" id="deck-sidebar">
+            <div class="deck-sidebar-header">
+                <a href="index.html" class="deck-brand" title="WEBISOFT × OCCASIA">
+                    <img src="../assets/images/webisoft-logo.png" alt="Webisoft" class="deck-brand-logo-img">
+                    <span class="deck-brand-name">WEBISOFT <span class="deck-brand-cross">×</span> OCCASIA</span>
+                </a>
+            </div>
+
+            <nav class="deck-sidebar-nav" aria-label="Sommaire de la présentation">
+                <a href="#hero" class="deck-nav-item active" data-slide-index="0">
+                    <span class="deck-nav-num">01</span>
+                    <span class="deck-nav-title">Introduction</span>
+                </a>
+                <a href="#concept" class="deck-nav-item" data-slide-index="1">
+                    <span class="deck-nav-num">02</span>
+                    <span class="deck-nav-title">Acquisition TI vs Dîner</span>
+                </a>
+                <a href="#invites" class="deck-nav-item" data-slide-index="2">
+                    <span class="deck-nav-num">03</span>
+                    <span class="deck-nav-title">Profils Invités (ICP)</span>
+                </a>
+                <a href="#pourquoi-ils-viennent" class="deck-nav-item" data-slide-index="3">
+                    <span class="deck-nav-num">04</span>
+                    <span class="deck-nav-title">Pourquoi ils viennent</span>
+                </a>
+                <a href="#comptes-cibles" class="deck-nav-item" data-slide-index="4">
+                    <span class="deck-nav-num">05</span>
+                    <span class="deck-nav-title">20 Comptes Cibles</span>
+                </a>
+                <a href="#evenements-passes" class="deck-nav-item" data-slide-index="5">
+                    <span class="deck-nav-num">06</span>
+                    <span class="deck-nav-title">Événements Passés</span>
+                </a>
+                <a href="#temoignages" class="deck-nav-item" data-slide-index="6">
+                    <span class="deck-nav-num">07</span>
+                    <span class="deck-nav-title">Avis Dirigeants</span>
+                </a>
+                <a href="#deroulement" class="deck-nav-item" data-slide-index="7">
+                    <span class="deck-nav-num">08</span>
+                    <span class="deck-nav-title">Le Déroulement</span>
+                </a>
+                <a href="#notre-role" class="deck-nav-item" data-slide-index="8">
+                    <span class="deck-nav-num">09</span>
+                    <span class="deck-nav-title">Notre Rôle &amp; Referral</span>
+                </a>
+                <a href="#offre" class="deck-nav-item" data-slide-index="9">
+                    <span class="deck-nav-num">10</span>
+                    <span class="deck-nav-title">Offre Pilote Clé en Main</span>
+                </a>
+            </nav>
+
+            <div class="deck-sidebar-footer">
+                <div class="deck-progress-row">
+                    <span>Slide <strong id="deck-current-num">01</strong> / 10</span>
+                    <span id="deck-progress-percent">10%</span>
+                </div>
+                <div class="deck-progress-track">
+                    <div class="deck-progress-fill" id="deck-progress-fill" style="width: 10%;"></div>
+                </div>
+                <div class="deck-ctrl-btns">
+                    <button type="button" id="deck-btn-prev" class="deck-ctrl-btn" title="Slide précédente (↑)">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                        <span>Précédent</span>
+                    </button>
+                    <button type="button" id="deck-btn-next" class="deck-ctrl-btn" title="Slide suivante (↓)">
+                        <span>Suivant</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                </div>
+                <div class="deck-keyboard-hint">
+                    <kbd>↑</kbd> <kbd>↓</kbd> ou <kbd>Espace</kbd>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Mobile Header -->
+        <header class="deck-mobile-header" id="deck-mobile-header">
+            <a href="index.html" class="deck-brand">
+                <img src="../assets/images/webisoft-logo.png" alt="Webisoft" style="width: 22px; height: 22px; object-fit: contain;">
+                <span>WEBISOFT <span class="deck-brand-cross">×</span> OCCASIA</span>
+            </a>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-rose-light);">
+                    Slide <strong id="deck-mobile-current-num">01</strong>/10
+                </span>
+                <button type="button" class="deck-mobile-toggle" id="deck-mobile-toggle">
+                    <span>☰ Sommaire</span>
+                </button>
+            </div>
+        </header>
+        <div class="deck-mobile-overlay" id="deck-mobile-overlay"></div>
+
+        <!-- Main Slide Content Container -->
+        <main class="deck-main">
+
+            <!-- SLIDE 01: HERO / INTRODUCTION -->
+            <section class="deck-slide section-padding" id="hero" style="padding-top: 70px; padding-bottom: 70px;">
+                <div class="slide-bg-blur" aria-hidden="true">
+                    <img src="../assets/images/executive_dining.jpg" class="slide-bg-blur-img" alt="" loading="lazy">
+                    <div class="slide-bg-blur-overlay"></div>
+                </div>
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 01 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · INTRODUCTION</span>
+                    </div>
+                    <div class="dinner-hero-grid">
+                        
+                        <div>
+                            <p class="section-kicker">Organisé par Webisoft · Co-organisé par Occasia · Montréal</p>
+                            <h1 class="hero-title" style="text-align: left; margin-bottom: 24px; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.15;">
+                                12–14 Décideurs TI Réunis.<br>
+                                <span class="hero-dream-clients">4 heures d'échange.</span>
+                            </h1>
+
+                            <div class="dinner-spec-bar" style="margin: 20px 0 28px;">
+                                <div class="spec-item">
+                                    <span class="spec-label">Format</span>
+                                    <span class="spec-value" style="color: var(--accent-rose-light);">Dîner Exécutif Privé</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Horaire</span>
+                                    <span class="spec-value">19h00 – 23h00 (4h)</span>
+                                </div>
+                            </div>
+
+                            <div class="hero-actions" style="justify-content: flex-start;">
+                                <a href="#concept" class="btn btn-secondary">
+                                    Le Concept &rarr;
+                                </a>
+                                <a href="#invites" class="btn btn-secondary">
+                                    Profils Invités &rarr;
+                                </a>
+                                <a href="#comptes-cibles" class="btn btn-secondary">
+                                    20 Comptes Cibles &rarr;
+                                </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="dinner-visual-card">
+                                <img 
+                                    src="../assets/images/real_dinner_observation.jpg" 
+                                    alt="Webisoft et Occasia Executive Dinner Montreal" 
+                                    class="dinner-visual-img"
+                                />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 02: ACQUISITION TI TRADITIONNELLE VS DINER PRIVE -->
+            <section class="deck-slide section-padding" id="concept" style="border-top: 1px solid var(--border-glass);">
+                <div class="slide-bg-blur" aria-hidden="true">
+                    <img src="../assets/images/private_dining_card.png" class="slide-bg-blur-img" alt="" loading="lazy">
+                    <div class="slide-bg-blur-overlay"></div>
+                </div>
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 02 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · LE CONSTAT STRATÉGIQUE</span>
+                    </div>
+                    <div class="section-header text-center" style="margin-bottom: 32px;">
+                        <div class="badge">
+                            <span class="badge-dot"></span> Le Constat Stratégique
+                        </div>
+                        <h2 class="section-title">Acquisition TI Traditionnelle vs. Dîner Privé</h2>
+                        <p class="section-subtitle">
+                            Les kiosques bruyants et les courriels froids ne convertissent pas des DSI. Ce modèle donne un contrôle direct sur votre bouche-à-oreille.
+                        </p>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="glass-card comparison-card negative">
+                            <p class="section-kicker" style="color: #F87171;">✕ Acquisition TI Traditionnelle</p>
+                            <h3 class="comparison-card-title">Kiosques, sollicitations &amp; passivité</h3>
+                            <ul class="comparison-list">
+                                <li>
+                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
+                                    <div><strong>Salons &amp; Kiosques TI</strong> : 15 000 $+ pour parler à des curieux sans budget.</div>
+                                </li>
+                                <li>
+                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
+                                    <div><strong>Cold outreach</strong> : Zéro DSI n'achète une infra critique sur un courriel froid.</div>
+                                </li>
+                                <li>
+                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
+                                    <div><strong>Bouche-à-oreille passif</strong> : Aucun contrôle sur le flux ou le timing des leads.</div>
+                                </li>
+                                <li>
+                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
+                                    <div><strong>Appels d'offres (RFPs)</strong> : Processus de 6 mois et guerre de prix au rabais.</div>
+                                </li>
+                                <li>
+                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
+                                    <div><strong>Zéro intimité</strong> : Impossible d'établir un lien de confiance avec les signataires.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card comparison-card positive">
+                            <p class="section-kicker" style="color: var(--accent-rose-light);">✓ Le Modèle Occasia × Webisoft</p>
+                            <h3 class="comparison-card-title">Contrôle proactif des comptes &amp; références</h3>
+                            <ul class="comparison-list">
+                                <li>
+                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
+                                    <div><strong>12 à 14 directeurs TI &amp; CTOs qualifiés</strong> assis à votre table en salon privé.</div>
+                                </li>
+                                <li>
+                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
+                                    <div><strong>4h d'attention exclusive</strong>, sans aucun bruit ni concurrent.</div>
+                                </li>
+                                <li>
+                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
+                                    <div><strong>Contrôle des références</strong> : bouche-à-oreille transformé en moteur proactif (25–30 pairs).</div>
+                                </li>
+                                <li>
+                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
+                                    <div><strong>Hôte de référence</strong> : perçu comme un pair d'autorité, jamais un simple vendeur.</div>
+                                </li>
+                                <li>
+                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
+                                    <div><strong>Deals scellés sur la confiance</strong> : mandats d'ingénierie et de modernisation amorcés naturellement.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 03: GUEST PROFILES (ICP DE WEBISOFT) -->
+            <section class="deck-slide section-padding" id="invites" style="border-top: 1px solid var(--border-glass);">
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 03 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · PROFILS INVITÉS (ICP)</span>
+                    </div>
+                    <div class="section-header" style="margin-bottom: 32px;">
+                        <p class="section-kicker">Profil des Décideurs Invités</p>
+                        <h2 class="section-title">Qui S'assoit à la Table</h2>
+                    </div>
+
+                    <div class="criteria-grid">
+                        <div class="glass-card criteria-card" style="padding: 24px;">
+                            <div class="criteria-badge">Profil 01</div>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Directeurs TI &amp; DSI</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">PME québécoises établies avec systèmes legacy critiques, portails métiers ou besoins ERP.</p>
+                        </div>
+
+                        <div class="glass-card criteria-card" style="padding: 24px;">
+                            <div class="criteria-badge">Profil 02</div>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">CTOs &amp; VPs Ingénierie</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Scale-ups et éditeurs logiciels recherchant du renfort d'ingénieurs seniors intégrés (Team Extension).</p>
+                        </div>
+
+                        <div class="glass-card criteria-card" style="padding: 24px;">
+                            <div class="criteria-badge">Profil 03</div>
+                            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Directeurs Opérations (COO) &amp; CEOs</h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Dirigeants cherchant à automatiser des flux métier manuels et numériser des processus complexes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 04: POURQUOI ILS ACCEPTENT L'INVITATION -->
+            <section class="deck-slide section-padding" id="pourquoi-ils-viennent" style="border-top: 1px solid var(--border-glass);">
+                <div class="slide-bg-blur" aria-hidden="true">
+                    <img src="../assets/images/luxury_table_hero.jpg" class="slide-bg-blur-img" alt="" loading="lazy" style="object-position: 80% center; filter: blur(2px) brightness(0.68) contrast(1.08); transform: scale(1.02);">
+                    <div class="slide-bg-blur-overlay" style="background: linear-gradient(90deg, #08080A 0%, rgba(8, 8, 10, 0.94) 22%, rgba(8, 8, 10, 0.65) 55%, rgba(8, 8, 10, 0.15) 100%), linear-gradient(180deg, #08080A 0%, transparent 15%, transparent 85%, #08080A 100%);"></div>
+                </div>
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 04 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · PSYCHOLOGIE DES DÉCIDEURS</span>
+                    </div>
+                    <div class="section-header text-center" style="margin-bottom: 32px;">
+                        <div class="badge">
+                            <span class="badge-dot"></span> Taux de Présence de 85%+
+                        </div>
+                        <h2 class="section-title">Pourquoi ils acceptent l'invitation</h2>
+                        <p class="section-subtitle">
+                            Trois piliers fondamentaux qui font déplacer des directeurs techniques et décideurs TI très sollicités.
+                        </p>
+                    </div>
+
+                    <div class="criteria-grid">
+                        <div class="glass-card criteria-card" style="padding: 24px; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
+                            <div class="criteria-badge" style="background: rgba(225, 29, 72, 0.15); color: var(--accent-rose-light); border: 1px solid rgba(225, 29, 72, 0.3);">Pilier 01</div>
+                            <h3 style="font-size: 1.15rem; margin: 12px 0 8px; color: #FFFFFF; font-family: var(--font-display, 'Sora', sans-serif); font-weight: 700;">1. La direction de l'industrie</h3>
+                            <p style="font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
+                                Échanger sans filtre entre pairs sur les virages critiques : modernisation de systèmes legacy, adoption de l'IA et dette technique.
+                            </p>
+                        </div>
+
+                        <div class="glass-card criteria-card" style="padding: 24px; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
+                            <div class="criteria-badge" style="background: rgba(225, 29, 72, 0.15); color: var(--accent-rose-light); border: 1px solid rgba(225, 29, 72, 0.3);">Pilier 02</div>
+                            <h3 style="font-size: 1.15rem; margin: 12px 0 8px; color: #FFFFFF; font-family: var(--font-display, 'Sora', sans-serif); font-weight: 700;">2. La Garantie Zéro Pitch</h3>
+                            <p style="font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
+                                Aucun micro, aucune diapo, zéro vente forcée. Un salon privé à huis clos où la parole est 100% libre.
+                            </p>
+                        </div>
+
+                        <div class="glass-card criteria-card" style="padding: 24px; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
+                            <div class="criteria-badge" style="background: rgba(225, 29, 72, 0.15); color: var(--accent-rose-light); border: 1px solid rgba(225, 29, 72, 0.3);">Pilier 03</div>
+                            <h3 style="font-size: 1.15rem; margin: 12px 0 8px; color: #FFFFFF; font-family: var(--font-display, 'Sora', sans-serif); font-weight: 700;">3. La Curation &amp; le Statut</h3>
+                            <p style="font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
+                                Strictement 12 à 14 places nominatives. Une invitation sélective entre pairs qui valorise leur rôle d'expert.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 05: 20 TARGET PROSPECTS (COMPTES CIBLES) -->
+            <section class="deck-slide section-padding" id="comptes-cibles" style="border-top: 1px solid var(--border-glass);">
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 05 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · 15 COMPTES CIBLES PRÉSÉLECTIONNÉS</span>
+                    </div>
+                    <div class="section-header" style="margin-bottom: 28px;">
+                        <p class="section-kicker">Curation Stratégique · Entreprises Québécoises</p>
+                        <h2 class="section-title">Les 15 Comptes Cibles Présélectionnés</h2>
+                        <p class="section-desc">
+                            Échantillon d'entreprises québécoises ciblées pour leur intensité opérationnelle et leurs besoins en logiciels, portails et automatisations sur mesure.
+                        </p>
+                    </div>
+
+                    <details class="prospects-details" open>
+                        <summary class="prospects-summary">
+                            <div class="prospects-summary-left">
+                                <div class="prospects-icon-badge">
+                                    🍁
+                                </div>
+                                <div>
+                                    <div class="prospects-summary-title">Afficher la liste des 15 comptes cibles</div>
+                                    <div class="prospects-summary-desc">Logistique, Immobilier, Distribution B2B, Manufacturier · Présidents, COOs, Directeurs Opérations &amp; TI</div>
+                                </div>
+                            </div>
+                            <div class="prospects-trigger-btn">
+                                <span>Consulter la liste</span>
+                                <span class="prospects-chevron">▼</span>
+                            </div>
+                        </summary>
+
+                        <div class="prospects-content">
+                            <div class="prospects-intro-bar">
+                                <span><strong>Curation Occasia :</strong> Entreprises analysées pour leurs besoins en développement logiciel sur mesure, portails métiers et automatisation.</span>
+                                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-rose-light);">15 Entreprises Vérifiées</span>
+                            </div>
+
+                            <div class="prospects-table-wrapper">
+                                <table class="prospects-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 40px;">#</th>
+                                            <th>Entreprise &amp; Secteur</th>
+                                            <th>Décideur Clé Cible</th>
+                                            <th>Échelle</th>
+                                            <th>Déclencheur &amp; Enjeu Logiciel</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-num">01</td>
+                                            <td>
+                                                <span class="p-company">Prével</span>
+                                                <span class="p-sector">Immobilier Résidentiel &amp; Développement Urbain • Montréal</span>
+                                            </td>
+                                            <td class="p-leader">Présidente / Directrice des Opérations</td>
+                                            <td><span class="p-scale">~75 emp • 80M$+</span></td>
+                                            <td class="p-trigger">Portail client/acquéreur sur mesure (suivi de livraison, choix des finitions) et digitalisation de la coordination de chantier.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">02</td>
+                                            <td>
+                                                <span class="p-company">Mondev Construction</span>
+                                                <span class="p-sector">Immobilier Résidentiel &amp; Gestion Locative • Montréal</span>
+                                            </td>
+                                            <td class="p-leader">Associé-gérant / Directeur des Opérations</td>
+                                            <td><span class="p-scale">~65 emp • 60M$+</span></td>
+                                            <td class="p-trigger">Portail locataire unifié (paiements, baux, requêtes de maintenance) et synchronisation avec les systèmes comptables internes.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">03</td>
+                                            <td>
+                                                <span class="p-company">Alliance Solutions Logistiques</span>
+                                                <span class="p-sector">Courtage en Transport &amp; 3PL Intermodal • Montréal</span>
+                                            </td>
+                                            <td class="p-leader">VP Opérations &amp; Logistique</td>
+                                            <td><span class="p-scale">~55 emp • 40M$+</span></td>
+                                            <td class="p-trigger">Outil TMS personnalisé de cotation et répartition en temps réel, portail client de géolocalisation des cargaisons.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">04</td>
+                                            <td>
+                                                <span class="p-company">Logistique Canamex</span>
+                                                <span class="p-sector">Transport Routier &amp; Chaîne Logistique • Boisbriand</span>
+                                            </td>
+                                            <td class="p-leader">Directeur Général / Directeur des Opérations</td>
+                                            <td><span class="p-scale">~45 emp • 30M$+</span></td>
+                                            <td class="p-trigger">Automatisation de la transmission des connaissements (BOL) numériques et portail d'assignation des transporteurs partenaires.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">05</td>
+                                            <td>
+                                                <span class="p-company">GetPAQ (PAQ Logistics)</span>
+                                                <span class="p-sector">Fulfillment E-commerce &amp; Logistique 3PL • Montréal</span>
+                                            </td>
+                                            <td class="p-leader">Directeur des Opérations / Co-fondateur</td>
+                                            <td><span class="p-scale">~40 emp • 18M$+</span></td>
+                                            <td class="p-trigger">Connecteurs API sur mesure entre les plateformes e-commerce (Shopify/Magento) et le logiciel de gestion d'entrepôt (WMS).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">06</td>
+                                            <td>
+                                                <span class="p-company">Labplas</span>
+                                                <span class="p-sector">Dispositifs d'Échantillonnage Stérile (Biotech/Agro) • Sainte-Julie</span>
+                                            </td>
+                                            <td class="p-leader">Directeur Général / Responsable TI &amp; Qualité</td>
+                                            <td><span class="p-scale">~80 emp • 35M$+</span></td>
+                                            <td class="p-trigger">Application web/tablette de contrôle qualité sur plancher de production et traçabilité numérique rigoureuse conforme FDA/ISO.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">07</td>
+                                            <td>
+                                                <span class="p-company">Plastiques Moore</span>
+                                                <span class="p-sector">Injection Plastique Technique de Haute Précision • Saint-Damien</span>
+                                            </td>
+                                            <td class="p-leader">Directeur des Opérations / Responsable Systèmes</td>
+                                            <td><span class="p-scale">~75 emp • 30M$+</span></td>
+                                            <td class="p-trigger">Modernisation de l'ordonnancement de production d'usine (ERP legacy) et tableau de bord en direct des cellules de moulage.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">08</td>
+                                            <td>
+                                                <span class="p-company">Cuisine Idéale</span>
+                                                <span class="p-sector">Manufacturier d'Armoires &amp; Mobilier Sur Mesure • Sherbrooke / Montréal</span>
+                                            </td>
+                                            <td class="p-leader">Directeur Général / Directeur TI &amp; Production</td>
+                                            <td><span class="p-scale">~85 emp • 38M$+</span></td>
+                                            <td class="p-trigger">Configurateur web 3D de commande pour designers et distributeurs B2B, connecté directement à l'usinage numérique CNC.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">09</td>
+                                            <td>
+                                                <span class="p-company">Simard Suspensions</span>
+                                                <span class="p-sector">Ingénierie &amp; Modification de Camions Lourds • Baie-Saint-Paul / Montréal</span>
+                                            </td>
+                                            <td class="p-leader">Directeur Ingénierie &amp; Systèmes</td>
+                                            <td><span class="p-scale">~85 emp • 45M$+</span></td>
+                                            <td class="p-trigger">Application web de configuration technique et chiffrage pour le réseau de concessionnaires, remplaçant les catalogues Excel.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">10</td>
+                                            <td>
+                                                <span class="p-company">Cansew Inc.</span>
+                                                <span class="p-sector">Distribution B2B de Fournitures Industrielles • Saint-Laurent / Montréal</span>
+                                            </td>
+                                            <td class="p-leader">VP Opérations / Directeur Général</td>
+                                            <td><span class="p-scale">~50 emp • 25M$+</span></td>
+                                            <td class="p-trigger">Portail client B2B avec grilles tarifaires dynamiques selon les volumes et intégration bidirectionnelle à l'ERP interne.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">11</td>
+                                            <td>
+                                                <span class="p-company">Les Entreprises Alimentaires C.T.S. (CTS Foods)</span>
+                                                <span class="p-sector">Courtage &amp; Importation Alimentaire B2B • Mont-Royal</span>
+                                            </td>
+                                            <td class="p-leader">Directeur Ventes &amp; Opérations</td>
+                                            <td><span class="p-scale">~40 emp • 35M$+</span></td>
+                                            <td class="p-trigger">Application mobile terrain pour représentants commerciaux, synchronisation en temps réel des stocks et catalogues fournisseurs.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">12</td>
+                                            <td>
+                                                <span class="p-company">Dubé Loiselle</span>
+                                                <span class="p-sector">Grossiste &amp; Distribution Alimentaire HRI • Granby / Rive-Sud</span>
+                                            </td>
+                                            <td class="p-leader">Directeur Logistique &amp; TI</td>
+                                            <td><span class="p-scale">~85 emp • 65M$+</span></td>
+                                            <td class="p-trigger">Portail web de commande rapide de nuit pour restaurateurs et application chauffeur pour la confirmation électronique de livraison.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">13</td>
+                                            <td>
+                                                <span class="p-company">Chrono Aviation</span>
+                                                <span class="p-sector">Aviation Nolisée d'Affaires &amp; Cargo Nordique • Montréal (St-Hubert)</span>
+                                            </td>
+                                            <td class="p-leader">VP Opérations / Directeur des Systèmes</td>
+                                            <td><span class="p-scale">~90 emp • 55M$+</span></td>
+                                            <td class="p-trigger">Système web propriétaire de gestion des plannings de vol, gestion des équipages et portail de réservation corporatif.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">14</td>
+                                            <td>
+                                                <span class="p-company">Finloc 2000</span>
+                                                <span class="p-sector">Financement d'Équipements &amp; Flottes de Camions • Saint-Georges / Montréal</span>
+                                            </td>
+                                            <td class="p-leader">VP Risque &amp; Opérations</td>
+                                            <td><span class="p-scale">~50 emp • 40M$+</span></td>
+                                            <td class="p-trigger">Portail d'origination de crédit dématérialisé pour concessionnaires, signature numérique et scoring automatique des dossiers.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-num">15</td>
+                                            <td>
+                                                <span class="p-company">Burrowes Courtiers d'Assurances</span>
+                                                <span class="p-sector">Courtage d'Assurance Commerciale des Entreprises • Montréal</span>
+                                            </td>
+                                            <td class="p-leader">Associé Principal / Directeur Général</td>
+                                            <td><span class="p-scale">~45 emp • 20M$+</span></td>
+                                            <td class="p-trigger">Espace client corporatif sécurisé pour consultation des polices, déclaration en ligne des réclamations et renouvellements simplifiés.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- SLIDE 06: EVENEMENTS PASSES (MONTRÉAL & TORONTO) -->
+            <section class="deck-slide section-padding" id="evenements-passes" style="border-top: 1px solid var(--border-glass);">
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 06 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · ÉVÉNEMENTS PASSÉS (MONTRÉAL &amp; TORONTO)</span>
+                    </div>
+                    <div class="section-header text-center" style="margin-bottom: 32px;">
+                        <div class="badge">
+                            <span class="badge-dot"></span> Preuve par l'Expérience
+                        </div>
+                        <h2 class="section-title">Les dîners qu'on a organisés</h2>
+                        <p class="section-subtitle">
+                            Quelques tables privées récemment tenues à Montréal et Toronto.
+                        </p>
+                    </div>
+
+                    <div class="events-grid">
+                        <div class="event-card">
+                            <div class="event-card-media">
+                                <img src="../assets/images/dinner_ecom_vip.png" alt="Dîner Exécutif E-Commerce" class="event-card-img" loading="lazy" decoding="async">
+                                <span class="event-card-badge">E-Commerce</span>
+                            </div>
+                            <div class="event-card-body">
+                                <div class="event-card-meta">
+                                    <span>Montréal</span>
+                                    <span>•</span>
+                                    <span>Table Privée</span>
+                                </div>
+                                <h3 class="event-card-title">Dîner Exécutif E-Commerce</h3>
+                                <p class="event-card-desc">
+                                    Table ronde privée réunissant des fondateurs et directeurs e-commerce autour de leurs enjeux de scalabilité.
+                                </p>
+                                <div class="event-card-tags">
+                                    <span class="event-pill">Montréal</span>
+                                    <span class="event-pill">E-Commerce</span>
+                                    <span class="event-pill">Marques DTC</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-card-media">
+                                <img src="../assets/images/dinner_nft_web3.png" alt="Dîner Exécutif NFT & Web3" class="event-card-img" loading="lazy" decoding="async">
+                                <span class="event-card-badge">Web3 &amp; Tech</span>
+                            </div>
+                            <div class="event-card-body">
+                                <div class="event-card-meta">
+                                    <span>Toronto</span>
+                                    <span>•</span>
+                                    <span>Table Privée</span>
+                                </div>
+                                <h3 class="event-card-title">Dîner Exécutif NFT &amp; Web3</h3>
+                                <p class="event-card-desc">
+                                    Rencontre à huis clos entre fondateurs et bâtisseurs de projets Web3 et technologies distribuées.
+                                </p>
+                                <div class="event-card-tags">
+                                    <span class="event-pill">Toronto</span>
+                                    <span class="event-pill">Web3</span>
+                                    <span class="event-pill">Technologies</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-card-media">
+                                <img src="../assets/images/dinner_retail_vip.png" alt="Dîner Dirigeants Retail" class="event-card-img" loading="lazy" decoding="async">
+                                <span class="event-card-badge">Retail</span>
+                            </div>
+                            <div class="event-card-body">
+                                <div class="event-card-meta">
+                                    <span>Montréal</span>
+                                    <span>•</span>
+                                    <span>Table Privée</span>
+                                </div>
+                                <h3 class="event-card-title">Dîner Dirigeants Retail</h3>
+                                <p class="event-card-desc">
+                                    Dîner privé réunissant des dirigeants de marques de détail et de chaînes de distribution.
+                                </p>
+                                <div class="event-card-tags">
+                                    <span class="event-pill">Montréal</span>
+                                    <span class="event-pill">Retail</span>
+                                    <span class="event-pill">Distribution</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-card-media">
+                                <img src="../assets/images/afro_business_club_dinner.png" alt="Dîner Propriétaires d'Agences" class="event-card-img" loading="lazy" decoding="async">
+                                <span class="event-card-badge">Agences</span>
+                            </div>
+                            <div class="event-card-body">
+                                <div class="event-card-meta">
+                                    <span>Montréal</span>
+                                    <span>•</span>
+                                    <span>Table Privée</span>
+                                </div>
+                                <h3 class="event-card-title">Dîner Propriétaires d'Agences</h3>
+                                <p class="event-card-desc">
+                                    Échanges confidentiels entre propriétaires d'agences sur la gestion des mandats et l'acquisition clients.
+                                </p>
+                                <div class="event-card-tags">
+                                    <span class="event-pill">Montréal</span>
+                                    <span class="event-pill">Agences</span>
+                                    <span class="event-pill">B2B</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-card-media">
+                                <img src="../assets/images/dinner_tech_toronto.png" alt="Table Ronde Fondateurs Tech & SaaS" class="event-card-img" loading="lazy" decoding="async">
+                                <span class="event-card-badge">Tech &amp; SaaS</span>
+                            </div>
+                            <div class="event-card-body">
+                                <div class="event-card-meta">
+                                    <span>Toronto</span>
+                                    <span>•</span>
+                                    <span>Table Privée</span>
+                                </div>
+                                <h3 class="event-card-title">Table Ronde Fondateurs Tech</h3>
+                                <p class="event-card-desc">
+                                    Dîner exécutif confidentiel entre fondateurs SaaS sur la levée de fonds et l'expansion de marché.
+                                </p>
+                                <div class="event-card-tags">
+                                    <span class="event-pill">Toronto</span>
+                                    <span class="event-pill">SaaS</span>
+                                    <span class="event-pill">Fondateurs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 07: RETOURS DES DIRIGEANTS -->
+            <section class="deck-slide section-padding" id="temoignages" style="border-top: 1px solid var(--border-glass);">
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 07 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · RETOURS DES DIRIGEANTS</span>
+                    </div>
+                    <div class="section-header text-center" style="margin-bottom: 32px;">
+                        <div class="badge">
+                            <span class="badge-dot"></span> Retours d'Expérience Réels
+                        </div>
+                        <h2 class="section-title">Ce qu'en disent les participants</h2>
+                        <p class="section-subtitle">
+                            Commentaires directs laissés par les dirigeants après nos récents événements.
+                        </p>
+                    </div>
+
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div>
+                                <div class="testimonial-header-badge">
+                                    <span class="testimonial-tag">Commentaire LinkedIn</span>
+                                    <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                                </div>
+                                <blockquote class="testimonial-quote">
+                                    « Thank you Kevin for always organizing such great events that really allow folks to share and be inspired. So many great conversations and connections. »
+                                </blockquote>
+                            </div>
+                            <div class="testimonial-author-row">
+                                <div class="testimonial-avatar">
+                                    <img src="../assets/images/natalia_kaplan.jpg" alt="Natalia Kaplan" loading="lazy" decoding="async">
+                                </div>
+                                <div class="testimonial-meta">
+                                    <span class="testimonial-name">Natalia Kaplan</span>
+                                    <span class="testimonial-role">Founder</span>
+                                    <span class="testimonial-company">On Point Agency</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card featured-partner">
+                            <div>
+                                <div class="testimonial-header-badge">
+                                    <span class="testimonial-tag">Commentaire LinkedIn</span>
+                                    <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                                </div>
+                                <blockquote class="testimonial-quote">
+                                    « Thank you Kevin Leumassi The concept is very interesting ! »
+                                </blockquote>
+                            </div>
+                            <div class="testimonial-author-row">
+                                <div class="testimonial-avatar">
+                                    <img src="../assets/images/olivier_brassard.jpg" alt="Olivier Brassard" loading="lazy" decoding="async">
+                                </div>
+                                <div class="testimonial-meta">
+                                    <span class="testimonial-name">Olivier Brassard</span>
+                                    <span class="testimonial-role">Co-fondateur &amp; CEO</span>
+                                    <span class="testimonial-company">Tooly · Partenaire Zoho Premium</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card featured-partner">
+                            <div>
+                                <div class="testimonial-header-badge">
+                                    <span class="testimonial-tag">Commentaire LinkedIn</span>
+                                    <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                                </div>
+                                <blockquote class="testimonial-quote">
+                                    « Always a pleasure Kevin Leumassi. I'm glad that I attended. Thank you for hosting! »
+                                </blockquote>
+                            </div>
+                            <div class="testimonial-author-row">
+                                <div class="testimonial-avatar">
+                                    <img src="../assets/images/damiano_raveenthiran.jpg" alt="Damiano Raveenthiran" loading="lazy" decoding="async">
+                                </div>
+                                <div class="testimonial-meta">
+                                    <span class="testimonial-name">Damiano Raveenthiran</span>
+                                    <span class="testimonial-role">Founder &amp; CEO</span>
+                                    <span class="testimonial-company">Startup Slingshot</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div>
+                                <div class="testimonial-header-badge">
+                                    <span class="testimonial-tag">Commentaire LinkedIn</span>
+                                    <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                                </div>
+                                <blockquote class="testimonial-quote">
+                                    « Great event! It was a pleasure meeting you all! »
+                                </blockquote>
+                            </div>
+                            <div class="testimonial-author-row">
+                                <div class="testimonial-avatar">
+                                    <img src="../assets/images/alex_bar.jpg" alt="Alex Bar" loading="lazy" decoding="async">
+                                </div>
+                                <div class="testimonial-meta">
+                                    <span class="testimonial-name">Alex Bar</span>
+                                    <span class="testimonial-role">President</span>
+                                    <span class="testimonial-company">Quantifi Media</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 08: LE DEROULEMENT (19H00 – 23H00) -->
+            <section class="deck-slide section-padding" id="deroulement" style="border-top: 1px solid var(--border-glass);">
+                <div class="slide-bg-blur" aria-hidden="true">
+                    <img src="../assets/images/cocktail_mixer_card.png" class="slide-bg-blur-img" alt="" loading="lazy">
+                    <div class="slide-bg-blur-overlay"></div>
+                </div>
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 08 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · LE DÉROULEMENT (19H00 – 23H00)</span>
+                    </div>
+                    <div class="section-header" style="margin-bottom: 28px;">
+                        <p class="section-kicker">Programme de la Soirée</p>
+                        <h2 class="section-title">Le Déroulement</h2>
+                        <p class="section-desc">
+                            19h00 à 23h00 (4 heures). Une soirée fluide et conviviale sans protocole lourd.
+                        </p>
+                    </div>
+
+                    <details class="prospects-details" open>
+                        <summary class="prospects-summary">
+                            <div class="prospects-summary-left">
+                                <div class="prospects-icon-badge">
+                                    ⏱️
+                                </div>
+                                <div>
+                                    <div class="prospects-summary-title">Déroulement chronologique de la soirée</div>
+                                    <div class="prospects-summary-desc">19h00 – 23h00 · Salon gastronomique privé · Montréal</div>
+                                </div>
+                            </div>
+                            <div class="prospects-trigger-btn">
+                                <span>Consulter l'horaire</span>
+                                <span class="prospects-chevron">▼</span>
+                            </div>
+                        </summary>
+
+                        <div class="prospects-content" style="padding-top: 24px;">
+                            <div class="timeline-container" style="gap: 12px; max-width: 860px;">
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
+                                    <div class="timeline-time">19h00</div>
+                                    <div class="timeline-info">
+                                        <h4 style="font-size: 1.05rem; margin: 0;">Accueil &amp; Cocktails</h4>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
+                                    <div class="timeline-time">20h00</div>
+                                    <div class="timeline-info">
+                                        <h4 style="font-size: 1.05rem; margin: 0;">Fin du networking &amp; Passage à table</h4>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px; border-left: 3px solid var(--accent-rose); background: rgba(225, 29, 72, 0.05);">
+                                    <div class="timeline-time" style="color: var(--accent-rose-light); background: rgba(225, 29, 72, 0.12); border-color: rgba(225, 29, 72, 0.3);">20h10</div>
+                                    <div class="timeline-info">
+                                        <h4 style="color: #FFFFFF; font-size: 1.05rem; margin: 0;">Mot de bienvenue de l'Hôte &amp; Service des entrées</h4>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
+                                    <div class="timeline-time">21h30</div>
+                                    <div class="timeline-info">
+                                        <h4 style="font-size: 1.05rem; margin: 0;">Fin du dîner &amp; Échanges libres</h4>
+                                    </div>
+                                </div>
+
+                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
+                                    <div class="timeline-time">23h00</div>
+                                    <div class="timeline-info">
+                                        <h4 style="font-size: 1.05rem; margin: 0;">Fin de la soirée</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- SLIDE 09: NOTRE ROLE & REFERRAL ENGINE -->
+            <section class="deck-slide section-padding" id="notre-role" style="border-top: 1px solid var(--border-glass);">
+                <div class="slide-bg-blur" aria-hidden="true">
+                    <img src="../assets/images/afro_business_club_dinner.png" class="slide-bg-blur-img" alt="" loading="lazy" style="object-position: 80% center; filter: blur(2px) brightness(0.68) contrast(1.08); transform: scale(1.02);">
+                    <div class="slide-bg-blur-overlay" style="background: linear-gradient(90deg, #08080A 0%, rgba(8, 8, 10, 0.94) 22%, rgba(8, 8, 10, 0.65) 55%, rgba(8, 8, 10, 0.15) 100%), linear-gradient(180deg, #08080A 0%, transparent 15%, transparent 85%, #08080A 100%);"></div>
+                </div>
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 09 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · NOTRE RÔLE &amp; REFERRAL ENGINE</span>
+                    </div>
+                    <div class="section-header text-center" style="margin-bottom: 28px;">
+                        <div class="badge">
+                            <span class="badge-dot"></span> 100% Pris en Charge
+                        </div>
+                        <h2 class="section-title">Notre rôle</h2>
+                        <p class="section-subtitle">
+                            Vous vous asseyez à table en tant qu'hôte. On s'occupe de tout le reste.
+                        </p>
+                    </div>
+
+                    <!-- 5 Operational Pillars (Clean, No Subtext) -->
+                    <div class="role-grid">
+                        <div class="role-card">
+                            <div class="role-step-num">01</div>
+                            <h3 class="role-title">Sourcing Ciblé</h3>
+                        </div>
+
+                        <div class="role-card">
+                            <div class="role-step-num">02</div>
+                            <h3 class="role-title">Invitations &amp; RSVPs</h3>
+                        </div>
+
+                        <div class="role-card">
+                            <div class="role-step-num">03</div>
+                            <h3 class="role-title">Salon Privé Gastronomique</h3>
+                        </div>
+
+                        <div class="role-card">
+                            <div class="role-step-num">04</div>
+                            <h3 class="role-title">Jour J &amp; Modération</h3>
+                        </div>
+
+                        <div class="role-card">
+                            <div class="role-step-num">05</div>
+                            <h3 class="role-title">Suivi &amp; Referral</h3>
+                        </div>
+                    </div>
+
+                    <!-- Clean Referral Engine Banner -->
+                    <div class="referral-engine-banner" style="margin-top: 24px; padding: 20px 26px;">
+                        <div>
+                            <div class="card-kicker" style="color: var(--accent-rose-light); margin-bottom: 4px;">Le Referral Engine · Contrôle Proactif des Références</div>
+                            <h3 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.15rem; font-weight: 700; color: #FFFFFF; line-height: 1.3; margin: 0;">
+                                12–14 invités à table → 25–30 opportunités &amp; recommandations directes
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: L'OFFRE D'ACTIVATION (PILOTE CLE EN MAIN - SANS PRIX) -->
+            <section class="deck-slide section-padding" id="offre" style="border-top: 1px solid var(--border-glass);">
+                <div class="container deck-slide-container">
+                    <div class="slide-kicker-bar">
+                        <span class="slide-num-pill">SLIDE 10 / 10</span>
+                        <span class="slide-kicker-text">WEBISOFT × OCCASIA · L'OFFRE D'ACTIVATION</span>
+                    </div>
+
+                    <div class="section-header text-center" style="margin-bottom: 28px;">
+                        <div class="badge">
+                            <span class="badge-dot"></span> Formule Pilote Clé en Main
+                        </div>
+                        <h2 class="section-title">L'Offre d'Activation</h2>
+                        <p class="section-subtitle">
+                            Un premier dîner exécutif clé en main pour asseoir votre autorité sur vos comptes québécois prioritaires.
+                        </p>
+                    </div>
+
+                    <div class="activation-grid">
+                        <div class="activation-pricing-card">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                                    <div>
+                                        <span class="activation-tier-pill">Formule Pilote · Montréal</span>
+                                        <h3 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.35rem; font-weight: 700; color: #FFFFFF; margin-top: 6px;">
+                                            Dîner Exécutif Clé en Main
+                                        </h3>
+                                    </div>
+                                    <div class="activation-price-tag">
+                                        <span class="activation-price-val" style="color: var(--accent-rose-light);">100% Pris en Charge</span>
+                                    </div>
+                                </div>
+
+                                <div class="activation-deliverables">
+                                    <div class="deliverable-item">
+                                        <span class="deliverable-check">✓</span>
+                                        <div><strong>12 à 14 décideurs qualifiés réunis</strong> à votre table.</div>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <span class="deliverable-check">✓</span>
+                                        <div><strong>Sourcing &amp; qualification de 120 profils cibles</strong> selon vos critères stricts d'ICP.</div>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <span class="deliverable-check">✓</span>
+                                        <div><strong>Gestion intégrale des invitations</strong> : outreach personnalisé multicanal &amp; conciergerie.</div>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <span class="deliverable-check">✓</span>
+                                        <div><strong>Sélection &amp; privatisation d'un salon gastronomique</strong> d'exception à Montréal.</div>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <span class="deliverable-check">✓</span>
+                                        <div><strong>Coordination &amp; modération le Jour J</strong> pour un déroulement fluide de 19h00 à 23h00.</div>
+                                    </div>
+                                    <div class="deliverable-item">
+                                        <span class="deliverable-check">✓</span>
+                                        <div><strong>Activation du Referral Engine post-dîner</strong> pour démultiplier le pipeline de recommandations.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="site-footer" style="background: #060608; border-top: 1px solid var(--border-glass); padding: 40px 0 30px;">
+        <div class="container" style="max-width: 1140px; margin: 0 auto; padding: 0 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-glass);">
+                <div class="brand-logo" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="../assets/images/webisoft-logo.png" alt="Webisoft Logo" style="height: 22px; width: auto; object-fit: contain;">
+                    <span>WEBISOFT <span style="font-weight: 300; opacity: 0.5; margin: 0 4px;">×</span> OCCASIA</span>
+                </div>
+                <div style="color: var(--text-muted); font-size: 0.85rem;">
+                    The Executive Dinner Series · Montréal
+                </div>
+            </div>
+            <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; font-size: 0.8rem; color: var(--text-dim);">
+                <div>© Webisoft Inc. &amp; Occasia Agency. Rencontre confidentielle sur invitation.</div>
+                <div>Organisé par Webisoft · Co-organisé par Occasia</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Deck Navigation Controller Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = Array.from(document.querySelectorAll('.deck-slide'));
+            const navLinks = Array.from(document.querySelectorAll('.deck-nav-item'));
+            const currentNumEl = document.getElementById('deck-current-num');
+            const mobileCurrentNumEl = document.getElementById('deck-mobile-current-num');
+            const progressFill = document.getElementById('deck-progress-fill');
+            const progressPercentEl = document.getElementById('deck-progress-percent');
+            const btnPrev = document.getElementById('deck-btn-prev');
+            const btnNext = document.getElementById('deck-btn-next');
+            const sidebar = document.getElementById('deck-sidebar');
+            const mobileToggle = document.getElementById('deck-mobile-toggle');
+            const mobileOverlay = document.getElementById('deck-mobile-overlay');
+
+            // Responsive Container Scaling Engine
+            const BASE_CANVAS_WIDTH = 1180;
+            
+            const updateSlideScale = () => {
+                const sidebarWidth = (sidebar && window.getComputedStyle(sidebar).display !== 'none') ? sidebar.offsetWidth : 0;
+                const windowWidth = document.documentElement.clientWidth;
+                const availableWidth = Math.max(280, windowWidth - sidebarWidth - 48);
+                
+                let scale = availableWidth / BASE_CANVAS_WIDTH;
+                document.documentElement.style.setProperty('--deck-scale', scale);
+
+                if (!('zoom' in document.documentElement.style)) {
+                    document.querySelectorAll('.deck-slide-container').forEach(c => {
+                        c.style.transform = `scale(${scale})`;
+                        c.style.transformOrigin = 'top center';
+                    });
+                }
+            };
+
+            window.addEventListener('resize', updateSlideScale, { passive: true });
+            window.addEventListener('orientationchange', updateSlideScale, { passive: true });
+            updateSlideScale();
+
+            // Mobile Sidebar Toggle
+            if (mobileToggle && sidebar && mobileOverlay) {
+                const toggleMobile = () => {
+                    sidebar.classList.toggle('open');
+                    mobileOverlay.classList.toggle('open');
+                };
+                mobileToggle.addEventListener('click', toggleMobile);
+                mobileOverlay.addEventListener('click', toggleMobile);
+                navLinks.forEach(item => {
+                    item.addEventListener('click', () => {
+                        if (window.innerWidth < 1024) {
+                            sidebar.classList.remove('open');
+                            mobileOverlay.classList.remove('open');
+                        }
+                    });
+                });
+            }
+
+            let activeIndex = 0;
+
+            const updateActiveSlide = (index) => {
+                if (index < 0 || index >= slides.length) return;
+                activeIndex = index;
+                
+                navLinks.forEach((item, i) => {
+                    if (i === index) {
+                        item.classList.add('active');
+                        item.setAttribute('aria-current', 'location');
+                    } else {
+                        item.classList.remove('active');
+                        item.removeAttribute('aria-current');
+                    }
+                });
+
+                const slideNumStr = String(index + 1).padStart(2, '0');
+                if (currentNumEl) currentNumEl.textContent = slideNumStr;
+                if (mobileCurrentNumEl) mobileCurrentNumEl.textContent = slideNumStr;
+                
+                const percent = Math.round(((index + 1) / slides.length) * 100);
+                if (progressFill) {
+                    progressFill.style.width = percent + '%';
+                }
+                if (progressPercentEl) {
+                    progressPercentEl.textContent = percent + '%';
+                }
+            };
+
+            const goToSlide = (index) => {
+                if (index >= 0 && index < slides.length) {
+                    slides[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    updateActiveSlide(index);
+                }
+            };
+
+            if (btnPrev) btnPrev.addEventListener('click', () => goToSlide(activeIndex - 1));
+            if (btnNext) btnNext.addEventListener('click', () => goToSlide(activeIndex + 1));
+
+            // Keyboard navigation (↑ / ↓ / Space / PageUp / PageDown)
+            window.addEventListener('keydown', (e) => {
+                if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+                
+                if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) {
+                    if (activeIndex < slides.length - 1) {
+                        e.preventDefault();
+                        goToSlide(activeIndex + 1);
+                    }
+                } else if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) {
+                    if (activeIndex > 0) {
+                        e.preventDefault();
+                        goToSlide(activeIndex - 1);
+                    }
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    goToSlide(0);
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    goToSlide(slides.length - 1);
+                }
+            });
+
+            // IntersectionObserver to auto-sync active slide on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const idx = slides.indexOf(entry.target);
+                        if (idx !== -1) {
+                            updateActiveSlide(idx);
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.25
+            });
+
+            slides.forEach(slide => observer.observe(slide));
+        });
+    </script>
+</body>
+
+</html>

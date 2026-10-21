@@ -22,6 +22,11 @@
       "permanent": true
     },
     {
+      "source": "/webisoft-dinner.html",
+      "destination": "/webisoft-dinner",
+      "permanent": true
+    },
+    {
       "source": "/tech-and-ai-dinner.html",
       "destination": "/tech-and-ai-dinner",
       "permanent": true
