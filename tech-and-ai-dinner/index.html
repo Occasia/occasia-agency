@@ -282,31 +282,34 @@
             letter-spacing: 0.01em;
         }
 
-        .event-meta-subrow {
+        .event-hero-cta {
             display: flex;
             justify-content: center;
+            align-items: center;
+            margin-top: 14px;
         }
 
-        .event-seats-tag {
+        .event-cta-btn {
             display: inline-flex;
             align-items: center;
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
+            justify-content: center;
+            padding: 16px 40px;
+            font-size: 1.05rem;
             font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--accent-rose-light);
-            background: rgba(225, 29, 72, 0.08);
-            border: 1px solid rgba(225, 29, 72, 0.25);
-            padding: 4px 14px;
+            letter-spacing: 0.02em;
             border-radius: 100px;
+            background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+            color: #FFFFFF !important;
+            box-shadow: 0 8px 28px rgba(225, 29, 72, 0.4);
+            transition: all 0.25s ease;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .event-trust-footer {
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
-            color: var(--text-dim);
-            letter-spacing: 0.03em;
+        .event-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(225, 29, 72, 0.6);
+            color: #FFFFFF !important;
         }
 
         /* Who Sits At The Table - 2 Minimalist Rows */
@@ -617,18 +620,14 @@
                                 <span class="lang-en">Downtown Montreal</span>
                             </span>
                         </div>
-                        <div class="event-meta-subrow">
-                            <span class="event-seats-tag">
-                                <span class="lang-fr">15 places</span>
-                                <span class="lang-en">15 Seats</span>
-                            </span>
-                        </div>
                     </div>
 
-                    <!-- Trust Footer -->
-                    <div class="event-trust-footer">
-                        <span class="lang-fr">Strictement 15 places · Aucun pitch commercial ni diapositive · Sélection par les pairs</span>
-                        <span class="lang-en">Strictly 15 Seats · Zero Commercial Pitches or Slides · Curated Peer Selection</span>
+                    <!-- Single CTA: Request invite -->
+                    <div class="event-hero-cta">
+                        <a href="mailto:kevin@occasia.agency?subject=Request%20for%20Invite%20-%20Montreal%20AI%20%26%20Tech%20Executive%20Dinner" class="btn btn-primary event-cta-btn">
+                            <span class="lang-fr">Demander une invitation</span>
+                            <span class="lang-en">Request invite</span>
+                        </a>
                     </div>
 
                 </div>
