@@ -264,11 +264,12 @@
         .composition-card {
             background: var(--bg-surface);
             border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 26px 22px;
+            border-radius: 14px;
+            padding: 22px 20px;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             transition: var(--transition-smooth);
             position: relative;
         }
@@ -277,40 +278,13 @@
             border-color: var(--border-rose-bright);
             box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), var(--shadow-rose);
         }
-        .composition-badge {
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            font-weight: 600;
-            padding: 3px 9px;
-            border-radius: 4px;
-            align-self: flex-start;
-            letter-spacing: 0.04em;
-        }
-        .composition-badge.cfo {
-            background: rgba(16, 185, 129, 0.15);
-            color: #34D399;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-        .composition-badge.cto {
-            background: rgba(59, 130, 246, 0.15);
-            color: #60A5FA;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-        .composition-badge.founder {
-            background: rgba(225, 29, 72, 0.15);
-            color: #FB7185;
-            border: 1px solid rgba(225, 29, 72, 0.3);
-        }
         .composition-title {
             font-size: 1.15rem;
             font-weight: 700;
             color: #FFFFFF;
             font-family: var(--font-display);
-        }
-        .composition-desc {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.55;
+            margin: 0;
+            line-height: 1.35;
         }
 
         /* Sector Pills */
@@ -594,50 +568,26 @@
                 <div class="table-composition-grid">
                     <!-- Profile 1: CTOs & Engineering -->
                     <div class="composition-card">
-                        <div class="composition-badge cto">
-                            <span class="lang-fr">Profil 01 · Technique</span>
-                            <span class="lang-en">Profile 01 · Technical</span>
-                        </div>
                         <h3 class="composition-title">
                             <span class="lang-fr">CTOs &amp; Directeurs R&amp;D</span>
                             <span class="lang-en">CTOs &amp; VPs of Engineering</span>
                         </h3>
-                        <p class="composition-desc">
-                            <span class="lang-fr">Dirigeants d'équipes de développement, d'architectures cloud et d'IA appliquée, axés sur la scalabilité produit et la rétention des talents seniors.</span>
-                            <span class="lang-en">Leading engineering, cloud architecture, and applied AI teams, focused on product scalability and senior talent retention.</span>
-                        </p>
                     </div>
 
                     <!-- Profile 2: CFOs & Finance -->
                     <div class="composition-card">
-                        <div class="composition-badge cfo">
-                            <span class="lang-fr">Profil 02 · Finance</span>
-                            <span class="lang-en">Profile 02 · Finance</span>
-                        </div>
                         <h3 class="composition-title">
                             <span class="lang-fr">CFOs &amp; Directeurs Financiers</span>
                             <span class="lang-en">CFOs &amp; VPs of Finance</span>
                         </h3>
-                        <p class="composition-desc">
-                            <span class="lang-fr">Responsables de l'allocation de capital, du runway, de la maximisation des crédits RS&amp;DE / CDAE et du financement non dilutif.</span>
-                            <span class="lang-en">Managing capital allocation, runway, R&amp;D tax incentive recovery (SR&amp;ED / CDAE), and non-dilutive grant acceleration.</span>
-                        </p>
                     </div>
 
                     <!-- Profile 3: Founders & CEOs -->
                     <div class="composition-card">
-                        <div class="composition-badge founder">
-                            <span class="lang-fr">Profil 03 · Direction</span>
-                            <span class="lang-en">Profile 03 · Executive</span>
-                        </div>
                         <h3 class="composition-title">
                             <span class="lang-fr">Fondateurs &amp; Présidents</span>
                             <span class="lang-en">Founders &amp; CEOs</span>
                         </h3>
-                        <p class="composition-desc">
-                            <span class="lang-fr">Bâtisseurs d'entreprises technologiques québécoises générant de 3M$ à 30M$+ de revenus avec une masse salariale technique active.</span>
-                            <span class="lang-en">Founders of high-growth Canadian tech scaleups with $3M to $30M+ revenue and substantial technical payroll.</span>
-                        </p>
                     </div>
                 </div>
 
