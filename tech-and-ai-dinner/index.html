@@ -309,72 +309,66 @@
             letter-spacing: 0.03em;
         }
 
-        /* 2-Column Split for "Who Sits At The Table" */
-        .table-split-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .table-split-card {
-            background: rgba(18, 18, 24, 0.65);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 24px 28px;
+        /* Who Sits At The Table - 2 Minimalist Rows */
+        .table-two-rows {
             display: flex;
             flex-direction: column;
-            gap: 18px;
-            transition: var(--transition-smooth);
-        }
-
-        .table-split-card:hover {
-            border-color: rgba(225, 29, 72, 0.35);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), var(--shadow-rose);
-        }
-
-        .split-card-header {
-            display: flex;
             align-items: center;
+            gap: 14px;
+            max-width: 960px;
+            margin: 32px auto 0;
+            width: 100%;
         }
 
-        .split-card-badge {
+        .table-spec-row {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            padding: 12px 28px;
+            background: rgba(18, 18, 24, 0.45);
+            border: 1px solid var(--border-glass);
+            border-radius: 100px;
+            transition: var(--transition-smooth);
+            max-width: 100%;
+        }
+
+        .table-spec-row:hover {
+            border-color: rgba(225, 29, 72, 0.35);
+            background: rgba(24, 24, 32, 0.6);
+        }
+
+        .table-row-badge {
             font-family: var(--font-mono);
-            font-size: 0.78rem;
+            font-size: 0.74rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--accent-rose-light);
-            background: rgba(225, 29, 72, 0.1);
-            border: 1px solid rgba(225, 29, 72, 0.25);
-            padding: 4px 12px;
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.28);
+            padding: 3px 12px;
             border-radius: 100px;
+            flex-shrink: 0;
         }
 
-        .split-tags-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .table-row-text {
+            display: inline-flex;
             align-items: center;
-        }
-
-        .split-tag {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-glass-bright);
-            border-radius: 100px;
-            padding: 8px 16px;
-            font-size: 0.92rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            font-size: clamp(0.85rem, 1.6vw, 0.98rem);
             font-weight: 500;
             color: #FFFFFF;
-            letter-spacing: 0.01em;
-            transition: var(--transition-smooth);
         }
 
-        .split-tag:hover {
-            border-color: rgba(225, 29, 72, 0.4);
-            background: rgba(225, 29, 72, 0.08);
-            transform: translateY(-1px);
+        .row-dot {
+            color: var(--accent-rose);
+            font-weight: 700;
+            opacity: 0.75;
+            user-select: none;
         }
 
         /* Webisoft-Style Compact Run of Show Timeline */
@@ -436,17 +430,19 @@
         }
 
         @media (max-width: 768px) {
-            .table-split-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
+            .table-two-rows {
+                gap: 12px;
+                margin-top: 22px;
             }
-            .table-split-card {
-                padding: 18px 20px;
-                gap: 14px;
+            .table-spec-row {
+                border-radius: 18px;
+                padding: 12px 18px;
+                gap: 10px;
+                width: 100%;
             }
-            .split-tag {
-                font-size: 0.85rem;
-                padding: 7px 14px;
+            .table-row-text {
+                font-size: 0.86rem;
+                gap: 8px;
             }
         }
 
@@ -657,44 +653,42 @@
                     </p>
                 </div>
 
-                <div class="table-split-grid">
-                    <!-- Column 1: Roles -->
-                    <div class="table-split-card">
-                        <div class="split-card-header">
-                            <span class="split-card-badge">
-                                <span class="lang-fr">Fonctions</span>
-                                <span class="lang-en">Roles</span>
-                            </span>
-                        </div>
-                        <div class="split-tags-wrap">
-                            <span class="split-tag">
-                                <span class="lang-fr">Fondateurs</span>
-                                <span class="lang-en">Founders</span>
-                            </span>
-                            <span class="split-tag">CTOs</span>
-                            <span class="split-tag">CFOs</span>
-                            <span class="split-tag">CEOs</span>
-                            <span class="split-tag">VPs</span>
-                            <span class="split-tag">
-                                <span class="lang-fr">Associés</span>
-                                <span class="lang-en">Partners</span>
-                            </span>
+                <div class="table-two-rows">
+                    <!-- Row 1: Roles -->
+                    <div class="table-spec-row">
+                        <span class="table-row-badge">
+                            <span class="lang-fr">Rôles</span>
+                            <span class="lang-en">Roles</span>
+                        </span>
+                        <div class="table-row-text">
+                            <span><span class="lang-fr">Fondateurs</span><span class="lang-en">Founders</span></span>
+                            <span class="row-dot">·</span>
+                            <span>CTOs</span>
+                            <span class="row-dot">·</span>
+                            <span>CFOs</span>
+                            <span class="row-dot">·</span>
+                            <span>CEOs</span>
+                            <span class="row-dot">·</span>
+                            <span>VPs</span>
+                            <span class="row-dot">·</span>
+                            <span><span class="lang-fr">Associés</span><span class="lang-en">Partners</span></span>
                         </div>
                     </div>
 
-                    <!-- Column 2: Industries -->
-                    <div class="table-split-card">
-                        <div class="split-card-header">
-                            <span class="split-card-badge">
-                                <span class="lang-fr">Industries</span>
-                                <span class="lang-en">Industries</span>
-                            </span>
-                        </div>
-                        <div class="split-tags-wrap">
-                            <span class="split-tag">SaaS &amp; Cloud Platforms</span>
-                            <span class="split-tag">Applied AI &amp; Machine Learning</span>
-                            <span class="split-tag">Technology Consultants</span>
-                            <span class="split-tag">HealthTech / IoT / Robotics</span>
+                    <!-- Row 2: Industries -->
+                    <div class="table-spec-row">
+                        <span class="table-row-badge">
+                            <span class="lang-fr">Industries</span>
+                            <span class="lang-en">Industries</span>
+                        </span>
+                        <div class="table-row-text">
+                            <span>SaaS &amp; Cloud Platforms</span>
+                            <span class="row-dot">·</span>
+                            <span>Applied AI &amp; Machine Learning</span>
+                            <span class="row-dot">·</span>
+                            <span>Technology Consultants</span>
+                            <span class="row-dot">·</span>
+                            <span>HealthTech / IoT / Robotics</span>
                         </div>
                     </div>
                 </div>
