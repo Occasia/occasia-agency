@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="lang-fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary SEO Meta Tags -->
-    <title>Montreal AI & Tech Executive Dinner | November 26th · Hosted by Emergex</title>
-    <meta name="title" content="Montreal AI & Tech Executive Dinner | November 26th · Hosted by Emergex">
+    <title>Dîner Exécutif IA & Tech de Montréal | 26 novembre · Co-organisé par Emergex</title>
+    <meta name="title" content="Dîner Exécutif IA & Tech de Montréal | 26 novembre · Co-organisé par Emergex">
     <meta name="description"
-        content="An intimate, closed-door dinner for 15 Montreal tech founders, CFOs, CTOs, and VPs of Engineering on November 26th at 7:00 PM. Hosted by Emergex. No pitches, no slides.">
+        content="Une rencontre à huis clos strictement réservée à 15 fondateurs, CFOs, CTOs et VPs Ingénierie tech de Montréal le jeudi 26 novembre à 19h00. Co-organisé par Emergex. Sans pitch ni diapositives.">
     <meta name="keywords"
-        content="Montreal AI Tech Dinner, Executive Dinner Montreal, Emergex SR&ED, Occasia Agency, CTO dinner Montreal, CFO tech dinner, private executive roundtable">
+        content="Dîner Exécutif IA Montréal, Montreal AI Tech Dinner, Emergex RS&DE, Occasia Agency, CTO dinner Montreal, CFO tech dinner, table ronde exécutive">
     <meta name="author" content="Occasia Agency & Emergex">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://occasia.agency/tech-and-ai-dinner">
-    <meta name="theme-color" content="#0B0D13">
+    <meta name="theme-color" content="#08080A">
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://occasia.agency/tech-and-ai-dinner">
     <meta property="og:site_name" content="Occasia × Emergex">
-    <meta property="og:title" content="Montreal AI & Tech Executive Dinner | November 26th · Hosted by Emergex">
+    <meta property="og:title" content="Dîner Exécutif IA & Tech de Montréal | 26 novembre · Co-organisé par Emergex">
     <meta property="og:description"
-        content="Closed-door executive dinner for 15 Montreal tech decision-makers (CFOs, CTOs, VPs of Engineering, Founders). November 26th, 7:00 PM in Montreal.">
+        content="Table ronde à huis clos pour 15 décideurs tech de Montréal (CFOs, CTOs, VPs Ingénierie, Fondateurs). Jeudi 26 novembre, 19h00 à Montréal.">
     <meta property="og:image" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
     <meta property="og:image:secure_url" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Montreal AI & Tech Executive Dinner">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:image:alt" content="Dîner Exécutif IA & Tech de Montréal">
+    <meta property="og:locale" content="fr_CA">
+    <meta property="og:locale:alternate" content="en_US">
 
     <!-- Twitter / X Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -45,7 +46,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Event",
-      "name": "Montreal AI & Tech Executive Dinner - Hosted by Emergex",
+      "name": "Montreal AI & Tech Executive Dinner - Hosted by Emergex & Occasia",
       "startDate": "2026-11-26T19:00:00-05:00",
       "endDate": "2026-11-26T23:00:00-05:00",
       "description": "An intimate, closed-door dinner strictly curated for 15 Montreal tech decision-makers (CFOs, CTOs, VPs of Engineering, Founders).",
@@ -70,71 +71,339 @@
     </script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="64x64" href="../assets/images/favicon-64.png">
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="apple-touch-icon" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
 
     <!-- Fonts & Shared Design System -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/styles.css">
 
-    <!-- Inline Custom Enhancements -->
+    <!-- Event Page Custom Styles & Bilingual Rules -->
     <style>
+        /* Bilingual Visibility */
+        html[lang="fr"] .lang-en { display: none !important; }
+        html[lang="en"] .lang-fr { display: none !important; }
+
+        /* Language Switcher */
+        .lang-switch-wrapper {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(18, 18, 24, 0.75);
+            border: 1px solid var(--border-glass);
+            padding: 3px 6px;
+            border-radius: 20px;
+            margin-right: 8px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 3px 8px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+        .lang-btn:hover {
+            color: #FFFFFF;
+        }
+        .lang-btn.active {
+            color: #FFFFFF;
+            background: rgba(225, 29, 72, 0.35);
+            border: 1px solid rgba(225, 29, 72, 0.5);
+            color: var(--accent-rose-light);
+        }
+        .lang-divider {
+            color: var(--border-glass);
+            font-size: 0.7rem;
+            user-select: none;
+        }
+
+        /* Event Centered Hero with Background Fade */
+        .event-hero-section {
+            position: relative;
+            padding-top: 155px;
+            padding-bottom: 80px;
+            text-align: center;
+            background-image: 
+                radial-gradient(ellipse at 50% 32%, rgba(8, 8, 10, 0.74) 0%, rgba(8, 8, 10, 0.92) 65%, #08080A 100%),
+                linear-gradient(180deg, rgba(8, 8, 10, 0.6) 0%, rgba(8, 8, 10, 0.85) 60%, #08080A 100%),
+                url('/assets/images/real_dinner_observation.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .event-hero-container {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .event-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.3);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--accent-rose-light);
+            margin-bottom: 22px;
+            letter-spacing: 0.04em;
+        }
+
+        .event-hero-badge .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #E11D48;
+            box-shadow: 0 0 10px #E11D48;
+            display: inline-block;
+        }
+
+        .event-hero-title {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: #FFFFFF;
+            font-family: var(--font-display);
+            margin: 0 auto 18px;
+            letter-spacing: -0.02em;
+        }
+
+        .event-cohost-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            border-radius: 100px;
+            background: rgba(18, 18, 24, 0.7);
+            border: 1px solid var(--border-glass-bright);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            margin-bottom: 24px;
+        }
+
+        .event-cohost-pill .cohost-prefix {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .event-cohost-pill strong {
+            font-size: 1rem;
+            color: #FFFFFF;
+            letter-spacing: 0.04em;
+            font-family: var(--font-display);
+        }
+
+        .event-cohost-pill .cohost-tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent-rose-light);
+            background: var(--accent-rose-subtle);
+            border: 1px solid var(--border-rose);
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .event-hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 680px;
+            margin: 0 auto 32px;
+            font-weight: 400;
+        }
+
+        .event-spec-bar-centered {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 0 auto 34px;
+            max-width: 820px;
+        }
+
+        .event-hero-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .event-trust-footer {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            letter-spacing: 0.03em;
+        }
+
+        /* Composition & Profile Cards */
         .table-composition-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 24px;
         }
         .composition-card {
-            background: rgba(18, 18, 24, 0.65);
+            background: var(--bg-surface);
             border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            padding: 24px;
+            border-radius: 16px;
+            padding: 26px 22px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            gap: 10px;
+            transition: var(--transition-smooth);
+            position: relative;
         }
         .composition-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(225, 29, 72, 0.4);
+            transform: translateY(-3px);
+            border-color: var(--border-rose-bright);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), var(--shadow-rose);
         }
-        .composition-count {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--accent-rose-light, #FDA4AF);
-            font-family: var(--font-display);
-            line-height: 1;
+        .composition-badge {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 4px;
+            align-self: flex-start;
+            letter-spacing: 0.04em;
         }
-        .composition-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #FFFFFF;
-        }
-        .composition-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-        .criteria-badge-cfo {
+        .composition-badge.cfo {
             background: rgba(16, 185, 129, 0.15);
             color: #34D399;
             border: 1px solid rgba(16, 185, 129, 0.3);
         }
-        .criteria-badge-cto {
+        .composition-badge.cto {
             background: rgba(59, 130, 246, 0.15);
             color: #60A5FA;
             border: 1px solid rgba(59, 130, 246, 0.3);
         }
-        .criteria-badge-founder {
+        .composition-badge.founder {
             background: rgba(225, 29, 72, 0.15);
             color: #FB7185;
             border: 1px solid rgba(225, 29, 72, 0.3);
+        }
+        .composition-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            font-family: var(--font-display);
+        }
+        .composition-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* Sector Pills */
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .sector-card {
+            background: rgba(18, 18, 24, 0.6);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 16px 18px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: var(--transition-smooth);
+        }
+        .sector-card:hover {
+            border-color: rgba(225, 29, 72, 0.4);
+            color: #FFFFFF;
+        }
+
+        /* Webisoft-Style Compact Run of Show Timeline */
+        .webisoft-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .webisoft-timeline-card {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 18px 24px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            transition: var(--transition-smooth);
+        }
+        .webisoft-timeline-card:hover {
+            border-color: var(--border-rose);
+            transform: translateY(-2px);
+        }
+        .webisoft-timeline-card.highlight {
+            border-left: 3px solid var(--accent-rose);
+            background: rgba(225, 29, 72, 0.06);
+            border-color: rgba(225, 29, 72, 0.35);
+        }
+        .webisoft-time {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-rose-light);
+            background: var(--accent-rose-subtle);
+            border: 1px solid var(--border-rose);
+            padding: 6px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+            min-width: 90px;
+            text-align: center;
+        }
+        .webisoft-timeline-card.highlight .webisoft-time {
+            background: rgba(225, 29, 72, 0.2);
+            color: #FFFFFF;
+            border-color: var(--accent-rose);
+        }
+        .webisoft-info h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin: 0;
+            line-height: 1.35;
+        }
+
+        @media (max-width: 992px) {
+            .event-hero-title { font-size: 2.6rem; }
+            .table-composition-grid { grid-template-columns: 1fr; }
+            .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .event-hero-section { padding-top: 130px; padding-bottom: 60px; }
+            .event-hero-title { font-size: 2.05rem; }
+            .event-spec-bar-centered { flex-direction: column; width: 100%; }
+            .event-hero-actions { flex-direction: column; width: 100%; }
+            .event-hero-actions .btn { width: 100%; }
+            .sectors-grid { grid-template-columns: 1fr; }
+            .webisoft-timeline-card { flex-direction: column; align-items: flex-start; gap: 10px; }
         }
     </style>
 
@@ -164,201 +433,347 @@
     <!-- Navigation Header -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="../index.html" class="brand-logo" id="nav-brand-logo">
+            <a href="/" class="brand-logo" id="nav-brand-logo">
                 OCCASIA <span class="logo-tag">EXECUTIVE</span>
             </a>
+            
             <ul class="nav-links">
-                
-                <li><a href="#who-is-invited">Who's Invited</a></li>
-                <li><a href="#run-of-show">Run of Show</a></li>
-                <li><a href="#past-dinners">Past Dinners</a></li>
-                <li><a href="#social-proof">Reviews</a></li>
+                <li>
+                    <a href="#who-is-invited">
+                        <span class="lang-fr">Invités</span>
+                        <span class="lang-en">Who's Invited</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#run-of-show">
+                        <span class="lang-fr">Déroulement</span>
+                        <span class="lang-en">Run of Show</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#past-dinners">
+                        <span class="lang-fr">Dîners passés</span>
+                        <span class="lang-en">Past Dinners</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#social-proof">
+                        <span class="lang-fr">Témoignages</span>
+                        <span class="lang-en">Reviews</span>
+                    </a>
+                </li>
             </ul>
-            <a href="#request-seat" class="nav-cta" id="nav-cta-btn">
-                Request Seat
-            </a>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <!-- Language Switcher Toggle -->
+                <div class="lang-switch-wrapper" aria-label="Sélection de la langue / Language selector">
+                    <button type="button" class="lang-btn active" data-lang-btn="fr" id="btn-lang-fr" title="Passer en français">FR</button>
+                    <span class="lang-divider">|</span>
+                    <button type="button" class="lang-btn" data-lang-btn="en" id="btn-lang-en" title="Switch to English">EN</button>
+                </div>
+
+                <a href="#request-seat" class="nav-cta" id="nav-cta-btn">
+                    <span class="lang-fr">Réserver</span>
+                    <span class="lang-en">Request Seat</span>
+                </a>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="section-padding" style="padding-top: 130px; padding-bottom: 50px;">
+        <!-- 1. Centered Event Hero Section with Fade Background -->
+        <section class="event-hero-section" id="hero">
             <div class="container">
-                <div class="dinner-hero-grid">
+                <div class="event-hero-container">
                     
-                    <!-- Left Column: Copy & Details -->
-                    <div>
-                        <p class="section-kicker">Executive Dinner · Thursday, November 26th · Montreal</p>
-                        <h1 class="hero-title" style="text-align: left; margin-bottom: 20px;">
-                            Montreal AI &amp; Tech<br>
-                            Executive Dinner<br>
-                            <span style="font-size: 1.35rem; font-weight: 600; color: var(--accent-rose-light); display: block; margin-top: 10px; letter-spacing: 0.01em;">Co-Hosted by Emergex</span>
-                        </h1>
+                    <!-- Date & Location Pill -->
+                    <div class="event-hero-badge">
+                        <span class="badge-dot"></span>
+                        <span class="lang-fr">Dîner Exécutif Privé · Jeudi 26 novembre · Montréal</span>
+                        <span class="lang-en">Private Executive Dinner · Thursday, November 26th · Montreal</span>
+                    </div>
 
-                        <!-- Key Details Spec Strip -->
-                        <div class="dinner-spec-bar" style="margin: 20px 0 28px;">
-                            <div class="spec-item">
-                                <span class="spec-label">Date</span>
-                                <span class="spec-value" style="color: var(--accent-rose-light);">November 26, 2026</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Schedule</span>
-                                <span class="spec-value">19:00 - 23:00 EST (7:00 PM)</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Room</span>
-                                <span class="spec-value">Strictly 15 Seats</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Location</span>
-                                <span class="spec-value">Private Salon · Downtown Montreal</span>
-                            </div>
+                    <!-- Centered Headline -->
+                    <h1 class="event-hero-title">
+                        <span class="lang-fr">Dîner Exécutif IA &amp; Tech<br>de Montréal</span>
+                        <span class="lang-en">Montreal AI &amp; Tech<br>Executive Dinner</span>
+                    </h1>
+
+                    <!-- Co-host Pill -->
+                    <div class="event-cohost-pill">
+                        <span class="cohost-prefix lang-fr">Co-organisé par</span>
+                        <span class="cohost-prefix lang-en">Co-Hosted by</span>
+                        <strong>Emergex</strong>
+                        <span class="cohost-tag lang-fr">32 ans d'expertise RS&amp;DE</span>
+                        <span class="cohost-tag lang-en">32 Years SR&amp;ED Expertise</span>
+                    </div>
+
+                    <!-- Centered Subtitle -->
+                    <p class="event-hero-subtitle">
+                        <span class="lang-fr">
+                            Une rencontre à huis clos strictement réservée à 15 fondateurs, CFOs, CTOs et VPs Ingénierie tech de Montréal. 4 heures d'échanges confidentiels et sans filtre sur les défis d'ingénierie, l'accélération R&amp;D et le levier des capitaux non dilutifs.
+                        </span>
+                        <span class="lang-en">
+                            An intimate, closed-door gathering strictly curated for 15 Montreal tech founders, CFOs, CTOs, and VPs of Engineering. 4 hours of candid, unhurried roundtable dialogue on engineering scaling, R&amp;D talent, and non-dilutive capital.
+                        </span>
+                    </p>
+
+                    <!-- Key Details Spec Strip (Centered) -->
+                    <div class="dinner-spec-bar event-spec-bar-centered">
+                        <div class="spec-item">
+                            <span class="spec-label lang-fr">Date</span>
+                            <span class="spec-label lang-en">Date</span>
+                            <span class="spec-value" style="color: var(--accent-rose-light);">
+                                <span class="lang-fr">Jeudi 26 novembre 2026</span>
+                                <span class="lang-en">November 26, 2026</span>
+                            </span>
                         </div>
-
-                        <!-- CTA Actions -->
-                        <div class="hero-actions" style="justify-content: flex-start;">
-                            <a href="#request-seat" class="btn btn-primary">
-                                Request an Invitation &rarr;
-                            </a>
-                            <a href="#who-is-invited" class="btn btn-secondary">
-                                Who Is Invited
-                            </a>
+                        <div class="spec-item">
+                            <span class="spec-label lang-fr">Horaire</span>
+                            <span class="spec-label lang-en">Schedule</span>
+                            <span class="spec-value">19h00 – 23h00 (7:00 PM)</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label lang-fr">Format</span>
+                            <span class="spec-label lang-en">Room</span>
+                            <span class="spec-value">
+                                <span class="lang-fr">Strictement 15 places</span>
+                                <span class="lang-en">Strictly 15 Seats</span>
+                            </span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label lang-fr">Lieu</span>
+                            <span class="spec-label lang-en">Location</span>
+                            <span class="spec-value">
+                                <span class="lang-fr">Salon Privé · Centre-ville de Montréal</span>
+                                <span class="lang-en">Private Salon · Downtown Montreal</span>
+                            </span>
                         </div>
                     </div>
 
-                    <!-- Right Column: Real Atmosphere Visual -->
-                    <div>
-                        <div class="dinner-visual-card">
-                            <img 
-                                src="../assets/images/real_dinner_observation.jpg" 
-                                alt="Montreal AI & Tech Executive Dinner Table" 
-                                class="dinner-visual-img"
-                            />
-                            <div class="dinner-visual-footer">
-                                <div>
-                                    <strong style="color: #FFFFFF; display: block;">Montreal AI &amp; Tech Executive Dinner</strong>
-                                    <span>Thursday, November 26th · 7:00 PM (19h)</span>
-                                </div>
-                                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-rose-light); background: var(--accent-rose-subtle); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-rose);">
-                                    15 Seats Maximum
-                                </span>
-                            </div>
-                        </div>
+                    <!-- CTA Actions (Centered) -->
+                    <div class="event-hero-actions">
+                        <a href="#request-seat" class="btn btn-primary" style="padding: 15px 36px; font-size: 1rem;">
+                            <span class="lang-fr">Demander une invitation &rarr;</span>
+                            <span class="lang-en">Request an Invitation &rarr;</span>
+                        </a>
+                        <a href="#run-of-show" class="btn btn-secondary" style="padding: 15px 28px; font-size: 1rem;">
+                            <span class="lang-fr">Voir le déroulement</span>
+                            <span class="lang-en">View Run of Show</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Footer -->
+                    <div class="event-trust-footer">
+                        <span class="lang-fr">Strictement 15 places · Aucun pitch commercial ni diapositive · Sélection par les pairs</span>
+                        <span class="lang-en">Strictly 15 Seats · Zero Commercial Pitches or Slides · Curated Peer Selection</span>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        
-
-        <!-- SECTION: WHO WE ARE INVITING -->
-        <section class="section-padding" id="who-is-invited" style="padding: 60px 0; background: rgba(14, 14, 18, 0.4); border-top: 1px solid var(--border-glass);">
+        <!-- 2. SECTION: WHO SITS AT THE TABLE -->
+        <section class="section-padding" id="who-is-invited" style="padding: 70px 0; background: rgba(14, 14, 18, 0.4); border-bottom: 1px solid var(--border-glass);">
             <div class="container">
                 <div class="section-header text-center" style="margin-bottom: 36px;">
-                    <p class="section-kicker">Curated Guest Profile</p>
-                    <h2 class="section-title">Who Sits At The Table</h2>
-                </div>
-
-                <div class="verticals-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-                    <div class="glass-card" style="padding: 28px 24px; text-align: center; border-radius: 12px; border: 1px solid var(--border-glass); transition: all 0.2s ease;">
-                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin: 0;">SaaS &amp; Cloud Platforms</h3>
-                    </div>
-
-                    <div class="glass-card" style="padding: 28px 24px; text-align: center; border-radius: 12px; border: 1px solid var(--border-glass); transition: all 0.2s ease;">
-                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin: 0;">Applied AI &amp; Machine Learning</h3>
-                    </div>
-
-                    <div class="glass-card" style="padding: 28px 24px; text-align: center; border-radius: 12px; border: 1px solid var(--border-glass); transition: all 0.2s ease;">
-                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin: 0;">Software Engineering Consultancies</h3>
-                    </div>
-
-                    <div class="glass-card" style="padding: 28px 24px; text-align: center; border-radius: 12px; border: 1px solid var(--border-glass); transition: all 0.2s ease;">
-                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF; margin: 0;">HealthTech / Hardware-Software / IoT</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: RUN OF SHOW -->
-        <section class="section-padding" id="run-of-show" style="padding: 60px 0; border-top: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header" style="margin-bottom: 36px;">
-                    <p class="section-kicker">November 26th Schedule</p>
-                    <h2 class="section-title">The Run of Show</h2>
-                    <p class="section-desc">
-                        Starts at 7:00 PM (19:00). No rigid presentation agenda, just natural momentum and high-signal conversation.
+                    <p class="section-kicker">
+                        <span class="lang-fr">Profil des Invités</span>
+                        <span class="lang-en">Curated Guest Profile</span>
+                    </p>
+                    <h2 class="section-title">
+                        <span class="lang-fr">Qui S'assoit à la Table</span>
+                        <span class="lang-en">Who Sits At The Table</span>
+                    </h2>
+                    <p class="section-subtitle" style="max-width: 620px; margin: 0 auto;">
+                        <span class="lang-fr">Une composition rigoureuse réunissant leaders techniques et décideurs financiers confrontés à de vrais enjeux de croissance et d'ingénierie.</span>
+                        <span class="lang-en">Carefully composed to unite technical leaders and financial decision-makers facing real scaling and engineering challenges.</span>
                     </p>
                 </div>
 
-                <div class="timeline-container">
-                    <div class="timeline-card">
-                        <div class="timeline-time">19:00 (7:00 PM)</div>
-                        <div class="timeline-info">
-                            <h4>1-Hour Welcome Cocktails &amp; Executive Networking</h4>
-                            <p>Arrivals, welcome drinks in the private lounge, and informal introductions to meet fellow tech leaders.</p>
+                <div class="table-composition-grid">
+                    <!-- Profile 1: CTOs & Engineering -->
+                    <div class="composition-card">
+                        <div class="composition-badge cto">
+                            <span class="lang-fr">Profil 01 · Technique</span>
+                            <span class="lang-en">Profile 01 · Technical</span>
+                        </div>
+                        <h3 class="composition-title">
+                            <span class="lang-fr">CTOs &amp; Directeurs R&amp;D</span>
+                            <span class="lang-en">CTOs &amp; VPs of Engineering</span>
+                        </h3>
+                        <p class="composition-desc">
+                            <span class="lang-fr">Dirigeants d'équipes de développement, d'architectures cloud et d'IA appliquée, axés sur la scalabilité produit et la rétention des talents seniors.</span>
+                            <span class="lang-en">Leading engineering, cloud architecture, and applied AI teams, focused on product scalability and senior talent retention.</span>
+                        </p>
+                    </div>
+
+                    <!-- Profile 2: CFOs & Finance -->
+                    <div class="composition-card">
+                        <div class="composition-badge cfo">
+                            <span class="lang-fr">Profil 02 · Finance</span>
+                            <span class="lang-en">Profile 02 · Finance</span>
+                        </div>
+                        <h3 class="composition-title">
+                            <span class="lang-fr">CFOs &amp; Directeurs Financiers</span>
+                            <span class="lang-en">CFOs &amp; VPs of Finance</span>
+                        </h3>
+                        <p class="composition-desc">
+                            <span class="lang-fr">Responsables de l'allocation de capital, du runway, de la maximisation des crédits RS&amp;DE / CDAE et du financement non dilutif.</span>
+                            <span class="lang-en">Managing capital allocation, runway, R&amp;D tax incentive recovery (SR&amp;ED / CDAE), and non-dilutive grant acceleration.</span>
+                        </p>
+                    </div>
+
+                    <!-- Profile 3: Founders & CEOs -->
+                    <div class="composition-card">
+                        <div class="composition-badge founder">
+                            <span class="lang-fr">Profil 03 · Direction</span>
+                            <span class="lang-en">Profile 03 · Executive</span>
+                        </div>
+                        <h3 class="composition-title">
+                            <span class="lang-fr">Fondateurs &amp; Présidents</span>
+                            <span class="lang-en">Founders &amp; CEOs</span>
+                        </h3>
+                        <p class="composition-desc">
+                            <span class="lang-fr">Bâtisseurs d'entreprises technologiques québécoises générant de 3M$ à 30M$+ de revenus avec une masse salariale technique active.</span>
+                            <span class="lang-en">Founders of high-growth Canadian tech scaleups with $3M to $30M+ revenue and substantial technical payroll.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4 Sector Badges -->
+                <div class="sectors-grid">
+                    <div class="sector-card">SaaS &amp; Cloud Platforms</div>
+                    <div class="sector-card">Applied AI &amp; Machine Learning</div>
+                    <div class="sector-card">Software Engineering &amp; Dev</div>
+                    <div class="sector-card">HealthTech / IoT / Robotics</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SECTION: THE RUN OF SHOW (Webisoft Schedule with Emergex Welcome Word) -->
+        <section class="section-padding" id="run-of-show" style="padding: 70px 0; border-bottom: 1px solid var(--border-glass);">
+            <div class="container">
+                <div class="section-header text-center" style="margin-bottom: 36px;">
+                    <p class="section-kicker">
+                        <span class="lang-fr">Déroulement de la Soirée</span>
+                        <span class="lang-en">November 26th Schedule</span>
+                    </p>
+                    <h2 class="section-title">
+                        <span class="lang-fr">Le Déroulement</span>
+                        <span class="lang-en">The Run of Show</span>
+                    </h2>
+                    <p class="section-subtitle" style="max-width: 580px; margin: 0 auto;">
+                        <span class="lang-fr">Débute à 19h00. Aucun agenda rigide ni diapositives, uniquement des échanges ouverts entre pairs.</span>
+                        <span class="lang-en">Starts at 7:00 PM (19h00). No rigid presentation agenda, just natural momentum and high-signal conversation.</span>
+                    </p>
+                </div>
+
+                <div class="webisoft-timeline">
+                    <!-- Step 1: 19h00 -->
+                    <div class="webisoft-timeline-card">
+                        <div class="webisoft-time">19h00</div>
+                        <div class="webisoft-info">
+                            <h4>
+                                <span class="lang-fr">Accueil &amp; Cocktails</span>
+                                <span class="lang-en">Arrivals &amp; Welcome Cocktails</span>
+                            </h4>
                         </div>
                     </div>
 
-                    <div class="timeline-card">
-                        <div class="timeline-time">20:00 (8:00 PM)</div>
-                        <div class="timeline-info">
-                            <h4>Seated Host Welcome &amp; Table Framing</h4>
-                            <p>Seating, first course, and brief framing by Pierre Savignac on the 2026 Canadian R&amp;D financing landscape.</p>
+                    <!-- Step 2: 20h00 -->
+                    <div class="webisoft-timeline-card">
+                        <div class="webisoft-time">20h00</div>
+                        <div class="webisoft-info">
+                            <h4>
+                                <span class="lang-fr">Fin du networking &amp; Passage à table</span>
+                                <span class="lang-en">Networking Wrap-up &amp; Seating at the Table</span>
+                            </h4>
                         </div>
                     </div>
 
-                    <div class="timeline-card">
-                        <div class="timeline-time">20:30 (8:30 PM)</div>
-                        <div class="timeline-info">
-                            <h4>3-Course Dinner &amp; Curated Roundtable Discussion</h4>
-                            <p>Seated dinner with candid, unfiltered discussions on engineering scalability, team productivity, and leveraging non-dilutive government capital.</p>
+                    <!-- Step 3: 20h10 (Emergex Welcome Word - Highlighted Card) -->
+                    <div class="webisoft-timeline-card highlight">
+                        <div class="webisoft-time">20h10</div>
+                        <div class="webisoft-info">
+                            <h4>
+                                <span class="lang-fr">Mot de bienvenue d'Emergex &amp; Service des entrées</span>
+                                <span class="lang-en">Welcome Word from Emergex &amp; Appetizers Service</span>
+                            </h4>
                         </div>
                     </div>
 
-                    <div class="timeline-card">
-                        <div class="timeline-time">22:30 (10:30 PM)</div>
-                        <div class="timeline-info">
-                            <h4>Digestifs &amp; 1-on-1 Discussions</h4>
-                            <p>Final takeaways, peer contact exchange, and informal wrap-up before departing.</p>
+                    <!-- Step 4: 21h30 -->
+                    <div class="webisoft-timeline-card">
+                        <div class="webisoft-time">21h30</div>
+                        <div class="webisoft-info">
+                            <h4>
+                                <span class="lang-fr">Fin du dîner &amp; Échanges libres</span>
+                                <span class="lang-en">Dinner Wrap-up &amp; Open Roundtable Exchanges</span>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: 23h00 -->
+                    <div class="webisoft-timeline-card">
+                        <div class="webisoft-time">23h00</div>
+                        <div class="webisoft-info">
+                            <h4>
+                                <span class="lang-fr">Fin de la soirée</span>
+                                <span class="lang-en">End of the Evening &amp; Departures</span>
+                            </h4>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Past Executive Dinners Hosted (Copied from Landing Page) -->
-        <section class="section-padding" id="past-dinners" style="background: rgba(14, 14, 18, 0.4); border-top: 1px solid var(--border-glass);">
+        <!-- 4. SECTION: PAST EXECUTIVE DINNERS -->
+        <section class="section-padding" id="past-dinners" style="padding: 70px 0; background: rgba(14, 14, 18, 0.4); border-bottom: 1px solid var(--border-glass);">
             <div class="container">
                 <div class="section-header text-center">
-                    <p class="section-kicker">Proven Track Record</p>
-                    <h2 class="section-title">Past Executive Dinners Hosted</h2>
+                    <p class="section-kicker">
+                        <span class="lang-fr">Historique Vérifié</span>
+                        <span class="lang-en">Proven Track Record</span>
+                    </p>
+                    <h2 class="section-title">
+                        <span class="lang-fr">Dîners Exécutifs Récents</span>
+                        <span class="lang-en">Past Executive Dinners Hosted</span>
+                    </h2>
                     <p class="section-subtitle">
-                        Private executive tables recently hosted in Montreal and Toronto.
+                        <span class="lang-fr">Tables privées exclusives récemment organisées à Montréal et Toronto.</span>
+                        <span class="lang-en">Private executive tables recently hosted in Montreal and Toronto.</span>
                     </p>
                 </div>
 
                 <div class="events-grid">
-                    <!-- Event 1: E-Commerce (Montreal) -->
+                    <!-- Event 1: Tech & SaaS (Toronto) -->
                     <div class="event-card">
                         <div class="event-card-media">
-                            <img src="../assets/images/dinner_ecom_vip.png" alt="Dîner Exécutif E-Commerce" class="event-card-img" loading="lazy" decoding="async">
-                            <span class="event-card-badge">E-Commerce</span>
+                            <img src="/assets/images/dinner_tech_toronto.png" alt="Table Ronde Fondateurs Tech & SaaS à Toronto" class="event-card-img" loading="lazy" decoding="async">
+                            <span class="event-card-badge">Tech &amp; SaaS</span>
                         </div>
                         <div class="event-card-body">
                             <div class="event-card-meta">
-                                <span>Montréal</span>
+                                <span>Toronto</span>
                                 <span>•</span>
-                                <span>Table Privée</span>
+                                <span>
+                                    <span class="lang-fr">Table Privée</span>
+                                    <span class="lang-en">Private Dining</span>
+                                </span>
                             </div>
-                            <h3 class="event-card-title">Dîner Exécutif E-Commerce</h3>
+                            <h3 class="event-card-title">
+                                <span class="lang-fr">Table Ronde Fondateurs Tech &amp; SaaS</span>
+                                <span class="lang-en">Tech &amp; SaaS Founders Roundtable</span>
+                            </h3>
                             <p class="event-card-desc">
-                                Table ronde privée réunissant des fondateurs et directeurs e-commerce autour de leurs enjeux de scalabilité.
+                                <span class="lang-fr">Dîner privé réunissant des directeurs d'ingénierie et d'entreprises technologiques autour de la scalabilité et du capital.</span>
+                                <span class="lang-en">Private dinner uniting technical leaders and SaaS founders around engineering scale and growth capital.</span>
                             </p>
                             <div class="event-card-tags">
-                                <span class="event-pill">Montréal</span>
-                                <span class="event-pill">E-Commerce</span>
-                                <span class="event-pill">Marques DTC</span>
+                                <span class="event-pill">Toronto</span>
+                                <span class="event-pill">SaaS</span>
+                                <span class="event-pill">Tech</span>
                             </div>
                         </div>
                     </div>
@@ -366,47 +781,61 @@
                     <!-- Event 2: NFT & Web3 (Toronto) -->
                     <div class="event-card">
                         <div class="event-card-media">
-                            <img src="../assets/images/dinner_nft_web3.png" alt="Dîner Exécutif NFT & Web3" class="event-card-img" loading="lazy" decoding="async">
+                            <img src="/assets/images/dinner_nft_web3.png" alt="Dîner Exécutif Web3" class="event-card-img" loading="lazy" decoding="async">
                             <span class="event-card-badge">Web3 &amp; Tech</span>
                         </div>
                         <div class="event-card-body">
                             <div class="event-card-meta">
                                 <span>Toronto</span>
                                 <span>•</span>
-                                <span>Table Privée</span>
+                                <span>
+                                    <span class="lang-fr">Table Privée</span>
+                                    <span class="lang-en">Private Dining</span>
+                                </span>
                             </div>
-                            <h3 class="event-card-title">Dîner Exécutif NFT &amp; Web3</h3>
+                            <h3 class="event-card-title">
+                                <span class="lang-fr">Dîner Exécutif Web3 &amp; Tech</span>
+                                <span class="lang-en">Web3 &amp; Tech Executive Dinner</span>
+                            </h3>
                             <p class="event-card-desc">
-                                Rencontre à huis clos entre fondateurs et bâtisseurs de projets Web3 et technologies distribuées.
+                                <span class="lang-fr">Rencontre à huis clos entre fondateurs et bâtisseurs de technologies distribuées et de systèmes complexes.</span>
+                                <span class="lang-en">Closed-door meeting between founders and architects of distributed systems and modern web technologies.</span>
                             </p>
                             <div class="event-card-tags">
                                 <span class="event-pill">Toronto</span>
                                 <span class="event-pill">Web3</span>
-                                <span class="event-pill">Technologies</span>
+                                <span class="event-pill">Architecture</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Event 3: Retail (Montreal) -->
+                    <!-- Event 3: Montreal Executive Dinner (Founders) -->
                     <div class="event-card">
                         <div class="event-card-media">
-                            <img src="../assets/images/dinner_retail_vip.png" alt="Dîner Dirigeants Retail" class="event-card-img" loading="lazy" decoding="async">
-                            <span class="event-card-badge">Retail</span>
+                            <img src="/assets/images/founders_dinner_bg.jpg" alt="Dîner Exécutif Fondateurs Montréal" class="event-card-img" loading="lazy" decoding="async">
+                            <span class="event-card-badge">Montréal VIP</span>
                         </div>
                         <div class="event-card-body">
                             <div class="event-card-meta">
                                 <span>Montréal</span>
                                 <span>•</span>
-                                <span>Table Privée</span>
+                                <span>
+                                    <span class="lang-fr">Table Privée</span>
+                                    <span class="lang-en">Private Dining</span>
+                                </span>
                             </div>
-                            <h3 class="event-card-title">Dîner Dirigeants Retail</h3>
+                            <h3 class="event-card-title">
+                                <span class="lang-fr">Dîner Exécutif Fondateurs Montréal</span>
+                                <span class="lang-en">Montreal Founders Executive Dinner</span>
+                            </h3>
                             <p class="event-card-desc">
-                                Dîner privé réunissant des dirigeants de marques de détail et de chaînes de distribution.
+                                <span class="lang-fr">Table ronde réunissant des dirigeants québécois pour échanger sans filtre sur leurs défis d'équipe, de financement et de croissance.</span>
+                                <span class="lang-en">Private roundtable gathering Quebec tech founders to exchange candidly on scaling, hiring, and financing.</span>
                             </p>
                             <div class="event-card-tags">
                                 <span class="event-pill">Montréal</span>
-                                <span class="event-pill">Retail</span>
-                                <span class="event-pill">Distribution</span>
+                                <span class="event-pill">Fondateurs</span>
+                                <span class="event-pill">Direction</span>
                             </div>
                         </div>
                     </div>
@@ -414,14 +843,21 @@
             </div>
         </section>
 
-        <!-- What Founders & Executives Say Section (Copied from Landing Page) -->
-        <section class="testimonials-section section-padding" id="social-proof">
+        <!-- 5. SECTION: TESTIMONIALS & REVIEWS -->
+        <section class="testimonials-section section-padding" id="social-proof" style="padding: 70px 0; border-bottom: 1px solid var(--border-glass);">
             <div class="container">
-                <div class="section-header text-center" style="margin-bottom: 24px;">
-                    <p class="section-kicker">Verified Executive Proof</p>
-                    <h2 class="section-title">What Founders &amp; Executives Say</h2>
+                <div class="section-header text-center" style="margin-bottom: 28px;">
+                    <p class="section-kicker">
+                        <span class="lang-fr">Retours d'Expérience</span>
+                        <span class="lang-en">Verified Executive Proof</span>
+                    </p>
+                    <h2 class="section-title">
+                        <span class="lang-fr">Ce Que Disent les Dirigeants</span>
+                        <span class="lang-en">What Founders &amp; Executives Say</span>
+                    </h2>
                     <p class="section-subtitle">
-                        Direct feedback from C-level leaders and scaleup founders who have attended and co-hosted our private tables.
+                        <span class="lang-fr">Retours directs de dirigeants ayant pris part à nos tables exécutives privées.</span>
+                        <span class="lang-en">Direct feedback from C-level leaders and scaleup founders who have attended our private tables.</span>
                     </p>
                 </div>
 
@@ -430,16 +866,19 @@
                     <div class="testimonial-card featured-partner">
                         <div>
                             <div class="testimonial-header-badge">
-                                <span class="testimonial-tag">Attended Executive Dinner</span>
+                                <span class="testimonial-tag">
+                                    <span class="lang-fr">Participant Dîner Exécutif</span>
+                                    <span class="lang-en">Attended Executive Dinner</span>
+                                </span>
                                 <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                             </div>
                             <blockquote class="testimonial-quote">
-                                « Thank you Kevin Leumassi The concept is very interesting ! »
+                                « Merci Kevin Leumassi, le concept est vraiment très intéressant ! »
                             </blockquote>
                         </div>
                         <div class="testimonial-author-row">
                             <div class="testimonial-avatar">
-                                <img src="../assets/images/olivier_brassard.jpg" alt="Olivier Brassard" loading="lazy" decoding="async">
+                                <img src="/assets/images/olivier_brassard.jpg" alt="Olivier Brassard" loading="lazy" decoding="async">
                             </div>
                             <div class="testimonial-meta">
                                 <span class="testimonial-name">Olivier Brassard</span>
@@ -453,16 +892,19 @@
                     <div class="testimonial-card featured-partner">
                         <div>
                             <div class="testimonial-header-badge">
-                                <span class="testimonial-tag">Co-Hosted Executive Dinner</span>
+                                <span class="testimonial-tag">
+                                    <span class="lang-fr">Co-hôte Dîner Exécutif</span>
+                                    <span class="lang-en">Co-Hosted Executive Dinner</span>
+                                </span>
                                 <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                             </div>
                             <blockquote class="testimonial-quote">
-                                « I loved this dinner, thanks so much for the invitation Kevin Leumassi. »
+                                « J'ai adoré ce dîner, merci infiniment pour l'invitation Kevin. »
                             </blockquote>
                         </div>
                         <div class="testimonial-author-row">
                             <div class="testimonial-avatar">
-                                <img src="../assets/images/damiano_raveenthiran.jpg" alt="Damiano Raveenthiran" loading="lazy" decoding="async">
+                                <img src="/assets/images/damiano_raveenthiran.jpg" alt="Damiano Raveenthiran" loading="lazy" decoding="async">
                             </div>
                             <div class="testimonial-meta">
                                 <span class="testimonial-name">Damiano Raveenthiran</span>
@@ -476,16 +918,19 @@
                     <div class="testimonial-card">
                         <div>
                             <div class="testimonial-header-badge">
-                                <span class="testimonial-tag">Attended Executive Dinner</span>
+                                <span class="testimonial-tag">
+                                    <span class="lang-fr">Participante Dîner Exécutif</span>
+                                    <span class="lang-en">Attended Executive Dinner</span>
+                                </span>
                                 <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                             </div>
                             <blockquote class="testimonial-quote">
-                                « Thank you Kevin for always organizing such great events that really allow folks to share and be inspired. So many great conversations and connections. »
+                                « Merci Kevin pour ces soirées toujours très riches en partages inspirants, en belles conversations et en connexions de haut niveau. »
                             </blockquote>
                         </div>
                         <div class="testimonial-author-row">
                             <div class="testimonial-avatar">
-                                <img src="../assets/images/natalia_kaplan.jpg" alt="Natalia Kaplan" loading="lazy" decoding="async">
+                                <img src="/assets/images/natalia_kaplan.jpg" alt="Natalia Kaplan" loading="lazy" decoding="async">
                             </div>
                             <div class="testimonial-meta">
                                 <span class="testimonial-name">Natalia Kaplan</span>
@@ -498,80 +943,131 @@
             </div>
         </section>
 
-        <!-- SECTION: RSVP FORM -->
-        <section class="section-padding" id="request-seat" style="padding: 60px 0 80px; background: radial-gradient(circle at 50% 30%, rgba(225, 29, 72, 0.08) 0%, transparent 60%); border-top: 1px solid var(--border-glass);">
+        <!-- 6. SECTION: RSVP INVITATION REQUEST FORM -->
+        <section class="section-padding" id="request-seat" style="padding: 70px 0 90px; background: radial-gradient(circle at 50% 30%, rgba(225, 29, 72, 0.08) 0%, transparent 60%);">
             <div class="container">
-                <div class="section-header" style="margin-bottom: 32px;">
-                    <p class="section-kicker">Thursday, November 26th · Montreal</p>
-                    <h2 class="section-title">Request Your Seat</h2>
-                    <p class="section-desc" style="max-width: 500px;">
-                        Strictly capped at 15 tech leaders. We review each application personally within 24 hours.
+                <div class="section-header text-center" style="margin-bottom: 32px;">
+                    <p class="section-kicker">
+                        <span class="lang-fr">Jeudi 26 novembre 2026 · Montréal</span>
+                        <span class="lang-en">Thursday, November 26th · Montreal</span>
+                    </p>
+                    <h2 class="section-title">
+                        <span class="lang-fr">Demandez Votre Invitation</span>
+                        <span class="lang-en">Request Your Seat</span>
+                    </h2>
+                    <p class="section-subtitle" style="max-width: 520px; margin: 0 auto;">
+                        <span class="lang-fr">Strictement limité à 15 dirigeants tech. Chaque demande est examinée personnellement sous 24h.</span>
+                        <span class="lang-en">Strictly capped at 15 tech leaders. We review each application personally within 24 hours.</span>
                     </p>
                 </div>
 
                 <div class="dinner-form-wrap">
                     <form id="dinnerForm">
                         <div class="form-group">
-                            <label class="form-label" for="dinnerFullName">Full Name</label>
-                            <input type="text" id="dinnerFullName" class="form-input" placeholder="e.g. Marc Dubois" required>
+                            <label class="form-label" for="dinnerFullName">
+                                <span class="lang-fr">Nom complet</span>
+                                <span class="lang-en">Full Name</span>
+                            </label>
+                            <input type="text" id="dinnerFullName" class="form-input" 
+                                data-placeholder-fr="ex. Marc Dubois"
+                                data-placeholder-en="e.g. Marc Dubois"
+                                placeholder="ex. Marc Dubois" required>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="dinnerWorkEmail">Work Email</label>
-                            <input type="email" id="dinnerWorkEmail" class="form-input" placeholder="marc@company.com" required>
+                            <label class="form-label" for="dinnerWorkEmail">
+                                <span class="lang-fr">Courriel professionnel</span>
+                                <span class="lang-en">Work Email</span>
+                            </label>
+                            <input type="email" id="dinnerWorkEmail" class="form-input" 
+                                data-placeholder-fr="marc@entreprise.com"
+                                data-placeholder-en="marc@company.com"
+                                placeholder="marc@entreprise.com" required>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="dinnerPhoneNumber">Direct Phone Number</label>
-                            <input type="tel" id="dinnerPhoneNumber" class="form-input" placeholder="+1 (514) 000-0000" required>
+                            <label class="form-label" for="dinnerPhoneNumber">
+                                <span class="lang-fr">Numéro de téléphone direct</span>
+                                <span class="lang-en">Direct Phone Number</span>
+                            </label>
+                            <input type="tel" id="dinnerPhoneNumber" class="form-input" 
+                                data-placeholder-fr="+1 (514) 000-0000"
+                                data-placeholder-en="+1 (514) 000-0000"
+                                placeholder="+1 (514) 000-0000" required>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="dinnerCompanyName">Company Name</label>
-                            <input type="text" id="dinnerCompanyName" class="form-input" placeholder="e.g. Hexa Software" required>
+                            <label class="form-label" for="dinnerCompanyName">
+                                <span class="lang-fr">Nom de l'entreprise</span>
+                                <span class="lang-en">Company Name</span>
+                            </label>
+                            <input type="text" id="dinnerCompanyName" class="form-input" 
+                                data-placeholder-fr="ex. Hexa Solutions"
+                                data-placeholder-en="e.g. Hexa Software"
+                                placeholder="ex. Hexa Solutions" required>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="dinnerRole">Executive Role</label>
+                            <label class="form-label" for="dinnerRole">
+                                <span class="lang-fr">Titre / Rôle exécutif</span>
+                                <span class="lang-en">Executive Role</span>
+                            </label>
                             <select id="dinnerRole" class="form-select" required>
-                                <option value="" disabled selected>Select your role...</option>
+                                <option value="" disabled selected class="lang-fr">Sélectionnez votre rôle...</option>
+                                <option value="" disabled class="lang-en">Select your role...</option>
                                 <option value="CTO">Chief Technology Officer (CTO)</option>
-                                <option value="VP Engineering">VP of Engineering</option>
-                                <option value="CFO">Chief Financial Officer (CFO)</option>
-                                <option value="VP Finance">VP of Finance / Head of Finance</option>
-                                <option value="Founder / CEO">Founder / Co-Founder / CEO</option>
-                                <option value="Other C-Level">Other Technical / Executive C-Level</option>
+                                <option value="VP Engineering">VP of Engineering / VP Ingénierie</option>
+                                <option value="CFO">Chief Financial Officer (CFO / DAF)</option>
+                                <option value="VP Finance">VP of Finance / Dir. Finance</option>
+                                <option value="Founder / CEO">Founder / Co-Fondateur / CEO</option>
+                                <option value="Other C-Level">Autre rôle C-Level technique / exécutif</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="dinnerTeamSize">Company Team Size</label>
+                            <label class="form-label" for="dinnerTeamSize">
+                                <span class="lang-fr">Taille de l'équipe</span>
+                                <span class="lang-en">Company Team Size</span>
+                            </label>
                             <select id="dinnerTeamSize" class="form-select" required>
-                                <option value="5-15 employees">5 – 15 employees</option>
-                                <option value="16-40 employees" selected>16 – 40 employees</option>
-                                <option value="41-80 employees">41 – 80 employees</option>
-                                <option value="80+ employees">80+ employees</option>
+                                <option value="5-15 employees">5 – 15 employés / employees</option>
+                                <option value="16-40 employees" selected>16 – 40 employés / employees</option>
+                                <option value="41-80 employees">41 – 80 employés / employees</option>
+                                <option value="80+ employees">80+ employés / employees</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label" for="dinnerNotes">Top Topic or Challenge You'd Like to Discuss <span style="color: var(--text-dim); font-size: 0.8rem;">(Optional)</span></label>
-                            <textarea id="dinnerNotes" class="form-textarea" rows="2" placeholder="e.g. Scaling dev teams, SR&ED / CDAE optimization, infrastructure costs..."></textarea>
+                            <label class="form-label" for="dinnerNotes">
+                                <span class="lang-fr">Défi ou sujet principal que vous aimeriez aborder <span style="color: var(--text-dim); font-size: 0.8rem;">(Optionnel)</span></span>
+                                <span class="lang-en">Top Topic or Challenge You'd Like to Discuss <span style="color: var(--text-dim); font-size: 0.8rem;">(Optional)</span></span>
+                            </label>
+                            <textarea id="dinnerNotes" class="form-textarea" rows="2" 
+                                data-placeholder-fr="ex. Scaling des équipes de dev, optimisation RS&DE / CDAE, coûts d'infrastructure cloud/IA..."
+                                data-placeholder-en="e.g. Scaling dev teams, SR&ED / CDAE optimization, infrastructure costs..."
+                                placeholder="ex. Scaling des équipes de dev, optimisation RS&DE / CDAE, coûts d'infrastructure cloud/IA..."></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;" id="dinner-submit-btn">
-                            Request Dinner Invitation &rarr;
+                            <span class="lang-fr">Demander une invitation au dîner &rarr;</span>
+                            <span class="lang-en">Request Dinner Invitation &rarr;</span>
                         </button>
                     </form>
 
                     <!-- Success Message Container -->
-                    <div id="dinnerSuccessBox" style="display: none; text-align: center; padding: 20px 8px;">
+                    <div id="dinnerSuccessBox" style="display: none; text-align: center; padding: 24px 8px;">
                         <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(225, 29, 72, 0.15); border: 1px solid var(--accent-rose); color: var(--accent-rose); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem;">✓</div>
-                        <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; font-family: var(--font-display);">Invitation Request Received</h3>
+                        <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; font-family: var(--font-display);">
+                            <span class="lang-fr">Demande d'Invitation Reçue</span>
+                            <span class="lang-en">Invitation Request Received</span>
+                        </h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;" id="dinnerSuccessText">
-                            Thank you. We have logged your request in our CRM and will reach out directly to confirm your seat for November 26th.
+                            <!-- Populated dynamically via JS -->
                         </p>
-                        <a href="../index.html" class="btn btn-secondary">Return to Occasia Agency</a>
+                        <a href="/" class="btn btn-secondary">
+                            <span class="lang-fr">Retour au site Occasia</span>
+                            <span class="lang-en">Return to Occasia Agency</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -586,19 +1082,24 @@
                     OCCASIA <span class="logo-tag">EXECUTIVE</span>
                 </div>
                 <div style="color: var(--text-muted); font-size: 0.85rem;">
-                    Montreal AI &amp; Tech Executive Dinner · November 26th, Montreal · Hosted by Emergex
+                    <span class="lang-fr">Dîner Exécutif IA &amp; Tech de Montréal · 26 novembre · Co-organisé par Emergex</span>
+                    <span class="lang-en">Montreal AI &amp; Tech Executive Dinner · November 26th · Hosted by Emergex</span>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>© Occasia Agency &amp; Emergex. All rights reserved.</div>
-                <div>Looking to install the executive dinner system for your firm? <a href="../index.html" style="color: #FFFFFF; text-decoration: underline;">Learn How It Works</a>.</div>
+                <div>© Occasia Agency &amp; Emergex SR&amp;ED. Tous droits réservés / All rights reserved.</div>
+                <div>
+                    <span class="lang-fr">Vous souhaitez organiser un dîner privé pour vos comptes clés ? <a href="/" style="color: #FFFFFF; text-decoration: underline;">Découvrir la méthode</a>.</span>
+                    <span class="lang-en">Looking to install the executive dinner system for your firm? <a href="/" style="color: #FFFFFF; text-decoration: underline;">Learn How It Works</a>.</span>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Form Logic Script -->
+    <!-- Form Logic & Bilingual Engine Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Navbar Scroll Effect
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 40) {
@@ -608,6 +1109,77 @@
                 }
             });
 
+            // ----------------------------------------------------
+            // Bilingual Detection & Switching Engine
+            // ----------------------------------------------------
+            function updateFormPlaceholders(lang) {
+                const inputs = document.querySelectorAll('[data-placeholder-fr]');
+                inputs.forEach(input => {
+                    input.placeholder = (lang === 'fr') 
+                        ? input.getAttribute('data-placeholder-fr') 
+                        : input.getAttribute('data-placeholder-en');
+                });
+            }
+
+            function setLanguage(lang) {
+                const validLang = (lang === 'en') ? 'en' : 'fr';
+                document.documentElement.setAttribute('lang', validLang);
+                document.documentElement.className = (validLang === 'en') ? 'lang-en' : 'lang-fr';
+                localStorage.setItem('occasia_dinner_lang', validLang);
+
+                // Update Toggle Buttons
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if (btn.getAttribute('data-lang-btn') === validLang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Update Dynamic Placeholders
+                updateFormPlaceholders(validLang);
+
+                // Update Page Meta
+                if (validLang === 'fr') {
+                    document.title = "Dîner Exécutif IA & Tech de Montréal | 26 novembre · Co-organisé par Emergex";
+                } else {
+                    document.title = "Montreal AI & Tech Executive Dinner | November 26th · Hosted by Emergex";
+                }
+            }
+
+            function detectInitialLanguage() {
+                // 1. URL parameter (?lang=fr or ?lang=en)
+                const urlParams = new URLSearchParams(window.location.search);
+                const paramLang = urlParams.get('lang');
+                if (paramLang === 'fr' || paramLang === 'en') return paramLang;
+
+                // 2. Saved user preference
+                const saved = localStorage.getItem('occasia_dinner_lang');
+                if (saved === 'fr' || saved === 'en') return saved;
+
+                // 3. Browser language
+                const navLangs = navigator.languages || [navigator.language || ''];
+                for (const l of navLangs) {
+                    if (l && l.toLowerCase().startsWith('fr')) return 'fr';
+                }
+                return 'en';
+            }
+
+            // Bind switcher buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const chosen = btn.getAttribute('data-lang-btn');
+                    setLanguage(chosen);
+                });
+            });
+
+            // Initial Language Run
+            const initialLang = detectInitialLanguage();
+            setLanguage(initialLang);
+
+            // ----------------------------------------------------
+            // Form Submission & CRM Sync (GHL)
+            // ----------------------------------------------------
             const dinnerForm = document.getElementById('dinnerForm');
             const submitBtn = document.getElementById('dinner-submit-btn');
             const successBox = document.getElementById('dinnerSuccessBox');
@@ -674,8 +1246,10 @@
             if (dinnerForm) {
                 dinnerForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    const originalBtnText = submitBtn.textContent;
-                    submitBtn.textContent = 'Submitting Request...';
+                    const currentLang = document.documentElement.getAttribute('lang') || 'fr';
+                    const originalBtnText = submitBtn.innerHTML;
+                    
+                    submitBtn.innerHTML = (currentLang === 'fr') ? 'Envoi en cours...' : 'Submitting Request...';
                     submitBtn.disabled = true;
 
                     const payload = {
@@ -700,7 +1274,7 @@
                             });
                             if (res.ok) ok = true;
                         } catch (apiErr) {
-                            // api endpoint unavailable on local static server
+                            // Local dev fallback
                         }
 
                         if (!ok) {
@@ -709,14 +1283,21 @@
 
                         dinnerForm.style.display = 'none';
                         successBox.style.display = 'block';
-                        successText.innerHTML = `Thank you, <strong>${payload.fullName}</strong>. We have logged your request in our CRM and will reach out directly at <strong>${payload.workEmail}</strong> or <strong>${payload.phone}</strong> within 24 hours to confirm your seat for November 26th.`;
+                        
+                        if (currentLang === 'fr') {
+                            successText.innerHTML = `Merci, <strong>${payload.fullName}</strong>. Votre demande a bien été enregistrée. Nous vous contacterons directement à <strong>${payload.workEmail}</strong> ou au <strong>${payload.phone}</strong> sous 24 heures pour confirmer votre place pour le 26 novembre.`;
+                        } else {
+                            successText.innerHTML = `Thank you, <strong>${payload.fullName}</strong>. We have logged your request in our CRM and will reach out directly at <strong>${payload.workEmail}</strong> or <strong>${payload.phone}</strong> within 24 hours to confirm your seat for November 26th.`;
+                        }
                         
                         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     } catch (err) {
                         console.error('Dinner RSVP failed:', err);
                         submitBtn.disabled = false;
-                        submitBtn.textContent = originalBtnText;
-                        alert('We encountered an issue submitting your request. Please try again or reach out directly.');
+                        submitBtn.innerHTML = originalBtnText;
+                        alert(currentLang === 'fr' 
+                            ? 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter directement.' 
+                            : 'We encountered an issue submitting your request. Please try again or reach out directly.');
                     }
                 });
             }
