@@ -446,10 +446,11 @@
                     <button type="button" class="lang-btn" data-lang-btn="en" id="btn-lang-en" title="Switch to English">EN</button>
                 </div>
 
-                <a href="#request-seat" class="nav-cta" id="nav-cta-btn">
-                    <span class="lang-fr">Réserver</span>
-                    <span class="lang-en">Request Seat</span>
-                </a>
+                <span class="nav-status-badge" style="display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; border-radius: 100px; background: rgba(225, 29, 72, 0.1); border: 1px solid rgba(225, 29, 72, 0.35); font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-rose-light); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">
+                    <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--accent-rose); display: inline-block;"></span>
+                    <span class="lang-fr">Sur Invitation</span>
+                    <span class="lang-en">Invite Only</span>
+                </span>
             </div>
         </div>
     </header>
@@ -517,13 +518,13 @@
 
                     <!-- CTA Actions (Centered) -->
                     <div class="event-hero-actions">
-                        <a href="#request-seat" class="btn btn-primary" style="padding: 15px 36px; font-size: 1rem;">
-                            <span class="lang-fr">Demander une invitation &rarr;</span>
-                            <span class="lang-en">Request an Invitation &rarr;</span>
+                        <a href="#run-of-show" class="btn btn-primary" style="padding: 15px 34px; font-size: 1rem;">
+                            <span class="lang-fr">Voir le déroulement &rarr;</span>
+                            <span class="lang-en">View Run of Show &rarr;</span>
                         </a>
-                        <a href="#run-of-show" class="btn btn-secondary" style="padding: 15px 28px; font-size: 1rem;">
-                            <span class="lang-fr">Voir le déroulement</span>
-                            <span class="lang-en">View Run of Show</span>
+                        <a href="#who-is-invited" class="btn btn-secondary" style="padding: 15px 28px; font-size: 1rem;">
+                            <span class="lang-fr">Profils des convives</span>
+                            <span class="lang-en">Who Sits At The Table</span>
                         </a>
                     </div>
 
@@ -878,136 +879,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- 6. SECTION: RSVP INVITATION REQUEST FORM -->
-        <section class="section-padding" id="request-seat" style="padding: 70px 0 90px; background: radial-gradient(circle at 50% 30%, rgba(225, 29, 72, 0.08) 0%, transparent 60%);">
-            <div class="container">
-                <div class="section-header text-center" style="margin-bottom: 32px;">
-                    <p class="section-kicker">
-                        <span class="lang-fr">Jeudi 26 novembre 2026 · Montréal</span>
-                        <span class="lang-en">Thursday, November 26th · Montreal</span>
-                    </p>
-                    <h2 class="section-title">
-                        <span class="lang-fr">Demandez Votre Invitation</span>
-                        <span class="lang-en">Request Your Seat</span>
-                    </h2>
-                    <p class="section-subtitle" style="max-width: 520px; margin: 0 auto;">
-                        <span class="lang-fr">Strictement limité à 15 dirigeants tech. Chaque demande est examinée personnellement sous 24h.</span>
-                        <span class="lang-en">Strictly capped at 15 tech leaders. We review each application personally within 24 hours.</span>
-                    </p>
-                </div>
-
-                <div class="dinner-form-wrap">
-                    <form id="dinnerForm">
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerFullName">
-                                <span class="lang-fr">Nom complet</span>
-                                <span class="lang-en">Full Name</span>
-                            </label>
-                            <input type="text" id="dinnerFullName" class="form-input" 
-                                data-placeholder-fr="ex. Marc Dubois"
-                                data-placeholder-en="e.g. Marc Dubois"
-                                placeholder="ex. Marc Dubois" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerWorkEmail">
-                                <span class="lang-fr">Courriel professionnel</span>
-                                <span class="lang-en">Work Email</span>
-                            </label>
-                            <input type="email" id="dinnerWorkEmail" class="form-input" 
-                                data-placeholder-fr="marc@entreprise.com"
-                                data-placeholder-en="marc@company.com"
-                                placeholder="marc@entreprise.com" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerPhoneNumber">
-                                <span class="lang-fr">Numéro de téléphone direct</span>
-                                <span class="lang-en">Direct Phone Number</span>
-                            </label>
-                            <input type="tel" id="dinnerPhoneNumber" class="form-input" 
-                                data-placeholder-fr="+1 (514) 000-0000"
-                                data-placeholder-en="+1 (514) 000-0000"
-                                placeholder="+1 (514) 000-0000" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerCompanyName">
-                                <span class="lang-fr">Nom de l'entreprise</span>
-                                <span class="lang-en">Company Name</span>
-                            </label>
-                            <input type="text" id="dinnerCompanyName" class="form-input" 
-                                data-placeholder-fr="ex. Hexa Solutions"
-                                data-placeholder-en="e.g. Hexa Software"
-                                placeholder="ex. Hexa Solutions" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerRole">
-                                <span class="lang-fr">Titre / Rôle exécutif</span>
-                                <span class="lang-en">Executive Role</span>
-                            </label>
-                            <select id="dinnerRole" class="form-select" required>
-                                <option value="" disabled selected class="lang-fr">Sélectionnez votre rôle...</option>
-                                <option value="" disabled class="lang-en">Select your role...</option>
-                                <option value="CTO">Chief Technology Officer (CTO)</option>
-                                <option value="VP Engineering">VP of Engineering / VP Ingénierie</option>
-                                <option value="CFO">Chief Financial Officer (CFO / DAF)</option>
-                                <option value="VP Finance">VP of Finance / Dir. Finance</option>
-                                <option value="Founder / CEO">Founder / Co-Fondateur / CEO</option>
-                                <option value="Other C-Level">Autre rôle C-Level technique / exécutif</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerTeamSize">
-                                <span class="lang-fr">Taille de l'équipe</span>
-                                <span class="lang-en">Company Team Size</span>
-                            </label>
-                            <select id="dinnerTeamSize" class="form-select" required>
-                                <option value="5-15 employees">5 – 15 employés / employees</option>
-                                <option value="16-40 employees" selected>16 – 40 employés / employees</option>
-                                <option value="41-80 employees">41 – 80 employés / employees</option>
-                                <option value="80+ employees">80+ employés / employees</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerNotes">
-                                <span class="lang-fr">Défi ou sujet principal que vous aimeriez aborder <span style="color: var(--text-dim); font-size: 0.8rem;">(Optionnel)</span></span>
-                                <span class="lang-en">Top Topic or Challenge You'd Like to Discuss <span style="color: var(--text-dim); font-size: 0.8rem;">(Optional)</span></span>
-                            </label>
-                            <textarea id="dinnerNotes" class="form-textarea" rows="2" 
-                                data-placeholder-fr="ex. Scaling des équipes de dev, optimisation RS&DE / CDAE, coûts d'infrastructure cloud/IA..."
-                                data-placeholder-en="e.g. Scaling dev teams, SR&ED / CDAE optimization, infrastructure costs..."
-                                placeholder="ex. Scaling des équipes de dev, optimisation RS&DE / CDAE, coûts d'infrastructure cloud/IA..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;" id="dinner-submit-btn">
-                            <span class="lang-fr">Demander une invitation au dîner &rarr;</span>
-                            <span class="lang-en">Request Dinner Invitation &rarr;</span>
-                        </button>
-                    </form>
-
-                    <!-- Success Message Container -->
-                    <div id="dinnerSuccessBox" style="display: none; text-align: center; padding: 24px 8px;">
-                        <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(225, 29, 72, 0.15); border: 1px solid var(--accent-rose); color: var(--accent-rose); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem;">✓</div>
-                        <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; font-family: var(--font-display);">
-                            <span class="lang-fr">Demande d'Invitation Reçue</span>
-                            <span class="lang-en">Invitation Request Received</span>
-                        </h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;" id="dinnerSuccessText">
-                            <!-- Populated dynamically via JS -->
-                        </p>
-                        <a href="/" class="btn btn-secondary">
-                            <span class="lang-fr">Retour au site Occasia</span>
-                            <span class="lang-en">Return to Occasia Agency</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
@@ -1112,131 +983,6 @@
             // Initial Language Run
             const initialLang = detectInitialLanguage();
             setLanguage(initialLang);
-
-            // ----------------------------------------------------
-            // Form Submission & CRM Sync (GHL)
-            // ----------------------------------------------------
-            const dinnerForm = document.getElementById('dinnerForm');
-            const submitBtn = document.getElementById('dinner-submit-btn');
-            const successBox = document.getElementById('dinnerSuccessBox');
-            const successText = document.getElementById('dinnerSuccessText');
-
-            const GHL_API_KEY = 'pit-e987338e-f698-4158-886a-49e83c50c78e';
-            const GHL_LOCATION_ID = 'jHbmtYzLJIFF9GbAX6mz';
-
-            async function submitDinnerDirectToGHL(payload) {
-                const tags = ['dinner-candidate', 'executive-dinner', 'nov-26-ai-tech-dinner', 'emergex-dinner'];
-                if (payload.role && payload.role.trim()) {
-                    tags.push(payload.role.trim());
-                }
-
-                const upsertRes = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${GHL_API_KEY}`,
-                        'Version': '2021-07-28',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        locationId: GHL_LOCATION_ID,
-                        name: payload.fullName,
-                        email: payload.workEmail,
-                        phone: payload.phone,
-                        companyName: payload.companyName,
-                        tags: tags,
-                        source: 'occasia.agency Nov 26 AI & Tech Dinner RSVP'
-                    })
-                });
-
-                const upsertData = await upsertRes.json();
-                const contactId = upsertData?.contact?.id;
-
-                if (contactId) {
-                    const noteBody = [
-                        '🍷 NEW DINNER INVITATION REQUEST (Montreal AI & Tech Dinner - Nov 26):',
-                        `• Full Name: ${payload.fullName}`,
-                        `• Work Email: ${payload.workEmail}`,
-                        `• Direct Phone: ${payload.phone}`,
-                        `• Company Name: ${payload.companyName}`,
-                        `• Executive Role: ${payload.role}`,
-                        `• Company Size: ${payload.teamSize}`,
-                        payload.notes ? `• Discussion Topic / Notes: ${payload.notes}` : null,
-                        `• Event Date: November 26, 2026 (7:00 PM)`,
-                        `• Submitted At: ${payload.submittedAt}`
-                    ].filter(Boolean).join('\n');
-
-                    await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${GHL_API_KEY}`,
-                            'Version': '2021-07-28',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ body: noteBody })
-                    });
-                }
-
-                return contactId;
-            }
-
-            if (dinnerForm) {
-                dinnerForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const currentLang = document.documentElement.getAttribute('lang') || 'fr';
-                    const originalBtnText = submitBtn.innerHTML;
-                    
-                    submitBtn.innerHTML = (currentLang === 'fr') ? 'Envoi en cours...' : 'Submitting Request...';
-                    submitBtn.disabled = true;
-
-                    const payload = {
-                        type: 'dinner',
-                        fullName: document.getElementById('dinnerFullName')?.value.trim() || '',
-                        workEmail: document.getElementById('dinnerWorkEmail')?.value.trim() || '',
-                        phone: document.getElementById('dinnerPhoneNumber')?.value.trim() || '',
-                        companyName: document.getElementById('dinnerCompanyName')?.value.trim() || '',
-                        role: document.getElementById('dinnerRole')?.value || '',
-                        teamSize: document.getElementById('dinnerTeamSize')?.value || '',
-                        notes: document.getElementById('dinnerNotes')?.value.trim() || '',
-                        submittedAt: new Date().toISOString()
-                    };
-
-                    try {
-                        let ok = false;
-                        try {
-                            const res = await fetch('/api/submit', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(payload)
-                            });
-                            if (res.ok) ok = true;
-                        } catch (apiErr) {
-                            // Local dev fallback
-                        }
-
-                        if (!ok) {
-                            await submitDinnerDirectToGHL(payload);
-                        }
-
-                        dinnerForm.style.display = 'none';
-                        successBox.style.display = 'block';
-                        
-                        if (currentLang === 'fr') {
-                            successText.innerHTML = `Merci, <strong>${payload.fullName}</strong>. Votre demande a bien été enregistrée. Nous vous contacterons directement à <strong>${payload.workEmail}</strong> ou au <strong>${payload.phone}</strong> sous 24 heures pour confirmer votre place pour le 26 novembre.`;
-                        } else {
-                            successText.innerHTML = `Thank you, <strong>${payload.fullName}</strong>. We have logged your request in our CRM and will reach out directly at <strong>${payload.workEmail}</strong> or <strong>${payload.phone}</strong> within 24 hours to confirm your seat for November 26th.`;
-                        }
-                        
-                        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    } catch (err) {
-                        console.error('Dinner RSVP failed:', err);
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalBtnText;
-                        alert(currentLang === 'fr' 
-                            ? 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer ou nous contacter directement.' 
-                            : 'We encountered an issue submitting your request. Please try again or reach out directly.');
-                    }
-                });
-            }
         });
     </script>
 </body>
