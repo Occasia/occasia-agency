@@ -378,6 +378,59 @@
             .event-hero-actions .btn { width: 100%; }
             .sectors-grid { grid-template-columns: 1fr; }
             .webisoft-timeline-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .attendee-logos-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+            .attendee-logo-card { height: 60px; padding: 10px 12px; }
+            .attendee-logo-card img { max-height: 22px; }
+        }
+
+        /* Attendee Brands Logo Grid */
+        .attendee-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            align-items: center;
+        }
+
+        .attendee-logo-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 76px;
+            padding: 14px 20px;
+            background: rgba(18, 18, 24, 0.45);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .attendee-logo-card:hover {
+            background: rgba(26, 26, 34, 0.75);
+            border-color: rgba(225, 29, 72, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .attendee-logo-card img {
+            max-height: 28px;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.72;
+            transition: all 0.25s ease;
+        }
+
+        .attendee-logo-card:hover img {
+            opacity: 1;
+            filter: none;
+        }
+
+        @media (max-width: 1024px) {
+            .attendee-logos-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 14px;
+            }
         }
     </style>
 
@@ -588,6 +641,77 @@
                     <div class="sector-card">Applied AI &amp; Machine Learning</div>
                     <div class="sector-card">Technology Consultants</div>
                     <div class="sector-card">HealthTech / IoT / Robotics</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2.5 BRAND LOGOS: PARTICIPANTS FROM PREVIOUS DINNERS -->
+        <section class="section-padding attendee-brands-section" style="padding: 56px 0 64px; background: rgba(10, 10, 14, 0.5); border-bottom: 1px solid var(--border-glass);">
+            <div class="container">
+                <div class="section-header text-center" style="margin-bottom: 32px;">
+                    <p class="section-kicker">
+                        <span class="lang-fr">Réseau &amp; Historique</span>
+                        <span class="lang-en">Network &amp; Track Record</span>
+                    </p>
+                    <h2 class="section-title" style="font-size: 1.75rem; margin-bottom: 10px;">
+                        <span class="lang-fr">Marques &amp; Entreprises Présentes à nos Tables</span>
+                        <span class="lang-en">Brands &amp; Firms Represented at Our Tables</span>
+                    </h2>
+                    <p class="section-subtitle" style="max-width: 640px; margin: 0 auto; font-size: 0.95rem;">
+                        <span class="lang-fr">Des fondateurs et dirigeants issus de ces organisations ont pris part à nos récents dîners exécutifs.</span>
+                        <span class="lang-en">Founders and decision-makers from these organizations have taken part in our recent executive dinners.</span>
+                    </p>
+                </div>
+
+                <div class="attendee-logos-grid">
+                    <!-- 1. WareWatch (WareMatch) -->
+                    <div class="attendee-logo-card" title="WareWatch">
+                        <img src="/assets/images/logos/warematch.png" alt="WareWatch" loading="lazy">
+                    </div>
+                    <!-- 2. Startup Slang -->
+                    <div class="attendee-logo-card" title="Startup Slang">
+                        <img src="/assets/images/logos/startupslang.svg" alt="Startup Slang" loading="lazy">
+                    </div>
+                    <!-- 3. Airwallex -->
+                    <div class="attendee-logo-card" title="AirWallex">
+                        <img src="/assets/images/logos/airwallex.png" alt="AirWallex" loading="lazy">
+                    </div>
+                    <!-- 4. Shopify -->
+                    <div class="attendee-logo-card" title="Shopify">
+                        <img src="/assets/images/logos/shopify.svg" alt="Shopify" loading="lazy">
+                    </div>
+                    <!-- 5. Tooly -->
+                    <div class="attendee-logo-card" title="Tooly">
+                        <img src="/assets/images/logos/tooly.png" alt="Tooly" loading="lazy">
+                    </div>
+                    <!-- 6. Webtmize -->
+                    <div class="attendee-logo-card" title="Webtimize">
+                        <img src="/assets/images/logos/webtmize.png" alt="Webtimize" loading="lazy">
+                    </div>
+                    <!-- 7. Experto -->
+                    <div class="attendee-logo-card" title="Experto">
+                        <img src="/assets/images/logos/xperto.png" alt="Experto" loading="lazy">
+                    </div>
+                    <!-- 8. Redbox Media -->
+                    <div class="attendee-logo-card" title="Redbox Media">
+                        <img src="/assets/images/logos/redbox.png" alt="Redbox Media" loading="lazy">
+                    </div>
+                    <!-- 9. Spring Media -->
+                    <div class="attendee-logo-card" title="Spring Media">
+                        <img src="/assets/images/logos/springmedia.png" alt="Spring Media" loading="lazy">
+                    </div>
+                    <!-- 10. The Agency Business -->
+                    <div class="attendee-logo-card" title="The Agency Business">
+                        <img src="/assets/images/logos/agency_business.png" alt="The Agency Business" loading="lazy">
+                    </div>
+                    <!-- 11. Rave Ventures -->
+                    <div class="attendee-logo-card" title="Rave Ventures">
+                        <img src="/assets/images/logos/raveventures.png" alt="Rave Ventures" loading="lazy">
+                    </div>
+                    <!-- 12. Emergex -->
+                    <div class="attendee-logo-card" title="Emergex">
+                        <img src="/assets/images/logos/emergex.png" alt="Emergex" loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
