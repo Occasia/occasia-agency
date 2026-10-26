@@ -581,9 +581,23 @@
             font-size: 1.05rem;
             line-height: 1.68;
             color: var(--text-secondary);
-            max-width: 700px;
+            max-width: 760px;
             margin: 0 auto;
             font-weight: 400;
+        }
+
+        .host-description a {
+            color: #FFFFFF;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: rgba(225, 29, 72, 0.65);
+            text-underline-offset: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .host-description a:hover {
+            color: var(--accent-rose-light);
+            text-decoration-color: var(--accent-rose);
         }
 
         /* Pill-Shaped Card for Pierre */
@@ -1297,12 +1311,12 @@
                     <div class="host-card">
                         <!-- Emergex Logo & Description -->
                         <div class="host-brand-wrapper">
-                            <div class="host-logo-box">
+                            <a href="https://www.emergex.com" target="_blank" rel="noopener noreferrer" class="host-logo-box" title="Emergex SR&amp;ED Consultants">
                                 <img src="/assets/images/logos/emergex.png" alt="Emergex SR&amp;ED Consultants" class="host-logo" loading="lazy">
-                            </div>
+                            </a>
                             <p class="host-description">
-                                <span class="lang-fr">Depuis plus de 30 ans, Emergex aide les entreprises technologiques, plateformes SaaS et innovateurs à financer leur croissance en maximisant leurs crédits d'impôt RS&amp;DE, crédits pour le développement des affaires électroniques (CDAE) et subventions gouvernementales.</span>
-                                <span class="lang-en">For over 30 years, Emergex has helped tech companies, SaaS platforms, and innovators fund their growth by maximizing their SR&amp;ED tax credits, e-business (CDAE) credits, and government grants.</span>
+                                <span class="lang-fr">Depuis 30 ans, <a href="https://www.emergex.com" target="_blank" rel="noopener noreferrer">Emergex RSDE Consultants</a> aide les entreprises technologiques et innovantes à financer leur développement et leur croissance en maximisant leurs crédits d'impôt de Recherche Scientifique et Développement Expérimental (RS&amp;DE) et des Affaires Électroniques intégrant l’IA (CDAEIA), le Programme d’Aide à la Recherche Industrielle (PARI) et autres subventions gouvernementales.</span>
+                                <span class="lang-en">For 30 years, <a href="https://www.emergex.com" target="_blank" rel="noopener noreferrer">Emergex SRED Consultants</a> have helped technology and innovative companies finance their development and growth by maximizing their Scientific Research and Experimental Development (SR&amp;ED) and E-Business integrating AI (CDAEIA) tax credits, the Industrial Research and Assistance Program (IRAP) and other government grants.</span>
                             </p>
                         </div>
 
