@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="jrhGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E11D48" />
+      <stop offset="100%" stop-color="#9F1239" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="108" height="108" rx="24" fill="#121217" stroke="url(#jrhGrad)" stroke-width="5"/>
+  <text x="60" y="73" font-family="'Sora', 'Helvetica Neue', Arial, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">JRH</text>
+</svg>

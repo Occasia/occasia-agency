@@ -27,6 +27,16 @@
       "permanent": true
     },
     {
+      "source": "/jrh-dinner.html",
+      "destination": "/jrh-dinner",
+      "permanent": true
+    },
+    {
+      "source": "/hussey-dinner",
+      "destination": "/jrh-dinner",
+      "permanent": true
+    },
+    {
       "source": "/tech-and-ai-dinner.html",
       "destination": "/tech-and-ai-dinner",
       "permanent": true
