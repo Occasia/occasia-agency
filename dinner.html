@@ -1,29 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="film">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary SEO Meta Tags -->
-    <title>The VIP Executive Dinner | November 5th · Montreal</title>
-    <meta name="title" content="The VIP Executive Dinner | November 5th · Montreal">
-    <meta name="description"
-        content="An intimate, closed-door dinner for 15 B2B Founders and CEOs on November 5th in Montreal. Starts at 7:00 PM. No pitches, no slides.">
-    <meta name="keywords"
-        content="VIP executive dinner, private executive dinner, B2B founders dinner, Montreal executive dinner, Occasia Agency, high-ticket B2B">
+    <title>The VIP Executive Dinner | November 5th · Montreal | Occasia</title>
+    <meta name="title" content="The VIP Executive Dinner | November 5th · Montreal | Occasia">
+    <meta name="description" content="An intimate, closed-door dinner for 15 B2B Founders and CEOs on November 5th in Montreal. Starts at 7:00 PM. No pitches, no slides.">
+    <meta name="keywords" content="VIP executive dinner, private executive dinner, B2B founders dinner, Montreal executive dinner, Occasia Agency, high-ticket B2B">
     <meta name="author" content="Occasia Agency">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://occasia.agency/dinner.html">
-    <meta name="theme-color" content="#0B0D13">
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://occasia.agency/dinner.html">
     <meta property="og:site_name" content="Occasia Agency">
     <meta property="og:title" content="The VIP Executive Dinner | November 5th · Montreal">
-    <meta property="og:description"
-        content="Closed-door VIP executive dinner for 15 B2B Founders and CEOs. November 5th, 7:00 PM in Montreal.">
+    <meta property="og:description" content="Closed-door VIP executive dinner for 15 B2B Founders and CEOs. November 5th, 7:00 PM in Montreal.">
     <meta property="og:image" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
     <meta property="og:image:secure_url" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
     <meta property="og:image:width" content="1200">
@@ -35,8 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://occasia.agency/dinner.html">
     <meta name="twitter:title" content="The VIP Executive Dinner | November 5th · Montreal">
-    <meta name="twitter:description"
-        content="Closed-door VIP executive dinner for 15 B2B Founders and CEOs. November 5th, 7:00 PM in Montreal.">
+    <meta name="twitter:description" content="Closed-door VIP executive dinner for 15 B2B Founders and CEOs. November 5th, 7:00 PM in Montreal.">
     <meta name="twitter:image" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
     <meta name="twitter:image:alt" content="Occasia VIP Executive Dinner Table">
 
@@ -70,17 +65,16 @@
     </script>
 
     <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="64x64" href="assets/images/favicon-64.png">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="assets/images/favicon.png">
 
-    <!-- Fonts & Shared Design System -->
+    <!-- Web Fonts: Instrument Serif + Inter + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Apollo.io Website Visitor Tracker -->
     <script>
@@ -95,287 +89,1026 @@
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <style>
+        :root {
+            /* Film Mode (Luminous Archival Paper Stock) */
+            --bg: #FAF9F6;
+            --bg-1: #F4F1EA;
+            --bg-2: #ECE7DE;
+            --bg-translucent: rgba(250, 249, 246, 0.88);
+            --ink: #14161A;
+            --ink-dim: #4A4F5A;
+            --ink-faint: #7E8594;
+            --text: #2D313A;
+            --crimson: #E11D48;
+            --crimson-hi: #F43F5E;
+            --crimson-dim: rgba(225, 29, 72, 0.08);
+            --hair: rgba(20, 22, 26, 0.08);
+            --hair-strong: rgba(20, 22, 26, 0.16);
+            --hair-crimson: rgba(225, 29, 72, 0.28);
+            --f-serif: 'Instrument Serif', Georgia, serif;
+            --f-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --f-mono: 'JetBrains Mono', monospace;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --accent-rose: #E11D48;
+            --font-display: 'Instrument Serif', Georgia, serif;
+            --text-muted: #7E8594;
+        }
+
+        /* Nocturne Mode */
+        html.nocturne {
+            --bg: #090A0F;
+            --bg-1: #12141D;
+            --bg-2: #1A1D28;
+            --bg-translucent: rgba(9, 10, 15, 0.88);
+            --ink: #FFFFFF;
+            --ink-dim: #94A3B8;
+            --ink-faint: #64748B;
+            --text: #CBD5E1;
+            --crimson: #E11D48;
+            --crimson-hi: #FB7185;
+            --crimson-dim: rgba(225, 29, 72, 0.16);
+            --hair: rgba(255, 255, 255, 0.08);
+            --hair-strong: rgba(255, 255, 255, 0.16);
+            --hair-crimson: rgba(255, 29, 72, 0.4);
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--f-sans);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: clip;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        body {
+            overflow-x: clip;
+            background: transparent;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        ::selection {
+            background: var(--crimson-dim);
+            color: var(--crimson);
+        }
+
+        /* Preloader Curtain */
+        .mo-curtain {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #14161A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .mo-curtain.loaded {
+            transform: translate3d(0, -100%, 0);
+        }
+
+        .mo-curtain-title {
+            font-family: var(--f-serif);
+            font-size: 32px;
+            letter-spacing: 0.15em;
+            color: #FAF9F6;
+            margin-bottom: 16px;
+        }
+
+        .mo-curtain-title em {
+            color: #E11D48;
+            font-style: italic;
+        }
+
+        .mo-curtain-line {
+            width: 140px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mo-curtain-line::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #E11D48;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: curtainFill 0.8s var(--ease) forwards;
+        }
+
+        @keyframes curtainFill {
+            to { transform: scaleX(1); }
+        }
+
+        .ambient-film {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 10%, rgba(225, 29, 72, 0.04) 0%, transparent 60%);
+        }
+
+        .shell {
+            width: 100%;
+            max-width: 1320px;
+            margin-inline: auto;
+            padding-inline: clamp(20px, 3.5vw, 48px);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Minimal Uncluttered Top Bar */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            background: var(--bg-translucent);
+            border-bottom: 1px solid var(--hair);
+            transition: background 0.4s ease;
+        }
+
+        .top-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .brand-mark {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .brand-monogram {
+            font-family: var(--f-serif);
+            font-size: 26px;
+            line-height: 1;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        .brand-monogram em {
+            color: var(--crimson);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13.5px;
+            font-weight: 400;
+            color: var(--ink-dim);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--hair-strong);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--ink);
+            color: var(--ink);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--ink);
+            color: var(--bg);
+            border: 1px solid var(--ink);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            background: var(--crimson);
+            border-color: var(--crimson);
+            color: #FFFFFF;
+        }
+
+        /* Hero Section (likn.io MoHero) */
+        .mo-hero {
+            position: relative;
+            min-height: 94vh;
+            min-height: 94svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding-top: 132px;
+            padding-bottom: 56px;
+        }
+
+        .mo-hero-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .mo-hero-headline {
+            font-family: var(--f-serif);
+            font-weight: 400;
+            font-size: clamp(50px, 6.8vw, 100px);
+            line-height: 0.96;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            max-width: 15ch;
+            margin-bottom: 22px;
+        }
+
+        .mo-hero-headline em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        /* Minimal Event Meta Line (No chips) */
+        .event-meta-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            margin-bottom: 32px;
+        }
+
+        .event-meta-line .sep {
+            color: var(--crimson);
+        }
+
+        .mo-hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .mo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s var(--ease);
+            cursor: pointer;
+        }
+
+        .mo-cta-crimson {
+            background: var(--crimson);
+            color: #FFFFFF;
+            border: 1px solid var(--crimson);
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.25);
+        }
+
+        .mo-cta-crimson:hover {
+            background: var(--crimson-hi);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(225, 29, 72, 0.35);
+        }
+
+        .mo-cta-ghost {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--hair-strong);
+        }
+
+        .mo-cta-ghost:hover {
+            border-color: var(--ink);
+            background: var(--bg-1);
+        }
+
+        /* Splayed 5-Photo Print Fan */
+        .mo-hero-gallery {
+            position: relative;
+            z-index: 4;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: end;
+            gap: 0;
+            width: min(1200px, 100%);
+            margin: 10px auto 0;
+            height: clamp(220px, 28vh, 320px);
+        }
+
+        .mo-slot {
+            position: relative;
+            height: 100%;
+            padding-top: calc(var(--ak) * 7%);
+            z-index: calc(3 - var(--ak));
+        }
+
+        .mo-print {
+            position: relative;
+            height: 100%;
+            margin: 0 -8%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-2);
+            border: 1px solid var(--hair);
+            box-shadow: 0 20px 45px -15px rgba(20, 22, 26, 0.18);
+            transform-origin: 50% 100%;
+            transform: rotate(calc(var(--k) * 2.8deg));
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .mo-print:hover {
+            transform: rotate(0deg) scale(1.06) translateY(-10px);
+            z-index: 20;
+            box-shadow: 0 30px 60px -15px rgba(225, 29, 72, 0.35);
+            border-color: var(--hair-crimson);
+        }
+
+        .mo-print img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.04) brightness(0.96);
+            transition: filter 0.4s ease;
+        }
+
+        /* Rolling Partner & Attendee Logos Marquee (Sliding Left to Right) */
+        .mo-provenance {
+            padding-block: 36px;
+            border-top: 1px solid var(--hair);
+            border-bottom: 1px solid var(--hair);
+            background: var(--bg-1);
+            overflow: hidden;
+        }
+
+        .logos-marquee-header {
+            text-align: center;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 24px;
+        }
+
+        .logos-marquee-mask {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+
+        .logos-marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            width: max-content;
+            animation: rollLeftToRight 38s linear infinite;
+        }
+
+        .logos-marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes rollLeftToRight {
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0%, 0, 0); }
+        }
+
+        .logo-slide-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            flex-shrink: 0;
+        }
+
+        .logo-slide-item img {
+            max-height: 28px;
+            max-width: 125px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: brightness(0);
+            opacity: 0.58;
+            transition: opacity 0.25s ease;
+        }
+
+        html.nocturne .logo-slide-item img {
+            filter: brightness(0) invert(1);
+            opacity: 0.72;
+        }
+
+        .logo-slide-item:hover img {
+            opacity: 1;
+        }
+
+        /* Editorial Sections */
+        .mo-section {
+            padding-block: clamp(72px, 9vw, 124px);
+            border-bottom: 1px solid var(--hair);
+            position: relative;
+        }
+
+        .sec-head {
+            margin-bottom: 48px;
+        }
+
+        .sec-eyebrow {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .sec-title {
+            font-family: var(--f-serif);
+            font-size: clamp(38px, 5.2vw, 72px);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            color: var(--ink);
+            max-width: 20ch;
+        }
+
+        .sec-title em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        /* 3-Column Concept & Profile Cards */
+        .editorial-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .editorial-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .editorial-card-num {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .editorial-card h3 {
+            font-family: var(--f-serif);
+            font-size: 30px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+
+        .editorial-card p {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+            line-height: 1.6;
+        }
+
+        /* Hairline Run of Show Timeline */
+        .schedule-list {
+            border-top: 1px solid var(--hair);
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 160px 1fr 1.2fr;
+            gap: 32px;
+            align-items: baseline;
+            padding-block: 28px;
+            border-bottom: 1px solid var(--hair);
+        }
+
+        .schedule-time {
+            font-family: var(--f-mono);
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .schedule-title {
+            font-family: var(--f-serif);
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        .schedule-desc {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+        }
+
+        /* Corner-Bracket Stamp Card for Seat Request Form */
+        .mo-stamp-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 60px;
+            align-items: start;
+            padding: clamp(36px, 5vw, 72px);
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 16px;
+            box-shadow: 0 25px 60px -20px rgba(20, 22, 26, 0.12);
+        }
+
+        .stamp-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 0 solid var(--crimson);
+            pointer-events: none;
+        }
+
+        .stamp-tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+        .stamp-tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+        .stamp-bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+        .stamp-br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+
+        .stamp-copy h2 {
+            font-family: var(--f-serif);
+            font-size: clamp(36px, 4.4vw, 56px);
+            font-weight: 400;
+            line-height: 1.04;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+
+        .stamp-copy h2 em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .stamp-copy p {
+            font-size: 15.5px;
+            line-height: 1.65;
+            color: var(--ink-dim);
+            max-width: 42ch;
+            margin-bottom: 24px;
+        }
+
+        .dinner-form-card {
+            background: var(--bg);
+            border: 1px solid var(--hair-strong);
+            border-radius: 12px;
+            padding: clamp(24px, 3.5vw, 36px);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            margin-bottom: 6px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 11px 13px;
+            font: inherit;
+            font-size: 14px;
+            color: var(--ink);
+            background: var(--bg-1);
+            border: 1px solid var(--hair-strong);
+            border-radius: 8px;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--crimson);
+        }
+
+        /* Footer */
+        .mo-footer {
+            padding-block: 64px 44px;
+            background: var(--bg);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+
+        .footer-bottom a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--crimson);
+            text-underline-offset: 3px;
+        }
+
+        @media (max-width: 960px) {
+            .nav-links {
+                display: none;
+            }
+            .mo-hero-gallery {
+                grid-template-columns: repeat(3, 1fr);
+                height: 44vw;
+            }
+            .mo-slot:first-child, .mo-slot:last-child {
+                display: none;
+            }
+            .editorial-grid-3,
+            .schedule-row,
+            .mo-stamp-card,
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Ambient Glowing Background Orbs -->
-    <div class="ambient-bg" aria-hidden="true">
-        <div class="orb orb-rose"></div>
-        <div class="orb orb-indigo"></div>
+    <!-- Curtain Preloader -->
+    <div class="mo-curtain" id="curtain">
+        <div class="mo-curtain-title">O C C A S I A <em>·</em></div>
+        <div class="mo-curtain-line"></div>
     </div>
 
-    <!-- Navigation Header -->
-    <header class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="brand-logo" id="nav-brand-logo">
-                OCCASIA <span class="logo-tag">EXECUTIVE</span>
+    <!-- Ambient Glow Texture -->
+    <div class="ambient-film" aria-hidden="true"></div>
+
+    <!-- Minimal Top Navigation -->
+    <header class="top-nav" id="navbar">
+        <div class="shell top-nav-inner">
+            <a href="index.html" class="brand-mark" id="nav-brand-logo">
+                <span class="brand-monogram">Occasia<em>.</em></span>
             </a>
+
             <ul class="nav-links">
                 <li><a href="#premise">The Concept</a></li>
                 <li><a href="#run-of-show">Run of Show</a></li>
-                <li><a href="#guest-profile">The Room</a></li>
-                <li><a href="index.html">Acquisition System &rarr;</a></li>
+                <li><a href="#guest-profile">Who Is In The Room</a></li>
+                <li><a href="index.html">Host Your Own Dinner →</a></li>
             </ul>
-            <a href="#request-seat" class="nav-cta" id="nav-cta-btn">
-                Request Seat
-            </a>
+
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">Nocturne</button>
+                <a href="#request-seat" class="nav-cta" id="nav-cta-btn">Request Seat →</a>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="section-padding" style="padding-top: 130px; padding-bottom: 50px;">
-            <div class="container">
-                <div class="dinner-hero-grid">
-                    
-                    <!-- Left Column: Copy & Details -->
-                    <div>
-                        <p class="section-kicker">Next Dinner · November 5th · Montreal</p>
-                        <h1 class="hero-title" style="text-align: left; margin-bottom: 16px;">
-                            15 Founders.<br>
-                            One Table.<br>
-                            <span class="hero-dream-clients">Zero Pitching.</span>
-                        </h1>
-                        <p class="hero-subtitle" style="text-align: left; max-width: 500px; margin: 0 0 24px 0; font-size: 1.05rem;">
-                            A closed-door 4-hour dinner for B2B founders and commercial leaders. Honest conversations about deals, growth, and real operations.
+        <!-- HERO SECTION -->
+        <section class="mo-hero">
+            <div class="shell mo-hero-stage">
+                <h1 class="mo-hero-headline">
+                    15 Founders. One Table. <em>Zero Pitching.</em>
+                </h1>
+
+                <div class="event-meta-line">
+                    <span>November 5th</span>
+                    <span class="sep">·</span>
+                    <span>7:00 PM</span>
+                    <span class="sep">·</span>
+                    <span>15 Seats Only</span>
+                    <span class="sep">·</span>
+                    <span>Private Dining Room, Montreal</span>
+                </div>
+
+                <div class="mo-hero-actions">
+                    <a href="#request-seat" class="mo-cta mo-cta-crimson">Request an invitation →</a>
+                    <a href="#run-of-show" class="mo-cta mo-cta-ghost">View schedule ↓</a>
+                </div>
+            </div>
+
+            <!-- Splayed 5-Photo Real Dinner Fan -->
+            <div class="shell mo-hero-gallery" aria-label="Photographs from past Occasia private dinners">
+                <div class="mo-slot" style="--k: -2; --ak: 2;">
+                    <div class="mo-print">
+                        <img src="assets/images/dinner_ecom_vip.png" alt="Executive private dinner">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: -1; --ak: 1;">
+                    <div class="mo-print">
+                        <img src="assets/images/dinner_tech_toronto.png" alt="Founders roundtable dinner">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 0; --ak: 0;">
+                    <div class="mo-print">
+                        <img src="assets/images/real_dinner_observation.jpg" alt="Occasia Executive Dinner">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 1; --ak: 1;">
+                    <div class="mo-print">
+                        <img src="assets/images/dinner_retail_vip.png" alt="Private wine cellar dinner">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 2; --ak: 2;">
+                    <div class="mo-print">
+                        <img src="assets/images/founders_dinner_bg.jpg" alt="Candlelit executive dinner">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rolling Partner & Attendee Logos Marquee (Sliding Left to Right) -->
+        <section class="mo-provenance" aria-label="Companies represented at our tables">
+            <div class="logos-marquee-header">Decision-Makers &amp; Partners From Companies Like</div>
+            <div class="logos-marquee-mask">
+                <div class="logos-marquee-track">
+                    <div class="logo-slide-item"><img src="assets/images/logos/klaviyo.svg" alt="Klaviyo"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/airwallex.png" alt="Airwallex"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/shopify.svg" alt="Shopify"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/tooly.png" alt="Tooly"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/warematch.png?v=2" alt="WareMatch"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/startupslang.svg" alt="Startup Slang"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/webtmize.png" alt="Webtmize"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/xperto.png" alt="Experto"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/redbox.png" alt="Redbox Media"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/springmedia.png" alt="Spring Media"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/agency_business.png" alt="The Agency Business"></div>
+                    <div class="logo-slide-item"><img src="assets/images/logos/raveventures.png" alt="Rave Ventures"></div>
+                    <!-- Duplicate Set -->
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/klaviyo.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/airwallex.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/shopify.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/tooly.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/warematch.png?v=2" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/startupslang.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/webtmize.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/xperto.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/redbox.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/springmedia.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/agency_business.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="assets/images/logos/raveventures.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE CONCEPT -->
+        <section class="mo-section" id="premise">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">The Concept</span>
+                    <h2 class="sec-title">Why one dinner beats <em>100 Zoom calls.</em></h2>
+                </div>
+
+                <div class="editorial-grid-3">
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">01 · The Room</span>
+                        <h3>Real Operators Only</h3>
+                        <p>
+                            Founders and executives with real teams, active enterprise clients, and serious growth targets.
                         </p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">02 · Ground Rule</span>
+                        <h3>Zero Pitching</h3>
+                        <p>
+                            No sponsor slides and no sales pitches. Just open, honest conversations about what is working right now.
+                        </p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">03 · Format</span>
+                        <h3>Four Unhurried Hours</h3>
+                        <p>
+                            Four hours around one private table to talk numbers, deals, and challenges you cannot post online.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <!-- Key Details Spec Strip -->
-                        <div class="dinner-spec-bar" style="margin: 20px 0 28px;">
-                            <div class="spec-item">
-                                <span class="spec-label">Date</span>
-                                <span class="spec-value" style="color: var(--accent-rose-light);">November 5th</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Schedule</span>
-                                <span class="spec-value">Starts at 7:00 PM</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Room</span>
-                                <span class="spec-value">Strictly 15 Seats</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label">Location</span>
-                                <span class="spec-value">Private Salon · Montreal</span>
-                            </div>
-                        </div>
+        <!-- RUN OF SHOW -->
+        <section class="mo-section" id="run-of-show">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">November 5th Schedule</span>
+                    <h2 class="sec-title">The Run of Show. <em>Starts at 7:00 PM.</em></h2>
+                </div>
 
-                        <!-- CTA Actions -->
-                        <div class="hero-actions" style="justify-content: flex-start;">
-                            <a href="#request-seat" class="btn btn-primary">
-                                Request an Invitation &rarr;
-                            </a>
-                            <a href="#run-of-show" class="btn btn-secondary">
-                                View Schedule
-                            </a>
-                        </div>
+                <div class="schedule-list">
+                    <div class="schedule-row">
+                        <div class="schedule-time">7:00 PM</div>
+                        <div class="schedule-title">Welcome Drinks &amp; Networking</div>
+                        <div class="schedule-desc">Arrivals, cocktails, and informal conversations with fellow founders.</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">8:00 PM</div>
+                        <div class="schedule-title">Appetizers &amp; Welcome Chat</div>
+                        <div class="schedule-desc">Seating at the private table, first course, and quick introductions around the room.</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">8:30 PM</div>
+                        <div class="schedule-title">Seated Dinner &amp; Discussions</div>
+                        <div class="schedule-desc">Multi-course dinner with candid roundtable conversations on growth and operations.</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">10:00 PM</div>
+                        <div class="schedule-title">Closing Notes</div>
+                        <div class="schedule-desc">Final takeaways, direct contact exchanges, and informal wrap-up.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO SITS AT THE TABLE -->
+        <section class="mo-section" id="guest-profile">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">Guest Profile</span>
+                    <h2 class="sec-title">Who sits <em>at the table.</em></h2>
+                </div>
+
+                <div class="editorial-grid-3">
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Profile 01</span>
+                        <h3>B2B Founders &amp; CEOs</h3>
+                        <p>Leading established and fast-growing technology companies, agencies, and B2B firms.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Profile 02</span>
+                        <h3>Sales &amp; Revenue Leaders</h3>
+                        <p>VPs of Sales and CROs closing five- to seven-figure enterprise deals.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Profile 03</span>
+                        <h3>Managing Partners</h3>
+                        <p>Advisory partners and operators whose business runs on executive-level trust.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REQUEST YOUR SEAT -->
+        <section class="mo-section" id="request-seat">
+            <div class="shell">
+                <div class="mo-stamp-card">
+                    <span class="stamp-corner stamp-tl"></span>
+                    <span class="stamp-corner stamp-tr"></span>
+                    <span class="stamp-corner stamp-bl"></span>
+                    <span class="stamp-corner stamp-br"></span>
+
+                    <div class="stamp-copy">
+                        <span class="sec-eyebrow">November 5th · Montreal</span>
+                        <h2>Request your seat <em>at the table.</em></h2>
+                        <p>
+                            Strictly capped at 15 guests to keep the conversation intimate. We review every request personally within 24 hours.
+                        </p>
                     </div>
 
-                    <!-- Right Column: Real Atmosphere Visual -->
-                    <div>
-                        <div class="dinner-visual-card">
-                            <img 
-                                src="assets/images/real_dinner_observation.jpg" 
-                                alt="Occasia Executive Dinner Montreal" 
-                                class="dinner-visual-img"
-                            />
-                            <div class="dinner-visual-footer">
-                                <div>
-                                    <strong style="color: #FFFFFF; display: block;">The VIP Executive Dinner</strong>
-                                    <span>Thursday, November 5th · 7:00 PM</span>
+                    <div class="dinner-form-card">
+                        <form id="dinnerForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label" for="dinnerFullName">Full Name *</label>
+                                    <input type="text" id="dinnerFullName" class="form-input" placeholder="Marc Dubois" required>
                                 </div>
-                                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-rose-light); background: var(--accent-rose-subtle); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border-rose);">
-                                    15 Seats Only
-                                </span>
+                                <div class="form-group">
+                                    <label class="form-label" for="dinnerWorkEmail">Work Email *</label>
+                                    <input type="email" id="dinnerWorkEmail" class="form-input" placeholder="marc@company.com" required>
+                                </div>
                             </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label" for="dinnerPhoneNumber">Direct Phone Number *</label>
+                                    <input type="tel" id="dinnerPhoneNumber" class="form-input" placeholder="+1 (514) 000-0000" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="dinnerCompanyName">Company Name *</label>
+                                    <input type="text" id="dinnerCompanyName" class="form-input" placeholder="Apex Solutions" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="dinnerDealSize">Average Contract Value / Deal Size *</label>
+                                <select id="dinnerDealSize" class="form-select" required>
+                                    <option value="$10k - $25k">$10,000 – $25,000</option>
+                                    <option value="$25k - $50k">$25,000 – $50,000</option>
+                                    <option value="$50k - $100k">$50,000 – $100,000</option>
+                                    <option value="$100k+">$100,000+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="dinnerNotes">Topic or Challenge You Would Like to Discuss (Optional)</label>
+                                <textarea id="dinnerNotes" class="form-textarea" rows="2" placeholder="e.g. Enterprise sales cycles, scaling operations..."></textarea>
+                            </div>
+
+                            <button type="submit" class="mo-cta mo-cta-crimson" style="width: 100%; justify-content: center; margin-top: 8px;" id="dinner-submit-btn">
+                                Request Dinner Invitation →
+                            </button>
+                        </form>
+
+                        <!-- Success Message Container -->
+                        <div id="dinnerSuccessBox" style="display: none; text-align: center; padding: 20px 8px;">
+                            <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--crimson-dim); border: 1px solid var(--crimson); color: var(--crimson); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-size: 1.5rem;">✓</div>
+                            <h3 style="font-size: 32px; font-weight: 400; margin-bottom: 10px; font-family: var(--f-serif); color: var(--ink);">Invitation Request Received</h3>
+                            <p style="color: var(--ink-dim); font-size: 14.5px; line-height: 1.6; margin-bottom: 24px;" id="dinnerSuccessText">
+                                Thank you. We have logged your request and will reach out directly to confirm your seat for November 5th.
+                            </p>
+                            <a href="index.html" class="mo-cta mo-cta-ghost">Return to Occasia</a>
                         </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: THE PREMISE (LOW TEXT DENSITY) -->
-        <section class="section-padding" id="premise" style="padding: 50px 0; border-top: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header" style="margin-bottom: 36px;">
-                    <p class="section-kicker">The Concept</p>
-                    <h2 class="section-title">Why a Dinner Beats 100 Zoom Calls</h2>
-                    <p class="section-desc" style="max-width: 520px;">
-                        True trust and high-ticket relationships don't start in webinars. They happen over good food and honest conversation.
-                    </p>
-                </div>
-
-                <div class="comparison-grid">
-                    <!-- Point 1 -->
-                    <div class="glass-card comp-card" style="padding: 24px;">
-                        <div class="card-kicker">01 / The Room</div>
-                        <h3 class="comp-title">Real Operators Only</h3>
-                        <p class="comp-desc">
-                            Founders and executives with real payroll, active clients, and substantial revenue targets.
-                        </p>
-                    </div>
-
-                    <!-- Point 2 -->
-                    <div class="glass-card comp-card" style="padding: 24px;">
-                        <div class="card-kicker">02 / Ground Rule</div>
-                        <h3 class="comp-title">Zero Pitching</h3>
-                        <p class="comp-desc">
-                            No sponsor slides. No sales pitches. Just open, candid discussions about what's actually working in sales and scaling.
-                        </p>
-                    </div>
-
-                    <!-- Point 3 -->
-                    <div class="glass-card comp-card" style="padding: 24px;">
-                        <div class="card-kicker">03 / Depth</div>
-                        <h3 class="comp-title">Unhurried Attention</h3>
-                        <p class="comp-desc">
-                            Four uninterrupted hours to talk numbers, deal mechanics, and challenges you can't post about online.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: RUN OF SHOW (EXACT SEQUENCE, PUNCHY) -->
-        <section class="section-padding" id="run-of-show" style="padding: 60px 0; background: rgba(14, 14, 18, 0.4); border-top: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header" style="margin-bottom: 36px;">
-                    <p class="section-kicker">November 5th Schedule</p>
-                    <h2 class="section-title">The Run of Show</h2>
-                    <p class="section-desc">
-                        Starts at 7:00 PM. No rigid agenda, just natural momentum.
-                    </p>
-                </div>
-
-                <div class="timeline-container">
-                    <div class="timeline-card">
-                        <div class="timeline-time">7:00 PM</div>
-                        <div class="timeline-info">
-                            <h4>1-Hour Networking</h4>
-                            <p>Arrivals, welcome drinks, and informal conversations to meet fellow founders.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-card">
-                        <div class="timeline-time">8:00 PM</div>
-                        <div class="timeline-info">
-                            <h4>Appetizers + Welcome Chat</h4>
-                            <p>Seating, first course, and a brief welcome to frame the evening's discussion.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-card">
-                        <div class="timeline-time">8:30 PM</div>
-                        <div class="timeline-info">
-                            <h4>Dinner and Discussions</h4>
-                            <p>Seated dinner with curated, unfiltered roundtable conversations around commercial growth.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-card">
-                        <div class="timeline-time">10:00 PM</div>
-                        <div class="timeline-info">
-                            <h4>Closing Notes</h4>
-                            <p>Final takeaways, contact exchange, and informal wrap-up before departing.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: WHO SITS AT THE TABLE (LOW DENSITY) -->
-        <section class="section-padding" id="guest-profile" style="padding: 50px 0; border-top: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header" style="margin-bottom: 32px;">
-                    <p class="section-kicker">Guest Profile</p>
-                    <h2 class="section-title">Who Sits At The Table</h2>
-                </div>
-
-                <div class="criteria-grid">
-                    <div class="glass-card criteria-card" style="padding: 24px;">
-                        <div class="criteria-badge">Profile 01</div>
-                        <h3 style="font-size: 1.15rem;">B2B Founders &amp; CEOs</h3>
-                        <p style="font-size: 0.875rem;">Leading established or high-growth tech firms, agencies, and consultancies.</p>
-                    </div>
-
-                    <div class="glass-card criteria-card" style="padding: 24px;">
-                        <div class="criteria-badge">Profile 02</div>
-                        <h3 style="font-size: 1.15rem;">Sales &amp; Revenue Leaders</h3>
-                        <p style="font-size: 0.875rem;">VPs of Sales and CROs driving 5- to 7-figure commercial deal cycles.</p>
-                    </div>
-
-                    <div class="glass-card criteria-card" style="padding: 24px;">
-                        <div class="criteria-badge">Profile 03</div>
-                        <h3 style="font-size: 1.15rem;">Strategic Consultancies</h3>
-                        <p style="font-size: 0.875rem;">Partners and operators whose business depends on senior-level executive trust.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION: RSVP FORM -->
-        <section class="section-padding" id="request-seat" style="padding: 60px 0 80px; background: radial-gradient(circle at 50% 30%, rgba(225, 29, 72, 0.08) 0%, transparent 60%); border-top: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header" style="margin-bottom: 32px;">
-                    <p class="section-kicker">November 5th · Montreal</p>
-                    <h2 class="section-title">Request Your Seat</h2>
-                    <p class="section-desc" style="max-width: 480px;">
-                        Strictly capped at 15 attendees. We review each application personally within 24 hours.
-                    </p>
-                </div>
-
-                <div class="dinner-form-wrap">
-                    <form id="dinnerForm">
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerFullName">Full Name</label>
-                            <input type="text" id="dinnerFullName" class="form-input" placeholder="e.g. Marc Dubois" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerWorkEmail">Work Email</label>
-                            <input type="email" id="dinnerWorkEmail" class="form-input" placeholder="marc@company.com" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerPhoneNumber">Direct Phone Number</label>
-                            <input type="tel" id="dinnerPhoneNumber" class="form-input" placeholder="+1 (514) 000-0000" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerCompanyName">Company Name</label>
-                            <input type="text" id="dinnerCompanyName" class="form-input" placeholder="e.g. Apex Solutions" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerDealSize">Average Contract Value / Deal Size</label>
-                            <select id="dinnerDealSize" class="form-select" required>
-                                <option value="$10k - $25k">$10,000 – $25,000</option>
-                                <option value="$25k - $50k">$25,000 – $50,000</option>
-                                <option value="$50k - $100k">$50,000 – $100,000</option>
-                                <option value="$100k+">$100,000+</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="dinnerNotes">Top Topic or Challenge You'd Like to Discuss <span style="color: var(--text-dim); font-size: 0.8rem;">(Optional)</span></label>
-                            <textarea id="dinnerNotes" class="form-textarea" rows="2" placeholder="e.g. Enterprise sales cycles, outbound strategies..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;" id="dinner-submit-btn">
-                            Request Dinner Invitation &rarr;
-                        </button>
-                    </form>
-
-                    <!-- Success Message Container -->
-                    <div id="dinnerSuccessBox" style="display: none; text-align: center; padding: 20px 8px;">
-                        <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(225, 29, 72, 0.15); border: 1px solid var(--accent-rose); color: var(--accent-rose); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem;">✓</div>
-                        <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; font-family: var(--font-display);">Invitation Request Received</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;" id="dinnerSuccessText">
-                            Thank you. We have logged your request in our CRM and will reach out directly to confirm your seat for November 5th.
-                        </p>
-                        <a href="index.html" class="btn btn-secondary">Return to Occasia Agency</a>
                     </div>
                 </div>
             </div>
@@ -383,25 +1116,40 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-glass);">
-                <div class="brand-logo">
-                    OCCASIA <span class="logo-tag">EXECUTIVE</span>
-                </div>
-                <div style="color: var(--text-muted); font-size: 0.85rem;">
-                    Private Executive Dinners · November 5th, Montreal
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div>© Occasia Agency. All rights reserved.</div>
-                <div>Looking to install the dinner acquisition system for your firm? <a href="index.html" style="color: #FFFFFF; text-decoration: underline;">Learn How It Works</a>.</div>
-            </div>
+    <footer class="mo-footer">
+        <div class="shell footer-bottom">
+            <span>OCCASIA AGENCY © 2026 · THE VIP EXECUTIVE DINNER</span>
+            <span>WANT TO HOST A PRIVATE DINNER FOR YOUR IDEAL BUYERS? <a href="index.html">SEE HOW IT WORKS →</a></span>
         </div>
     </footer>
 
-    <!-- Form Logic Script -->
+    <!-- Preloader, Theme & GHL Form Logic -->
     <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const c = document.getElementById('curtain');
+                if (c) c.classList.add('loaded');
+            }, 400);
+        });
+        setTimeout(() => {
+            const c = document.getElementById('curtain');
+            if (c) c.classList.add('loaded');
+        }, 1100);
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.getElementById('themeBtn');
+            if (html.classList.contains('nocturne')) {
+                html.classList.remove('nocturne');
+                html.classList.add('film');
+                btn.innerText = 'Nocturne';
+            } else {
+                html.classList.remove('film');
+                html.classList.add('nocturne');
+                btn.innerText = 'Film';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
@@ -512,7 +1260,7 @@
                         dinnerForm.style.display = 'none';
                         successBox.style.display = 'block';
                         successText.innerHTML = `Thank you, <strong>${payload.fullName}</strong>. We have logged your request in our CRM and will reach out directly at <strong>${payload.workEmail}</strong> or <strong>${payload.phone}</strong> within 24 hours to confirm your seat for November 5th.`;
-                        
+
                         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     } catch (err) {
                         console.error('Dinner RSVP failed:', err);

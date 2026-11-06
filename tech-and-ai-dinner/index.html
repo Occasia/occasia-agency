@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="lang-fr">
+<html lang="fr" class="film lang-fr">
 
 <head>
     <meta charset="UTF-8">
@@ -8,24 +8,20 @@
     <!-- Primary SEO Meta Tags -->
     <title>Dîner Exécutif IA & Tech de Montréal | 26 novembre · Co-organisé par Emergex</title>
     <meta name="title" content="Dîner Exécutif IA & Tech de Montréal | 26 novembre · Co-organisé par Emergex">
-    <meta name="description"
-        content="Une rencontre à huis clos strictement réservée à 15 fondateurs, CFOs, CTOs et VPs Ingénierie tech de Montréal le jeudi 26 novembre à 19h00. Co-organisé par Emergex. Sans pitch ni diapositives.">
-    <meta name="keywords"
-        content="Dîner Exécutif IA Montréal, Montreal AI Tech Dinner, Emergex RS&DE, Occasia Agency, CTO dinner Montreal, CFO tech dinner, table ronde exécutive">
+    <meta name="description" content="Une rencontre à huis clos strictement réservée à 15 fondateurs, CFOs, CTOs et VPs Ingénierie tech de Montréal le jeudi 26 novembre à 19h00. Co-organisé par Emergex. Sans pitch ni diapositives.">
+    <meta name="keywords" content="Dîner Exécutif IA Montréal, Montreal AI Tech Dinner, Emergex RS&DE, Occasia Agency, CTO dinner Montreal, CFO tech dinner, table ronde exécutive">
     <meta name="author" content="Occasia Agency & Emergex">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://occasia.agency/tech-and-ai-dinner">
-    <meta name="theme-color" content="#08080A">
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://occasia.agency/tech-and-ai-dinner">
     <meta property="og:site_name" content="Occasia × Emergex">
     <meta property="og:title" content="Dîner Exécutif IA & Tech de Montréal | 26 novembre · Co-organisé par Emergex">
-    <meta property="og:description"
-        content="Table ronde à huis clos pour 15 décideurs tech de Montréal (CFOs, CTOs, VPs Ingénierie, Fondateurs). Jeudi 26 novembre, 19h00 à Montréal.">
-    <meta property="og:image" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
-    <meta property="og:image:secure_url" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
+    <meta property="og:description" content="Table ronde à huis clos pour 15 décideurs tech de Montréal (CFOs, CTOs, VPs Ingénierie, Fondateurs). Jeudi 26 novembre, 19h00 à Montréal.">
+    <meta property="og:image" content="https://occasia.agency/assets/images/founders_dinner_bg.jpg">
+    <meta property="og:image:secure_url" content="https://occasia.agency/assets/images/founders_dinner_bg.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Dîner Exécutif IA & Tech de Montréal">
@@ -36,9 +32,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://occasia.agency/tech-and-ai-dinner">
     <meta name="twitter:title" content="Montreal AI & Tech Executive Dinner | November 26th · Hosted by Emergex">
-    <meta name="twitter:description"
-        content="Closed-door executive dinner for 15 Montreal tech decision-makers. November 26th, 7:00 PM in Montreal. Hosted by Emergex.">
-    <meta name="twitter:image" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
+    <meta name="twitter:description" content="Closed-door executive dinner for 15 Montreal tech decision-makers. November 26th, 7:00 PM in Montreal. Hosted by Emergex.">
+    <meta name="twitter:image" content="https://occasia.agency/assets/images/founders_dinner_bg.jpg">
     <meta name="twitter:image:alt" content="Montreal AI & Tech Executive Dinner">
 
     <!-- JSON-LD Structured Data for Event -->
@@ -71,681 +66,16 @@
     </script>
 
     <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
     <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon-64.png">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/assets/images/favicon.png">
 
-    <!-- Fonts & Shared Design System -->
+    <!-- Web Fonts: Instrument Serif + Inter + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
-
-    <!-- Event Page Custom Styles & Bilingual Rules -->
-    <style>
-        /* Bilingual Visibility */
-        html[lang="fr"] .lang-en { display: none !important; }
-        html[lang="en"] .lang-fr { display: none !important; }
-
-        /* Language Switcher */
-        .lang-switch-wrapper {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            background: rgba(18, 18, 24, 0.75);
-            border: 1px solid var(--border-glass);
-            padding: 3px 6px;
-            border-radius: 20px;
-            margin-right: 8px;
-        }
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-dim);
-            font-family: var(--font-mono);
-            font-size: 0.72rem;
-            font-weight: 700;
-            cursor: pointer;
-            padding: 3px 8px;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            line-height: 1;
-        }
-        .lang-btn:hover {
-            color: #FFFFFF;
-        }
-        .lang-btn.active {
-            color: #FFFFFF;
-            background: rgba(225, 29, 72, 0.35);
-            border: 1px solid rgba(225, 29, 72, 0.5);
-            color: var(--accent-rose-light);
-        }
-        .lang-divider {
-            color: var(--border-glass);
-            font-size: 0.7rem;
-            user-select: none;
-        }
-
-        /* Event Centered Hero with Background Fade */
-        .event-hero-section {
-            position: relative;
-            padding-top: 155px;
-            padding-bottom: 80px;
-            text-align: center;
-            overflow: hidden;
-            border-bottom: 1px solid var(--border-glass);
-            background: #08080A;
-        }
-
-        .event-hero-section::before {
-            content: '';
-            position: absolute;
-            inset: -15px;
-            background-image: url('/assets/images/luxury_table_hero.jpg');
-            background-size: cover;
-            background-position: center 35%;
-            background-repeat: no-repeat;
-            filter: blur(5px);
-            opacity: 0.82;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .event-hero-section::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(8, 8, 10, 0.35) 0%, rgba(8, 8, 10, 0.1) 35%, rgba(8, 8, 10, 0.2) 70%, rgba(8, 8, 10, 0.85) 100%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .event-hero-container {
-            position: relative;
-            z-index: 1;
-            max-width: 880px;
-            margin: 0 auto;
-        }
-
-        .event-hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 16px;
-            border-radius: 30px;
-            background: rgba(225, 29, 72, 0.12);
-            border: 1px solid rgba(225, 29, 72, 0.3);
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--accent-rose-light);
-            margin-bottom: 22px;
-            letter-spacing: 0.04em;
-        }
-
-        .event-hero-badge .badge-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #E11D48;
-            box-shadow: 0 0 10px #E11D48;
-            display: inline-block;
-        }
-
-        .event-hero-title {
-            font-size: 3.4rem;
-            font-weight: 800;
-            line-height: 1.15;
-            color: #FFFFFF;
-            font-family: var(--font-display);
-            margin: 0 auto 18px;
-            letter-spacing: -0.02em;
-        }
-
-        .event-cohost-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 18px;
-            border-radius: 100px;
-            background: rgba(18, 18, 24, 0.7);
-            border: 1px solid var(--border-glass-bright);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            margin-bottom: 24px;
-        }
-
-        .event-cohost-pill .cohost-prefix {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .event-cohost-pill strong {
-            font-size: 1rem;
-            color: #FFFFFF;
-            letter-spacing: 0.04em;
-            font-family: var(--font-display);
-        }
-
-        .event-cohost-pill .cohost-tag {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--accent-rose-light);
-            background: var(--accent-rose-subtle);
-            border: 1px solid var(--border-rose);
-            padding: 2px 8px;
-            border-radius: 20px;
-        }
-
-        .event-hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            max-width: 680px;
-            margin: 0 auto 32px;
-            font-weight: 400;
-        }
-
-        /* Single-Row Event Meta & Seats (No card blobs) */
-        .event-meta-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 0 auto 34px;
-            width: 100%;
-        }
-
-        .event-meta-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            font-size: clamp(0.72rem, 3vw, 1.05rem);
-            font-weight: 500;
-            color: var(--text-primary);
-            white-space: nowrap;
-            max-width: 100%;
-        }
-
-        .event-meta-dot {
-            color: var(--accent-rose);
-            font-weight: 700;
-            opacity: 0.85;
-            user-select: none;
-        }
-
-        .event-meta-part {
-            letter-spacing: 0.01em;
-        }
-
-        .event-hero-cta {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 14px;
-        }
-
-        .event-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 40px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            border-radius: 100px;
-            background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
-            color: #FFFFFF !important;
-            box-shadow: 0 8px 28px rgba(225, 29, 72, 0.4);
-            transition: all 0.25s ease;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .event-cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 36px rgba(225, 29, 72, 0.6);
-            color: #FFFFFF !important;
-        }
-
-        /* Who Sits At The Table - 2 Minimalist Rows */
-        .table-two-rows {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
-            max-width: 960px;
-            margin: 32px auto 0;
-            width: 100%;
-        }
-
-        .table-spec-row {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 14px;
-            padding: 12px 28px;
-            background: rgba(18, 18, 24, 0.45);
-            border: 1px solid var(--border-glass);
-            border-radius: 100px;
-            transition: var(--transition-smooth);
-            max-width: 100%;
-        }
-
-        .table-spec-row:hover {
-            border-color: rgba(225, 29, 72, 0.35);
-            background: rgba(24, 24, 32, 0.6);
-        }
-
-        .table-row-badge {
-            font-family: var(--font-mono);
-            font-size: 0.74rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent-rose-light);
-            background: rgba(225, 29, 72, 0.12);
-            border: 1px solid rgba(225, 29, 72, 0.28);
-            padding: 3px 12px;
-            border-radius: 100px;
-            flex-shrink: 0;
-        }
-
-        .table-row-text {
-            display: inline-flex;
-            align-items: center;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            font-size: clamp(0.85rem, 1.6vw, 0.98rem);
-            font-weight: 500;
-            color: #FFFFFF;
-        }
-
-        .row-dot {
-            color: var(--accent-rose);
-            font-weight: 700;
-            opacity: 0.75;
-            user-select: none;
-        }
-
-        /* Webisoft-Style Compact Run of Show Timeline */
-        .webisoft-timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 860px;
-            margin: 0 auto;
-        }
-        .webisoft-timeline-card {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            padding: 18px 24px;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-glass);
-            border-radius: 14px;
-            transition: var(--transition-smooth);
-        }
-        .webisoft-timeline-card:hover {
-            border-color: var(--border-rose);
-            transform: translateY(-2px);
-        }
-        .webisoft-timeline-card.highlight {
-            border-left: 3px solid var(--accent-rose);
-            background: rgba(225, 29, 72, 0.06);
-            border-color: rgba(225, 29, 72, 0.35);
-        }
-        .webisoft-time {
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--accent-rose-light);
-            background: var(--accent-rose-subtle);
-            border: 1px solid var(--border-rose);
-            padding: 6px 14px;
-            border-radius: 20px;
-            white-space: nowrap;
-            min-width: 90px;
-            text-align: center;
-        }
-        .webisoft-timeline-card.highlight .webisoft-time {
-            background: rgba(225, 29, 72, 0.2);
-            color: #FFFFFF;
-            border-color: var(--accent-rose);
-        }
-        .webisoft-info h4 {
-            font-family: var(--font-display);
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            margin: 0;
-            line-height: 1.35;
-        }
-
-        @media (max-width: 992px) {
-            .event-hero-title { font-size: 2.6rem; }
-        }
-
-        @media (max-width: 768px) {
-            .table-two-rows {
-                gap: 12px;
-                margin-top: 22px;
-            }
-            .table-spec-row {
-                border-radius: 18px;
-                padding: 12px 18px;
-                gap: 10px;
-                width: 100%;
-            }
-            .table-row-text {
-                font-size: 0.86rem;
-                gap: 8px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .event-hero-section { padding-top: 130px; padding-bottom: 60px; }
-            .event-hero-title { font-size: 2.05rem; }
-            .event-meta-row { gap: 8px; font-size: clamp(0.68rem, 2.95vw, 0.95rem); }
-            .webisoft-timeline-card { flex-direction: column; align-items: flex-start; gap: 10px; }
-            .attendee-logos-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-            .attendee-logo-card { height: 60px; padding: 10px 12px; }
-            .attendee-logo-card img { max-height: 22px; }
-        }
-
-        /* Attendee Brands Logo Grid */
-        .attendee-logos-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-            align-items: center;
-        }
-
-        .attendee-logo-card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 76px;
-            padding: 14px 20px;
-            background: rgba(18, 18, 24, 0.45);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            transition: all 0.25s ease;
-        }
-
-        .attendee-logo-card:hover {
-            background: rgba(26, 26, 34, 0.75);
-            border-color: rgba(225, 29, 72, 0.35);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        }
-
-        .attendee-logo-card img {
-            max-height: 28px;
-            max-width: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            filter: none;
-            opacity: 1;
-            transition: all 0.25s ease;
-        }
-
-        .attendee-logo-card:hover img {
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 1024px) {
-            .attendee-logos-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 14px;
-            }
-        }
-
-        /* ----------------------------------------------------
-           Host Emergex Section & Pierre Savignac Pill Card
-           ---------------------------------------------------- */
-        .host-section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border-glass);
-            position: relative;
-        }
-
-        .host-container {
-            max-width: 860px;
-            margin: 0 auto;
-        }
-
-        .host-card {
-            background: rgba(18, 18, 24, 0.55);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            padding: 44px 48px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 28px;
-            position: relative;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(12px);
-            transition: border-color 0.3s ease;
-        }
-
-        .host-card:hover {
-            border-color: rgba(225, 29, 72, 0.3);
-        }
-
-        .host-brand-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .host-logo-box {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 28px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            transition: all 0.25s ease;
-        }
-
-        .host-logo-box:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(225, 29, 72, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .host-logo {
-            max-height: 48px;
-            max-width: 220px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            filter: none;
-            opacity: 1;
-            display: block;
-        }
-
-        .host-description {
-            font-size: 1.05rem;
-            line-height: 1.68;
-            color: var(--text-secondary);
-            max-width: 760px;
-            margin: 0 auto;
-            font-weight: 400;
-        }
-
-        .host-description a {
-            color: #FFFFFF;
-            font-weight: 600;
-            text-decoration: underline;
-            text-decoration-color: rgba(225, 29, 72, 0.65);
-            text-underline-offset: 3px;
-            transition: all 0.2s ease;
-        }
-
-        .host-description a:hover {
-            color: var(--accent-rose-light);
-            text-decoration-color: var(--accent-rose);
-        }
-
-        /* Pill-Shaped Card for Pierre */
-        .host-pill-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-top: 4px;
-        }
-
-        .host-pill-card {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            background: linear-gradient(135deg, rgba(26, 26, 36, 0.85) 0%, rgba(18, 18, 26, 0.95) 100%);
-            border: 1px solid rgba(225, 29, 72, 0.35);
-            border-radius: 100px;
-            padding: 8px 24px 8px 10px;
-            text-decoration: none;
-            transition: all 0.28s ease;
-            box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4), 0 0 20px rgba(225, 29, 72, 0.1);
-        }
-
-        .host-pill-card:hover {
-            border-color: var(--accent-rose);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 28px rgba(225, 29, 72, 0.25);
-        }
-
-        .host-pill-avatar-wrap {
-            position: relative;
-            flex-shrink: 0;
-            width: 52px;
-            height: 52px;
-        }
-
-        .host-pill-avatar {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-rose);
-            display: block;
-        }
-
-        .host-linkedin-badge {
-            position: absolute;
-            bottom: -1px;
-            right: -1px;
-            width: 18px;
-            height: 18px;
-            background: #0A66C2;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFFFFF;
-            border: 1.5px solid #08080A;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-        }
-
-        .host-pill-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
-            gap: 2px;
-        }
-
-        .host-pill-name {
-            font-family: var(--font-display);
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            letter-spacing: -0.01em;
-            line-height: 1.25;
-        }
-
-        .host-pill-role {
-            font-size: 0.82rem;
-            color: var(--text-dim);
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .host-pill-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(225, 29, 72, 0.15);
-            border: 1px solid rgba(225, 29, 72, 0.45);
-            color: var(--accent-rose-light);
-            font-family: var(--font-display);
-            font-size: 0.88rem;
-            font-weight: 600;
-            padding: 9px 18px;
-            border-radius: 100px;
-            margin-left: 8px;
-            transition: all 0.22s ease;
-            white-space: nowrap;
-        }
-
-        .host-pill-card:hover .host-pill-action {
-            background: var(--accent-rose);
-            color: #FFFFFF;
-            border-color: var(--accent-rose);
-            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.4);
-        }
-
-        .host-pill-arrow {
-            transition: transform 0.2s ease;
-        }
-
-        .host-pill-card:hover .host-pill-arrow {
-            transform: translateX(3px);
-        }
-
-        @media (max-width: 640px) {
-            .host-section {
-                padding: 60px 0;
-            }
-            .host-card {
-                padding: 30px 20px;
-                gap: 22px;
-                border-radius: 20px;
-            }
-            .host-description {
-                font-size: 0.95rem;
-            }
-            .host-pill-card {
-                flex-direction: column;
-                border-radius: 24px;
-                padding: 20px 16px;
-                width: 100%;
-                gap: 12px;
-                text-align: center;
-            }
-            .host-pill-info {
-                align-items: center;
-                text-align: center;
-            }
-            .host-pill-action {
-                margin-left: 0;
-                width: 100%;
-                justify-content: center;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Apollo.io Website Visitor Tracker -->
     <script>
@@ -760,23 +90,911 @@
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+
+    <style>
+        /* Bilingual Visibility */
+        html[lang="fr"] .lang-en { display: none !important; }
+        html[lang="en"] .lang-fr { display: none !important; }
+
+        :root {
+            /* Film Mode (Luminous Archival Paper Stock) */
+            --bg: #FAF9F6;
+            --bg-1: #F4F1EA;
+            --bg-2: #ECE7DE;
+            --bg-translucent: rgba(250, 249, 246, 0.88);
+            --ink: #14161A;
+            --ink-dim: #4A4F5A;
+            --ink-faint: #7E8594;
+            --text: #2D313A;
+            --crimson: #E11D48;
+            --crimson-hi: #F43F5E;
+            --crimson-dim: rgba(225, 29, 72, 0.08);
+            --hair: rgba(20, 22, 26, 0.08);
+            --hair-strong: rgba(20, 22, 26, 0.16);
+            --hair-crimson: rgba(225, 29, 72, 0.28);
+            --f-serif: 'Instrument Serif', Georgia, serif;
+            --f-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --f-mono: 'JetBrains Mono', monospace;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Nocturne Mode */
+        html.nocturne {
+            --bg: #090A0F;
+            --bg-1: #12141D;
+            --bg-2: #1A1D28;
+            --bg-translucent: rgba(9, 10, 15, 0.88);
+            --ink: #FFFFFF;
+            --ink-dim: #94A3B8;
+            --ink-faint: #64748B;
+            --text: #CBD5E1;
+            --crimson: #E11D48;
+            --crimson-hi: #FB7185;
+            --crimson-dim: rgba(225, 29, 72, 0.16);
+            --hair: rgba(255, 255, 255, 0.08);
+            --hair-strong: rgba(255, 255, 255, 0.16);
+            --hair-crimson: rgba(225, 29, 72, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--f-sans);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: clip;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        body {
+            overflow-x: clip;
+            background: transparent;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        ::selection {
+            background: var(--crimson-dim);
+            color: var(--crimson);
+        }
+
+        /* Preloader Curtain */
+        .mo-curtain {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #14161A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .mo-curtain.loaded {
+            transform: translate3d(0, -100%, 0);
+        }
+
+        .mo-curtain-title {
+            font-family: var(--f-serif);
+            font-size: 32px;
+            letter-spacing: 0.15em;
+            color: #FAF9F6;
+            margin-bottom: 16px;
+        }
+
+        .mo-curtain-title em {
+            color: #E11D48;
+            font-style: italic;
+        }
+
+        .mo-curtain-line {
+            width: 140px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mo-curtain-line::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #E11D48;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: curtainFill 0.8s var(--ease) forwards;
+        }
+
+        @keyframes curtainFill {
+            to { transform: scaleX(1); }
+        }
+
+        .ambient-film {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 10%, rgba(225, 29, 72, 0.04) 0%, transparent 60%);
+        }
+
+        .shell {
+            width: 100%;
+            max-width: 1320px;
+            margin-inline: auto;
+            padding-inline: clamp(20px, 3.5vw, 48px);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Clean Uncluttered Top Bar */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            background: var(--bg-translucent);
+            border-bottom: 1px solid var(--hair);
+            transition: background 0.4s ease;
+        }
+
+        .top-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .brand-mark {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .brand-monogram {
+            font-family: var(--f-serif);
+            font-size: 26px;
+            line-height: 1;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        .brand-monogram em {
+            color: var(--crimson);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13.5px;
+            font-weight: 400;
+            color: var(--ink-dim);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Language Switcher */
+        .lang-switch-wrapper {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            border: 1px solid var(--hair-strong);
+            padding: 3px 5px;
+            border-radius: 999px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--ink-dim);
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            padding: 3px 8px;
+            border-radius: 999px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--ink);
+            color: var(--bg);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--hair-strong);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--ink);
+            color: var(--ink);
+        }
+
+        /* Hero Section (likn.io MoHero) */
+        .mo-hero {
+            position: relative;
+            min-height: 94vh;
+            min-height: 94svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding-top: 132px;
+            padding-bottom: 56px;
+        }
+
+        .mo-hero-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .cohost-line {
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 18px;
+        }
+
+        .cohost-line strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .mo-hero-headline {
+            font-family: var(--f-serif);
+            font-weight: 400;
+            font-size: clamp(48px, 6.8vw, 98px);
+            line-height: 0.96;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            max-width: 16ch;
+            margin-bottom: 20px;
+        }
+
+        .mo-hero-headline em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .mo-hero-sub {
+            font-size: clamp(15.5px, 1.3vw, 18px);
+            line-height: 1.6;
+            color: var(--ink-dim);
+            max-width: 52ch;
+            margin-bottom: 22px;
+        }
+
+        .event-meta-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin-bottom: 32px;
+        }
+
+        .event-meta-line .sep {
+            color: var(--crimson);
+        }
+
+        .mo-hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .mo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 999px;
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s var(--ease);
+            cursor: pointer;
+        }
+
+        .mo-cta-crimson {
+            background: var(--crimson);
+            color: #FFFFFF;
+            border: 1px solid var(--crimson);
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.25);
+        }
+
+        .mo-cta-crimson:hover {
+            background: var(--crimson-hi);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(225, 29, 72, 0.35);
+        }
+
+        /* Splayed 5-Photo Print Fan */
+        .mo-hero-gallery {
+            position: relative;
+            z-index: 4;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: end;
+            gap: 0;
+            width: min(1200px, 100%);
+            margin: 10px auto 0;
+            height: clamp(220px, 28vh, 320px);
+        }
+
+        .mo-slot {
+            position: relative;
+            height: 100%;
+            padding-top: calc(var(--ak) * 7%);
+            z-index: calc(3 - var(--ak));
+        }
+
+        .mo-print {
+            position: relative;
+            height: 100%;
+            margin: 0 -8%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-2);
+            border: 1px solid var(--hair);
+            box-shadow: 0 20px 45px -15px rgba(20, 22, 26, 0.18);
+            transform-origin: 50% 100%;
+            transform: rotate(calc(var(--k) * 2.8deg));
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .mo-print:hover {
+            transform: rotate(0deg) scale(1.06) translateY(-10px);
+            z-index: 20;
+            box-shadow: 0 30px 60px -15px rgba(225, 29, 72, 0.35);
+            border-color: var(--hair-crimson);
+        }
+
+        .mo-print img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.04) brightness(0.96);
+            transition: filter 0.4s ease;
+        }
+
+        /* Rolling Partner & Attendee Logos Marquee (Sliding Left to Right) */
+        .mo-provenance {
+            padding-block: 36px;
+            border-top: 1px solid var(--hair);
+            border-bottom: 1px solid var(--hair);
+            background: var(--bg-1);
+            overflow: hidden;
+        }
+
+        .logos-marquee-header {
+            text-align: center;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 24px;
+        }
+
+        .logos-marquee-mask {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+
+        .logos-marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            width: max-content;
+            animation: rollLeftToRight 38s linear infinite;
+        }
+
+        .logos-marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes rollLeftToRight {
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0%, 0, 0); }
+        }
+
+        .logo-slide-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            flex-shrink: 0;
+        }
+
+        .logo-slide-item img {
+            max-height: 28px;
+            max-width: 125px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: brightness(0);
+            opacity: 0.58;
+            transition: opacity 0.25s ease;
+        }
+
+        html.nocturne .logo-slide-item img {
+            filter: brightness(0) invert(1);
+            opacity: 0.72;
+        }
+
+        .logo-slide-item:hover img {
+            opacity: 1;
+        }
+
+        /* Editorial Sections */
+        .mo-section {
+            padding-block: clamp(72px, 9vw, 124px);
+            border-bottom: 1px solid var(--hair);
+            position: relative;
+        }
+
+        .sec-head {
+            margin-bottom: 48px;
+        }
+
+        .sec-eyebrow {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .sec-title {
+            font-family: var(--f-serif);
+            font-size: clamp(38px, 5.2vw, 72px);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            color: var(--ink);
+            max-width: 20ch;
+        }
+
+        .sec-title em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        /* Who Sits At The Table Split Cards */
+        .invited-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .invited-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            padding: 32px;
+        }
+
+        .invited-label {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .invited-list {
+            font-family: var(--f-serif);
+            font-size: clamp(24px, 2.6vw, 34px);
+            line-height: 1.25;
+            color: var(--ink);
+        }
+
+        .invited-list .sep {
+            color: var(--crimson);
+            margin-inline: 8px;
+        }
+
+        /* Hairline Run of Show Timeline */
+        .schedule-list {
+            border-top: 1px solid var(--hair);
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 32px;
+            align-items: baseline;
+            padding-block: 26px;
+            border-bottom: 1px solid var(--hair);
+        }
+
+        .schedule-row.is-highlight {
+            background: var(--crimson-dim);
+            padding-inline: 24px;
+            border-radius: 10px;
+            border-bottom-color: var(--hair-crimson);
+        }
+
+        .schedule-time {
+            font-family: var(--f-mono);
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .schedule-title {
+            font-family: var(--f-serif);
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        /* Past Dinners Lookbook */
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .lookbook-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s var(--ease);
+        }
+
+        .lookbook-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--hair-crimson);
+            box-shadow: 0 20px 45px -10px rgba(20, 22, 26, 0.15);
+        }
+
+        .lookbook-media {
+            position: relative;
+            aspect-ratio: 16 / 11;
+            background: var(--bg-2);
+            overflow: hidden;
+        }
+
+        .lookbook-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease);
+        }
+
+        .lookbook-card:hover .lookbook-media img {
+            transform: scale(1.04);
+        }
+
+        .lookbook-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lookbook-client {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .lookbook-title {
+            font-family: var(--f-serif);
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.15;
+        }
+
+        /* Guest Voices Row */
+        .voices-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 36px;
+        }
+
+        .voice-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .voice-quote {
+            font-size: 14.5px;
+            line-height: 1.65;
+            color: var(--ink-dim);
+        }
+
+        .voice-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 14px;
+            border-top: 1px solid var(--hair);
+        }
+
+        .voice-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--hair-strong);
+        }
+
+        .voice-info strong {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .voice-info span {
+            font-family: var(--f-mono);
+            font-size: 9.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+
+        /* Host Emergex Section (Corner-Bracket Stamp Card) */
+        .mo-stamp-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 56px;
+            align-items: center;
+            padding: clamp(36px, 5vw, 72px);
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 16px;
+            box-shadow: 0 25px 60px -20px rgba(20, 22, 26, 0.12);
+        }
+
+        .stamp-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 0 solid var(--crimson);
+            pointer-events: none;
+        }
+
+        .stamp-tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+        .stamp-tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+        .stamp-bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+        .stamp-br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+
+        .host-logo-img {
+            max-height: 42px;
+            width: auto;
+            margin-bottom: 20px;
+            filter: brightness(0);
+            opacity: 0.88;
+        }
+
+        html.nocturne .host-logo-img {
+            filter: brightness(0) invert(1);
+        }
+
+        .host-desc {
+            font-size: 15.5px;
+            line-height: 1.68;
+            color: var(--ink-dim);
+        }
+
+        .host-desc a {
+            color: var(--ink);
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: var(--crimson);
+            text-underline-offset: 3px;
+        }
+
+        .host-profile-card {
+            background: var(--bg);
+            border: 1px solid var(--hair-strong);
+            border-radius: 14px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-decoration: none;
+            color: var(--ink);
+            transition: all 0.25s var(--ease);
+        }
+
+        .host-profile-card:hover {
+            border-color: var(--crimson);
+            transform: translateY(-3px);
+        }
+
+        .host-profile-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .host-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--crimson);
+        }
+
+        .host-name {
+            font-family: var(--f-serif);
+            font-size: 28px;
+            line-height: 1.1;
+            color: var(--ink);
+        }
+
+        .host-role {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-top: 4px;
+        }
+
+        .host-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--hair);
+            font-family: var(--f-mono);
+            font-size: 10.5px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        /* Footer */
+        .mo-footer {
+            padding-block: 64px 44px;
+            background: var(--bg);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+
+        .footer-bottom a {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: var(--crimson);
+            text-underline-offset: 3px;
+        }
+
+        @media (max-width: 960px) {
+            .nav-links {
+                display: none;
+            }
+            .mo-hero-gallery {
+                grid-template-columns: repeat(3, 1fr);
+                height: 44vw;
+            }
+            .mo-slot:first-child, .mo-slot:last-child {
+                display: none;
+            }
+            .invited-grid,
+            .schedule-row,
+            .lookbook-grid,
+            .voices-grid,
+            .mo-stamp-card {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Ambient Glowing Background Orbs -->
-    <div class="ambient-bg" aria-hidden="true">
-        <div class="orb orb-rose"></div>
-        <div class="orb orb-indigo"></div>
+    <!-- Curtain Preloader -->
+    <div class="mo-curtain" id="curtain">
+        <div class="mo-curtain-title">O C C A S I A <em>·</em></div>
+        <div class="mo-curtain-line"></div>
     </div>
 
-    <!-- Navigation Header -->
-    <header class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="/" class="brand-logo" id="nav-brand-logo">
-                OCCASIA
+    <!-- Ambient Glow Texture -->
+    <div class="ambient-film" aria-hidden="true"></div>
+
+    <!-- Minimal Top Navigation -->
+    <header class="top-nav" id="navbar">
+        <div class="shell top-nav-inner">
+            <a href="/" class="brand-mark" id="nav-brand-logo">
+                <span class="brand-monogram">Occasia<em>.</em></span>
             </a>
-            
+
             <ul class="nav-links">
                 <li>
                     <a href="#who-is-invited">
@@ -797,12 +1015,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#social-proof">
-                        <span class="lang-fr">Témoignages</span>
-                        <span class="lang-en">Reviews</span>
-                    </a>
-                </li>
-                <li>
                     <a href="#host-emergex">
                         <span class="lang-fr">Notre Hôte</span>
                         <span class="lang-en">Our Host</span>
@@ -810,599 +1022,447 @@
                 </li>
             </ul>
 
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <!-- Language Switcher Toggle -->
+            <div class="nav-controls">
                 <div class="lang-switch-wrapper" aria-label="Sélection de la langue / Language selector">
                     <button type="button" class="lang-btn active" data-lang-btn="fr" id="btn-lang-fr" title="Passer en français">FR</button>
-                    <span class="lang-divider">|</span>
                     <button type="button" class="lang-btn" data-lang-btn="en" id="btn-lang-en" title="Switch to English">EN</button>
                 </div>
+                <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">Nocturne</button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- 1. Centered Event Hero Section with Fade Background -->
-        <section class="event-hero-section" id="hero">
-            <div class="container">
-                <div class="event-hero-container">
-                    <!-- Centered Headline -->
-                    <h1 class="event-hero-title">
-                        <span class="lang-fr">Dîner Exécutif IA &amp; Tech<br>de Montréal</span>
-                        <span class="lang-en">Montreal AI &amp; Tech<br>Executive Dinner</span>
-                    </h1>
+        <!-- 1. HERO SECTION -->
+        <section class="mo-hero" id="hero">
+            <div class="shell mo-hero-stage">
+                <div class="cohost-line">
+                    <span class="lang-fr">Co-organisé par <strong>Emergex</strong></span>
+                    <span class="lang-en">Co-Hosted by <strong>Emergex</strong></span>
+                </div>
 
-                    <!-- Co-host Pill -->
-                    <div class="event-cohost-pill">
-                        <span class="cohost-prefix lang-fr">Co-organisé par</span>
-                        <span class="cohost-prefix lang-en">Co-Hosted by</span>
-                        <strong>Emergex</strong>
+                <h1 class="mo-hero-headline">
+                    <span class="lang-fr">Dîner Exécutif <em>IA &amp; Tech</em> de Montréal</span>
+                    <span class="lang-en">Montreal <em>AI &amp; Tech</em> Executive Dinner</span>
+                </h1>
+
+                <p class="mo-hero-sub">
+                    <span class="lang-fr">Une rencontre strictement réservée à 15 fondateurs tech, associés et dirigeants C-Level de Montréal.</span>
+                    <span class="lang-en">A private gathering strictly curated for 15 Montreal tech founders, partners, and C-Level executives.</span>
+                </p>
+
+                <div class="event-meta-line">
+                    <span>
+                        <span class="lang-fr">26 novembre 2026</span>
+                        <span class="lang-en">November 26, 2026</span>
+                    </span>
+                    <span class="sep">·</span>
+                    <span>19h00 – 23h00</span>
+                    <span class="sep">·</span>
+                    <span>
+                        <span class="lang-fr">Centre-ville de Montréal</span>
+                        <span class="lang-en">Downtown Montreal</span>
+                    </span>
+                </div>
+
+                <div class="mo-hero-actions">
+                    <a href="mailto:kevin@occasia.agency?subject=Request%20for%20Invite%20-%20Montreal%20AI%20%26%20Tech%20Executive%20Dinner" class="mo-cta mo-cta-crimson">
+                        <span class="lang-fr">Demander une invitation →</span>
+                        <span class="lang-en">Request invite →</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Splayed 5-Photo Real Dinner Fan -->
+            <div class="shell mo-hero-gallery" aria-label="Photographs from past Occasia private dinners">
+                <div class="mo-slot" style="--k: -2; --ak: 2;">
+                    <div class="mo-print">
+                        <img src="/assets/images/dinner_ecom_vip.png" alt="Executive private dinner">
                     </div>
-
-                    <!-- Centered Subtitle -->
-                    <p class="event-hero-subtitle">
-                        <span class="lang-fr">
-                            Une rencontre strictement réservée à 15 fondateurs tech, associés et dirigeants C-Level de Montréal.
-                        </span>
-                        <span class="lang-en">
-                            A gathering strictly curated for 15 Montreal tech founders, partners and C-Level executives.
-                        </span>
-                    </p>
-
-                    <!-- Single-Row Event Meta & Seats (No card blobs) -->
-                    <div class="event-meta-block">
-                        <div class="event-meta-row">
-                            <span class="event-meta-part">
-                                <span class="lang-fr">26 novembre 2026</span>
-                                <span class="lang-en">November 26, 2026</span>
-                            </span>
-                            <span class="event-meta-dot" aria-hidden="true">·</span>
-                            <span class="event-meta-part">19h00 – 23h00</span>
-                            <span class="event-meta-dot" aria-hidden="true">·</span>
-                            <span class="event-meta-part">
-                                <span class="lang-fr">Centre-ville de Montréal</span>
-                                <span class="lang-en">Downtown Montreal</span>
-                            </span>
-                        </div>
+                </div>
+                <div class="mo-slot" style="--k: -1; --ak: 1;">
+                    <div class="mo-print">
+                        <img src="/assets/images/dinner_tech_toronto.png" alt="Tech founders roundtable">
                     </div>
-
-                    <!-- Single CTA: Request invite -->
-                    <div class="event-hero-cta">
-                        <a href="mailto:kevin@occasia.agency?subject=Request%20for%20Invite%20-%20Montreal%20AI%20%26%20Tech%20Executive%20Dinner" class="btn btn-primary event-cta-btn">
-                            <span class="lang-fr">Demander une invitation</span>
-                            <span class="lang-en">Request invite</span>
-                        </a>
+                </div>
+                <div class="mo-slot" style="--k: 0; --ak: 0;">
+                    <div class="mo-print">
+                        <img src="/assets/images/founders_dinner_bg.jpg" alt="Montreal Executive Dinner">
                     </div>
-
+                </div>
+                <div class="mo-slot" style="--k: 1; --ak: 1;">
+                    <div class="mo-print">
+                        <img src="/assets/images/dinner_retail_vip.png" alt="Private wine cellar dinner">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 2; --ak: 2;">
+                    <div class="mo-print">
+                        <img src="/assets/images/dinner_nft_web3.png" alt="Web3 and Tech Executive Dinner">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. SECTION: WHO SITS AT THE TABLE -->
-        <section class="section-padding" id="who-is-invited" style="padding: 70px 0; background: rgba(14, 14, 18, 0.4); border-bottom: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header text-center" style="margin-bottom: 36px;">
-                    <p class="section-kicker">
+        <!-- 2. ROLLING PARTNER & ATTENDEE LOGOS MARQUEE -->
+        <section class="mo-provenance" aria-label="Companies represented at our tables">
+            <div class="logos-marquee-header">
+                <span class="lang-fr">Marques &amp; Entreprises Présentes à nos Tables</span>
+                <span class="lang-en">Brands &amp; Firms Represented at Our Tables</span>
+            </div>
+            <div class="logos-marquee-mask">
+                <div class="logos-marquee-track">
+                    <div class="logo-slide-item"><img src="/assets/images/logos/warematch.png?v=2" alt="WareMatch"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/startupslang.svg" alt="Startup Slang"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/airwallex.png" alt="Airwallex"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/klaviyo.svg" alt="Klaviyo"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/shopify.svg" alt="Shopify"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/tooly.png" alt="Tooly"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/webtmize.png" alt="Webtmize"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/xperto.png" alt="Experto"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/redbox.png" alt="Redbox Media"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/springmedia.png" alt="Spring Media"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/agency_business.png" alt="The Agency Business"></div>
+                    <div class="logo-slide-item"><img src="/assets/images/logos/raveventures.png" alt="Rave Ventures"></div>
+                    <!-- Duplicate Set -->
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/warematch.png?v=2" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/startupslang.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/airwallex.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/klaviyo.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/shopify.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/tooly.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/webtmize.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/xperto.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/redbox.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/springmedia.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/agency_business.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="/assets/images/logos/raveventures.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. WHO SITS AT THE TABLE -->
+        <section class="mo-section" id="who-is-invited">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">
                         <span class="lang-fr">Profil des Invités</span>
                         <span class="lang-en">Curated Guest Profile</span>
-                    </p>
-                    <h2 class="section-title">
-                        <span class="lang-fr">Qui S'assoit à la Table</span>
-                        <span class="lang-en">Who Sits At The Table</span>
+                    </span>
+                    <h2 class="sec-title">
+                        <span class="lang-fr">Qui s'assoit <em>à la table.</em></span>
+                        <span class="lang-en">Who sits <em>at the table.</em></span>
                     </h2>
-                    <p class="section-subtitle" style="max-width: 620px; margin: 0 auto;">
-                        <span class="lang-fr">Une composition rigoureuse réunissant leaders techniques et décideurs financiers.</span>
-                        <span class="lang-en">Carefully composed to unite technical leaders and financial decision-makers.</span>
-                    </p>
                 </div>
 
-                <div class="table-two-rows">
-                    <!-- Row 1: Roles (No chip) -->
-                    <div class="table-spec-row">
-                        <div class="table-row-text">
+                <div class="invited-grid">
+                    <div class="invited-card">
+                        <span class="invited-label">
+                            <span class="lang-fr">Décideurs</span>
+                            <span class="lang-en">Decision-Makers</span>
+                        </span>
+                        <div class="invited-list">
                             <span><span class="lang-fr">Fondateurs</span><span class="lang-en">Founders</span></span>
-                            <span class="row-dot">·</span>
+                            <span class="sep">·</span>
                             <span>CTOs</span>
-                            <span class="row-dot">·</span>
+                            <span class="sep">·</span>
                             <span>CFOs</span>
-                            <span class="row-dot">·</span>
+                            <span class="sep">·</span>
                             <span>CEOs</span>
-                            <span class="row-dot">·</span>
+                            <span class="sep">·</span>
                             <span>VPs</span>
-                            <span class="row-dot">·</span>
+                            <span class="sep">·</span>
                             <span><span class="lang-fr">Associés</span><span class="lang-en">Partners</span></span>
                         </div>
                     </div>
 
-                    <!-- Row 2: Industries -->
-                    <div class="table-spec-row">
-                        <span class="table-row-badge">
-                            <span class="lang-fr">Industries</span>
+                    <div class="invited-card">
+                        <span class="invited-label">
+                            <span class="lang-fr">Secteurs</span>
                             <span class="lang-en">Industries</span>
                         </span>
-                        <div class="table-row-text">
-                            <span>SaaS &amp; Cloud Platforms</span>
-                            <span class="row-dot">·</span>
-                            <span>Applied AI &amp; Machine Learning</span>
-                            <span class="row-dot">·</span>
-                            <span>Technology Consultants</span>
-                            <span class="row-dot">·</span>
-                            <span>HealthTech / IoT / Robotics</span>
+                        <div class="invited-list">
+                            <span>SaaS &amp; Cloud</span>
+                            <span class="sep">·</span>
+                            <span>Applied AI &amp; ML</span>
+                            <span class="sep">·</span>
+                            <span>Tech Advisory</span>
+                            <span class="sep">·</span>
+                            <span>HealthTech, IoT &amp; Robotics</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2.5 BRAND LOGOS: PARTICIPANTS FROM PREVIOUS DINNERS -->
-        <section class="section-padding attendee-brands-section" style="padding: 56px 0 64px; background: rgba(10, 10, 14, 0.5); border-bottom: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header text-center" style="margin-bottom: 32px;">
-                    <p class="section-kicker">
-                        <span class="lang-fr">Réseau &amp; Historique</span>
-                        <span class="lang-en">Network &amp; Track Record</span>
-                    </p>
-                    <h2 class="section-title" style="font-size: 1.75rem; margin-bottom: 10px;">
-                        <span class="lang-fr">Marques &amp; Entreprises Présentes à nos Tables</span>
-                        <span class="lang-en">Brands &amp; Firms Represented at Our Tables</span>
-                    </h2>
-                    <p class="section-subtitle" style="max-width: 640px; margin: 0 auto; font-size: 0.95rem;">
-                        <span class="lang-fr">Des fondateurs et dirigeants issus de ces organisations ont pris part à nos récents dîners exécutifs.</span>
-                        <span class="lang-en">Founders and decision-makers from these organizations have taken part in our recent executive dinners.</span>
-                    </p>
-                </div>
-
-                <div class="attendee-logos-grid">
-                    <!-- 1. WareWatch (WareMatch) -->
-                    <div class="attendee-logo-card" title="WareWatch">
-                        <img src="/assets/images/logos/warematch.png" alt="WareWatch" loading="lazy">
-                    </div>
-                    <!-- 2. Startup Slang -->
-                    <div class="attendee-logo-card" title="Startup Slang">
-                        <img src="/assets/images/logos/startupslang.svg" alt="Startup Slang" loading="lazy">
-                    </div>
-                    <!-- 3. Airwallex -->
-                    <div class="attendee-logo-card" title="AirWallex">
-                        <img src="/assets/images/logos/airwallex.png" alt="AirWallex" loading="lazy">
-                    </div>
-                    <!-- 4. Klaviyo -->
-                    <div class="attendee-logo-card" title="Klaviyo">
-                        <img src="/assets/images/logos/klaviyo.svg" alt="Klaviyo" loading="lazy">
-                    </div>
-                    <!-- 5. Tooly -->
-                    <div class="attendee-logo-card" title="Tooly">
-                        <img src="/assets/images/logos/tooly.png" alt="Tooly" loading="lazy">
-                    </div>
-                    <!-- 6. Webtmize -->
-                    <div class="attendee-logo-card" title="Webtimize">
-                        <img src="/assets/images/logos/webtmize.png" alt="Webtimize" loading="lazy">
-                    </div>
-                    <!-- 7. Experto -->
-                    <div class="attendee-logo-card" title="Experto">
-                        <img src="/assets/images/logos/xperto.png" alt="Experto" loading="lazy">
-                    </div>
-                    <!-- 8. Redbox Media -->
-                    <div class="attendee-logo-card" title="Redbox Media">
-                        <img src="/assets/images/logos/redbox.png" alt="Redbox Media" loading="lazy">
-                    </div>
-                    <!-- 9. Spring Media -->
-                    <div class="attendee-logo-card" title="Spring Media">
-                        <img src="/assets/images/logos/springmedia.png" alt="Spring Media" loading="lazy">
-                    </div>
-                    <!-- 10. The Agency Business -->
-                    <div class="attendee-logo-card" title="The Agency Business">
-                        <img src="/assets/images/logos/agency_business.png" alt="The Agency Business" loading="lazy">
-                    </div>
-                    <!-- 11. Rave Ventures -->
-                    <div class="attendee-logo-card" title="Rave Ventures">
-                        <img src="/assets/images/logos/raveventures.png" alt="Rave Ventures" loading="lazy">
-                    </div>
-                    <!-- 12. Emergex -->
-                    <div class="attendee-logo-card" title="Emergex">
-                        <img src="/assets/images/logos/emergex.png" alt="Emergex" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. SECTION: THE RUN OF SHOW (Webisoft Schedule with Emergex Welcome Word) -->
-        <section class="section-padding" id="run-of-show" style="padding: 70px 0; border-bottom: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header text-center" style="margin-bottom: 36px;">
-                    <p class="section-kicker">
+        <!-- 4. THE RUN OF SHOW -->
+        <section class="mo-section" id="run-of-show">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">
                         <span class="lang-fr">Déroulement de la Soirée</span>
                         <span class="lang-en">November 26th Schedule</span>
-                    </p>
-                    <h2 class="section-title">
-                        <span class="lang-fr">Le Déroulement</span>
-                        <span class="lang-en">The Run of Show</span>
+                    </span>
+                    <h2 class="sec-title">
+                        <span class="lang-fr">Le déroulement <em>de la soirée.</em></span>
+                        <span class="lang-en">The Run <em>of Show.</em></span>
                     </h2>
                 </div>
 
-                <div class="webisoft-timeline">
-                    <!-- Step 1: 19h00 -->
-                    <div class="webisoft-timeline-card">
-                        <div class="webisoft-time">19h00</div>
-                        <div class="webisoft-info">
-                            <h4>
-                                <span class="lang-fr">Accueil &amp; Cocktails</span>
-                                <span class="lang-en">Arrivals &amp; Welcome Cocktails</span>
-                            </h4>
+                <div class="schedule-list">
+                    <div class="schedule-row">
+                        <div class="schedule-time">19h00</div>
+                        <div class="schedule-title">
+                            <span class="lang-fr">Accueil &amp; Cocktails</span>
+                            <span class="lang-en">Arrivals &amp; Welcome Cocktails</span>
                         </div>
                     </div>
-
-                    <!-- Step 2: 20h00 -->
-                    <div class="webisoft-timeline-card">
-                        <div class="webisoft-time">20h00</div>
-                        <div class="webisoft-info">
-                            <h4>
-                                <span class="lang-fr">Fin du networking &amp; Passage à table</span>
-                                <span class="lang-en">Networking Wrap-up &amp; Seating at the Table</span>
-                            </h4>
+                    <div class="schedule-row">
+                        <div class="schedule-time">20h00</div>
+                        <div class="schedule-title">
+                            <span class="lang-fr">Fin du networking &amp; Passage à table</span>
+                            <span class="lang-en">Networking Wrap-up &amp; Seating at the Table</span>
                         </div>
                     </div>
-
-                    <!-- Step 3: 20h10 (Emergex Welcome Word - Highlighted Card) -->
-                    <div class="webisoft-timeline-card highlight">
-                        <div class="webisoft-time">20h10</div>
-                        <div class="webisoft-info">
-                            <h4>
-                                <span class="lang-fr">Mot de bienvenue d'Emergex &amp; Service des entrées</span>
-                                <span class="lang-en">Welcome Word from Emergex &amp; Appetizers Service</span>
-                            </h4>
+                    <div class="schedule-row is-highlight">
+                        <div class="schedule-time">20h10</div>
+                        <div class="schedule-title">
+                            <span class="lang-fr">Mot de bienvenue d'Emergex &amp; Service des entrées</span>
+                            <span class="lang-en">Welcome Word from Emergex &amp; Appetizers Service</span>
                         </div>
                     </div>
-
-                    <!-- Step 4: 21h30 -->
-                    <div class="webisoft-timeline-card">
-                        <div class="webisoft-time">21h30</div>
-                        <div class="webisoft-info">
-                            <h4>
-                                <span class="lang-fr">Fin du dîner &amp; Échanges libres</span>
-                                <span class="lang-en">Dinner Wrap-up &amp; Open Roundtable Exchanges</span>
-                            </h4>
+                    <div class="schedule-row">
+                        <div class="schedule-time">21h30</div>
+                        <div class="schedule-title">
+                            <span class="lang-fr">Fin du dîner &amp; Échanges libres</span>
+                            <span class="lang-en">Dinner Wrap-up &amp; Open Roundtable Exchanges</span>
                         </div>
                     </div>
-
-                    <!-- Step 5: 23h00 -->
-                    <div class="webisoft-timeline-card">
-                        <div class="webisoft-time">23h00</div>
-                        <div class="webisoft-info">
-                            <h4>
-                                <span class="lang-fr">Fin de la soirée</span>
-                                <span class="lang-en">End of the Evening &amp; Departures</span>
-                            </h4>
+                    <div class="schedule-row">
+                        <div class="schedule-time">23h00</div>
+                        <div class="schedule-title">
+                            <span class="lang-fr">Fin de la soirée</span>
+                            <span class="lang-en">End of the Evening &amp; Departures</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. SECTION: PAST EXECUTIVE DINNERS -->
-        <section class="section-padding" id="past-dinners" style="padding: 70px 0; background: rgba(14, 14, 18, 0.4); border-bottom: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p class="section-kicker">
+        <!-- 5. PAST DINNERS & EXECUTIVE VOICES -->
+        <section class="mo-section" id="past-dinners">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">
                         <span class="lang-fr">Historique Vérifié</span>
-                        <span class="lang-en">Proven Track Record</span>
-                    </p>
-                    <h2 class="section-title">
-                        <span class="lang-fr">Dîners Exécutifs Récents</span>
-                        <span class="lang-en">Past Executive Dinners Hosted</span>
+                        <span class="lang-en">Past Dinners</span>
+                    </span>
+                    <h2 class="sec-title">
+                        <span class="lang-fr">Dîners exécutifs <em>récents.</em></span>
+                        <span class="lang-en">Recent executive <em>dinners.</em></span>
                     </h2>
-                    <p class="section-subtitle">
-                        <span class="lang-fr">Tables privées exclusives récemment organisées à Montréal et Toronto.</span>
-                        <span class="lang-en">Private executive tables recently hosted in Montreal and Toronto.</span>
-                    </p>
                 </div>
 
-                <div class="events-grid">
-                    <!-- Event 1: Tech & SaaS (Toronto) -->
-                    <div class="event-card">
-                        <div class="event-card-media">
-                            <img src="/assets/images/dinner_tech_toronto.png" alt="Table Ronde Fondateurs Tech & SaaS à Toronto" class="event-card-img" loading="lazy" decoding="async">
-                            <span class="event-card-badge">Tech &amp; SaaS</span>
+                <div class="lookbook-grid">
+                    <div class="lookbook-card">
+                        <div class="lookbook-media">
+                            <img src="/assets/images/dinner_tech_toronto.png" alt="Tech and SaaS Founders Roundtable" loading="lazy">
                         </div>
-                        <div class="event-card-body">
-                            <div class="event-card-meta">
-                                <span>Toronto</span>
-                                <span>•</span>
-                                <span>
-                                    <span class="lang-fr">Table Privée</span>
-                                    <span class="lang-en">Private Dining</span>
-                                </span>
-                            </div>
-                            <h3 class="event-card-title">
+                        <div class="lookbook-body">
+                            <span class="lookbook-client">Tech &amp; SaaS</span>
+                            <h4 class="lookbook-title">
                                 <span class="lang-fr">Table Ronde Fondateurs Tech &amp; SaaS</span>
                                 <span class="lang-en">Tech &amp; SaaS Founders Roundtable</span>
-                            </h3>
-                            <p class="event-card-desc">
-                                <span class="lang-fr">Dîner privé réunissant des directeurs d'ingénierie et d'entreprises technologiques autour de la scalabilité et du capital.</span>
+                            </h4>
+                            <p style="font-size: 13.5px; color: var(--ink-dim); line-height: 1.55;">
+                                <span class="lang-fr">Dîner privé réunissant des directeurs d'ingénierie et d'entreprises technologiques autour de la croissance et du capital.</span>
                                 <span class="lang-en">Private dinner uniting technical leaders and SaaS founders around engineering scale and growth capital.</span>
                             </p>
-                            <div class="event-card-tags">
-                                <span class="event-pill">Toronto</span>
-                                <span class="event-pill">SaaS</span>
-                                <span class="event-pill">Tech</span>
-                            </div>
                         </div>
                     </div>
 
-                    <!-- Event 2: NFT & Web3 (Toronto) -->
-                    <div class="event-card">
-                        <div class="event-card-media">
-                            <img src="/assets/images/dinner_nft_web3.png" alt="Dîner Exécutif Web3" class="event-card-img" loading="lazy" decoding="async">
-                            <span class="event-card-badge">Web3 &amp; Tech</span>
+                    <div class="lookbook-card">
+                        <div class="lookbook-media">
+                            <img src="/assets/images/dinner_nft_web3.png" alt="Web3 and Tech Executive Dinner" loading="lazy">
                         </div>
-                        <div class="event-card-body">
-                            <div class="event-card-meta">
-                                <span>Toronto</span>
-                                <span>•</span>
-                                <span>
-                                    <span class="lang-fr">Table Privée</span>
-                                    <span class="lang-en">Private Dining</span>
-                                </span>
-                            </div>
-                            <h3 class="event-card-title">
+                        <div class="lookbook-body">
+                            <span class="lookbook-client">Web3 &amp; Architecture</span>
+                            <h4 class="lookbook-title">
                                 <span class="lang-fr">Dîner Exécutif Web3 &amp; Tech</span>
                                 <span class="lang-en">Web3 &amp; Tech Executive Dinner</span>
-                            </h3>
-                            <p class="event-card-desc">
+                            </h4>
+                            <p style="font-size: 13.5px; color: var(--ink-dim); line-height: 1.55;">
                                 <span class="lang-fr">Rencontre à huis clos entre fondateurs et bâtisseurs de technologies distribuées et de systèmes complexes.</span>
-                                <span class="lang-en">Closed-door meeting between founders and architects of distributed systems and modern web technologies.</span>
+                                <span class="lang-en">Closed-door gathering between founders and architects of distributed systems and modern web technologies.</span>
                             </p>
-                            <div class="event-card-tags">
-                                <span class="event-pill">Toronto</span>
-                                <span class="event-pill">Web3</span>
-                                <span class="event-pill">Architecture</span>
-                            </div>
                         </div>
                     </div>
 
-                    <!-- Event 3: Montreal Executive Dinner (Founders) -->
-                    <div class="event-card">
-                        <div class="event-card-media">
-                            <img src="/assets/images/founders_dinner_bg.jpg" alt="Dîner Exécutif Fondateurs Montréal" class="event-card-img" loading="lazy" decoding="async">
-                            <span class="event-card-badge">Montréal VIP</span>
+                    <div class="lookbook-card">
+                        <div class="lookbook-media">
+                            <img src="/assets/images/founders_dinner_bg.jpg" alt="Montreal Founders Executive Dinner" loading="lazy">
                         </div>
-                        <div class="event-card-body">
-                            <div class="event-card-meta">
-                                <span>Montréal</span>
-                                <span>•</span>
-                                <span>
-                                    <span class="lang-fr">Table Privée</span>
-                                    <span class="lang-en">Private Dining</span>
-                                </span>
-                            </div>
-                            <h3 class="event-card-title">
+                        <div class="lookbook-body">
+                            <span class="lookbook-client">Founders &amp; CEOs</span>
+                            <h4 class="lookbook-title">
                                 <span class="lang-fr">Dîner Exécutif Fondateurs Montréal</span>
                                 <span class="lang-en">Montreal Founders Executive Dinner</span>
-                            </h3>
-                            <p class="event-card-desc">
-                                <span class="lang-fr">Table ronde réunissant des dirigeants québécois pour échanger sans filtre sur leurs défis d'équipe, de financement et de croissance.</span>
+                            </h4>
+                            <p style="font-size: 13.5px; color: var(--ink-dim); line-height: 1.55;">
+                                <span class="lang-fr">Table ronde réunissant des dirigeants québécois pour échanger sans filtre sur leurs défis d'équipe et de croissance.</span>
                                 <span class="lang-en">Private roundtable gathering Quebec tech founders to exchange candidly on scaling, hiring, and financing.</span>
                             </p>
-                            <div class="event-card-tags">
-                                <span class="event-pill">Montréal</span>
-                                <span class="event-pill">Fondateurs</span>
-                                <span class="event-pill">Direction</span>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- 5. SECTION: TESTIMONIALS & REVIEWS -->
-        <section class="testimonials-section section-padding" id="social-proof" style="padding: 70px 0; border-bottom: 1px solid var(--border-glass);">
-            <div class="container">
-                <div class="section-header text-center" style="margin-bottom: 28px;">
-                    <p class="section-kicker">
-                        <span class="lang-fr">Retours d'Expérience</span>
-                        <span class="lang-en">Verified Executive Proof</span>
-                    </p>
-                    <h2 class="section-title">
-                        <span class="lang-fr">Ce Que Disent les Dirigeants</span>
-                        <span class="lang-en">What Founders &amp; Executives Say</span>
-                    </h2>
-                    <p class="section-subtitle">
-                        <span class="lang-fr">Retours directs de dirigeants ayant pris part à nos tables exécutives privées.</span>
-                        <span class="lang-en">Direct feedback from C-level leaders and scaleup founders who have attended our private tables.</span>
-                    </p>
-                </div>
-
-                <div class="testimonials-grid">
-                    <!-- Olivier Brassard -->
-                    <div class="testimonial-card featured-partner">
-                        <div>
-                            <div class="testimonial-header-badge">
-                                <span class="testimonial-tag">
-                                    <span class="lang-fr">Participant Dîner Exécutif</span>
-                                    <span class="lang-en">Attended Executive Dinner</span>
-                                </span>
-                                <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            </div>
-                            <blockquote class="testimonial-quote">
-                                « Merci Kevin Leumassi, le concept est vraiment très intéressant ! »
-                            </blockquote>
-                        </div>
-                        <div class="testimonial-author-row">
-                            <div class="testimonial-avatar">
-                                <img src="/assets/images/olivier_brassard.jpg" alt="Olivier Brassard" loading="lazy" decoding="async">
-                            </div>
-                            <div class="testimonial-meta">
-                                <span class="testimonial-name">Olivier Brassard</span>
-                                <span class="testimonial-role">Co-fondateur &amp; CEO</span>
-                                <span class="testimonial-company">Tooly · Partenaire Zoho Premium</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Damiano Raveenthiran -->
-                    <div class="testimonial-card featured-partner">
-                        <div>
-                            <div class="testimonial-header-badge">
-                                <span class="testimonial-tag">
-                                    <span class="lang-fr">Co-hôte Dîner Exécutif</span>
-                                    <span class="lang-en">Co-Hosted Executive Dinner</span>
-                                </span>
-                                <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            </div>
-                            <blockquote class="testimonial-quote">
-                                « J'ai adoré ce dîner, merci infiniment pour l'invitation Kevin. »
-                            </blockquote>
-                        </div>
-                        <div class="testimonial-author-row">
-                            <div class="testimonial-avatar">
-                                <img src="/assets/images/damiano_raveenthiran.jpg" alt="Damiano Raveenthiran" loading="lazy" decoding="async">
-                            </div>
-                            <div class="testimonial-meta">
-                                <span class="testimonial-name">Damiano Raveenthiran</span>
-                                <span class="testimonial-role">Founder &amp; CEO</span>
-                                <span class="testimonial-company">Startup Slang</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Natalia Kaplan -->
-                    <div class="testimonial-card">
-                        <div>
-                            <div class="testimonial-header-badge">
-                                <span class="testimonial-tag">
-                                    <span class="lang-fr">Participante Dîner Exécutif</span>
-                                    <span class="lang-en">Attended Executive Dinner</span>
-                                </span>
-                                <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                            </div>
-                            <blockquote class="testimonial-quote">
-                                « Merci Kevin pour ces soirées toujours très riches en partages inspirants, en belles conversations et en connexions de haut niveau. »
-                            </blockquote>
-                        </div>
-                        <div class="testimonial-author-row">
-                            <div class="testimonial-avatar">
-                                <img src="/assets/images/natalia_kaplan.jpg" alt="Natalia Kaplan" loading="lazy" decoding="async">
-                            </div>
-                            <div class="testimonial-meta">
-                                <span class="testimonial-name">Natalia Kaplan</span>
-                                <span class="testimonial-role">Founder</span>
-                                <span class="testimonial-company">On Point Agency</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. SECTION: WHO IS OUR HOST EMERGEX -->
-        <section class="host-section section-padding" id="host-emergex">
-            <div class="container">
-                <div class="host-container">
-                    <div class="section-header text-center" style="margin-bottom: 34px;">
-                        <p class="section-kicker">
-                            <span class="lang-fr">Notre Hôte</span>
-                            <span class="lang-en">Our Host</span>
+                <!-- Real Guest Quotes -->
+                <div class="voices-grid" id="social-proof">
+                    <div class="voice-card">
+                        <p class="voice-quote">
+                            <span class="lang-fr">"C'est une approche tellement originale. Travaillons ensemble pour mettre quelque chose en place pour Tooly."</span>
+                            <span class="lang-en">"This is such an original approach. Let's work together and put something in place for Tooly."</span>
                         </p>
-                        <h2 class="section-title">
-                            <span class="lang-fr">Qui est notre hôte Emergex ?</span>
-                            <span class="lang-en">Who is our Host Emergex?</span>
-                        </h2>
-                    </div>
-
-                    <div class="host-card">
-                        <!-- Emergex Logo & Description -->
-                        <div class="host-brand-wrapper">
-                            <a href="https://www.emergex.com" target="_blank" rel="noopener noreferrer" class="host-logo-box" title="Emergex SR&amp;ED Consultants">
-                                <img src="/assets/images/logos/emergex.png" alt="Emergex SR&amp;ED Consultants" class="host-logo" loading="lazy">
-                            </a>
-                            <p class="host-description">
-                                <span class="lang-fr">Depuis 30 ans, <a href="https://www.emergex.com" target="_blank" rel="noopener noreferrer">Emergex RSDE Consultants</a> aide les entreprises technologiques et innovantes à financer leur développement et leur croissance en maximisant leurs crédits d'impôt de Recherche Scientifique et Développement Expérimental (RS&amp;DE) et des Affaires Électroniques intégrant l’IA (CDAEIA), le Programme d’Aide à la Recherche Industrielle (PARI) et autres subventions gouvernementales.</span>
-                                <span class="lang-en">For 30 years, <a href="https://www.emergex.com" target="_blank" rel="noopener noreferrer">Emergex SRED Consultants</a> have helped technology and innovative companies finance their development and growth by maximizing their Scientific Research and Experimental Development (SR&amp;ED) and E-Business integrating AI (CDAEIA) tax credits, the Industrial Research and Assistance Program (IRAP) and other government grants.</span>
-                            </p>
-                        </div>
-
-                        <!-- Pill-Shaped Card: Talk with Pierre -->
-                        <div class="host-pill-wrapper">
-                            <a href="https://www.linkedin.com/in/pierresavignac" target="_blank" rel="noopener noreferrer" class="host-pill-card" title="LinkedIn - Pierre Savignac">
-                                <div class="host-pill-avatar-wrap">
-                                    <img src="/assets/images/pierre_savignac.jpg" alt="Pierre Savignac" class="host-pill-avatar" loading="lazy">
-                                    <span class="host-linkedin-badge" aria-label="LinkedIn">
-                                        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                                    </span>
-                                </div>
-                                <div class="host-pill-info">
-                                    <div class="host-pill-name">Pierre Savignac</div>
-                                    <div class="host-pill-role">
-                                        <span class="lang-fr">Fondateur &amp; CEO, Emergex Consultants RS&amp;DE</span>
-                                        <span class="lang-en">Founder &amp; CEO, Emergex SR&amp;ED Consultants</span>
-                                    </div>
-                                </div>
-                                <div class="host-pill-action">
-                                    <span class="lang-fr">Échanger avec Pierre</span>
-                                    <span class="lang-en">Talk with Pierre</span>
-                                    <svg class="host-pill-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </div>
-                            </a>
+                        <div class="voice-author">
+                            <img src="/assets/images/olivier_brassard.jpg" alt="Olivier Brassard" class="voice-avatar" loading="lazy">
+                            <div class="voice-info">
+                                <strong>Olivier Brassard</strong>
+                                <span>Co-Founder &amp; CEO · Tooly (Zoho Premium Partner)</span>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="voice-card">
+                        <p class="voice-quote">
+                            <span class="lang-fr">"J'ai adoré ce dîner, merci infiniment pour l'invitation Kevin Leumassi. J'ai utilisé exactement ce même modèle pour faire croître mon entreprise et bâtir les relations pour lever des fonds pour ma firme de private equity."</span>
+                            <span class="lang-en">"I loved this dinner, thanks so much for the invitation Kevin Leumassi. I used this exact same model to scale my business and build the relationships to raise capital for my private equity firm."</span>
+                        </p>
+                        <div class="voice-author">
+                            <img src="/assets/images/damiano_raveenthiran.jpg" alt="Damiano Raveenthiran" class="voice-avatar" loading="lazy">
+                            <div class="voice-info">
+                                <strong>Damiano Raveenthiran</strong>
+                                <span>Founder &amp; CEO · Startup Slang &amp; Rave Ventures</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="voice-card">
+                        <p class="voice-quote">
+                            <span class="lang-fr">"Merci Kevin pour ces soirées toujours très riches en partages inspirants, en belles conversations et en connexions de haut niveau."</span>
+                            <span class="lang-en">"Thank you Kevin for always organizing such great events that really allow folks to share and be inspired. So many great conversations and connections."</span>
+                        </p>
+                        <div class="voice-author">
+                            <img src="/assets/images/natalia_kaplan.jpg" alt="Natalia Kaplan" class="voice-avatar" loading="lazy">
+                            <div class="voice-info">
+                                <strong>Natalia Kaplan</strong>
+                                <span>Founder · On Point Agency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. OUR HOST EMERGEX -->
+        <section class="mo-section" id="host-emergex">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">
+                        <span class="lang-fr">Notre Hôte</span>
+                        <span class="lang-en">Our Host</span>
+                    </span>
+                    <h2 class="sec-title">
+                        <span class="lang-fr">Qui est notre hôte <em>Emergex ?</em></span>
+                        <span class="lang-en">Who is our host <em>Emergex?</em></span>
+                    </h2>
+                </div>
+
+                <div class="mo-stamp-card">
+                    <span class="stamp-corner stamp-tl"></span>
+                    <span class="stamp-corner stamp-tr"></span>
+                    <span class="stamp-corner stamp-bl"></span>
+                    <span class="stamp-corner stamp-br"></span>
+
+                    <div>
+                        <a href="https://www.emergex.com" target="_blank" rel="noopener noreferrer" title="Emergex SR&amp;ED Consultants">
+                            <img src="/assets/images/logos/emergex.png" alt="Emergex SR&amp;ED Consultants" class="host-logo-img" loading="lazy">
+                        </a>
+                        <p class="host-desc">
+                            <span class="lang-fr">Depuis 30 ans, <a href="https://www.emergex.com" target="_blank" rel="noopener noreferrer">Emergex RSDE Consultants</a> aide les entreprises technologiques et innovantes à financer leur développement et leur croissance en maximisant leurs crédits d'impôt de Recherche Scientifique et Développement Expérimental (RS&amp;DE) et des Affaires Électroniques intégrant l’IA (CDAEIA), le Programme d’Aide à la Recherche Industrielle (PARI) et autres subventions gouvernementales.</span>
+                            <span class="lang-en">For 30 years, <a href="https://www.emergex.com" target="_blank" rel="noopener noreferrer">Emergex SRED Consultants</a> have helped technology and innovative companies finance their development and growth by maximizing their Scientific Research and Experimental Development (SR&amp;ED) and E-Business integrating AI (CDAEIA) tax credits, the Industrial Research and Assistance Program (IRAP) and other government grants.</span>
+                        </p>
+                    </div>
+
+                    <a href="https://www.linkedin.com/in/pierresavignac" target="_blank" rel="noopener noreferrer" class="host-profile-card" title="LinkedIn - Pierre Savignac">
+                        <div class="host-profile-top">
+                            <img src="/assets/images/pierre_savignac.jpg" alt="Pierre Savignac" class="host-avatar" loading="lazy">
+                            <div>
+                                <div class="host-name">Pierre Savignac</div>
+                                <div class="host-role">
+                                    <span class="lang-fr">Fondateur &amp; CEO · Emergex Consultants RS&amp;DE</span>
+                                    <span class="lang-en">Founder &amp; CEO · Emergex SR&amp;ED Consultants</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="host-action">
+                            <span>
+                                <span class="lang-fr">Échanger avec Pierre sur LinkedIn</span>
+                                <span class="lang-en">Connect with Pierre on LinkedIn</span>
+                            </span>
+                            <span>→</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-glass);">
-                <div class="brand-logo">
-                    OCCASIA
-                </div>
-                <div style="color: var(--text-muted); font-size: 0.85rem;">
-                    <span class="lang-fr">Dîner Exécutif IA &amp; Tech de Montréal · 26 novembre · Co-organisé par Emergex</span>
-                    <span class="lang-en">Montreal AI &amp; Tech Executive Dinner · November 26th · Hosted by Emergex</span>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div>© Occasia Agency &amp; Emergex SR&amp;ED. Tous droits réservés / All rights reserved.</div>
-                <div>
-                    <span class="lang-fr">Vous souhaitez organiser un dîner privé pour vos comptes clés ? <a href="/" style="color: #FFFFFF; text-decoration: underline;">Découvrir la méthode</a>.</span>
-                    <span class="lang-en">Looking to install the executive dinner system for your firm? <a href="/" style="color: #FFFFFF; text-decoration: underline;">Learn How It Works</a>.</span>
-                </div>
-            </div>
+    <footer class="mo-footer">
+        <div class="shell footer-bottom">
+            <span>© 2026 OCCASIA AGENCY &amp; EMERGEX SR&amp;ED</span>
+            <span>
+                <span class="lang-fr">VOUS SOUHAITEZ ORGANISER UN DÎNER PRIVÉ POUR VOS COMPTES CLÉS ? <a href="/">DÉCOUVRIR LA MÉTHODE →</a></span>
+                <span class="lang-en">WANT TO HOST A PRIVATE DINNER FOR YOUR TARGET ACCOUNTS? <a href="/">LEARN HOW IT WORKS →</a></span>
+            </span>
         </div>
     </footer>
 
-    <!-- Form Logic & Bilingual Engine Script -->
+    <!-- Preloader, Theme & Bilingual Engine -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Navbar Scroll Effect
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 40) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const c = document.getElementById('curtain');
+                if (c) c.classList.add('loaded');
+            }, 400);
+        });
+        setTimeout(() => {
+            const c = document.getElementById('curtain');
+            if (c) c.classList.add('loaded');
+        }, 1100);
 
-            // ----------------------------------------------------
-            // Bilingual Detection & Switching Engine
-            // ----------------------------------------------------
-            function updateFormPlaceholders(lang) {
-                const inputs = document.querySelectorAll('[data-placeholder-fr]');
-                inputs.forEach(input => {
-                    input.placeholder = (lang === 'fr') 
-                        ? input.getAttribute('data-placeholder-fr') 
-                        : input.getAttribute('data-placeholder-en');
-                });
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.getElementById('themeBtn');
+            if (html.classList.contains('nocturne')) {
+                html.classList.remove('nocturne');
+                html.classList.add('film');
+                btn.innerText = 'Nocturne';
+            } else {
+                html.classList.remove('film');
+                html.classList.add('nocturne');
+                btn.innerText = 'Film';
             }
+        }
 
+        document.addEventListener('DOMContentLoaded', () => {
             function setLanguage(lang) {
                 const validLang = (lang === 'en') ? 'en' : 'fr';
-                document.documentElement.setAttribute('lang', validLang);
-                document.documentElement.className = (validLang === 'en') ? 'lang-en' : 'lang-fr';
+                const html = document.documentElement;
+                html.setAttribute('lang', validLang);
+                html.classList.remove('lang-en', 'lang-fr');
+                html.classList.add(validLang === 'en' ? 'lang-en' : 'lang-fr');
                 localStorage.setItem('occasia_dinner_lang', validLang);
 
-                // Update Toggle Buttons
                 document.querySelectorAll('.lang-btn').forEach(btn => {
                     if (btn.getAttribute('data-lang-btn') === validLang) {
                         btn.classList.add('active');
@@ -1411,10 +1471,6 @@
                     }
                 });
 
-                // Update Dynamic Placeholders
-                updateFormPlaceholders(validLang);
-
-                // Update Page Meta
                 if (validLang === 'fr') {
                     document.title = "Dîner Exécutif IA & Tech de Montréal | 26 novembre · Co-organisé par Emergex";
                 } else {
@@ -1423,16 +1479,13 @@
             }
 
             function detectInitialLanguage() {
-                // 1. URL parameter (?lang=fr or ?lang=en)
                 const urlParams = new URLSearchParams(window.location.search);
                 const paramLang = urlParams.get('lang');
                 if (paramLang === 'fr' || paramLang === 'en') return paramLang;
 
-                // 2. Saved user preference
                 const saved = localStorage.getItem('occasia_dinner_lang');
                 if (saved === 'fr' || saved === 'en') return saved;
 
-                // 3. Browser language
                 const navLangs = navigator.languages || [navigator.language || ''];
                 for (const l of navLangs) {
                     if (l && l.toLowerCase().startsWith('fr')) return 'fr';
@@ -1440,7 +1493,6 @@
                 return 'en';
             }
 
-            // Bind switcher buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const chosen = btn.getAttribute('data-lang-btn');
@@ -1448,7 +1500,6 @@
                 });
             });
 
-            // Initial Language Run
             const initialLang = detectInitialLanguage();
             setLanguage(initialLang);
         });
