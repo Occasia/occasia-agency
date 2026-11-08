@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
         strategyForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = strategyForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
 
             const phoneInput = document.getElementById('phoneNumber');
             const phoneVal = phoneInput ? phoneInput.value.trim() : '';
@@ -150,8 +149,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            submitBtn.textContent = 'Securing Your Spot...';
-            submitBtn.disabled = true;
+            if (submitBtn) {
+                submitBtn.textContent = 'Loading Calendar...';
+                submitBtn.disabled = true;
+            }
 
             const formData = {
                 fullName: document.getElementById('fullName')?.value.trim() || '',
@@ -163,49 +164,83 @@ document.addEventListener('DOMContentLoaded', () => {
                 submittedAt: new Date().toISOString()
             };
 
-            try {
-                // First try serverless function /api/submit
-                let submissionSuccessful = false;
+            // Build pre-filled LeadConnector booking URL
+            const nameParts = formData.fullName.split(/\s+/);
+            const firstName = nameParts[0] || '';
+            const lastName = nameParts.slice(1).join(' ') || '';
+            const bookingParams = new URLSearchParams();
+            if (formData.fullName) bookingParams.set('name', formData.fullName);
+            if (firstName) bookingParams.set('first_name', firstName);
+            if (lastName) bookingParams.set('last_name', lastName);
+            if (formData.workEmail) bookingParams.set('email', formData.workEmail);
+            if (formData.phone) bookingParams.set('phone', formData.phone);
+
+            const baseCalendarUrl = 'https://api.leadconnectorhq.com/widget/bookings/kevinleumassi';
+            const calendarUrl = bookingParams.toString()
+                ? `${baseCalendarUrl}?${bookingParams.toString()}`
+                : baseCalendarUrl;
+
+            // Fire CRM sync in background so the user sees the calendar immediately
+            (async () => {
                 try {
-                    const apiRes = await fetch('/api/submit', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(formData)
-                    });
-                    if (apiRes.ok) {
-                        submissionSuccessful = true;
+                    let submissionSuccessful = false;
+                    try {
+                        const apiRes = await fetch('/api/submit', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formData)
+                        });
+                        if (apiRes.ok) {
+                            submissionSuccessful = true;
+                        }
+                    } catch (apiErr) {
+                        // /api/submit not available on static server, fallback to direct GHL
                     }
-                } catch (apiErr) {
-                    // /api/submit not available on local static server, fallback to direct GHL
-                }
 
-                // If serverless endpoint wasn't reached, sync directly with GHL
-                if (!submissionSuccessful) {
-                    await submitToGHLDirectly(formData);
+                    if (!submissionSuccessful) {
+                        await submitToGHLDirectly(formData);
+                    }
+                } catch (err) {
+                    console.error('Background CRM sync failed:', err);
                 }
+            })();
 
-                // Show confirmation screen
-                if (modalContainer) {
-                    modalContainer.innerHTML = `
-                        <button class="modal-close" id="closeModalAfter" aria-label="Close modal">&times;</button>
-                        <div style="text-align: center; padding: 24px 8px;">
-                            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(225, 29, 72, 0.15); border: 1px solid var(--accent-rose); color: var(--accent-rose); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem;">✓</div>
-                            <h3 style="font-size: 1.7rem; font-weight: 800; margin-bottom: 12px; font-family: var(--font-display);">Consultation Request Received</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 28px;">
-                                Thank you, <strong>${formData.fullName || 'there'}</strong>. We have logged your request in our CRM and will reach out directly at <strong>${formData.workEmail}</strong> or <strong>${formData.phone}</strong> within 24 hours to schedule your strategy call.
-                            </p>
-                            <button class="btn btn-secondary" id="finishCloseBtn" style="min-width: 160px;">Close Window</button>
+            // Immediately show Kevin's live booking calendar inside the modal
+            if (modalContainer) {
+                modalContainer.style.width = 'min(880px, 100%)';
+                modalContainer.style.padding = 'clamp(20px, 3vw, 32px)';
+                modalContainer.innerHTML = `
+                    <button type="button" class="modal-close" id="closeModalAfter" aria-label="Close modal">✕</button>
+                    <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-right: 44px; margin-bottom: 16px;">
+                        <div>
+                            <span class="sec-eyebrow" style="margin-bottom: 4px;">Step 2 of 2 · Select a Time</span>
+                            <h2 class="modal-title" style="font-size: 30px; margin-bottom: 0;">Book Your Strategy Call</h2>
                         </div>
-                    `;
+                        <a href="${calendarUrl}" target="_blank" rel="noopener noreferrer" style="font-family: var(--f-mono, monospace); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--crimson, #E11D48); text-decoration: underline;">
+                            Open in new tab ↗
+                        </a>
+                    </div>
+                    <div style="width: 100%; min-height: 660px; border-radius: 12px; overflow: hidden; background: #FFFFFF; border: 1px solid var(--hair-strong, rgba(20,22,26,0.16));">
+                        <iframe
+                            src="${calendarUrl}"
+                            style="width: 100%; min-height: 660px; height: 72vh; border: none; display: block;"
+                            scrolling="yes"
+                            id="kevinleumassi_calendar_iframe"
+                            title="Book a Strategy Call with Kevin Leumassi"
+                        ></iframe>
+                    </div>
+                `;
 
-                    document.getElementById('closeModalAfter')?.addEventListener('click', closeModal);
-                    document.getElementById('finishCloseBtn')?.addEventListener('click', closeModal);
+                if (!document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) {
+                    const embedScript = document.createElement('script');
+                    embedScript.src = 'https://link.msgsndr.com/js/form_embed.js';
+                    embedScript.type = 'text/javascript';
+                    document.body.appendChild(embedScript);
                 }
-            } catch (err) {
-                console.error('Submission failed:', err);
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-                alert('We encountered an issue submitting your request. Please try again or reach out directly.');
+
+                document.getElementById('closeModalAfter')?.addEventListener('click', closeModal);
+            } else {
+                window.location.href = calendarUrl;
             }
         });
     }
