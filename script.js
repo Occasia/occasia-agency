@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 email: formData.workEmail,
                 phone: formData.phone,
                 companyName: formData.companyName || '',
+                website: formData.companyWebsite || undefined,
                 tags: tags,
                 source: isDinner ? 'occasia.agency next dinner RSVP' : 'occasia.agency website'
             })
@@ -112,9 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 `• Work Email: ${formData.workEmail}`,
                 `• Direct Phone: ${formData.phone}`,
                 `• Company Name: ${formData.companyName || 'Not specified'}`,
+                formData.companyWebsite ? `• Company Website: ${formData.companyWebsite}` : null,
                 `• Deal Size / ACV: ${formData.dealSize || 'Not specified'}`,
                 formData.notes ? `• Additional Notes: ${formData.notes}` : null,
-                formData.targetClients ? `• Target Dream Clients: ${formData.targetClients}` : null,
                 `• Submitted At: ${formData.submittedAt}`
             ].filter(Boolean).join('\n');
 
@@ -159,8 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 workEmail: document.getElementById('workEmail')?.value.trim() || '',
                 phone: phoneVal,
                 companyName: document.getElementById('companyName')?.value.trim() || '',
+                companyWebsite: document.getElementById('companyWebsite')?.value.trim() || '',
                 dealSize: document.getElementById('dealSize')?.value || '',
-                targetClients: document.getElementById('targetClients')?.value.trim() || '',
                 submittedAt: new Date().toISOString()
             };
 

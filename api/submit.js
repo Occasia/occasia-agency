@@ -35,7 +35,7 @@ module.exports = async function handler(req, res) {
             }
         }
 
-        const { fullName, workEmail, phone, companyName, dealSize, targetClients, type, notes } = body || {};
+        const { fullName, workEmail, phone, companyName, companyWebsite, dealSize, targetClients, type, notes } = body || {};
 
         if (!fullName || !workEmail || !phone) {
             return res.status(400).json({ 
@@ -68,6 +68,7 @@ module.exports = async function handler(req, res) {
                 email: workEmail.trim(),
                 phone: phone.trim(),
                 companyName: (companyName || '').trim(),
+                website: companyWebsite ? companyWebsite.trim() : undefined,
                 tags: tags,
                 source: isDinner ? 'occasia.agency next dinner RSVP' : 'occasia.agency website'
             })
@@ -88,6 +89,7 @@ module.exports = async function handler(req, res) {
                 `• Work Email: ${workEmail}`,
                 `• Direct Phone: ${phone}`,
                 `• Company Name: ${companyName || 'Not specified'}`,
+                companyWebsite ? `• Company Website: ${companyWebsite}` : null,
                 `• Deal Size / ACV: ${dealSize || 'Not specified'}`,
                 isDinner && notes ? `• Additional Notes / Dietary: ${notes}` : null,
                 !isDinner && targetClients ? `• Target Dream Clients: ${targetClients}` : null,
