@@ -40,6 +40,11 @@
       "source": "/tech-and-ai-dinner.html",
       "destination": "/tech-and-ai-dinner",
       "permanent": true
+    },
+    {
+      "source": "/technumia.html",
+      "destination": "/technumia",
+      "permanent": true
     }
   ]
 }

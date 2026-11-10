@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="film">
 
 <!--
     =============================================================================
-    OCCASIA EXECUTIVE DINNER DECK — MASTER TEMPLATE (10 SLIDES)
+    OCCASIA EXECUTIVE DINNER — MASTER SALES DECK & LICENSING-STYLE PAGE TEMPLATE
     =============================================================================
-    Standard validé pour toutes les présentations de dîners exécutifs B2B.
-    Pour créer un nouveau deck :
-    1. Dupliquez ce dossier : `cp -r _template-dinner/ [nomclient]-dinner/`
-    2. Cherchez-remplacez : "ORISO SOLUTIONS", "ORISO", et configurez le logo
-    3. Personnalisez l'ICP (Slide 03) et le tableau des 20 comptes (Slide 05)
-    4. Ajoutez la redirection dans `vercel.json`
+    Standard validé pour toutes les pages de présentation de dîners exécutifs B2B.
+    Design : Editorial Archival Paper Stock (likn.io/licensing + Occasia Landing Page)
+    Généré automatiquement via `python3 occasia_agency/scripts/generate_sales_deck.py`
     =============================================================================
 -->
 
@@ -24,7 +21,7 @@
     <meta name="description"
         content="Une soirée intime à huis clos réunissant Directeurs TI, CISOs et décideurs d'entreprises québécoises autour d'une table gastronomique. Organisé par Oriso, co-organisé par Occasia.">
     <link rel="canonical" href="https://occasia.agency/oriso-dinner">
-    <meta name="theme-color" content="#08080A">
+    <meta name="theme-color" content="#FAF9F6">
 
     <!-- Open Graph / LinkedIn -->
     <meta property="og:type" content="website">
@@ -38,1862 +35,1842 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 
-    <!-- Fonts & Shared Design System -->
+    <!-- Web Fonts: Instrument Serif + Inter + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* Collapsible Prospects Accordion Styles */
-        .prospects-details {
-            background: rgba(18, 18, 22, 0.75);
-            border: 1px solid var(--border-glass-bright, rgba(255, 255, 255, 0.12));
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        :root {
+            /* Film Mode (Luminous Archival Paper Stock - likn.io/licensing) */
+            --bg: #FAF9F6;
+            --bg-1: #F4F1EA;
+            --bg-2: #ECE7DE;
+            --bg-translucent: rgba(250, 249, 246, 0.88);
+            --ink: #14161A;
+            --ink-dim: #4A4F5A;
+            --ink-faint: #7E8594;
+            --text: #2D313A;
+            --crimson: #E11D48;
+            --crimson-hi: #F43F5E;
+            --crimson-dim: rgba(225, 29, 72, 0.08);
+            --hair: rgba(20, 22, 26, 0.08);
+            --hair-strong: rgba(20, 22, 26, 0.16);
+            --hair-crimson: rgba(225, 29, 72, 0.28);
+            --f-serif: 'Instrument Serif', Georgia, serif;
+            --f-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --f-mono: 'JetBrains Mono', monospace;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .prospects-details[open] {
-            border-color: var(--border-rose-bright, rgba(225, 29, 72, 0.45));
-            box-shadow: 0 0 35px rgba(225, 29, 72, 0.25);
+
+        /* Nocturne Mode */
+        html.nocturne {
+            --bg: #090A0F;
+            --bg-1: #12141D;
+            --bg-2: #1A1D28;
+            --bg-translucent: rgba(9, 10, 15, 0.88);
+            --ink: #FFFFFF;
+            --ink-dim: #94A3B8;
+            --ink-faint: #64748B;
+            --text: #CBD5E1;
+            --crimson: #E11D48;
+            --crimson-hi: #FB7185;
+            --crimson-dim: rgba(225, 29, 72, 0.16);
+            --hair: rgba(255, 255, 255, 0.08);
+            --hair-strong: rgba(255, 255, 255, 0.16);
+            --hair-crimson: rgba(255, 29, 72, 0.4);
         }
-        .prospects-summary {
-            list-style: none;
-            cursor: pointer;
-            padding: 22px 26px;
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--f-sans);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: clip;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        body {
+            overflow-x: clip;
+            background: transparent;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        ::selection {
+            background: var(--crimson-dim);
+            color: var(--crimson);
+        }
+
+        /* Preloader Curtain */
+        .mo-curtain {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #14161A;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            user-select: none;
-            transition: background 0.2s ease;
-        }
-        .prospects-summary::-webkit-details-marker {
-            display: none;
-        }
-        .prospects-summary:hover {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        .prospects-summary-left {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-        .prospects-icon-badge {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(225, 29, 72, 0.12);
-            border: 1px solid rgba(225, 29, 72, 0.25);
-            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--accent-rose-light, #FB7185);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-        .prospects-summary-title {
-            font-family: var(--font-display, 'Sora', sans-serif);
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            margin-bottom: 2px;
-        }
-        .prospects-summary-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted, #A1A1AA);
-        }
-        .prospects-trigger-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-mono, monospace);
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent-rose-light, #FB7185);
-            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.08));
-            padding: 10px 18px;
-            border-radius: 999px;
-            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.22));
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-        .prospects-details[open] .prospects-trigger-btn {
-            background: var(--accent-rose, #E11D48);
-            color: #FFFFFF;
-            border-color: var(--accent-rose-light, #FB7185);
-        }
-        .prospects-chevron {
-            display: inline-block;
-            transition: transform 0.3s ease;
-            font-size: 0.85rem;
-            line-height: 1;
-        }
-        .prospects-details[open] .prospects-chevron {
-            transform: rotate(180deg);
-        }
-        .prospects-content {
-            padding: 0 28px 28px;
-            border-top: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
-            animation: fadeInProspects 0.3s ease-out;
-        }
-        @keyframes fadeInProspects {
-            from { opacity: 0; transform: translateY(-6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .prospects-intro-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            padding: 16px 0;
-            font-size: 0.85rem;
-            color: var(--text-muted, #A1A1AA);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .prospects-table-wrapper {
-            overflow-x: auto;
-            margin-top: 12px;
-            border-radius: 12px;
-            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
-            background: rgba(10, 10, 14, 0.6);
-        }
-        .prospects-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-            text-align: left;
-            min-width: 920px;
-        }
-        .prospects-table th {
-            background: rgba(255, 255, 255, 0.03);
-            color: #FFFFFF;
-            font-family: var(--font-display, 'Sora', sans-serif);
-            font-weight: 600;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 14px 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .prospects-table td {
-            padding: 13px 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-secondary, #E4E4E7);
-            vertical-align: top;
-            line-height: 1.45;
-        }
-        .prospects-table tr:hover td {
-            background: rgba(225, 29, 72, 0.03);
-        }
-        .p-num {
-            font-family: var(--font-mono, monospace);
-            color: var(--text-dim, #71717A);
-            font-weight: 600;
-            width: 36px;
-        }
-        .p-company {
-            font-weight: 700;
-            color: #FFFFFF;
-            font-size: 0.95rem;
-            display: block;
-        }
-        .p-sector {
-            font-family: var(--font-mono, monospace);
-            font-size: 0.75rem;
-            color: var(--accent-rose-light, #FB7185);
-            margin-top: 2px;
-            display: inline-block;
-        }
-        .p-leader {
-            color: #F4F4F5;
-            font-weight: 500;
-        }
-        .p-scale {
-            display: inline-block;
-            font-family: var(--font-mono, monospace);
-            font-size: 0.75rem;
-            color: var(--text-muted, #A1A1AA);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 3px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
-        .p-trigger {
-            font-size: 0.825rem;
-            color: var(--text-muted, #A1A1AA);
-            max-width: 360px;
+            pointer-events: none;
+            transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
-        /* 5 Operational Pillars Grid (Clean, No Subtext) */
-        .role-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-            margin-top: 28px;
-        }
-        .role-card {
-            background: var(--bg-surface, rgba(18, 18, 22, 0.72));
-            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
-            border-radius: 14px;
-            padding: 24px 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: flex-start;
-            transition: all 0.25s ease;
-        }
-        .role-card:hover {
-            border-color: var(--border-rose-bright, rgba(225, 29, 72, 0.45));
-            transform: translateY(-2px);
-        }
-        .role-step-num {
-            font-family: var(--font-mono, monospace);
-            font-size: 0.78rem;
-            color: var(--accent-rose-light, #FB7185);
-            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.08));
-            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.22));
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-weight: 700;
-        }
-        .role-title {
-            font-family: var(--font-display, 'Sora', sans-serif);
-            font-size: 1.02rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            line-height: 1.35;
-            margin: 0;
+        .mo-curtain.loaded {
+            transform: translate3d(0, -100%, 0);
         }
 
-        /* Referral Engine Banner */
-        .referral-engine-banner {
-            background: linear-gradient(135deg, rgba(225, 29, 72, 0.12) 0%, rgba(18, 18, 22, 0.85) 100%);
-            border: 1px solid var(--border-rose-bright, rgba(225, 29, 72, 0.35));
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(225, 29, 72, 0.15);
-        }
-        .referral-stat-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.3));
-            padding: 10px 20px;
-            border-radius: 999px;
-            font-family: var(--font-mono, monospace);
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--accent-rose-light, #FB7185);
+        .mo-curtain-title {
+            font-family: var(--f-serif);
+            font-size: 32px;
+            letter-spacing: 0.15em;
+            color: #FAF9F6;
+            margin-bottom: 16px;
         }
 
-        /* Activation / Offer Card */
-        .activation-grid {
-            max-width: 860px;
-            margin: 24px auto 0;
-        }
-        .activation-pricing-card {
-            background: linear-gradient(135deg, rgba(225, 29, 72, 0.08) 0%, rgba(18, 18, 22, 0.85) 100%);
-            border: 1px solid var(--border-rose-bright, rgba(225, 29, 72, 0.4));
-            border-radius: 20px;
-            padding: 36px 42px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(225, 29, 72, 0.15);
-        }
-        .activation-tier-pill {
-            display: inline-block;
-            font-family: var(--font-mono, monospace);
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--accent-rose-light, #FB7185);
-            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.1));
-            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.25));
-            padding: 4px 10px;
-            border-radius: 999px;
-            text-transform: uppercase;
-        }
-        .activation-price-tag {
-            text-align: right;
-        }
-        .activation-price-val {
-            display: block;
-            font-family: var(--font-display, 'Sora', sans-serif);
-            font-size: 1.3rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-        .activation-price-sub {
-            font-size: 0.75rem;
-            color: var(--text-muted, #A1A1AA);
-            font-family: var(--font-mono, monospace);
-        }
-        .activation-deliverables {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 24px 0 0;
-        }
-        .deliverable-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            font-size: 0.95rem;
-            color: var(--text-secondary, #E4E4E7);
-            line-height: 1.5;
-        }
-        .deliverable-check {
-            color: var(--accent-rose-light, #FB7185);
-            font-weight: 800;
-            font-size: 1.05rem;
-            flex-shrink: 0;
-            margin-top: 1px;
+        .mo-curtain-title em {
+            color: #E11D48;
+            font-style: italic;
         }
 
-        /* Hero specs strip */
-        .dinner-hero-grid {
-            display: grid;
-            grid-template-columns: 1.25fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-        .dinner-spec-bar {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-        }
-        .spec-item {
-            background: rgba(18, 18, 22, 0.6);
-            border: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
-            border-radius: 12px;
-            padding: 12px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-        }
-        .spec-label {
-            font-family: var(--font-mono, monospace);
-            font-size: 0.72rem;
-            color: var(--text-muted, #A1A1AA);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .spec-value {
-            font-family: var(--font-display, 'Sora', sans-serif);
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #FFFFFF;
-        }
-        .dinner-visual-card {
-            border-radius: 20px;
+        .mo-curtain-line {
+            width: 140px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            position: relative;
             overflow: hidden;
-            border: 1px solid var(--border-glass-bright, rgba(255, 255, 255, 0.12));
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-            background: #0D0D12;
-        }
-        .dinner-visual-img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            display: block;
-        }
-        .dinner-visual-footer {
-            padding: 16px 20px;
-            background: rgba(14, 14, 18, 0.9);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            font-size: 0.85rem;
         }
 
-        /* Slide layout base */
-        .deck-wrapper {
-            display: flex;
-            min-height: 100vh;
-            background: #08080A;
-            color: #FFFFFF;
+        .mo-curtain-line::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #E11D48;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: curtainFill 0.8s var(--ease) forwards;
         }
-        .deck-sidebar {
-            width: 290px;
-            height: 100vh;
-            position: sticky;
+
+        @keyframes curtainFill {
+            to { transform: scaleX(1); }
+        }
+
+        .ambient-film {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 10%, rgba(225, 29, 72, 0.04) 0%, transparent 60%);
+        }
+
+        .shell {
+            width: 100%;
+            max-width: 1320px;
+            margin-inline: auto;
+            padding-inline: clamp(20px, 3.5vw, 48px);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Minimal Uncluttered Top Bar (likn.io/licensing) */
+        .top-nav {
+            position: fixed;
             top: 0;
             left: 0;
-            background: rgba(10, 10, 14, 0.95);
-            border-right: 1px solid var(--border-glass, rgba(255, 255, 255, 0.08));
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            background: var(--bg-translucent);
+            border-bottom: 1px solid var(--hair);
+            transition: background 0.4s ease;
+        }
+
+        .top-nav-inner {
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: space-between;
-            padding: 24px 20px;
-            z-index: 50;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            flex-shrink: 0;
+            height: 64px;
         }
-        .deck-sidebar-header {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .deck-brand {
+
+        .brand-mark {
             display: flex;
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            color: #FFFFFF;
+            color: var(--ink);
         }
-        .deck-brand-logo-img {
-            height: 24px;
-            width: auto;
-            max-width: 90px;
-            object-fit: contain;
+
+        .brand-monogram {
+            font-family: var(--f-serif);
+            font-size: 26px;
+            line-height: 1;
+            color: var(--ink);
+            letter-spacing: -0.02em;
         }
-        .deck-brand-name {
-            font-family: var(--font-display, 'Sora', sans-serif);
-            font-weight: 700;
-            font-size: 0.92rem;
-            letter-spacing: -0.01em;
+
+        .brand-monogram em {
+            color: var(--crimson);
+            font-style: italic;
         }
-        .deck-brand-cross {
-            opacity: 0.45;
-            font-weight: 300;
-            margin: 0 2px;
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
         }
-        .deck-badge-pill {
+
+        .nav-links a {
+            font-size: 13.5px;
+            font-weight: 400;
+            color: var(--ink-dim);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--hair-strong);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--ink);
+            color: var(--ink);
+        }
+
+        .nav-cta {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-family: var(--font-mono, monospace);
-            font-size: 0.72rem;
-            color: var(--accent-rose-light, #FB7185);
-            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.08));
-            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.22));
-            padding: 4px 10px;
-            border-radius: 999px;
-            width: fit-content;
-        }
-        .deck-badge-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent-rose, #E11D48);
-            box-shadow: 0 0 8px var(--accent-rose);
-        }
-        .deck-sidebar-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            margin: 16px 0;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-        .deck-nav-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 9px 12px;
-            border-radius: 10px;
-            color: var(--text-muted, #A1A1AA);
-            text-decoration: none;
-            font-size: 0.825rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        .deck-nav-item:hover {
-            color: #FFFFFF;
-            background: rgba(255, 255, 255, 0.04);
-        }
-        .deck-nav-item.active {
-            color: #FFFFFF;
-            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.12));
-            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.25));
-            font-weight: 600;
-        }
-        .deck-nav-num {
-            font-family: var(--font-mono, monospace);
-            font-size: 0.72rem;
-            color: var(--accent-rose-light, #FB7185);
-            width: 18px;
-        }
-        .deck-sidebar-footer {
-            padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .deck-progress-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.78rem;
-            font-family: var(--font-mono, monospace);
-            color: var(--text-muted, #A1A1AA);
-        }
-        .deck-progress-track {
-            height: 4px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 999px;
-            overflow: hidden;
-        }
-        .deck-progress-fill {
-            height: 100%;
-            background: var(--accent-rose, #E11D48);
-            transition: width 0.3s ease;
-        }
-        .deck-ctrl-btns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 8px;
-        }
-        .deck-ctrl-btn {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #FFFFFF;
-            border-radius: 8px;
-            padding: 8px 10px;
-            font-size: 0.75rem;
+            background: var(--ink);
+            color: var(--bg);
+            border: 1px solid var(--ink);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-decoration: none;
             cursor: pointer;
+            transition: all 0.25s var(--ease);
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            background: var(--crimson);
+            border-color: var(--crimson);
+            color: #FFFFFF;
+        }
+
+        /* Hero Section (likn.io/licensing + Occasia Hero) */
+        .mo-hero {
+            position: relative;
+            min-height: 92vh;
+            min-height: 92svh;
             display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding-top: 136px;
+            padding-bottom: 56px;
+        }
+
+        .mo-hero-stage {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        .deck-ctrl-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.16);
-        }
-        .deck-keyboard-hint {
             text-align: center;
-            font-size: 0.7rem;
-            color: var(--text-dim, #71717A);
-        }
-        .deck-keyboard-hint kbd {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            padding: 2px 5px;
-            font-family: var(--font-mono, monospace);
-            font-size: 0.68rem;
-        }
-        .deck-mobile-header {
-            display: none;
-        }
-        .deck-main {
-            flex-grow: 1;
-            max-width: calc(100vw - 290px);
-            overflow-x: hidden;
-        }
-        .deck-slide {
             position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box;
-            padding: 60px 48px;
+            z-index: 5;
         }
-        .deck-slide-container {
-            width: 100%;
-            max-width: 1140px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
+
+        .hero-eyebrow {
+            font-family: var(--f-mono);
+            font-size: 10.5px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 18px;
         }
-        .slide-kicker-bar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+
+        .mo-hero-headline {
+            font-family: var(--f-serif);
+            font-weight: 400;
+            font-size: clamp(48px, 6.4vw, 94px);
+            line-height: 0.97;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            max-width: 15ch;
+            margin-bottom: 22px;
+        }
+
+        .mo-hero-headline em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .mo-hero-sub {
+            font-size: 16px;
+            color: var(--ink-dim);
+            max-width: 54ch;
+            line-height: 1.6;
             margin-bottom: 24px;
         }
-        .slide-num-pill {
-            font-family: var(--font-mono, monospace);
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--accent-rose-light, #FB7185);
-            background: var(--accent-rose-subtle, rgba(225, 29, 72, 0.1));
-            border: 1px solid var(--border-rose, rgba(225, 29, 72, 0.25));
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-        .slide-kicker-text {
-            font-family: var(--font-mono, monospace);
-            font-size: 0.75rem;
-            color: var(--text-dim, #71717A);
+
+        .event-meta-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            color: var(--ink-dim);
+            margin-bottom: 32px;
         }
-        .slide-bg-blur {
+
+        .event-meta-line .sep {
+            color: var(--crimson);
+        }
+
+        .mo-hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .mo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s var(--ease);
+            cursor: pointer;
+        }
+
+        .mo-cta-crimson {
+            background: var(--crimson);
+            color: #FFFFFF;
+            border: 1px solid var(--crimson);
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.25);
+        }
+
+        .mo-cta-crimson:hover {
+            background: var(--crimson-hi);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(225, 29, 72, 0.35);
+        }
+
+        .mo-cta-ghost {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--hair-strong);
+        }
+
+        .mo-cta-ghost:hover {
+            border-color: var(--ink);
+            background: var(--bg-1);
+        }
+
+        /* Splayed 5-Photo Print Fan */
+        .mo-hero-gallery {
+            position: relative;
+            z-index: 4;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: end;
+            gap: 0;
+            width: min(1200px, 100%);
+            margin: 10px auto 0;
+            height: clamp(220px, 28vh, 320px);
+        }
+
+        .mo-slot {
+            position: relative;
+            height: 100%;
+            padding-top: calc(var(--ak) * 7%);
+            z-index: calc(3 - var(--ak));
+        }
+
+        .mo-print {
+            position: relative;
+            height: 100%;
+            margin: 0 -8%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-2);
+            border: 1px solid var(--hair);
+            box-shadow: 0 20px 45px -15px rgba(20, 22, 26, 0.18);
+            transform-origin: 50% 100%;
+            transform: rotate(calc(var(--k) * 2.8deg));
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .mo-print:hover {
+            transform: rotate(0deg) scale(1.06) translateY(-10px);
+            z-index: 20;
+            box-shadow: 0 30px 60px -15px rgba(225, 29, 72, 0.35);
+            border-color: var(--hair-crimson);
+        }
+
+        .mo-print img {
             position: absolute;
             inset: 0;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .slide-bg-blur-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: blur(40px) brightness(0.22);
-            transform: scale(1.08);
-        }
-        .slide-bg-blur-overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, transparent 30%, #08080A 85%);
+            filter: contrast(1.04) brightness(0.96);
+            transition: filter 0.4s ease;
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 1024px) {
-            .deck-sidebar {
-                position: fixed;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                box-shadow: 20px 0 50px rgba(0, 0, 0, 0.8);
-            }
-            .deck-sidebar.open {
-                transform: translateX(0);
-            }
-            .deck-mobile-header {
-                display: flex;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 58px;
-                background: rgba(10, 10, 14, 0.95);
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-                padding: 0 16px;
-                align-items: center;
-                justify-content: space-between;
-                z-index: 40;
-                backdrop-filter: blur(16px);
-            }
-            .deck-mobile-toggle {
-                background: rgba(225, 29, 72, 0.12);
-                border: 1px solid rgba(225, 29, 72, 0.25);
-                color: var(--accent-rose-light, #FB7185);
-                padding: 6px 12px;
-                border-radius: 8px;
-                font-size: 0.78rem;
-                font-weight: 600;
-                cursor: pointer;
-            }
-            .deck-mobile-overlay {
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.7);
-                z-index: 45;
+        /* Rolling Partner & Attendee Logos Marquee */
+        .mo-provenance {
+            padding-block: 34px;
+            border-top: 1px solid var(--hair);
+            border-bottom: 1px solid var(--hair);
+            background: var(--bg-1);
+            overflow: hidden;
+        }
+
+        .logos-marquee-header {
+            text-align: center;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 22px;
+        }
+
+        .logos-marquee-mask {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+
+        .logos-marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            width: max-content;
+            animation: rollLeftToRight 38s linear infinite;
+        }
+
+        .logos-marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes rollLeftToRight {
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0%, 0, 0); }
+        }
+
+        .logo-slide-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            flex-shrink: 0;
+        }
+
+        .logo-slide-item img {
+            max-height: 28px;
+            max-width: 125px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: brightness(0);
+            opacity: 0.58;
+            transition: opacity 0.25s ease;
+        }
+
+        html.nocturne .logo-slide-item img {
+            filter: brightness(0) invert(1);
+            opacity: 0.72;
+        }
+
+        .logo-slide-item:hover img {
+            opacity: 1;
+        }
+
+        /* Editorial Sections (likn.io/licensing N° Index) */
+        .mo-section {
+            padding-block: clamp(76px, 9.5vw, 128px);
+            border-bottom: 1px solid var(--hair);
+            position: relative;
+        }
+
+        .sec-head {
+            margin-bottom: 52px;
+        }
+
+        .sec-eyebrow {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .sec-title {
+            font-family: var(--f-serif);
+            font-size: clamp(38px, 5.2vw, 72px);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            color: var(--ink);
+            max-width: 22ch;
+            margin-bottom: 14px;
+        }
+
+        .sec-title em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .sec-sub {
+            font-size: 16px;
+            color: var(--ink-dim);
+            max-width: 56ch;
+            line-height: 1.6;
+        }
+
+        /* likn.io/licensing "Two sides" Architectural Split Comparison */
+        .two-sides-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--hair-strong);
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--bg-1);
+        }
+
+        .two-sides-col {
+            padding: clamp(32px, 4.2vw, 52px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .two-sides-col.featured {
+            background: var(--bg);
+            border-left: 1px solid var(--hair-strong);
+        }
+
+        .side-tag {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .two-sides-col.featured .side-tag {
+            color: var(--crimson);
+        }
+
+        .side-headline {
+            font-family: var(--f-serif);
+            font-size: clamp(32px, 3.6vw, 46px);
+            font-weight: 400;
+            line-height: 1.06;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+
+        .side-headline em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .side-desc {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .side-points {
+            border-top: 1px solid var(--hair);
+            list-style: none;
+        }
+
+        .side-point {
+            display: grid;
+            grid-template-columns: 36px 1fr;
+            gap: 14px;
+            padding-block: 16px;
+            border-bottom: 1px solid var(--hair);
+            font-size: 14px;
+            color: var(--ink-dim);
+            align-items: baseline;
+        }
+
+        .side-point-num {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            color: var(--ink-faint);
+        }
+
+        .two-sides-col.featured .side-point-num {
+            color: var(--crimson);
+        }
+
+        .side-point strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* 3-Column Editorial Cards (likn.io/licensing Formats & Rights) */
+        .editorial-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .editorial-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: border-color 0.25s ease, transform 0.25s var(--ease);
+        }
+
+        .editorial-card:hover {
+            border-color: var(--hair-crimson);
+            transform: translateY(-2px);
+        }
+
+        .editorial-card-num {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .editorial-card h3 {
+            font-family: var(--f-serif);
+            font-size: 30px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+
+        .editorial-card p {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+            line-height: 1.6;
+        }
+
+        /* 5-Lead Sample Showcase Ledger (Compatible with generate_sales_deck.py) */
+        .sample-ledger-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair-strong);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px -20px rgba(20, 22, 26, 0.08);
+        }
+
+        .sample-ledger-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 20px 28px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--hair-strong);
+        }
+
+        .sample-ledger-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--ink-dim);
+        }
+
+        .sample-ledger-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--crimson);
+            display: inline-block;
+        }
+
+        .sample-ledger-pill {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            background: var(--crimson-dim);
+            border: 1px solid var(--hair-crimson);
+            padding: 6px 14px;
+            border-radius: 999px;
+        }
+
+        .prospects-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .prospects-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 820px;
+        }
+
+        .prospects-table th {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--hair-strong);
+            background: var(--bg-1);
+            font-weight: 500;
+        }
+
+        .prospects-table td {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--hair);
+            color: var(--ink-dim);
+            vertical-align: top;
+            font-size: 14px;
+            line-height: 1.5;
+            background: var(--bg);
+            transition: background 0.2s ease;
+        }
+
+        .prospects-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .prospects-table tr:hover td {
+            background: var(--bg-1);
+        }
+
+        .p-num {
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            color: var(--crimson);
+            font-weight: 600;
+            width: 48px;
+        }
+
+        .p-company {
+            font-family: var(--f-serif);
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .p-sector {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            display: inline-block;
+        }
+
+        .p-leader {
+            color: var(--ink);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .p-scale {
+            display: inline-block;
+            font-family: var(--f-mono);
+            font-size: 10.5px;
+            letter-spacing: 0.08em;
+            color: var(--ink-dim);
+            background: var(--bg-1);
+            border: 1px solid var(--hair-strong);
+            padding: 4px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .p-trigger {
+            font-size: 13.5px;
+            color: var(--ink-dim);
+            max-width: 380px;
+        }
+
+        /* likn.io/licensing "How a deal works (01 / 05)" Hairline Process Rows */
+        .process-list {
+            border-top: 1px solid var(--hair-strong);
+        }
+
+        .process-row {
+            display: grid;
+            grid-template-columns: 150px 1fr 1.35fr;
+            gap: 32px;
+            align-items: baseline;
+            padding-block: 30px;
+            border-bottom: 1px solid var(--hair);
+            transition: background 0.2s ease;
+        }
+
+        .process-step {
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .process-title {
+            font-family: var(--f-serif);
+            font-size: 30px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+
+        .process-desc {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+            line-height: 1.6;
+        }
+
+        /* Referral Engine Callout Strip */
+        .referral-strip {
+            margin-top: 36px;
+            padding: 28px 36px;
+            border-radius: 14px;
+            background: var(--bg-1);
+            border: 1px solid var(--hair-crimson);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .referral-strip-title {
+            font-family: var(--f-serif);
+            font-size: clamp(26px, 3vw, 36px);
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+
+        .referral-strip-title em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        /* Hairline Run of Show Schedule */
+        .schedule-list {
+            border-top: 1px solid var(--hair-strong);
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 160px 1fr 1.2fr;
+            gap: 32px;
+            align-items: baseline;
+            padding-block: 26px;
+            border-bottom: 1px solid var(--hair);
+        }
+
+        .schedule-time {
+            font-family: var(--f-mono);
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .schedule-title {
+            font-family: var(--f-serif);
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        .schedule-desc {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+        }
+
+        /* Past Dinners Lookbook & Voices (from main landing page) */
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .lookbook-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s var(--ease);
+        }
+
+        .lookbook-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--hair-crimson);
+            box-shadow: 0 20px 45px -10px rgba(20, 22, 26, 0.15);
+        }
+
+        .lookbook-media {
+            position: relative;
+            aspect-ratio: 16 / 11;
+            background: var(--bg-2);
+            overflow: hidden;
+        }
+
+        .lookbook-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease);
+        }
+
+        .lookbook-card:hover .lookbook-media img {
+            transform: scale(1.04);
+        }
+
+        .lookbook-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lookbook-client {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .lookbook-title {
+            font-family: var(--f-serif);
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.15;
+        }
+
+        .lookbook-desc {
+            font-size: 14px;
+            color: var(--ink-dim);
+            line-height: 1.55;
+        }
+
+        .lookbook-meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 14px;
+            border-top: 1px solid var(--hair);
+            font-family: var(--f-mono);
+            font-size: 10px;
+            color: var(--ink-faint);
+            letter-spacing: 0.08em;
+        }
+
+        .lookbook-meta-row span.stat {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .voices-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .voice-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .voice-quote {
+            font-size: 14.5px;
+            line-height: 1.65;
+            color: var(--ink-dim);
+        }
+
+        .voice-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 14px;
+            border-top: 1px solid var(--hair);
+        }
+
+        .voice-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--hair-strong);
+        }
+
+        .voice-info strong {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .voice-info span {
+            font-family: var(--f-mono);
+            font-size: 9.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+
+        /* Corner-Bracket Stamp Card (likn.io/licensing MoCta_stamp) */
+        .mo-stamp-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 60px;
+            align-items: center;
+            padding: clamp(36px, 5vw, 72px);
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 16px;
+            box-shadow: 0 25px 60px -20px rgba(20, 22, 26, 0.12);
+        }
+
+        .stamp-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 0 solid var(--crimson);
+            pointer-events: none;
+        }
+
+        .stamp-tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+        .stamp-tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+        .stamp-bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+        .stamp-br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+
+        .stamp-copy h2 {
+            font-family: var(--f-serif);
+            font-size: clamp(36px, 4.4vw, 56px);
+            font-weight: 400;
+            line-height: 1.04;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+
+        .stamp-copy h2 em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .stamp-copy p {
+            font-size: 15.5px;
+            line-height: 1.65;
+            color: var(--ink-dim);
+            max-width: 42ch;
+            margin-bottom: 24px;
+        }
+
+        .deliverables-ledger {
+            background: var(--bg);
+            border: 1px solid var(--hair-strong);
+            border-radius: 12px;
+            padding: clamp(24px, 3.5vw, 36px);
+        }
+
+        .deliverables-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 18px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--hair-strong);
+        }
+
+        .deliverables-header h3 {
+            font-family: var(--f-serif);
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        .deliverables-header span {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .deliverable-row {
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: 12px;
+            padding-block: 13px;
+            border-bottom: 1px solid var(--hair);
+            font-size: 14px;
+            color: var(--ink-dim);
+            align-items: baseline;
+        }
+
+        .deliverable-row:last-child {
+            border-bottom: none;
+        }
+
+        .deliverable-check {
+            font-family: var(--f-mono);
+            color: var(--crimson);
+            font-weight: 600;
+        }
+
+        .deliverable-row strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* Editorial Footer */
+        .mo-footer {
+            padding-block: 64px 44px;
+            background: var(--bg);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+
+        @media (max-width: 960px) {
+            .nav-links {
                 display: none;
             }
-            .deck-mobile-overlay.open {
-                display: block;
+            .mo-hero-gallery {
+                grid-template-columns: repeat(3, 1fr);
+                height: 44vw;
             }
-            .deck-main {
-                max-width: 100vw;
-                padding-top: 58px;
+            .mo-slot:first-child, .mo-slot:last-child {
+                display: none;
             }
-            .deck-slide {
-                padding: 40px 20px;
+            .two-sides-grid,
+            .editorial-grid-3,
+            .process-row,
+            .schedule-row,
+            .lookbook-grid,
+            .voices-grid,
+            .mo-stamp-card {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
-            .dinner-hero-grid,
-            .role-grid,
-            .activation-grid {
-                grid-template-columns: 1fr !important;
-                gap: 24px !important;
+            .two-sides-col.featured {
+                border-left: none;
+                border-top: 1px solid var(--hair-strong);
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="deck-wrapper">
 
-        <!-- Left Fixed Deck Sidebar -->
-        <aside class="deck-sidebar" id="deck-sidebar">
-            <div class="deck-sidebar-header">
-                <a href="index.html" class="deck-brand" title="ORISO × OCCASIA">
-                    <img src="../assets/images/oriso-logo.png" alt="Oriso Solutions" class="deck-brand-logo-img">
-                    <span class="deck-brand-name">ORISO <span class="deck-brand-cross">×</span> OCCASIA</span>
-                </a>
-            </div>
-
-            <nav class="deck-sidebar-nav" aria-label="Sommaire de la présentation">
-                <a href="#hero" class="deck-nav-item active" data-slide-index="0">
-                    <span class="deck-nav-num">01</span>
-                    <span class="deck-nav-title">Introduction</span>
-                </a>
-                <a href="#concept" class="deck-nav-item" data-slide-index="1">
-                    <span class="deck-nav-num">02</span>
-                    <span class="deck-nav-title">Acquisition TI vs Dîner</span>
-                </a>
-                <a href="#invites" class="deck-nav-item" data-slide-index="2">
-                    <span class="deck-nav-num">03</span>
-                    <span class="deck-nav-title">Profils Invités (ICP)</span>
-                </a>
-                <a href="#pourquoi-ils-viennent" class="deck-nav-item" data-slide-index="3">
-                    <span class="deck-nav-num">04</span>
-                    <span class="deck-nav-title">Pourquoi ils viennent</span>
-                </a>
-                <a href="#comptes-cibles" class="deck-nav-item" data-slide-index="4">
-                    <span class="deck-nav-num">05</span>
-                    <span class="deck-nav-title">20 Comptes Cibles</span>
-                </a>
-                <a href="#evenements-passes" class="deck-nav-item" data-slide-index="5">
-                    <span class="deck-nav-num">06</span>
-                    <span class="deck-nav-title">Événements Passés</span>
-                </a>
-                <a href="#temoignages" class="deck-nav-item" data-slide-index="6">
-                    <span class="deck-nav-num">07</span>
-                    <span class="deck-nav-title">Avis Dirigeants</span>
-                </a>
-                <a href="#deroulement" class="deck-nav-item" data-slide-index="7">
-                    <span class="deck-nav-num">08</span>
-                    <span class="deck-nav-title">Le Déroulement</span>
-                </a>
-                <a href="#notre-role" class="deck-nav-item" data-slide-index="8">
-                    <span class="deck-nav-num">09</span>
-                    <span class="deck-nav-title">Notre Rôle &amp; Referral</span>
-                </a>
-                <a href="#offre" class="deck-nav-item" data-slide-index="9">
-                    <span class="deck-nav-num">10</span>
-                    <span class="deck-nav-title">Offre Pilote Clé en Main</span>
-                </a>
-            </nav>
-
-            <div class="deck-sidebar-footer">
-                <div class="deck-progress-row">
-                    <span>Slide <strong id="deck-current-num">01</strong> / 10</span>
-                    <span id="deck-progress-percent">10%</span>
-                </div>
-                <div class="deck-progress-track">
-                    <div class="deck-progress-fill" id="deck-progress-fill" style="width: 10%;"></div>
-                </div>
-                <div class="deck-ctrl-btns">
-                    <button type="button" id="deck-btn-prev" class="deck-ctrl-btn" title="Slide précédente (↑)">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                        <span>Précédent</span>
-                    </button>
-                    <button type="button" id="deck-btn-next" class="deck-ctrl-btn" title="Slide suivante (↓)">
-                        <span>Suivant</span>
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </button>
-                </div>
-                <div class="deck-keyboard-hint">
-                    <kbd>↑</kbd> <kbd>↓</kbd> ou <kbd>Espace</kbd>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Mobile Header -->
-        <header class="deck-mobile-header" id="deck-mobile-header">
-            <a href="index.html" class="deck-brand">
-                <img src="../assets/images/oriso-logo.png" alt="Oriso Solutions" style="width: 22px; height: 22px; object-fit: contain;">
-                <span>ORISO <span class="deck-brand-cross">×</span> OCCASIA</span>
-            </a>
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-rose-light);">
-                    Slide <strong id="deck-mobile-current-num">01</strong>/10
-                </span>
-                <button type="button" class="deck-mobile-toggle" id="deck-mobile-toggle">
-                    <span>☰ Sommaire</span>
-                </button>
-            </div>
-        </header>
-        <div class="deck-mobile-overlay" id="deck-mobile-overlay"></div>
-
-        <!-- Main Slide Content Container -->
-        <main class="deck-main">
-
-            <!-- SLIDE 01: HERO / INTRODUCTION -->
-            <section class="deck-slide section-padding" id="hero" style="padding-top: 70px; padding-bottom: 70px;">
-                <div class="slide-bg-blur" aria-hidden="true">
-                    <img src="../assets/images/executive_dining.jpg" class="slide-bg-blur-img" alt="" loading="lazy">
-                    <div class="slide-bg-blur-overlay"></div>
-                </div>
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 01 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · INTRODUCTION</span>
-                    </div>
-                    <div class="dinner-hero-grid">
-                        
-                        <div>
-                            <p class="section-kicker">Organisé par Oriso · Co-organisé par Occasia · Montréal</p>
-                            <h1 class="hero-title" style="text-align: left; margin-bottom: 24px; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.15;">
-                                12–14 Décideurs TI Réunis.<br>
-                                <span class="hero-dream-clients">4 heures d'échange.</span>
-                            </h1>
-
-                            <div class="dinner-spec-bar" style="margin: 20px 0 28px;">
-                                <div class="spec-item">
-                                    <span class="spec-label">Format</span>
-                                    <span class="spec-value" style="color: var(--accent-rose-light);">Dîner Exécutif Privé</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Horaire</span>
-                                    <span class="spec-value">19h00 – 23h00 (4h)</span>
-                                </div>
-                            </div>
-
-                            <div class="hero-actions" style="justify-content: flex-start;">
-                                <a href="#concept" class="btn btn-secondary">
-                                    Le Concept &rarr;
-                                </a>
-                                <a href="#invites" class="btn btn-secondary">
-                                    Profils Invités &rarr;
-                                </a>
-                                <a href="#comptes-cibles" class="btn btn-secondary">
-                                    20 Comptes Cibles &rarr;
-                                </a>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="dinner-visual-card">
-                                <img 
-                                    src="../assets/images/real_dinner_observation.jpg" 
-                                    alt="Oriso Solutions et Occasia Executive Dinner Montreal" 
-                                    class="dinner-visual-img"
-                                />
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 02: ACQUISITION TI TRADITIONNELLE VS DINER PRIVE -->
-            <section class="deck-slide section-padding" id="concept" style="border-top: 1px solid var(--border-glass);">
-                <div class="slide-bg-blur" aria-hidden="true">
-                    <img src="../assets/images/private_dining_card.png" class="slide-bg-blur-img" alt="" loading="lazy">
-                    <div class="slide-bg-blur-overlay"></div>
-                </div>
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 02 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · LE CONSTAT STRATÉGIQUE</span>
-                    </div>
-                    <div class="section-header text-center" style="margin-bottom: 32px;">
-                        <div class="badge">
-                            <span class="badge-dot"></span> Le Constat Stratégique
-                        </div>
-                        <h2 class="section-title">Acquisition TI Traditionnelle vs. Dîner Privé</h2>
-                        <p class="section-subtitle">
-                            Les kiosques bruyants et les courriels froids ne convertissent pas des DSI. Ce modèle donne un contrôle direct sur votre bouche-à-oreille.
-                        </p>
-                    </div>
-
-                    <div class="comparison-grid">
-                        <div class="glass-card comparison-card negative">
-                            <p class="section-kicker" style="color: #F87171;">✕ Acquisition TI Traditionnelle</p>
-                            <h3 class="comparison-card-title">Kiosques, sollicitations &amp; passivité</h3>
-                            <ul class="comparison-list">
-                                <li>
-                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div><strong>Salons &amp; Kiosques TI</strong> : 15 000 $+ pour parler à des curieux sans budget.</div>
-                                </li>
-                                <li>
-                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div><strong>Cold outreach</strong> : Zéro DSI n'achète une infra critique sur un courriel froid.</div>
-                                </li>
-                                <li>
-                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div><strong>Bouche-à-oreille passif</strong> : Aucun contrôle sur le flux ou le timing des leads.</div>
-                                </li>
-                                <li>
-                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div><strong>Appels d'offres (RFPs)</strong> : Processus de 6 mois et guerre de prix au rabais.</div>
-                                </li>
-                                <li>
-                                    <span style="color: #F87171; font-weight: 800; font-size: 1.1rem; line-height: 1;">✕</span>
-                                    <div><strong>Zéro intimité</strong> : Impossible d'établir un lien de confiance avec les signataires.</div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="glass-card comparison-card positive">
-                            <p class="section-kicker" style="color: var(--accent-rose-light);">✓ Le Modèle Occasia × Oriso</p>
-                            <h3 class="comparison-card-title">Contrôle proactif des comptes &amp; références</h3>
-                            <ul class="comparison-list">
-                                <li>
-                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div><strong>12 à 14 DSI &amp; CISOs qualifiés</strong> assis à votre table en salon privé.</div>
-                                </li>
-                                <li>
-                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div><strong>4h d'attention exclusive</strong>, sans aucun bruit ni concurrent.</div>
-                                </li>
-                                <li>
-                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div><strong>Contrôle des références</strong> : bouche-à-oreille transformé en moteur proactif (25–30 pairs).</div>
-                                </li>
-                                <li>
-                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div><strong>Hôte de référence</strong> : perçu comme un pair d'autorité, jamais un simple vendeur.</div>
-                                </li>
-                                <li>
-                                    <span style="color: var(--accent-rose-light); font-weight: 800; font-size: 1.1rem; line-height: 1;">✓</span>
-                                    <div><strong>Deals scellés sur la confiance</strong> : projets d'infra souveraine amorcés naturellement.</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 03: GUEST PROFILES (ICP D'ORISO) -->
-            <section class="deck-slide section-padding" id="invites" style="border-top: 1px solid var(--border-glass);">
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 03 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · PROFILS INVITÉS (ICP)</span>
-                    </div>
-                    <div class="section-header" style="margin-bottom: 32px;">
-                        <p class="section-kicker">Profil des Décideurs Invités</p>
-                        <h2 class="section-title">Qui S'assoit à la Table</h2>
-                    </div>
-
-                    <div class="criteria-grid">
-                        <div class="glass-card criteria-card" style="padding: 24px;">
-                            <div class="criteria-badge">Profil 01</div>
-                            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">Directeurs TI &amp; DSI</h3>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">PME et moyennes entreprises québécoises (50 à 500 employés).</p>
-                        </div>
-
-                        <div class="glass-card criteria-card" style="padding: 24px;">
-                            <div class="criteria-badge">Profil 02</div>
-                            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">CISOs &amp; Responsables Sécurité</h3>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Secteurs réglementés avec exigences de conformité et données sensibles.</p>
-                        </div>
-
-                        <div class="glass-card criteria-card" style="padding: 24px;">
-                            <div class="criteria-badge">Profil 03</div>
-                            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">VPs Finance &amp; CFOs</h3>
-                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Gestionnaires budgétaires soucieux des coûts d'infrastructure.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 04: POURQUOI ILS ACCEPTENT L'INVITATION -->
-            <section class="deck-slide section-padding" id="pourquoi-ils-viennent" style="border-top: 1px solid var(--border-glass);">
-                <div class="slide-bg-blur" aria-hidden="true">
-                    <img src="../assets/images/luxury_table_hero.jpg" class="slide-bg-blur-img" alt="" loading="lazy" style="object-position: 80% center; filter: blur(2px) brightness(0.68) contrast(1.08); transform: scale(1.02);">
-                    <div class="slide-bg-blur-overlay" style="background: linear-gradient(90deg, #08080A 0%, rgba(8, 8, 10, 0.94) 22%, rgba(8, 8, 10, 0.65) 55%, rgba(8, 8, 10, 0.15) 100%), linear-gradient(180deg, #08080A 0%, transparent 15%, transparent 85%, #08080A 100%);"></div>
-                </div>
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 04 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · PSYCHOLOGIE DES DÉCIDEURS</span>
-                    </div>
-                    <div class="section-header text-center" style="margin-bottom: 32px;">
-                        <div class="badge">
-                            <span class="badge-dot"></span> Taux de Présence de 85%+
-                        </div>
-                        <h2 class="section-title">Pourquoi ils acceptent l'invitation</h2>
-                        <p class="section-subtitle">
-                            Trois piliers fondamentaux qui font déplacer des DSI et CISOs très sollicités.
-                        </p>
-                    </div>
-
-                    <div class="criteria-grid">
-                        <div class="glass-card criteria-card" style="padding: 24px; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
-                            <div class="criteria-badge" style="background: rgba(225, 29, 72, 0.15); color: var(--accent-rose-light); border: 1px solid rgba(225, 29, 72, 0.3);">Pilier 01</div>
-                            <h3 style="font-size: 1.15rem; margin: 12px 0 8px; color: #FFFFFF; font-family: var(--font-display, 'Sora', sans-serif); font-weight: 700;">1. La direction de l'industrie</h3>
-                            <p style="font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
-                                Échanger sans filtre entre pairs sur les virages critiques : Loi 25, souveraineté cloud et arbitrages budgétaires.
-                            </p>
-                        </div>
-
-                        <div class="glass-card criteria-card" style="padding: 24px; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
-                            <div class="criteria-badge" style="background: rgba(225, 29, 72, 0.15); color: var(--accent-rose-light); border: 1px solid rgba(225, 29, 72, 0.3);">Pilier 02</div>
-                            <h3 style="font-size: 1.15rem; margin: 12px 0 8px; color: #FFFFFF; font-family: var(--font-display, 'Sora', sans-serif); font-weight: 700;">2. La Garantie Zéro Pitch</h3>
-                            <p style="font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
-                                Aucun micro, aucune diapo, zéro vente forcée. Un salon privé à huis clos où la parole est 100% libre.
-                            </p>
-                        </div>
-
-                        <div class="glass-card criteria-card" style="padding: 24px; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
-                            <div class="criteria-badge" style="background: rgba(225, 29, 72, 0.15); color: var(--accent-rose-light); border: 1px solid rgba(225, 29, 72, 0.3);">Pilier 03</div>
-                            <h3 style="font-size: 1.15rem; margin: 12px 0 8px; color: #FFFFFF; font-family: var(--font-display, 'Sora', sans-serif); font-weight: 700;">3. La Curation &amp; le Statut</h3>
-                            <p style="font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); margin: 0;">
-                                Strictement 12 à 14 places nominatives. Une invitation sélective entre pairs qui valorise leur rôle d'expert.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 05: 20 TARGET PROSPECTS (COMPTES CIBLES) -->
-            <section class="deck-slide section-padding" id="comptes-cibles" style="border-top: 1px solid var(--border-glass);">
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 05 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · 20 COMPTES CIBLES PRÉSÉLECTIONNÉS</span>
-                    </div>
-                    <div class="section-header" style="margin-bottom: 28px;">
-                        <p class="section-kicker">Curation Stratégique · 20 Entreprises Québécoises</p>
-                        <h2 class="section-title">Les 20 Comptes Cibles Présélectionnés</h2>
-                        <p class="section-desc">
-                            Échantillon de PME et entreprises québécoises ciblées pour leur pertinence opérationnelle.
-                        </p>
-                    </div>
-
-                    <details class="prospects-details" open>
-                        <summary class="prospects-summary">
-                            <div class="prospects-summary-left">
-                                <div class="prospects-icon-badge">
-                                    🍁
-                                </div>
-                                <div>
-                                    <div class="prospects-summary-title">Afficher la liste des 20 comptes cibles</div>
-                                    <div class="prospects-summary-desc">Juridique, Finance, Santé, Manufacturier, Énergie &amp; Logistique · Directeurs TI, CISOs et DSI</div>
-                                </div>
-                            </div>
-                            <div class="prospects-trigger-btn">
-                                <span>Consulter la liste</span>
-                                <span class="prospects-chevron">▼</span>
-                            </div>
-                        </summary>
-
-                        <div class="prospects-content">
-                            <div class="prospects-intro-bar">
-                                <span><strong>Curation Occasia :</strong> Comptes analysés pour leur adéquation avec les solutions d'infrastructure et de sécurité d'Oriso.</span>
-                                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-rose-light);">20 Entreprises Vérifiées</span>
-                            </div>
-
-                            <div class="prospects-table-wrapper">
-                                <table class="prospects-table">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 40px;">#</th>
-                                            <th>Entreprise &amp; Secteur</th>
-                                            <th>Décideur Clé Cible</th>
-                                            <th>Échelle</th>
-                                            <th>Déclencheur d'Infrastructure &amp; Pertinence</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="p-num">01</td>
-                                            <td>
-                                                <span class="p-company">Fasken Martineau DuMoulin</span>
-                                                <span class="p-sector">Droit des affaires &amp; Juridique • Montréal</span>
-                                            </td>
-                                            <td class="p-leader">DSI / Directeur Sécurité TI</td>
-                                            <td><span class="p-scale">1 500+ emp • 500M$+</span></td>
-                                            <td class="p-trigger">Secrets professionnels et dossiers fusions/acquisitions • Interdiction formelle du CLOUD Act US • Conformité Loi 25.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">02</td>
-                                            <td>
-                                                <span class="p-company">Lavery Avocats</span>
-                                                <span class="p-sector">Droit corporatif &amp; Litige • Montréal / QC</span>
-                                            </td>
-                                            <td class="p-leader">Directeur des Technologies de l'Information</td>
-                                            <td><span class="p-scale">450+ emp • 110M$+</span></td>
-                                            <td class="p-trigger">Sauvegarde M365 souveraine (BaaS) • Migration des données sensibles hors des hyperscalers US.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">03</td>
-                                            <td>
-                                                <span class="p-company">BCF Avocats d'affaires</span>
-                                                <span class="p-sector">Propriété intellectuelle &amp; Affaires • Montréal</span>
-                                            </td>
-                                            <td class="p-leader">Directeur TI &amp; Cybersécurité</td>
-                                            <td><span class="p-scale">500+ emp • 120M$+</span></td>
-                                            <td class="p-trigger">Protection de brevets et secrets commerciaux • Audits de vulnérabilités Loi 25 et reprise après sinistre (DRaaS).</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">04</td>
-                                            <td>
-                                                <span class="p-company">Croesus Finansoft</span>
-                                                <span class="p-sector">WealthTech &amp; Gestion financière • Laval</span>
-                                            </td>
-                                            <td class="p-leader">VP Technologies &amp; Infrastructure / CISO</td>
-                                            <td><span class="p-scale">250+ emp • 60M$+</span></td>
-                                            <td class="p-trigger">Données bancaires et gestion de patrimoine • Conformité AMF et Loi 25 • Évitement des frais de transfert de données.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">05</td>
-                                            <td>
-                                                <span class="p-company">Optimum Groupe Financier</span>
-                                                <span class="p-sector">Finance, Actuariat &amp; Assurance • Montréal</span>
-                                            </td>
-                                            <td class="p-leader">DSI / Directeur Opérations TI</td>
-                                            <td><span class="p-scale">600+ emp • 300M$+</span></td>
-                                            <td class="p-trigger">Localisation 100% canadienne des données d'assurance • Prévisibilité totale des coûts de stockage cloud S3.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">06</td>
-                                            <td>
-                                                <span class="p-company">Clinique Santé Mont-Royal</span>
-                                                <span class="p-sector">Santé privée &amp; Réseau Médical • Montréal</span>
-                                            </td>
-                                            <td class="p-leader">Directeur des Systèmes d'Information</td>
-                                            <td><span class="p-scale">350+ emp • 55M$+</span></td>
-                                            <td class="p-trigger">Dossiers médicaux électroniques (DME) et imagerie • Conformité MSSS &amp; Loi 25 • Sauvegardes immuables anti-ransomware.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">07</td>
-                                            <td>
-                                                <span class="p-company">Groupe Robert</span>
-                                                <span class="p-sector">Transport &amp; Chaîne du froid • Boucherville</span>
-                                            </td>
-                                            <td class="p-leader">Vice-Président TI &amp; Transformation</td>
-                                            <td><span class="p-scale">3 500+ emp • 450M$+</span></td>
-                                            <td class="p-trigger">Disponibilité continue 24/7 des ERPs logistiques critiques • Reprise après sinistre (DRaaS) ultra-rapide.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">08</td>
-                                            <td>
-                                                <span class="p-company">Agropur Coopérative</span>
-                                                <span class="p-sector">Agroalimentaire &amp; Laitier • Longueuil</span>
-                                            </td>
-                                            <td class="p-leader">Directeur Infrastructure Cloud &amp; Sécurité</td>
-                                            <td><span class="p-scale">7 000+ emp • 8B$+</span></td>
-                                            <td class="p-trigger">Facturation hyperscalers devenue incontrôlable • Télémétrie d'usines et protection des systèmes OT contre les attaques.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">09</td>
-                                            <td>
-                                                <span class="p-company">Lassonde Industries</span>
-                                                <span class="p-sector">Agroalimentaire &amp; Boissons • Rougemont</span>
-                                            </td>
-                                            <td class="p-leader">Directeur Principal TI &amp; Infrastructure</td>
-                                            <td><span class="p-scale">2 000+ emp • 2B$+</span></td>
-                                            <td class="p-trigger">Centralisation multi-usines des sauvegardes d'infrastructure • Postes virtuels DaaS pour opérations à distance.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">10</td>
-                                            <td>
-                                                <span class="p-company">Premier Tech</span>
-                                                <span class="p-sector">Technologies industrielles • Rivière-du-Loup / Mtl</span>
-                                            </td>
-                                            <td class="p-leader">Directeur Technologies &amp; Cybersécurité</td>
-                                            <td><span class="p-scale">5 000+ emp • 1B$+</span></td>
-                                            <td class="p-trigger">Protection de la propriété intellectuelle industrielle • Audits de vulnérabilité de sécurité et hébergement souverain.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">11</td>
-                                            <td>
-                                                <span class="p-company">Boralex</span>
-                                                <span class="p-sector">Énergies renouvelables • Kingsey Falls / Mtl</span>
-                                            </td>
-                                            <td class="p-leader">Directeur TI &amp; Télécommunications</td>
-                                            <td><span class="p-scale">700+ emp • 800M$+</span></td>
-                                            <td class="p-trigger">Infrastructures SCADA et parcs éoliens critiques • Normes de sécurité NERC-CIP et données locales garanties.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">12</td>
-                                            <td>
-                                                <span class="p-company">Groupe Canam</span>
-                                                <span class="p-sector">Construction &amp; Métallurgie • Boucherville</span>
-                                            </td>
-                                            <td class="p-leader">VP Technologies de l'Information</td>
-                                            <td><span class="p-scale">3 500+ emp • 1.5B$+</span></td>
-                                            <td class="p-trigger">Fichiers 3D BIM massifs • Coûts de transfert Azure prohibitifs résolus par stockage S3 à tarif prédictif.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">13</td>
-                                            <td>
-                                                <span class="p-company">Cogeco Communications</span>
-                                                <span class="p-sector">Télécoms &amp; Médias • Montréal</span>
-                                            </td>
-                                            <td class="p-leader">Directeur Sécurité de l'Information &amp; Cloud</td>
-                                            <td><span class="p-scale">4 000+ emp • 2.8B$+</span></td>
-                                            <td class="p-trigger">Exigences CRTC et protection des données abonnés québécois • Sauvegarde M365 infogérée 100% locale.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">14</td>
-                                            <td>
-                                                <span class="p-company">GardaWorld</span>
-                                                <span class="p-sector">Services de sécurité &amp; Protection • Montréal</span>
-                                            </td>
-                                            <td class="p-leader">Directeur Infrastructure &amp; Cybersécurité</td>
-                                            <td><span class="p-scale">10 000+ emp • 5B$+</span></td>
-                                            <td class="p-trigger">Données d'opérations sensibles et surveillance • Besoin d'isolation souveraine hors juridiction étrangère.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">15</td>
-                                            <td>
-                                                <span class="p-company">Groupe St-Hubert (REC)</span>
-                                                <span class="p-sector">Restauration &amp; Distribution • Laval</span>
-                                            </td>
-                                            <td class="p-leader">Directeur des Systèmes d'Information</td>
-                                            <td><span class="p-scale">5 000+ emp • 500M$+</span></td>
-                                            <td class="p-trigger">Protection des données clients et commandes web • Centralisation des sauvegardes de 120+ succursales.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">16</td>
-                                            <td>
-                                                <span class="p-company">Groupe Germain Hôtels</span>
-                                                <span class="p-sector">Hôtellerie haut de gamme • Montréal / Québec</span>
-                                            </td>
-                                            <td class="p-leader">Directeur TI &amp; Expérience Digitale</td>
-                                            <td><span class="p-scale">1 200+ emp • 200M$+</span></td>
-                                            <td class="p-trigger">Fichiers clients VIP et conformité bancaire PCI-DSS • Hébergement cloud 24/7 avec assistance francophone directe.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">17</td>
-                                            <td>
-                                                <span class="p-company">Cain Lamarre Avocats</span>
-                                                <span class="p-sector">Droit public &amp; Municipal • Montréal / QC</span>
-                                            </td>
-                                            <td class="p-leader">Directeur des Technologies &amp; Sécurité</td>
-                                            <td><span class="p-scale">500+ emp • 80M$+</span></td>
-                                            <td class="p-trigger">Dossiers d'organismes publics québécois • Obligation contractuelle stricte de résidence des données au Québec.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">18</td>
-                                            <td>
-                                                <span class="p-company">Pomerleau</span>
-                                                <span class="p-sector">Construction majeure &amp; Génie • Montréal</span>
-                                            </td>
-                                            <td class="p-leader">Directeur Principal TI &amp; Opérations Cloud</td>
-                                            <td><span class="p-scale">4 000+ emp • 3B$+</span></td>
-                                            <td class="p-trigger">Continuité des chantiers 24/7 • Reprise d'activité instantanée et postes distants sécurisés sur le terrain.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">19</td>
-                                            <td>
-                                                <span class="p-company">Beneva (SSQ / La Capitale)</span>
-                                                <span class="p-sector">Assurance &amp; Services financiers • Québec / Mtl</span>
-                                            </td>
-                                            <td class="p-leader">Directeur Infrastructure Cloud &amp; Données</td>
-                                            <td><span class="p-scale">5 000+ emp • 6B$+</span></td>
-                                            <td class="p-trigger">Réglementation AMF stricte • Archivage souverain des polices d'assurance sans risque d'ordonnance US.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-num">20</td>
-                                            <td>
-                                                <span class="p-company">TFI International</span>
-                                                <span class="p-sector">Transport &amp; Logistique intégrée • Saint-Laurent</span>
-                                            </td>
-                                            <td class="p-leader">VP Systèmes d'Information</td>
-                                            <td><span class="p-scale">8 000+ emp • 7B$+</span></td>
-                                            <td class="p-trigger">Réduction drastique des frais de transfert de données • Monitoring de sécurité 24/7 en français.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <!-- SLIDE 06: EVENEMENTS PASSES (MONTRÉAL & TORONTO) -->
-            <section class="deck-slide section-padding" id="evenements-passes" style="border-top: 1px solid var(--border-glass);">
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 06 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · ÉVÉNEMENTS PASSÉS (MONTRÉAL &amp; TORONTO)</span>
-                    </div>
-                    <div class="section-header text-center" style="margin-bottom: 32px;">
-                        <div class="badge">
-                            <span class="badge-dot"></span> Preuve par l'Expérience
-                        </div>
-                        <h2 class="section-title">Les dîners qu'on a organisés</h2>
-                        <p class="section-subtitle">
-                            Quelques tables privées récemment tenues à Montréal et Toronto.
-                        </p>
-                    </div>
-
-                    <div class="events-grid">
-                        <div class="event-card">
-                            <div class="event-card-media">
-                                <img src="../assets/images/dinner_ecom_vip.png" alt="Dîner Exécutif E-Commerce" class="event-card-img" loading="lazy" decoding="async">
-                                <span class="event-card-badge">E-Commerce</span>
-                            </div>
-                            <div class="event-card-body">
-                                <div class="event-card-meta">
-                                    <span>Montréal</span>
-                                    <span>•</span>
-                                    <span>Table Privée</span>
-                                </div>
-                                <h3 class="event-card-title">Dîner Exécutif E-Commerce</h3>
-                                <p class="event-card-desc">
-                                    Table ronde privée réunissant des fondateurs et directeurs e-commerce autour de leurs enjeux de scalabilité.
-                                </p>
-                                <div class="event-card-tags">
-                                    <span class="event-pill">Montréal</span>
-                                    <span class="event-pill">E-Commerce</span>
-                                    <span class="event-pill">Marques DTC</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="event-card">
-                            <div class="event-card-media">
-                                <img src="../assets/images/dinner_nft_web3.png" alt="Dîner Exécutif NFT & Web3" class="event-card-img" loading="lazy" decoding="async">
-                                <span class="event-card-badge">Web3 &amp; Tech</span>
-                            </div>
-                            <div class="event-card-body">
-                                <div class="event-card-meta">
-                                    <span>Toronto</span>
-                                    <span>•</span>
-                                    <span>Table Privée</span>
-                                </div>
-                                <h3 class="event-card-title">Dîner Exécutif NFT &amp; Web3</h3>
-                                <p class="event-card-desc">
-                                    Rencontre à huis clos entre fondateurs et bâtisseurs de projets Web3 et technologies distribuées.
-                                </p>
-                                <div class="event-card-tags">
-                                    <span class="event-pill">Toronto</span>
-                                    <span class="event-pill">Web3</span>
-                                    <span class="event-pill">Technologies</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="event-card">
-                            <div class="event-card-media">
-                                <img src="../assets/images/dinner_retail_vip.png" alt="Dîner Dirigeants Retail" class="event-card-img" loading="lazy" decoding="async">
-                                <span class="event-card-badge">Retail</span>
-                            </div>
-                            <div class="event-card-body">
-                                <div class="event-card-meta">
-                                    <span>Montréal</span>
-                                    <span>•</span>
-                                    <span>Table Privée</span>
-                                </div>
-                                <h3 class="event-card-title">Dîner Dirigeants Retail</h3>
-                                <p class="event-card-desc">
-                                    Dîner privé réunissant des dirigeants de marques de détail et de chaînes de distribution.
-                                </p>
-                                <div class="event-card-tags">
-                                    <span class="event-pill">Montréal</span>
-                                    <span class="event-pill">Retail</span>
-                                    <span class="event-pill">Distribution</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="event-card">
-                            <div class="event-card-media">
-                                <img src="../assets/images/afro_business_club_dinner.png" alt="Dîner Propriétaires d'Agences" class="event-card-img" loading="lazy" decoding="async">
-                                <span class="event-card-badge">Agences</span>
-                            </div>
-                            <div class="event-card-body">
-                                <div class="event-card-meta">
-                                    <span>Montréal</span>
-                                    <span>•</span>
-                                    <span>Table Privée</span>
-                                </div>
-                                <h3 class="event-card-title">Dîner Propriétaires d'Agences</h3>
-                                <p class="event-card-desc">
-                                    Échanges confidentiels entre propriétaires d'agences sur la gestion des mandats et l'acquisition clients.
-                                </p>
-                                <div class="event-card-tags">
-                                    <span class="event-pill">Montréal</span>
-                                    <span class="event-pill">Agences</span>
-                                    <span class="event-pill">B2B</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="event-card">
-                            <div class="event-card-media">
-                                <img src="../assets/images/dinner_tech_toronto.png" alt="Table Ronde Fondateurs Tech & SaaS" class="event-card-img" loading="lazy" decoding="async">
-                                <span class="event-card-badge">Tech &amp; SaaS</span>
-                            </div>
-                            <div class="event-card-body">
-                                <div class="event-card-meta">
-                                    <span>Toronto</span>
-                                    <span>•</span>
-                                    <span>Table Privée</span>
-                                </div>
-                                <h3 class="event-card-title">Table Ronde Fondateurs Tech</h3>
-                                <p class="event-card-desc">
-                                    Dîner exécutif confidentiel entre fondateurs SaaS sur la levée de fonds et l'expansion de marché.
-                                </p>
-                                <div class="event-card-tags">
-                                    <span class="event-pill">Toronto</span>
-                                    <span class="event-pill">SaaS</span>
-                                    <span class="event-pill">Fondateurs</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 07: RETOURS DES DIRIGEANTS -->
-            <section class="deck-slide section-padding" id="temoignages" style="border-top: 1px solid var(--border-glass);">
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 07 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · RETOURS DES DIRIGEANTS</span>
-                    </div>
-                    <div class="section-header text-center" style="margin-bottom: 32px;">
-                        <div class="badge">
-                            <span class="badge-dot"></span> Retours d'Expérience Réels
-                        </div>
-                        <h2 class="section-title">Ce qu'en disent les participants</h2>
-                        <p class="section-subtitle">
-                            Commentaires directs laissés par les dirigeants après nos récents événements.
-                        </p>
-                    </div>
-
-                    <div class="testimonials-grid">
-                        <div class="testimonial-card">
-                            <div>
-                                <div class="testimonial-header-badge">
-                                    <span class="testimonial-tag">Commentaire LinkedIn</span>
-                                    <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                                </div>
-                                <blockquote class="testimonial-quote">
-                                    « Thank you Kevin for always organizing such great events that really allow folks to share and be inspired. So many great conversations and connections. »
-                                </blockquote>
-                            </div>
-                            <div class="testimonial-author-row">
-                                <div class="testimonial-avatar">
-                                    <img src="../assets/images/natalia_kaplan.jpg" alt="Natalia Kaplan" loading="lazy" decoding="async">
-                                </div>
-                                <div class="testimonial-meta">
-                                    <span class="testimonial-name">Natalia Kaplan</span>
-                                    <span class="testimonial-role">Founder</span>
-                                    <span class="testimonial-company">On Point Agency</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card featured-partner">
-                            <div>
-                                <div class="testimonial-header-badge">
-                                    <span class="testimonial-tag">Commentaire LinkedIn</span>
-                                    <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                                </div>
-                                <blockquote class="testimonial-quote">
-                                    « Thank you Kevin Leumassi The concept is very interesting ! »
-                                </blockquote>
-                            </div>
-                            <div class="testimonial-author-row">
-                                <div class="testimonial-avatar">
-                                    <img src="../assets/images/olivier_brassard.jpg" alt="Olivier Brassard" loading="lazy" decoding="async">
-                                </div>
-                                <div class="testimonial-meta">
-                                    <span class="testimonial-name">Olivier Brassard</span>
-                                    <span class="testimonial-role">Co-fondateur &amp; CEO</span>
-                                    <span class="testimonial-company">Tooly · Partenaire Zoho Premium</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card featured-partner">
-                            <div>
-                                <div class="testimonial-header-badge">
-                                    <span class="testimonial-tag">Commentaire LinkedIn</span>
-                                    <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                                </div>
-                                <blockquote class="testimonial-quote">
-                                    « Always a pleasure Kevin Leumassi. I'm glad that I attended. Thank you for hosting! »
-                                </blockquote>
-                            </div>
-                            <div class="testimonial-author-row">
-                                <div class="testimonial-avatar">
-                                    <img src="../assets/images/damiano_raveenthiran.jpg" alt="Damiano Raveenthiran" loading="lazy" decoding="async">
-                                </div>
-                                <div class="testimonial-meta">
-                                    <span class="testimonial-name">Damiano Raveenthiran</span>
-                                    <span class="testimonial-role">Founder &amp; CEO</span>
-                                    <span class="testimonial-company">Startup Slingshot</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card">
-                            <div>
-                                <div class="testimonial-header-badge">
-                                    <span class="testimonial-tag">Commentaire LinkedIn</span>
-                                    <svg class="quote-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                                </div>
-                                <blockquote class="testimonial-quote">
-                                    « Great event! It was a pleasure meeting you all! »
-                                </blockquote>
-                            </div>
-                            <div class="testimonial-author-row">
-                                <div class="testimonial-avatar">
-                                    <img src="../assets/images/alex_bar.jpg" alt="Alex Bar" loading="lazy" decoding="async">
-                                </div>
-                                <div class="testimonial-meta">
-                                    <span class="testimonial-name">Alex Bar</span>
-                                    <span class="testimonial-role">President</span>
-                                    <span class="testimonial-company">Quantifi Media</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 08: LE DEROULEMENT (19H00 – 23H00) -->
-            <section class="deck-slide section-padding" id="deroulement" style="border-top: 1px solid var(--border-glass);">
-                <div class="slide-bg-blur" aria-hidden="true">
-                    <img src="../assets/images/cocktail_mixer_card.png" class="slide-bg-blur-img" alt="" loading="lazy">
-                    <div class="slide-bg-blur-overlay"></div>
-                </div>
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 08 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · LE DÉROULEMENT (19H00 – 23H00)</span>
-                    </div>
-                    <div class="section-header" style="margin-bottom: 28px;">
-                        <p class="section-kicker">Programme de la Soirée</p>
-                        <h2 class="section-title">Le Déroulement</h2>
-                        <p class="section-desc">
-                            19h00 à 23h00 (4 heures). Une soirée fluide et conviviale sans protocole lourd.
-                        </p>
-                    </div>
-
-                    <details class="prospects-details" open>
-                        <summary class="prospects-summary">
-                            <div class="prospects-summary-left">
-                                <div class="prospects-icon-badge">
-                                    ⏱️
-                                </div>
-                                <div>
-                                    <div class="prospects-summary-title">Déroulement chronologique de la soirée</div>
-                                    <div class="prospects-summary-desc">19h00 – 23h00 · Salon gastronomique privé · Montréal</div>
-                                </div>
-                            </div>
-                            <div class="prospects-trigger-btn">
-                                <span>Consulter l'horaire</span>
-                                <span class="prospects-chevron">▼</span>
-                            </div>
-                        </summary>
-
-                        <div class="prospects-content" style="padding-top: 24px;">
-                            <div class="timeline-container" style="gap: 12px; max-width: 860px;">
-                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
-                                    <div class="timeline-time">19h00</div>
-                                    <div class="timeline-info">
-                                        <h4 style="font-size: 1.05rem; margin: 0;">Accueil &amp; Cocktails</h4>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
-                                    <div class="timeline-time">20h00</div>
-                                    <div class="timeline-info">
-                                        <h4 style="font-size: 1.05rem; margin: 0;">Fin du networking &amp; Passage à table</h4>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px; border-left: 3px solid var(--accent-rose); background: rgba(225, 29, 72, 0.05);">
-                                    <div class="timeline-time" style="color: var(--accent-rose-light); background: rgba(225, 29, 72, 0.12); border-color: rgba(225, 29, 72, 0.3);">20h10</div>
-                                    <div class="timeline-info">
-                                        <h4 style="color: #FFFFFF; font-size: 1.05rem; margin: 0;">Mot de bienvenue de l'Hôte &amp; Service des entrées</h4>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
-                                    <div class="timeline-time">21h30</div>
-                                    <div class="timeline-info">
-                                        <h4 style="font-size: 1.05rem; margin: 0;">Fin du dîner &amp; Échanges libres</h4>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-card" style="padding: 16px 22px; gap: 20px;">
-                                    <div class="timeline-time">23h00</div>
-                                    <div class="timeline-info">
-                                        <h4 style="font-size: 1.05rem; margin: 0;">Fin de la soirée</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </details>
-                </div>
-            </section>
-
-            <!-- SLIDE 09: NOTRE ROLE & REFERRAL ENGINE -->
-            <section class="deck-slide section-padding" id="notre-role" style="border-top: 1px solid var(--border-glass);">
-                <div class="slide-bg-blur" aria-hidden="true">
-                    <img src="../assets/images/afro_business_club_dinner.png" class="slide-bg-blur-img" alt="" loading="lazy" style="object-position: 80% center; filter: blur(2px) brightness(0.68) contrast(1.08); transform: scale(1.02);">
-                    <div class="slide-bg-blur-overlay" style="background: linear-gradient(90deg, #08080A 0%, rgba(8, 8, 10, 0.94) 22%, rgba(8, 8, 10, 0.65) 55%, rgba(8, 8, 10, 0.15) 100%), linear-gradient(180deg, #08080A 0%, transparent 15%, transparent 85%, #08080A 100%);"></div>
-                </div>
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 09 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · NOTRE RÔLE &amp; REFERRAL ENGINE</span>
-                    </div>
-                    <div class="section-header text-center" style="margin-bottom: 28px;">
-                        <div class="badge">
-                            <span class="badge-dot"></span> 100% Pris en Charge
-                        </div>
-                        <h2 class="section-title">Notre rôle</h2>
-                        <p class="section-subtitle">
-                            Vous vous asseyez à table en tant qu'hôte. On s'occupe de tout le reste.
-                        </p>
-                    </div>
-
-                    <!-- 5 Operational Pillars (Clean, No Subtext) -->
-                    <div class="role-grid">
-                        <div class="role-card">
-                            <div class="role-step-num">01</div>
-                            <h3 class="role-title">Sourcing Ciblé</h3>
-                        </div>
-
-                        <div class="role-card">
-                            <div class="role-step-num">02</div>
-                            <h3 class="role-title">Invitations &amp; RSVPs</h3>
-                        </div>
-
-                        <div class="role-card">
-                            <div class="role-step-num">03</div>
-                            <h3 class="role-title">Salon Privé Gastronomique</h3>
-                        </div>
-
-                        <div class="role-card">
-                            <div class="role-step-num">04</div>
-                            <h3 class="role-title">Jour J &amp; Modération</h3>
-                        </div>
-
-                        <div class="role-card">
-                            <div class="role-step-num">05</div>
-                            <h3 class="role-title">Suivi &amp; Referral</h3>
-                        </div>
-                    </div>
-
-                    <!-- Clean Referral Engine Banner -->
-                    <div class="referral-engine-banner" style="margin-top: 24px; padding: 20px 26px;">
-                        <div>
-                            <div class="card-kicker" style="color: var(--accent-rose-light); margin-bottom: 4px;">Le Referral Engine · Contrôle Proactif des Références</div>
-                            <h3 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.15rem; font-weight: 700; color: #FFFFFF; line-height: 1.3; margin: 0;">
-                                12–14 invités à table → 25–30 opportunités &amp; recommandations directes
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 10: L'OFFRE D'ACTIVATION (PILOTE CLE EN MAIN - SANS PRIX) -->
-            <section class="deck-slide section-padding" id="offre" style="border-top: 1px solid var(--border-glass);">
-                <div class="container deck-slide-container">
-                    <div class="slide-kicker-bar">
-                        <span class="slide-num-pill">SLIDE 10 / 10</span>
-                        <span class="slide-kicker-text">ORISO SOLUTIONS × OCCASIA · L'OFFRE D'ACTIVATION</span>
-                    </div>
-
-                    <div class="section-header text-center" style="margin-bottom: 28px;">
-                        <div class="badge">
-                            <span class="badge-dot"></span> Formule Pilote Clé en Main
-                        </div>
-                        <h2 class="section-title">L'Offre d'Activation</h2>
-                        <p class="section-subtitle">
-                            Un premier dîner exécutif clé en main pour asseoir votre autorité sur vos comptes québécois prioritaires.
-                        </p>
-                    </div>
-
-                    <div class="activation-grid">
-                        <div class="activation-pricing-card">
-                            <div>
-                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
-                                    <div>
-                                        <span class="activation-tier-pill">Formule Pilote · Montréal</span>
-                                        <h3 style="font-family: var(--font-display, 'Sora', sans-serif); font-size: 1.35rem; font-weight: 700; color: #FFFFFF; margin-top: 6px;">
-                                            Dîner Exécutif Clé en Main
-                                        </h3>
-                                    </div>
-                                    <div class="activation-price-tag">
-                                        <span class="activation-price-val" style="color: var(--accent-rose-light);">100% Pris en Charge</span>
-                                    </div>
-                                </div>
-
-                                <div class="activation-deliverables">
-                                    <div class="deliverable-item">
-                                        <span class="deliverable-check">✓</span>
-                                        <div><strong>12 à 14 décideurs qualifiés réunis</strong> à votre table.</div>
-                                    </div>
-                                    <div class="deliverable-item">
-                                        <span class="deliverable-check">✓</span>
-                                        <div><strong>Sourcing &amp; qualification de 120 profils cibles</strong> selon vos critères stricts d'ICP.</div>
-                                    </div>
-                                    <div class="deliverable-item">
-                                        <span class="deliverable-check">✓</span>
-                                        <div><strong>Gestion intégrale des invitations</strong> : outreach personnalisé multicanal &amp; conciergerie.</div>
-                                    </div>
-                                    <div class="deliverable-item">
-                                        <span class="deliverable-check">✓</span>
-                                        <div><strong>Sélection &amp; privatisation d'un salon gastronomique</strong> d'exception à Montréal.</div>
-                                    </div>
-                                    <div class="deliverable-item">
-                                        <span class="deliverable-check">✓</span>
-                                        <div><strong>Coordination &amp; modération le Jour J</strong> pour un déroulement fluide de 19h00 à 23h00.</div>
-                                    </div>
-                                    <div class="deliverable-item">
-                                        <span class="deliverable-check">✓</span>
-                                        <div><strong>Activation du Referral Engine post-dîner</strong> pour démultiplier le pipeline de recommandations.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
+    <!-- Curtain Preloader -->
+    <div class="mo-curtain" id="curtain">
+        <div class="mo-curtain-title">O R I S O <em>×</em> O C C A S I A</div>
+        <div class="mo-curtain-line"></div>
     </div>
 
-    <!-- Global Footer -->
-    <footer class="site-footer" style="background: #060608; border-top: 1px solid var(--border-glass); padding: 40px 0 30px;">
-        <div class="container" style="max-width: 1140px; margin: 0 auto; padding: 0 24px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-glass);">
-                <div class="brand-logo" style="display: flex; align-items: center; gap: 10px;">
-                    <img src="../assets/images/oriso-logo.png" alt="Oriso Solutions Logo" style="height: 22px; width: auto; object-fit: contain;">
-                    <span>ORISO <span style="font-weight: 300; opacity: 0.5; margin: 0 4px;">×</span> OCCASIA</span>
+    <!-- Ambient Glow Texture -->
+    <div class="ambient-film" aria-hidden="true"></div>
+
+    <!-- Minimal Top Navigation -->
+    <header class="top-nav" id="navbar">
+        <div class="shell top-nav-inner">
+            <a href="#hero" class="brand-mark">
+                <span class="brand-monogram">Oriso <em>×</em> Occasia.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#constat">Le Constat</a></li>
+                <li><a href="#invites">La Table</a></li>
+                <li><a href="#comptes-cibles">5 Comptes Cibles</a></li>
+                <li><a href="#notre-role">Fonctionnement</a></li>
+                <li><a href="#evenements-passes">Dîners Passés</a></li>
+                <li><a href="#offre">L'Offre</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">Nocturne</button>
+                <a href="#comptes-cibles" class="nav-cta">Voir les 5 comptes →</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION (likn.io/licensing + Occasia Landing Page) -->
+        <section class="mo-hero" id="hero">
+            <div class="shell mo-hero-stage">
+                <span class="hero-eyebrow">Proposition Exécutive · Oriso × Occasia · Montréal</span>
+
+                <h1 class="mo-hero-headline">
+                    12–14 Décideurs TI Réunis. <em>4 heures d'échange.</em>
+                </h1>
+
+                <p class="mo-hero-sub">
+                    Une table ronde privée à huis clos réunissant vos comptes cibles québécois autour d'un repas gastronomique. Sans diapos, sans pitch commercial.
+                </p>
+
+                <div class="event-meta-line">
+                    <span>Format : Dîner Exécutif Privé</span>
+                    <span class="sep">·</span>
+                    <span>19h00 – 23h00 (4h)</span>
+                    <span class="sep">·</span>
+                    <span>12 à 14 Décideurs TI</span>
+                    <span class="sep">·</span>
+                    <span>Salon Privé, Montréal</span>
                 </div>
-                <div style="color: var(--text-muted); font-size: 0.85rem;">
-                    The Executive Dinner Series · Montréal
+
+                <div class="mo-hero-actions">
+                    <a href="#comptes-cibles" class="mo-cta mo-cta-crimson">Voir les 5 comptes cibles →</a>
+                    <a href="#notre-role" class="mo-cta mo-cta-ghost">Comment ça fonctionne ↓</a>
                 </div>
             </div>
-            <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; font-size: 0.8rem; color: var(--text-dim);">
-                <div>© Oriso Solutions Inc. &amp; Occasia Agency. Rencontre confidentielle sur invitation.</div>
-                <div>Organisé par Oriso · Co-organisé par Occasia</div>
+
+            <!-- Splayed 5-Photo Real Dinner Fan -->
+            <div class="shell mo-hero-gallery" aria-label="Photographies des dîners privés Occasia">
+                <div class="mo-slot" style="--k: -2; --ak: 2;">
+                    <div class="mo-print">
+                        <img src="../assets/images/dinner_ecom_vip.png" alt="Dîner exécutif privé Montréal">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: -1; --ak: 1;">
+                    <div class="mo-print">
+                        <img src="../assets/images/dinner_tech_toronto.png" alt="Table ronde fondateurs">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 0; --ak: 0;">
+                    <div class="mo-print">
+                        <img src="../assets/images/real_dinner_observation.jpg" alt="Dîner exécutif Occasia">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 1; --ak: 1;">
+                    <div class="mo-print">
+                        <img src="../assets/images/dinner_retail_vip.png" alt="Salon privé gastronomique">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 2; --ak: 2;">
+                    <div class="mo-print">
+                        <img src="../assets/images/founders_dinner_bg.jpg" alt="Soirée exécutive à huis clos">
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- Rolling Partner & Attendee Logos Marquee -->
+        <section class="mo-provenance" aria-label="Entreprises représentées à nos tables">
+            <div class="logos-marquee-header">Décideurs &amp; Partenaires Issus d'Entreprises Telles Que</div>
+            <div class="logos-marquee-mask">
+                <div class="logos-marquee-track">
+                    <div class="logo-slide-item"><img src="../assets/images/logos/klaviyo.svg" alt="Klaviyo"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/airwallex.png" alt="Airwallex"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/shopify.svg" alt="Shopify"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/tooly.png" alt="Tooly"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/warematch.png?v=2" alt="WareMatch"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/startupslang.svg" alt="Startup Slang"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/webtmize.png" alt="Webtmize"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/xperto.png" alt="Experto"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/redbox.png" alt="Redbox Media"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/springmedia.png" alt="Spring Media"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/agency_business.png" alt="The Agency Business"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/raveventures.png" alt="Rave Ventures"></div>
+                    <!-- Duplicate Set -->
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/klaviyo.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/airwallex.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/shopify.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/tooly.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/warematch.png?v=2" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/startupslang.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/webtmize.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/xperto.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/redbox.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/springmedia.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/agency_business.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/raveventures.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 01 — TWO SIDES COMPARISON (likn.io/licensing "Two sides. One room.") -->
+        <section class="mo-section" id="constat">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 01 — Le Constat Stratégique</span>
+                    <h2 class="sec-title">Deux approches. <em>Une seule table.</em></h2>
+                    <p class="sec-sub">
+                        Les kiosques bruyants et les courriels froids ne convertissent pas des décideurs exécutifs. Ce modèle transforme votre bouche-à-oreille en système prévisible.
+                    </p>
+                </div>
+
+                <div class="two-sides-grid">
+                    <!-- Left Column: Traditional -->
+                    <div class="two-sides-col">
+                        <div>
+                            <span class="side-tag">Approche Classique</span>
+                            <h3 class="side-headline">Acquisition Traditionnelle.</h3>
+                            <p class="side-desc">
+                                Sollicitations à froid, salons coûteux et dépendance passive au bouche-à-oreille sans contrôle sur le calendrier.
+                            </p>
+                            <ul class="side-points">
+                                <li class="side-point">
+                                    <span class="side-point-num">01</span>
+                                    <span><strong>Salons &amp; Kiosques</strong> : 15 000 $+ investis pour parler à des visiteurs sans mandat immédiat.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">02</span>
+                                    <span><strong>Prospection à froid</strong> : Les décideurs TI et signataires ignorent les séquences automatisées.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">03</span>
+                                    <span><strong>Bouche-à-oreille passif</strong> : Aucune maîtrise sur le volume ou le moment des recommandations.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">04</span>
+                                    <span><strong>Appels d'offres (RFPs)</strong> : Cycles longs de 6 mois et comparaison stricte sur le prix.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Private Dinner Model -->
+                    <div class="two-sides-col featured">
+                        <div>
+                            <span class="side-tag">Modèle Oriso × Occasia</span>
+                            <h3 class="side-headline">Le Dîner Exécutif <em>Privé.</em></h3>
+                            <p class="side-desc">
+                                Quatre heures d'attention directe autour d'une table privée avec 12 à 14 décideurs qualifiés selon vos critères.
+                            </p>
+                            <ul class="side-points">
+                                <li class="side-point">
+                                    <span class="side-point-num">01</span>
+                                    <span><strong>12 à 14 Décideurs TI à table</strong> : Uniquement des profils correspondant à votre client idéal à Montréal.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">02</span>
+                                    <span><strong>4 heures sans concurrent</strong> : Un cadre confidentiel qui favorise la confiance immédiate entre pairs.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">03</span>
+                                    <span><strong>Positionnement d'hôte</strong> : Vous accueillez la table d'égal à égal, sans posture de vendeur.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">04</span>
+                                    <span><strong>Moteur de références actif</strong> : 12 à 14 invités génèrent 25 à 30 opportunités et introductions directes.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 02 — WHO SITS AT THE TABLE & WHY THEY ACCEPT -->
+        <section class="mo-section" id="invites">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 02 — Curation &amp; Psychologie des Invités</span>
+                    <h2 class="sec-title">Qui s'assoit à la table <em>et pourquoi ils acceptent.</em></h2>
+                    <p class="sec-sub">
+                        Nous ciblons exclusivement les décideurs finaux et structurons l'invitation autour d'un échange entre pairs, garantissant un taux de présence supérieur à 85 %.
+                    </p>
+                </div>
+
+                <div class="editorial-grid-3" style="margin-bottom: 24px;">
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Profil Cible 01</span>
+                        <h3>Directeurs TI &amp; DSI</h3>
+                        <p>Dirigeants technologiques de PME et moyennes entreprises québécoises (50 à 500 employés) gérant des infrastructures critiques.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Profil Cible 02</span>
+                        <h3>CISOs &amp; Sécurité</h3>
+                        <p>Responsables de la sécurité et de la gouvernance dans des secteurs réglementés ayant de fortes exigences de conformité.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Profil Cible 03</span>
+                        <h3>VPs Opérations &amp; CFOs</h3>
+                        <p>Signataires budgétaires impliqués dans les décisions d'investissement technologique, de continuité et de performance.</p>
+                    </div>
+                </div>
+
+                <div class="editorial-grid-3">
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Pilier d'Acceptation 01</span>
+                        <h3>Les Enjeux de l'Industrie</h3>
+                        <p>Comparer ses pratiques entre pairs sur des sujets concrets : Loi 25, souveraineté des données et arbitrages budgétaires.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Pilier d'Acceptation 02</span>
+                        <h3>La Garantie Zéro Pitch</h3>
+                        <p>Aucun micro, aucune présentation commerciale. Une conversation fermée et confidentielle où chaque dirigeant parle librement.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Pilier d'Acceptation 03</span>
+                        <h3>La Curation Nominative</h3>
+                        <p>Strictement 12 à 14 places autour d'une seule table privée. Chaque invité sait qu'il sera entouré de décideurs de même niveau.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 03 — 5 SAMPLE TARGET PROSPECTS (COMPTES CIBLES) -->
+        <section class="mo-section" id="comptes-cibles">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 03 — Curation Stratégique · Échantillon de 5 Comptes</span>
+                    <h2 class="sec-title">5 Comptes Cibles <em>Présélectionnés.</em></h2>
+                    <p class="sec-sub">
+                        Voici un aperçu de 5 entreprises ciblées pour illustrer la composition de votre table. Une liste complète de 20 décideurs qualifiés vous est transmise après notre échange.
+                    </p>
+                </div>
+
+                <div class="sample-ledger-card">
+                    <div class="sample-ledger-bar">
+                        <div class="sample-ledger-bar-left">
+                            <span class="sample-ledger-dot"></span>
+                            <span><strong>Échantillon de Curation Occasia :</strong> 5 comptes analysés selon votre profil de client idéal.</span>
+                        </div>
+                        <span class="sample-ledger-pill">5 Comptes en Aperçu · 20 Comptes au Dossier</span>
+                    </div>
+
+                    <div class="prospects-table-wrapper">
+                        <table class="prospects-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 52px;">N°</th>
+                                    <th>Entreprise &amp; Secteur</th>
+                                    <th>Décideur Clé Cible</th>
+                                    <th>Taille</th>
+                                    <th>Pertinence &amp; Angle d'Invitation</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sample-prospects-tbody">
+                                <tr>
+                                    <td class="p-num">01</td>
+                                    <td>
+                                        <span class="p-company">Fasken Martineau DuMoulin</span>
+                                        <span class="p-sector">Droit des affaires &amp; Juridique • Montréal</span>
+                                    </td>
+                                    <td class="p-leader">DSI / Directeur Sécurité TI</td>
+                                    <td><span class="p-scale">1 500+ emp • 500M$+</span></td>
+                                    <td class="p-trigger">Secrets professionnels et dossiers fusions/acquisitions • Hébergement souverain au Canada et conformité Loi 25.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-num">02</td>
+                                    <td>
+                                        <span class="p-company">Lavery Avocats</span>
+                                        <span class="p-sector">Droit corporatif &amp; Litige • Montréal / QC</span>
+                                    </td>
+                                    <td class="p-leader">Directeur des Technologies de l'Information</td>
+                                    <td><span class="p-scale">450+ emp • 110M$+</span></td>
+                                    <td class="p-trigger">Sauvegarde M365 souveraine (BaaS) • Migration des données sensibles hors des fournisseurs américains.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-num">03</td>
+                                    <td>
+                                        <span class="p-company">BCF Avocats d'affaires</span>
+                                        <span class="p-sector">Propriété intellectuelle &amp; Affaires • Montréal</span>
+                                    </td>
+                                    <td class="p-leader">Directeur TI &amp; Cybersécurité</td>
+                                    <td><span class="p-scale">500+ emp • 120M$+</span></td>
+                                    <td class="p-trigger">Protection de brevets et secrets commerciaux • Audits de vulnérabilités Loi 25 et reprise après sinistre (DRaaS).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-num">04</td>
+                                    <td>
+                                        <span class="p-company">Croesus Finansoft</span>
+                                        <span class="p-sector">WealthTech &amp; Gestion financière • Laval</span>
+                                    </td>
+                                    <td class="p-leader">VP Technologies &amp; Infrastructure / CISO</td>
+                                    <td><span class="p-scale">250+ emp • 60M$+</span></td>
+                                    <td class="p-trigger">Données bancaires et gestion de patrimoine • Conformité AMF et Loi 25 • Prévisibilité des coûts d'infrastructure.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-num">05</td>
+                                    <td>
+                                        <span class="p-company">Optimum Groupe Financier</span>
+                                        <span class="p-sector">Finance, Actuariat &amp; Assurance • Montréal</span>
+                                    </td>
+                                    <td class="p-leader">DSI / Directeur Opérations TI</td>
+                                    <td><span class="p-scale">600+ emp • 300M$+</span></td>
+                                    <td class="p-trigger">Localisation 100 % canadienne des données d'assurance • Maîtrise des coûts de stockage cloud.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 04 — HOW A DINNER WORKS (likn.io/licensing 01 / 05 Process List) -->
+        <section class="mo-section" id="notre-role">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 04 — Exécution Clé en Main</span>
+                    <h2 class="sec-title">Comment fonctionne un dîner. <em>Cinq étapes.</em></h2>
+                    <p class="sec-sub">
+                        Vous vous présentez le soir du dîner en tant qu'hôte. Notre équipe gère l'intégralité de la recherche, des invitations, de la logistique et du suivi.
+                    </p>
+                </div>
+
+                <div class="process-list">
+                    <div class="process-row">
+                        <div class="process-step">01 / 05</div>
+                        <div class="process-title">Sourcing &amp; Droit de Veto</div>
+                        <div class="process-desc">Construction d'une banque de 120 à 150 comptes cibles locaux. Vous validez la liste avant l'envoi de la moindre invitation.</div>
+                    </div>
+                    <div class="process-row">
+                        <div class="process-step">02 / 05</div>
+                        <div class="process-title">Invitations Nominatives &amp; RSVPs</div>
+                        <div class="process-desc">Approche directe et personnalisée auprès de chaque dirigeant, gestion des confirmations et rappels de conciergerie jusqu'au jour J.</div>
+                    </div>
+                    <div class="process-row">
+                        <div class="process-step">03 / 05</div>
+                        <div class="process-title">Salon Gastronomique Privé</div>
+                        <div class="process-desc">Sélection et privatisation d'un salon fermé dans l'une des meilleures tables de Montréal, gestion des menus et du service.</div>
+                    </div>
+                    <div class="process-row">
+                        <div class="process-step">04 / 05</div>
+                        <div class="process-title">Modération le Jour J (19h00 – 23h00)</div>
+                        <div class="process-desc">Accueil des invités, plan de table stratégique et animation fluide des discussions pour mettre en valeur votre expertise sans pitch.</div>
+                    </div>
+                    <div class="process-row">
+                        <div class="process-step">05 / 05</div>
+                        <div class="process-title">Suivi &amp; Moteur de Références</div>
+                        <div class="process-desc">Activation du suivi post-dîner pour transformer les conversations de la soirée en rencontres individuelles et recommandations.</div>
+                    </div>
+                </div>
+
+                <div class="referral-strip">
+                    <div>
+                        <span class="sec-eyebrow" style="margin-bottom: 6px;">Le Moteur de Références Post-Dîner</span>
+                        <div class="referral-strip-title">
+                            12–14 invités à table → <em>25–30 opportunités &amp; introductions directes.</em>
+                        </div>
+                    </div>
+                    <a href="#offre" class="mo-cta mo-cta-ghost">Voir les livrables →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 05 — RUN OF SHOW (19H00 – 23H00) -->
+        <section class="mo-section" id="deroulement">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 05 — Programme de la Soirée</span>
+                    <h2 class="sec-title">Le déroulement. <em>De 19h00 à 23h00.</em></h2>
+                    <p class="sec-sub">
+                        Quatre heures rythmées pour favoriser des échanges naturels entre dirigeants, sans présentation formelle.
+                    </p>
+                </div>
+
+                <div class="schedule-list">
+                    <div class="schedule-row">
+                        <div class="schedule-time">19h00</div>
+                        <div class="schedule-title">Accueil &amp; Cocktails</div>
+                        <div class="schedule-desc">Arrivée des dirigeants au salon privé, verre d'accueil et premières présentations informelles.</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">20h00</div>
+                        <div class="schedule-title">Passage à Table &amp; Mot de Bienvenue</div>
+                        <div class="schedule-desc">Installation selon le plan de table stratégique, court mot d'accueil de l'hôte et service des entrées.</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">20h30</div>
+                        <div class="schedule-title">Dîner Gastronomique &amp; Table Ronde</div>
+                        <div class="schedule-desc">Conversation guidée autour des enjeux opérationnels et technologiques partagés par les invités.</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">22h00</div>
+                        <div class="schedule-title">Digestifs &amp; Échanges Directs</div>
+                        <div class="schedule-desc">Poursuite des discussions en sous-groupes, échanges de coordonnées et planification des suivis.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 06 — PAST DINNERS LOOKBOOK & TESTIMONIALS -->
+        <section class="mo-section" id="evenements-passes">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 06 — Preuve par l'Expérience</span>
+                    <h2 class="sec-title">Les dîners que nous avons <em>organisés.</em></h2>
+                    <p class="sec-sub">
+                        Quelques tables privées récemment tenues à Montréal et Toronto, ainsi que les retours directs des participants.
+                    </p>
+                </div>
+
+                <div class="lookbook-grid">
+                    <div class="lookbook-card">
+                        <div class="lookbook-media">
+                            <img src="../assets/images/dinner_ecom_vip.png" alt="Dîner Exécutif E-Commerce" loading="lazy">
+                        </div>
+                        <div class="lookbook-body">
+                            <span class="lookbook-client">Montréal · Salon Privé</span>
+                            <h3 class="lookbook-title">Dîner Exécutif E-Commerce</h3>
+                            <p class="lookbook-desc">Table ronde privée réunissant des fondateurs et directeurs e-commerce autour de leurs enjeux de croissance.</p>
+                            <div class="lookbook-meta-row">
+                                <span>FORMAT TABLE RONDE</span>
+                                <span class="stat">15 DIRIGEANTS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lookbook-card">
+                        <div class="lookbook-media">
+                            <img src="../assets/images/dinner_retail_vip.png" alt="Dîner Dirigeants Retail" loading="lazy">
+                        </div>
+                        <div class="lookbook-body">
+                            <span class="lookbook-client">Montréal · Salon Privé</span>
+                            <h3 class="lookbook-title">Dîner Dirigeants Retail &amp; Distribution</h3>
+                            <p class="lookbook-desc">Rencontre à huis clos entre présidents et VPs de chaînes de détail et de distribution au Québec.</p>
+                            <div class="lookbook-meta-row">
+                                <span>FORMAT TABLE RONDE</span>
+                                <span class="stat">14 DIRIGEANTS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lookbook-card">
+                        <div class="lookbook-media">
+                            <img src="../assets/images/dinner_tech_toronto.png" alt="Table Ronde Fondateurs Tech & SaaS" loading="lazy">
+                        </div>
+                        <div class="lookbook-body">
+                            <span class="lookbook-client">Toronto · Salon Privé</span>
+                            <h3 class="lookbook-title">Table Ronde Fondateurs Tech &amp; SaaS</h3>
+                            <p class="lookbook-desc">Dîner exécutif confidentiel entre fondateurs logiciels sur l'expansion nord-américaine et les opérations.</p>
+                            <div class="lookbook-meta-row">
+                                <span>FORMAT TABLE RONDE</span>
+                                <span class="stat">15 FONDATEURS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voices-grid">
+                    <div class="voice-card">
+                        <p class="voice-quote">
+                            « Thank you Kevin for always organizing such great events that really allow folks to share and be inspired. So many great conversations and connections. »
+                        </p>
+                        <div class="voice-author">
+                            <img src="../assets/images/natalia_kaplan.jpg" alt="Natalia Kaplan" class="voice-avatar" loading="lazy">
+                            <div class="voice-info">
+                                <strong>Natalia Kaplan</strong>
+                                <span>Founder · On Point Agency</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="voice-card">
+                        <p class="voice-quote">
+                            « Thank you Kevin Leumassi. The concept is very interesting! »
+                        </p>
+                        <div class="voice-author">
+                            <img src="../assets/images/olivier_brassard.jpg" alt="Olivier Brassard" class="voice-avatar" loading="lazy">
+                            <div class="voice-info">
+                                <strong>Olivier Brassard</strong>
+                                <span>Co-fondateur &amp; CEO · Tooly</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="voice-card">
+                        <p class="voice-quote">
+                            « Always a pleasure Kevin Leumassi. I'm glad that I attended. Thank you for hosting! »
+                        </p>
+                        <div class="voice-author">
+                            <img src="../assets/images/damiano_raveenthiran.jpg" alt="Damiano Raveenthiran" class="voice-avatar" loading="lazy">
+                            <div class="voice-info">
+                                <strong>Damiano Raveenthiran</strong>
+                                <span>Founder &amp; CEO · Startup Slingshot</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 07 — L'OFFRE D'ACTIVATION (Corner-Bracket Stamp Card - likn.io/licensing) -->
+        <section class="mo-section" id="offre">
+            <div class="shell">
+                <div class="mo-stamp-card">
+                    <span class="stamp-corner stamp-tl"></span>
+                    <span class="stamp-corner stamp-tr"></span>
+                    <span class="stamp-corner stamp-bl"></span>
+                    <span class="stamp-corner stamp-br"></span>
+
+                    <div class="stamp-copy">
+                        <span class="sec-eyebrow">N° 07 — Formule Pilote Clé en Main</span>
+                        <h2>L'Offre <em>d'Activation.</em></h2>
+                        <p>
+                            Un premier dîner exécutif clé en main à Montréal pour réunir vos comptes cibles prioritaires autour de votre équipe de direction.
+                        </p>
+                        <div class="event-meta-line" style="justify-content: flex-start; margin-bottom: 0;">
+                            <span>12–14 Décideurs Garantis</span>
+                            <span class="sep">·</span>
+                            <span>100 % Clé en Main</span>
+                        </div>
+                    </div>
+
+                    <div class="deliverables-ledger">
+                        <div class="deliverables-header">
+                            <h3>Livrables Inclus</h3>
+                            <span>Oriso × Occasia</span>
+                        </div>
+
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">01</span>
+                            <div><strong>12 à 14 décideurs qualifiés réunis</strong> autour de votre table privée à Montréal.</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">02</span>
+                            <div><strong>Sourcing de 120 à 150 comptes cibles</strong> selon vos critères exacts, avec droit de veto complet.</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">03</span>
+                            <div><strong>Gestion intégrale des invitations</strong> : approche personnalisée, confirmations et conciergerie VIP.</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">04</span>
+                            <div><strong>Privatisation du salon gastronomique</strong>, sélection du menu et prise en charge de la logistique.</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">05</span>
+                            <div><strong>Coordination et modération sur place</strong> de 19h00 à 23h00 pour favoriser des échanges naturels.</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">06</span>
+                            <div><strong>Activation du suivi post-dîner</strong> pour convertir les discussions en rendez-vous et recommandations.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Editorial Footer -->
+    <footer class="mo-footer">
+        <div class="shell footer-bottom">
+            <span>ORISO × OCCASIA © 2026 · THE EXECUTIVE DINNER SERIES · MONTRÉAL</span>
+            <span>PROPOSITION CONFIDENTIELLE SUR INVITATION</span>
         </div>
     </footer>
 
-    <!-- Deck Navigation Controller Script -->
+    <!-- Preloader & Theme Toggle -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const slides = Array.from(document.querySelectorAll('.deck-slide'));
-            const navLinks = Array.from(document.querySelectorAll('.deck-nav-item'));
-            const currentNumEl = document.getElementById('deck-current-num');
-            const mobileCurrentNumEl = document.getElementById('deck-mobile-current-num');
-            const progressFill = document.getElementById('deck-progress-fill');
-            const progressPercentEl = document.getElementById('deck-progress-percent');
-            const btnPrev = document.getElementById('deck-btn-prev');
-            const btnNext = document.getElementById('deck-btn-next');
-            const sidebar = document.getElementById('deck-sidebar');
-            const mobileToggle = document.getElementById('deck-mobile-toggle');
-            const mobileOverlay = document.getElementById('deck-mobile-overlay');
-
-            // Responsive Container Scaling Engine
-            const BASE_CANVAS_WIDTH = 1180;
-            
-            const updateSlideScale = () => {
-                const sidebarWidth = (sidebar && window.getComputedStyle(sidebar).display !== 'none') ? sidebar.offsetWidth : 0;
-                const windowWidth = document.documentElement.clientWidth;
-                const availableWidth = Math.max(280, windowWidth - sidebarWidth - 48);
-                
-                let scale = availableWidth / BASE_CANVAS_WIDTH;
-                document.documentElement.style.setProperty('--deck-scale', scale);
-
-                if (!('zoom' in document.documentElement.style)) {
-                    document.querySelectorAll('.deck-slide-container').forEach(c => {
-                        c.style.transform = `scale(${scale})`;
-                        c.style.transformOrigin = 'top center';
-                    });
-                }
-            };
-
-            window.addEventListener('resize', updateSlideScale, { passive: true });
-            window.addEventListener('orientationchange', updateSlideScale, { passive: true });
-            updateSlideScale();
-
-            // Mobile Sidebar Toggle
-            if (mobileToggle && sidebar && mobileOverlay) {
-                const toggleMobile = () => {
-                    sidebar.classList.toggle('open');
-                    mobileOverlay.classList.toggle('open');
-                };
-                mobileToggle.addEventListener('click', toggleMobile);
-                mobileOverlay.addEventListener('click', toggleMobile);
-                navLinks.forEach(item => {
-                    item.addEventListener('click', () => {
-                        if (window.innerWidth < 1024) {
-                            sidebar.classList.remove('open');
-                            mobileOverlay.classList.remove('open');
-                        }
-                    });
-                });
-            }
-
-            let activeIndex = 0;
-
-            const updateActiveSlide = (index) => {
-                if (index < 0 || index >= slides.length) return;
-                activeIndex = index;
-                
-                navLinks.forEach((item, i) => {
-                    if (i === index) {
-                        item.classList.add('active');
-                        item.setAttribute('aria-current', 'location');
-                    } else {
-                        item.classList.remove('active');
-                        item.removeAttribute('aria-current');
-                    }
-                });
-
-                const slideNumStr = String(index + 1).padStart(2, '0');
-                if (currentNumEl) currentNumEl.textContent = slideNumStr;
-                if (mobileCurrentNumEl) mobileCurrentNumEl.textContent = slideNumStr;
-                
-                const percent = Math.round(((index + 1) / slides.length) * 100);
-                if (progressFill) {
-                    progressFill.style.width = percent + '%';
-                }
-                if (progressPercentEl) {
-                    progressPercentEl.textContent = percent + '%';
-                }
-            };
-
-            const goToSlide = (index) => {
-                if (index >= 0 && index < slides.length) {
-                    slides[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    updateActiveSlide(index);
-                }
-            };
-
-            if (btnPrev) btnPrev.addEventListener('click', () => goToSlide(activeIndex - 1));
-            if (btnNext) btnNext.addEventListener('click', () => goToSlide(activeIndex + 1));
-
-            // Keyboard navigation (↑ / ↓ / Space / PageUp / PageDown)
-            window.addEventListener('keydown', (e) => {
-                if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
-                
-                if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) {
-                    if (activeIndex < slides.length - 1) {
-                        e.preventDefault();
-                        goToSlide(activeIndex + 1);
-                    }
-                } else if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) {
-                    if (activeIndex > 0) {
-                        e.preventDefault();
-                        goToSlide(activeIndex - 1);
-                    }
-                } else if (e.key === 'Home') {
-                    e.preventDefault();
-                    goToSlide(0);
-                } else if (e.key === 'End') {
-                    e.preventDefault();
-                    goToSlide(slides.length - 1);
-                }
-            });
-
-            // IntersectionObserver to auto-sync active slide on scroll
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const idx = slides.indexOf(entry.target);
-                        if (idx !== -1) {
-                            updateActiveSlide(idx);
-                        }
-                    }
-                });
-            }, {
-                threshold: 0.25
-            });
-
-            slides.forEach(slide => observer.observe(slide));
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const c = document.getElementById('curtain');
+                if (c) c.classList.add('loaded');
+            }, 350);
         });
+        setTimeout(() => {
+            const c = document.getElementById('curtain');
+            if (c) c.classList.add('loaded');
+        }, 1000);
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const btn = document.getElementById('themeBtn');
+            if (html.classList.contains('nocturne')) {
+                html.classList.remove('nocturne');
+                html.classList.add('film');
+                btn.innerText = 'Nocturne';
+            } else {
+                html.classList.remove('film');
+                html.classList.add('nocturne');
+                btn.innerText = 'Film';
+            }
+        }
     </script>
 </body>
 

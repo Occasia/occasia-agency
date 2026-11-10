@@ -14,7 +14,7 @@ Le deck est calibré pour être présenté en direct (partage d'écran) ou envoy
 | **02** | `#concept` | **Acquisition TI Traditionnelle vs. Dîner Privé** | Contraste net et scannable (Salons 15k$+ vs 12-14 DSI assis, Cold outreach 0 DSI vs 4h d'attention, Bouche-à-oreille passif vs Contrôle proactif). |
 | **03** | `#invites` | **Profils Invités (ICP)** | Les 3 personas d'acheteurs et critères d'entreprises (Chiffre d'affaires, effectif, géographie). |
 | **04** | `#pourquoi-ils-viennent` | **Pourquoi ils acceptent l'invitation** | Les 3 Piliers psychologiques brefs (~18 mots chacun) : *1. La direction de l'industrie*, *2. La Garantie Zéro Pitch*, *3. La Curation & le Statut*. Fond authentique avec dégradé directionnel (sombre à gauche, chaleureux à droite). |
-| **05** | `#comptes-cibles` | **Comptes Cibles Présélectionnés** | Tableau accordéon de 20 comptes réels et crédibles dans le marché cible, avec effectif, siège social et contexte stratégique. |
+| **05** | `#comptes-cibles` | **5 Comptes Cibles (Aperçu)** | Tableau accordéon de **5 comptes échantillons** dans la présentation (pour garder l'appel fluide), accompagné d'une **liste complète de 20 comptes ICP** envoyée au prospect après l'appel. |
 | **06** | `#evenements-passes` | **Événements Passés** | Preuve sociale visuelle : cartes photos réelles de dîners précédents à Montréal et Toronto. |
 | **07** | `#temoignages` | **Avis Dirigeants** | Témoignages authentiques de participants avec avatars et entreprises. |
 | **08** | `#deroulement` | **Le Déroulement (19h00 – 23h00)** | Chronologie fluide en 5 étapes : 19h00 Accueil & Cocktails, 20h00 Fin networking & Table, 20h10 Mot de bienvenue Hôte & Entrées, 21h30 Fin dîner assis & Échanges libres, 23h00 Clôture. |
@@ -39,7 +39,7 @@ Ouvrez `[nomclient]-dinner/index.html` et effectuez un chercher-remplacer :
 4. **Secteur / Thématique :** Remplacer `TI` / `Directeurs TI` par le secteur concerné si différent (ex. `Cybersécurité`, `Finance & CFOs`, `Manufacturing`, `IA & Data`).
 5. **Ville :** Remplacer `Montréal` si le dîner a lieu à Toronto, Québec, etc.
 6. **ICP (Slide 03) :** Ajuster les 3 profils cibles selon le produit ou service du client.
-7. **20 Comptes cibles (Slide 05) :** Insérer les 20 entreprises locales pertinentes pour ce client.
+7. **5 Comptes cibles dans le Deck + 20 Comptes Post-Appel :** Insérer les 5 comptes échantillons sur la Slide 05 et générer la feuille Excel/CSV des 20 comptes cibles via `python3 occasia_agency/scripts/generate_sales_deck.py`.
 
 ### Étape 3 : Configurer Vercel (Redirection propre)
 Dans le fichier `vercel.json` à la racine du projet, ajoutez la redirection vers le nouveau dossier :
