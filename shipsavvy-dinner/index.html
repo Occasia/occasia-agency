@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+
+    <title>The Executive Dinner Series | Hosted by ShipSavvy x Occasia</title>
+    <meta name="title" content="The Executive Dinner Series | Hosted by ShipSavvy x Occasia">
+    <meta name="description"
+        content="A 6-month private dinner campaign in Toronto putting 15 to 20 vetted DTC founders, Canadian 3PLs, and commerce partners at the same table across 3 dinners.">
+    <link rel="canonical" href="https://occasia.agency/shipsavvy-dinner">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://occasia.agency/shipsavvy-dinner">
+    <meta property="og:site_name" content="ShipSavvy x Occasia">
+    <meta property="og:title" content="The Executive Dinner Series | Hosted by ShipSavvy x Occasia">
+    <meta property="og:description"
+        content="3 dinners in 6 months, 15 to 20 decision makers per night in a private Toronto dining room.">
+    <meta property="og:image" content="https://occasia.agency/assets/images/real_dinner_observation.jpg">
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <script>
+        (() => {
+            try {
+                const saved = localStorage.getItem('shipsavvy_color_scheme');
+                const meta = document.querySelector('meta[name="color-scheme"]');
+                if (meta && (saved === 'light' || saved === 'dark')) {
+                    meta.content = saved;
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            color-scheme: light dark;
+            &:has(> head > meta[name="color-scheme"][content="dark"]) {
+                color-scheme: dark;
+            }
+            &:has(> head > meta[name="color-scheme"][content="light"]) {
+                color-scheme: light;
+            }
+
+            --bg: light-dark(#FAF9F6, #090A0F);
+            --bg-1: light-dark(#F4F1EA, #12141D);
+            --bg-2: light-dark(#ECE7DE, #1A1D28);
+            --bg-translucent: light-dark(rgba(250, 249, 246, 0.88), rgba(9, 10, 15, 0.88));
+            --ink: light-dark(#14161A, #FFFFFF);
+            --ink-dim: light-dark(#4A4F5A, #94A3B8);
+            --ink-faint: light-dark(#7E8594, #64748B);
+            --text: light-dark(#2D313A, #CBD5E1);
+            --crimson: #E11D48;
+            --crimson-hi: light-dark(#F43F5E, #FB7185);
+            --crimson-dim: light-dark(rgba(225, 29, 72, 0.08), rgba(225, 29, 72, 0.16));
+            --hair: light-dark(rgba(20, 22, 26, 0.08), rgba(255, 255, 255, 0.08));
+            --hair-strong: light-dark(rgba(20, 22, 26, 0.16), rgba(255, 255, 255, 0.16));
+            --hair-crimson: light-dark(rgba(225, 29, 72, 0.28), rgba(255, 29, 72, 0.4));
+            --f-serif: 'Instrument Serif', Georgia, serif;
+            --f-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --f-mono: 'JetBrains Mono', monospace;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--f-sans);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: clip;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        body {
+            overflow-x: clip;
+            background: transparent;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        ::selection {
+            background: var(--crimson-dim);
+            color: var(--crimson);
+        }
+
+        /* Curtain Preloader */
+        .mo-curtain {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #14161A;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .mo-curtain.loaded {
+            transform: translate3d(0, -100%, 0);
+        }
+
+        .mo-curtain-title {
+            font-family: var(--f-serif);
+            font-size: 32px;
+            letter-spacing: 0.15em;
+            color: #FAF9F6;
+            margin-bottom: 16px;
+        }
+
+        .mo-curtain-title em {
+            color: #E11D48;
+            font-style: italic;
+        }
+
+        .mo-curtain-line {
+            width: 140px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mo-curtain-line::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #E11D48;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: curtainFill 0.8s var(--ease) forwards;
+        }
+
+        @keyframes curtainFill {
+            to { transform: scaleX(1); }
+        }
+
+        .ambient-film {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 10%, rgba(225, 29, 72, 0.04) 0%, transparent 60%);
+        }
+
+        .shell {
+            width: 100%;
+            max-width: 1320px;
+            margin-inline: auto;
+            padding-inline: clamp(20px, 3.5vw, 48px);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Minimal Top Navigation */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            background: var(--bg-translucent);
+            border-bottom: 1px solid var(--hair);
+            transition: background 0.4s ease;
+        }
+
+        .top-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .brand-mark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .brand-monogram {
+            font-family: var(--f-serif);
+            font-size: 26px;
+            line-height: 1;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        .brand-monogram em {
+            color: var(--crimson);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13.5px;
+            font-weight: 400;
+            color: var(--ink-dim);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--hair-strong);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--ink);
+            color: var(--ink);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--ink);
+            color: var(--bg);
+            border: 1px solid var(--ink);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s var(--ease);
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            background: var(--crimson);
+            border-color: var(--crimson);
+            color: #FFFFFF;
+        }
+
+        /* Hero Section */
+        .mo-hero {
+            position: relative;
+            min-height: 92vh;
+            min-height: 92svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding-top: 136px;
+            padding-bottom: 56px;
+        }
+
+        .mo-hero-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--f-mono);
+            font-size: 10.5px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 18px;
+        }
+
+        .mo-hero-headline {
+            font-family: var(--f-serif);
+            font-weight: 400;
+            font-size: clamp(46px, 6.2vw, 92px);
+            line-height: 0.97;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            max-width: 16ch;
+            margin-bottom: 22px;
+        }
+
+        .mo-hero-headline em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .mo-hero-sub {
+            font-size: 16px;
+            color: var(--ink-dim);
+            max-width: 52ch;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .event-meta-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-dim);
+            margin-bottom: 32px;
+        }
+
+        .event-meta-line .sep {
+            color: var(--crimson);
+        }
+
+        .mo-hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .mo-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s var(--ease);
+            cursor: pointer;
+        }
+
+        .mo-cta-crimson {
+            background: var(--crimson);
+            color: #FFFFFF;
+            border: 1px solid var(--crimson);
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.25);
+        }
+
+        .mo-cta-crimson:hover {
+            background: var(--crimson-hi);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(225, 29, 72, 0.35);
+        }
+
+        .mo-cta-ghost {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--hair-strong);
+        }
+
+        .mo-cta-ghost:hover {
+            border-color: var(--ink);
+            background: var(--bg-1);
+        }
+
+        /* Splayed 5-Photo Print Fan */
+        .mo-hero-gallery {
+            position: relative;
+            z-index: 4;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: end;
+            gap: 0;
+            width: min(1200px, 100%);
+            margin: 10px auto 0;
+            height: clamp(220px, 28vh, 320px);
+        }
+
+        .mo-slot {
+            position: relative;
+            height: 100%;
+            padding-top: calc(var(--ak) * 7%);
+            z-index: calc(3 - var(--ak));
+        }
+
+        .mo-print {
+            position: relative;
+            height: 100%;
+            margin: 0 -8%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-2);
+            border: 1px solid var(--hair);
+            box-shadow: 0 20px 45px -15px rgba(20, 22, 26, 0.18);
+            transform-origin: 50% 100%;
+            transform: rotate(calc(var(--k) * 2.8deg));
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+        }
+
+        .mo-print:hover {
+            transform: rotate(0deg) scale(1.06) translateY(-10px);
+            z-index: 20;
+            box-shadow: 0 30px 60px -15px rgba(225, 29, 72, 0.35);
+            border-color: var(--hair-crimson);
+        }
+
+        .mo-print img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.04) brightness(0.96);
+            transition: filter 0.4s ease;
+        }
+
+        /* Rolling Partner Logos Marquee */
+        .mo-provenance {
+            padding-block: 34px;
+            border-top: 1px solid var(--hair);
+            border-bottom: 1px solid var(--hair);
+            background: var(--bg-1);
+            overflow: hidden;
+        }
+
+        .logos-marquee-header {
+            text-align: center;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 22px;
+        }
+
+        .logos-marquee-mask {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+
+        .logos-marquee-track {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            width: max-content;
+            animation: rollLeftToRight 38s linear infinite;
+        }
+
+        .logos-marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes rollLeftToRight {
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0%, 0, 0); }
+        }
+
+        .logo-slide-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            flex-shrink: 0;
+        }
+
+        .logo-slide-item img {
+            height: 26px;
+            max-width: 130px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0);
+            opacity: 0.58;
+            transition: opacity 0.25s ease;
+        }
+
+        :root:has(> head > meta[name="color-scheme"][content="dark"]) .logo-slide-item img {
+            filter: brightness(0) invert(1);
+            opacity: 0.72;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:has(> head > meta[name="color-scheme"][content="light dark"]) .logo-slide-item img {
+                filter: brightness(0) invert(1);
+                opacity: 0.72;
+            }
+        }
+
+        .logo-slide-item:hover img {
+            opacity: 1;
+        }
+
+        /* Editorial Sections */
+        .mo-section {
+            padding-block: clamp(76px, 9.5vw, 128px);
+            border-bottom: 1px solid var(--hair);
+            position: relative;
+        }
+
+        .sec-head {
+            margin-bottom: 52px;
+        }
+
+        .sec-eyebrow {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .sec-title {
+            font-family: var(--f-serif);
+            font-size: clamp(38px, 5.2vw, 72px);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            color: var(--ink);
+            max-width: 22ch;
+            margin-bottom: 14px;
+        }
+
+        .sec-title em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .sec-sub {
+            font-size: 16px;
+            color: var(--ink-dim);
+            max-width: 56ch;
+            line-height: 1.6;
+        }
+
+        /* Clean Typographic Comparison (No Images) */
+        .two-sides-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--hair-strong);
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--bg-1);
+        }
+
+        .two-sides-col {
+            padding: clamp(32px, 4.2vw, 52px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .two-sides-col.featured {
+            background: var(--bg);
+            border-left: 1px solid var(--hair-strong);
+        }
+
+        .side-tag {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .two-sides-col.featured .side-tag {
+            color: var(--crimson);
+        }
+
+        .side-headline {
+            font-family: var(--f-serif);
+            font-size: clamp(32px, 3.6vw, 46px);
+            font-weight: 400;
+            line-height: 1.06;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+
+        .side-headline em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .side-desc {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .side-points {
+            border-top: 1px solid var(--hair);
+            list-style: none;
+        }
+
+        .side-point {
+            display: grid;
+            grid-template-columns: 36px 1fr;
+            gap: 14px;
+            padding-block: 16px;
+            border-bottom: 1px solid var(--hair);
+            font-size: 14px;
+            color: var(--ink-dim);
+            align-items: baseline;
+        }
+
+        .side-point-num {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            color: var(--ink-faint);
+        }
+
+        .two-sides-col.featured .side-point-num {
+            color: var(--crimson);
+        }
+
+        .side-point strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* 3-Column Editorial Cards */
+        .editorial-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .editorial-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: border-color 0.25s ease, transform 0.25s var(--ease);
+        }
+
+        .editorial-card:hover {
+            border-color: var(--hair-crimson);
+            transform: translateY(-2px);
+        }
+
+        .editorial-card-num {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .editorial-card h3 {
+            font-family: var(--f-serif);
+            font-size: 30px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+
+        .editorial-card p {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+            line-height: 1.6;
+        }
+
+        /* 5-Lead Sample Showcase Ledger (Responsive Table Guided) */
+        .sample-ledger-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair-strong);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px -20px rgba(20, 22, 26, 0.08);
+        }
+
+        .sample-ledger-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 20px 28px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--hair-strong);
+        }
+
+        .sample-ledger-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--ink-dim);
+        }
+
+        .sample-ledger-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--crimson);
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        .sample-ledger-pill {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            background: var(--crimson-dim);
+            border: 1px solid var(--hair-crimson);
+            padding: 6px 14px;
+            border-radius: 999px;
+        }
+
+        .table-wrapper {
+            overflow: auto;
+            max-inline-size: 100%;
+            max-block-size: min(640px, 82vh);
+            container-type: inline-size;
+        }
+
+        .table-wrapper:focus-visible {
+            outline: 2px solid var(--crimson);
+            outline-offset: 2px;
+        }
+
+        .prospects-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            text-align: left;
+        }
+
+        .prospects-table caption {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        .prospects-table thead {
+            position: sticky;
+            inset-block-start: 0;
+            z-index: 2;
+        }
+
+        .prospects-table th {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            padding: 16px 22px;
+            border-bottom: 1px solid var(--hair-strong);
+            background: var(--bg-1);
+            font-weight: 500;
+        }
+
+        .prospects-table tbody th,
+        .prospects-table tbody td {
+            padding: 20px 22px;
+            border-bottom: 1px solid var(--hair);
+            color: var(--ink-dim);
+            vertical-align: top;
+            font-size: 14px;
+            line-height: 1.5;
+            background: var(--bg);
+            transition: background 0.2s ease;
+        }
+
+        .prospects-table tbody th {
+            position: sticky;
+            inset-inline-start: 0;
+            z-index: 1;
+            font-weight: 400;
+        }
+
+        .prospects-table tr:last-child th,
+        .prospects-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .prospects-table tr:hover th,
+        .prospects-table tr:hover td {
+            background: var(--bg-1);
+        }
+
+        .p-company {
+            font-family: var(--f-serif);
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+            display: block;
+            margin-bottom: 4px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .p-sector {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            display: inline-block;
+        }
+
+        .p-leader {
+            color: var(--ink);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .p-scale {
+            display: inline-block;
+            font-family: var(--f-mono);
+            font-size: 10.5px;
+            letter-spacing: 0.08em;
+            color: var(--ink-dim);
+            background: var(--bg-1);
+            border: 1px solid var(--hair-strong);
+            padding: 4px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .p-trigger {
+            font-size: 13.5px;
+            color: var(--ink-dim);
+            max-width: 380px;
+        }
+
+        @container (width < 600px) {
+            .prospects-table,
+            .prospects-table thead,
+            .prospects-table tbody,
+            .prospects-table tr,
+            .prospects-table th,
+            .prospects-table td {
+                display: block;
+            }
+
+            .prospects-table thead {
+                display: none;
+            }
+
+            .prospects-table tr {
+                margin-block-end: 1rem;
+                border-bottom: 1px solid var(--hair-strong);
+            }
+
+            .prospects-table tbody th {
+                position: sticky;
+                inset-block-start: 0;
+                z-index: 2;
+                background: var(--bg-1);
+                padding: 14px 20px;
+            }
+
+            .prospects-table tbody td {
+                padding: 10px 20px;
+            }
+
+            .prospects-table {
+                --label-2: "Decision Maker";
+                --label-3: "Profile Scale";
+                --label-4: "Invitation Angle";
+            }
+
+            .prospects-table tbody td:nth-child(2)::before {
+                content: var(--label-2) ": ";
+                font-family: var(--f-mono);
+                font-size: 10px;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--ink-faint);
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            .prospects-table tbody td:nth-child(3)::before {
+                content: var(--label-3) ": ";
+                font-family: var(--f-mono);
+                font-size: 10px;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--ink-faint);
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            .prospects-table tbody td:nth-child(4)::before {
+                content: var(--label-4) ": ";
+                font-family: var(--f-mono);
+                font-size: 10px;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--ink-faint);
+                display: block;
+                margin-bottom: 2px;
+            }
+        }
+
+        /* Hairline Process Rows & Referral Strip */
+        .process-list {
+            border-top: 1px solid var(--hair-strong);
+        }
+
+        .process-row {
+            display: grid;
+            grid-template-columns: 160px 1fr 1.35fr;
+            gap: 32px;
+            align-items: baseline;
+            padding-block: 30px;
+            border-bottom: 1px solid var(--hair);
+            transition: background 0.2s ease;
+        }
+
+        .process-step {
+            font-family: var(--f-mono);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .process-title {
+            font-family: var(--f-serif);
+            font-size: 30px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+
+        .process-desc {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+            line-height: 1.6;
+        }
+
+        .referral-strip {
+            margin-top: 36px;
+            padding: 28px 36px;
+            border-radius: 14px;
+            background: var(--bg-1);
+            border: 1px solid var(--hair-crimson);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .referral-strip-title {
+            font-family: var(--f-serif);
+            font-size: clamp(26px, 3vw, 36px);
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+
+        .referral-strip-title em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        /* Hairline Run of Show Schedule */
+        .schedule-list {
+            border-top: 1px solid var(--hair-strong);
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 160px 1fr 1.2fr;
+            gap: 32px;
+            align-items: baseline;
+            padding-block: 26px;
+            border-bottom: 1px solid var(--hair);
+        }
+
+        .schedule-time {
+            font-family: var(--f-mono);
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .schedule-title {
+            font-family: var(--f-serif);
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        .schedule-desc {
+            font-size: 14.5px;
+            color: var(--ink-dim);
+        }
+
+        /* Past Dinners Lookbook & Voices (100% Real Event Photos) */
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .lookbook-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s var(--ease);
+        }
+
+        .lookbook-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--hair-crimson);
+            box-shadow: 0 20px 45px -10px rgba(20, 22, 26, 0.15);
+        }
+
+        .lookbook-media {
+            position: relative;
+            aspect-ratio: 16 / 11;
+            background: var(--bg-2);
+            overflow: hidden;
+        }
+
+        .lookbook-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s var(--ease);
+        }
+
+        .lookbook-card:hover .lookbook-media img {
+            transform: scale(1.04);
+        }
+
+        .lookbook-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lookbook-client {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .lookbook-title {
+            font-family: var(--f-serif);
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.15;
+        }
+
+        .lookbook-desc {
+            font-size: 14px;
+            color: var(--ink-dim);
+            line-height: 1.55;
+        }
+
+        .lookbook-meta-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 14px;
+            border-top: 1px solid var(--hair);
+            font-family: var(--f-mono);
+            font-size: 10px;
+            color: var(--ink-faint);
+            letter-spacing: 0.08em;
+        }
+
+        .lookbook-meta-row span.stat {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .voices-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .voice-card {
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 14px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .voice-quote {
+            font-size: 14.5px;
+            line-height: 1.65;
+            color: var(--ink-dim);
+        }
+
+        .voice-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 14px;
+            border-top: 1px solid var(--hair);
+        }
+
+        .voice-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--hair-strong);
+        }
+
+        .voice-info strong {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .voice-info span {
+            font-family: var(--f-mono);
+            font-size: 9.5px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+
+        /* Corner-Bracket Stamp Card */
+        .mo-stamp-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 60px;
+            align-items: center;
+            padding: clamp(36px, 5vw, 72px);
+            background: var(--bg-1);
+            border: 1px solid var(--hair);
+            border-radius: 16px;
+            box-shadow: 0 25px 60px -20px rgba(20, 22, 26, 0.12);
+        }
+
+        .stamp-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 0 solid var(--crimson);
+            pointer-events: none;
+        }
+
+        .stamp-tl { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+        .stamp-tr { top: -1px; right: -1px; border-top-width: 2px; border-right-width: 2px; }
+        .stamp-bl { bottom: -1px; left: -1px; border-bottom-width: 2px; border-left-width: 2px; }
+        .stamp-br { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+
+        .stamp-copy h2 {
+            font-family: var(--f-serif);
+            font-size: clamp(36px, 4.4vw, 56px);
+            font-weight: 400;
+            line-height: 1.04;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+
+        .stamp-copy h2 em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .stamp-copy p {
+            font-size: 15.5px;
+            line-height: 1.65;
+            color: var(--ink-dim);
+            max-width: 42ch;
+            margin-bottom: 24px;
+        }
+
+        .deliverables-ledger {
+            background: var(--bg);
+            border: 1px solid var(--hair-strong);
+            border-radius: 12px;
+            padding: clamp(24px, 3.5vw, 36px);
+        }
+
+        .deliverables-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 18px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--hair-strong);
+        }
+
+        .deliverables-header h3 {
+            font-family: var(--f-serif);
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        .deliverables-header span {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--crimson);
+        }
+
+        .deliverable-row {
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: 12px;
+            padding-block: 13px;
+            border-bottom: 1px solid var(--hair);
+            font-size: 14px;
+            color: var(--ink-dim);
+            align-items: baseline;
+        }
+
+        .deliverable-row:last-child {
+            border-bottom: none;
+        }
+
+        .deliverable-check {
+            font-family: var(--f-mono);
+            color: var(--crimson);
+            font-weight: 600;
+        }
+
+        .deliverable-row strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* Editorial Footer */
+        .mo-footer {
+            padding-block: 64px 44px;
+            background: var(--bg);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+
+        @media (max-width: 960px) {
+            .nav-links {
+                display: none;
+            }
+            .mo-hero-gallery {
+                grid-template-columns: repeat(3, 1fr);
+                height: 44vw;
+            }
+            .mo-slot:first-child, .mo-slot:last-child {
+                display: none;
+            }
+            .two-sides-grid,
+            .editorial-grid-3,
+            .process-row,
+            .schedule-row,
+            .lookbook-grid,
+            .voices-grid,
+            .mo-stamp-card {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 20px;
+            }
+            .two-sides-col.featured {
+                border-left: none;
+                border-top: 1px solid var(--hair-strong);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .brand-monogram {
+                font-size: 20px;
+                white-space: nowrap;
+            }
+            .nav-controls {
+                gap: 8px;
+            }
+            .theme-toggle {
+                padding: 5px 9px;
+                font-size: 9px;
+                letter-spacing: 0.1em;
+            }
+            .nav-cta {
+                padding: 7px 11px;
+                font-size: 9px;
+                letter-spacing: 0.1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Curtain Preloader -->
+    <div class="mo-curtain" id="curtain">
+        <div class="mo-curtain-title">S H I P S A V V Y <em>×</em> O C C A S I A</div>
+        <div class="mo-curtain-line"></div>
+    </div>
+
+    <div class="ambient-film" aria-hidden="true"></div>
+
+    <!-- Top Navigation -->
+    <header class="top-nav" id="navbar">
+        <div class="shell top-nav-inner">
+            <a href="#hero" class="brand-mark">
+                <span class="brand-monogram">ShipSavvy <em>×</em> Occasia.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#channel-shift">Format</a></li>
+                <li><a href="#table-formula">The Table</a></li>
+                <li><a href="#sample-accounts">5 Sample Seats</a></li>
+                <li><a href="#campaign-pace">How It Runs</a></li>
+                <li><a href="#past-dinners">Past Rooms</a></li>
+                <li><a href="#scope">Campaign Scope</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <button type="button" class="theme-toggle" id="themeBtn" onclick="toggleTheme()">Nocturne</button>
+                <a href="#sample-accounts" class="nav-cta">View 5 Sample Seats →</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="mo-hero" id="hero">
+            <div class="shell mo-hero-stage">
+                <span class="hero-eyebrow">Private Dinner Strategy · ShipSavvy × Occasia · Toronto</span>
+
+                <h1 class="mo-hero-headline">
+                    15–20 Decision Makers.<br><em>Three Dinners. Six Months.</em>
+                </h1>
+
+                <p class="mo-hero-sub">
+                    One repeatable room formula putting scaling Canadian DTC brands, independent 3PLs, and Shopify partners at the same table. No slides, no pitches.
+                </p>
+
+                <div class="event-meta-line">
+                    <span>Campaign : 3 Dinners / 6 Months</span>
+                    <span class="sep">·</span>
+                    <span>15 to 20 Leaders Per Night</span>
+                    <span class="sep">·</span>
+                    <span>45 to 60 Total Accounts</span>
+                    <span class="sep">·</span>
+                    <span>Toronto Private Dining</span>
+                </div>
+
+                <div class="mo-hero-actions">
+                    <a href="#sample-accounts" class="mo-cta mo-cta-crimson">View 5 sample seats →</a>
+                    <a href="#table-formula" class="mo-cta mo-cta-ghost">See the room formula ↓</a>
+                </div>
+            </div>
+
+            <!-- Splayed 5-Photo Real Occasia Dinner Fan -->
+            <div class="shell mo-hero-gallery" aria-label="Real photography from Occasia private executive dinners">
+                <div class="mo-slot" style="--k: -2; --ak: 2;">
+                    <div class="mo-print">
+                        <img src="../assets/images/dinner_ecom_vip.png" alt="Real Occasia private e-commerce executive dinner" width="480" height="360">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: -1; --ak: 1;">
+                    <div class="mo-print">
+                        <img src="../assets/images/dinner_tech_toronto.png" alt="Real Toronto founders dinner roundtable" width="480" height="360">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 0; --ak: 0;">
+                    <div class="mo-print">
+                        <img src="../assets/images/real_dinner_observation.jpg" alt="Real candid view of an Occasia executive table" fetchpriority="high" width="480" height="360">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 1; --ak: 1;">
+                    <div class="mo-print">
+                        <img src="../assets/images/dinner_retail_vip.png" alt="Real private restaurant executive dining room" width="480" height="360">
+                    </div>
+                </div>
+                <div class="mo-slot" style="--k: 2; --ak: 2;">
+                    <div class="mo-print">
+                        <img src="../assets/images/founders_dinner_bg.jpg" alt="Real evening executive dinner with founders" width="480" height="360">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rolling Partner Logos Marquee -->
+        <section class="mo-provenance" aria-label="Companies represented at our tables">
+            <div class="logos-marquee-header">Decision-Makers &amp; Partners From Companies Like</div>
+            <div class="logos-marquee-mask">
+                <div class="logos-marquee-track">
+                    <div class="logo-slide-item"><img src="../assets/images/logos/klaviyo.svg" alt="Klaviyo"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/airwallex.png" alt="Airwallex"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/shopify.svg" alt="Shopify"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/tooly.png" alt="Tooly"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/warematch.png?v=2" alt="WareMatch"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/startupslang.svg" alt="Startup Slang"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/webtmize.png" alt="Webtmize"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/xperto.png" alt="Experto"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/redbox.png" alt="Redbox Media"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/springmedia.png" alt="Spring Media"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/agency_business.png" alt="The Agency Business"></div>
+                    <div class="logo-slide-item"><img src="../assets/images/logos/raveventures.png" alt="Rave Ventures"></div>
+                    <!-- Duplicate Set -->
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/klaviyo.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/airwallex.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/shopify.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/tooly.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/warematch.png?v=2" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/startupslang.svg" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/webtmize.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/xperto.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/redbox.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/springmedia.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/agency_business.png" alt=""></div>
+                    <div class="logo-slide-item" aria-hidden="true"><img src="../assets/images/logos/raveventures.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 01 — WHY WE REPLACE EXPO NOISE WITH ONE TABLE (Pure Typography Split) -->
+        <section class="mo-section" id="channel-shift">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 01 · The Channel Shift</span>
+                    <h2 class="sec-title">Why We Replace Expo Noise <em>With One Table.</em></h2>
+                    <p class="sec-sub">
+                        Trade show booths and cold email sequences rarely reach $10K+/mo shippers. Owning the room puts Tony and Dilbir across from vetted buyers without noise.
+                    </p>
+                </div>
+
+                <div class="two-sides-grid">
+                    <div class="two-sides-col">
+                        <div>
+                            <span class="side-tag">Standard Playbook</span>
+                            <h3 class="side-headline">Booths &amp; Cold Outreach.</h3>
+                            <p class="side-desc">
+                                Paying for sponsor badges only to chase distracted merchants beside dozens of competing carriers.
+                            </p>
+                            <ul class="side-points">
+                                <li class="side-point">
+                                    <span class="side-point-num">01</span>
+                                    <span><strong>Expo Aisles</strong> : Standing shoulder-to-shoulder with other label platforms for quick badge scans.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">02</span>
+                                    <span><strong>Mixed Volume</strong> : Spending time on early stores nowhere near your $10K to $15K/mo fit.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">03</span>
+                                    <span><strong>Inbound Waiting</strong> : Waiting on referrals without control over timing or guest quality.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">04</span>
+                                    <span><strong>Zero Depth</strong> : 90-second talks never get into U.S. customs clearance or DDP margin math.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="two-sides-col featured">
+                        <div>
+                            <span class="side-tag">ShipSavvy × Occasia</span>
+                            <h3 class="side-headline">The Closed-Door <em>Table.</em></h3>
+                            <p class="side-desc">
+                                Repeat the exact same curated room formula 3 times in 6 months with 15 to 20 vetted buyers per dinner.
+                            </p>
+                            <ul class="side-points">
+                                <li class="side-point">
+                                    <span class="side-point-num">01</span>
+                                    <span><strong>Minimum Spend Floor</strong> : Every brand meets $10K–$15K+/mo spend or 3PL warehouse scale.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">02</span>
+                                    <span><strong>Zero Rate Competitors</strong> : No competing parcel brokers or consolidators inside the room.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">03</span>
+                                    <span><strong>Peer-to-Peer Standing</strong> : Tony and Dilbir host the table rather than pitching from a booth.</span>
+                                </li>
+                                <li class="side-point">
+                                    <span class="side-point-num">04</span>
+                                    <span><strong>Compounding Referrals</strong> : Satisfied brands and 3PLs bring peers straight into Dinners #2 and #3.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 02 — WHO SITS TOGETHER & THE VALUE STACK -->
+        <section class="mo-section" id="table-formula">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 02 · Repeatable Formula &amp; Value Stack</span>
+                    <h2 class="sec-title">Three Groups Around One Table. <em>Zero Guessing.</em></h2>
+                    <p class="sec-sub">
+                        15 to 20 seats across scaling DTC brands, independent Canadian 3PLs, and Shopify agencies that refer both.
+                    </p>
+                </div>
+
+                <div class="editorial-grid-3" style="margin-bottom: 24px;">
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Seat Group A · 8 to 10 Seats</span>
+                        <h3>Scaling DTC Brands</h3>
+                        <p>Founders and COOs shipping $10K–$15K+/mo to the U.S. across skincare, supplements, apparel, and CPG.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Seat Group B · 4 to 5 Seats</span>
+                        <h3>Canadian 3PLs &amp; Prep</h3>
+                        <p>Independent GTA and Canadian fulfillment warehouses looking for multi-brand SavvyBroker and parcel rates.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Seat Group C · 3 to 4 Seats</span>
+                        <h3>E-Com Multipliers</h3>
+                        <p>Shopify Plus agencies and warehouse marketplaces that trade brand introductions with both 3PLs and ShipSavvy.</p>
+                    </div>
+                </div>
+
+                <div class="editorial-grid-3">
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Value Stack 01</span>
+                        <h3>Clients &amp; Partners at the Table</h3>
+                        <p>Brands meet vetted 3PLs. Agencies meet high-volume founders. Every person at the table can do business together.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Value Stack 02</span>
+                        <h3>Honest Border Math</h3>
+                        <p>A closed-door, off-the-record peer conversation on U.S. tariffs, Importer of Record liability, and landed margins.</p>
+                    </div>
+                    <div class="editorial-card">
+                        <span class="editorial-card-num">Value Stack 03</span>
+                        <h3>Top Room, Zero Pitch</h3>
+                        <p>Complimentary private dining at a premier Toronto restaurant with strictly capped seats and no slide presentation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 03 — 5 SAMPLE TARGET PROSPECTS -->
+        <section class="mo-section" id="sample-accounts">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 03 · Verified Sample Table Preview</span>
+                    <h2 class="sec-title">5 Target Accounts <em>Built for Dinner #1.</em></h2>
+                    <p class="sec-sub">
+                        Sample profiles across Toronto and the GTA matching the seat mix.
+                    </p>
+                </div>
+
+                <div class="sample-ledger-card">
+                    <div class="sample-ledger-bar">
+                        <div class="sample-ledger-bar-left">
+                            <span class="sample-ledger-dot"></span>
+                            <span><strong>Seat Breakdown :</strong> 2 Scaling DTCs · 2 Canadian 3PLs · 1 Shopify Partner</span>
+                        </div>
+                        <span class="sample-ledger-pill">Toronto &amp; GTA</span>
+                    </div>
+
+                    <div tabindex="0" role="region" aria-labelledby="sample-accounts-caption" class="table-wrapper">
+                        <table class="prospects-table">
+                            <caption id="sample-accounts-caption">Five verified Toronto and GTA decision makers selected for ShipSavvy</caption>
+                            <thead>
+                                <tr>
+                                    <th>Company &amp; Group</th>
+                                    <th>Decision Maker</th>
+                                    <th>Profile Scale</th>
+                                    <th>Cross-Border Fit &amp; Angle</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sample-prospects-tbody">
+                                <tr>
+                                    <th>
+                                        <span class="p-company">Three Ships Beauty</span>
+                                        <span class="p-sector">DTC Skincare · Toronto, ON</span>
+                                    </th>
+                                    <td class="p-leader">Connie Lo, Co-Founder</td>
+                                    <td><span class="p-scale">20 to 40 FTEs · DTC + Retail</span></td>
+                                    <td class="p-trigger">Shipping regulated Shopify Plus skincare into U.S. D2C and retail doors.</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="p-company">Poppy &amp; Peonies</span>
+                                        <span class="p-sector">DTC Accessories · Ontario</span>
+                                    </th>
+                                    <td class="p-leader">Natalie Dusome, Founder &amp; CEO</td>
+                                    <td><span class="p-scale">25 to 50 FTEs · Shopify DTC</span></td>
+                                    <td class="p-trigger">Fast-scaling Canadian accessory brand optimizing U.S. duties and DDP checkout.</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="p-company">CanadiEX</span>
+                                        <span class="p-sector">Canadian 3PL · Toronto, ON</span>
+                                    </th>
+                                    <td class="p-leader">Osman Simsekler, Founder &amp; Operator</td>
+                                    <td><span class="p-scale">15 to 45 FTEs · CBSA Bonded</span></td>
+                                    <td class="p-trigger">CBSA customs-bonded 3PL serving multi-brand Shopify and Amazon merchants.</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="p-company">McKenna Logistics Centres</span>
+                                        <span class="p-sector">GTA 3PL · Mississauga, ON</span>
+                                    </th>
+                                    <td class="p-leader">John McKenna, President &amp; Owner</td>
+                                    <td><span class="p-scale">50 to 100 FTEs · Multi-Facility</span></td>
+                                    <td class="p-trigger">Mississauga 3PL neighbor moving steady CPG volume south across the border.</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <span class="p-company">Stream Commerce</span>
+                                        <span class="p-sector">Shopify Partner · Toronto, ON</span>
+                                    </th>
+                                    <td class="p-leader">Ted Starkman, CEO &amp; Co-Founder</td>
+                                    <td><span class="p-scale">25 to 50 FTEs · Premier Partner</span></td>
+                                    <td class="p-trigger">Advises omnichannel brands directly on storefront builds and fulfillment workflows.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 04 — END-TO-END EXECUTION (4 STEPS) -->
+        <section class="mo-section" id="campaign-pace">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 04 · Full-Service Execution</span>
+                    <h2 class="sec-title">How Each Dinner Runs. <em>Four Steps.</em></h2>
+                    <p class="sec-sub">
+                        You walk in as the host. Occasia handles the guest list, outreach, private dining room, and follow-up.
+                    </p>
+                </div>
+
+                <div class="process-list">
+                    <div class="process-row">
+                        <div class="process-step">01 / 04</div>
+                        <div class="process-title">Sourcing &amp; List Approval</div>
+                        <div class="process-desc">We build a vetted Toronto and GTA target bank across scaling DTC brands, Canadian 3PLs, and Shopify agencies. You approve or veto every name before any invite goes out.</div>
+                    </div>
+                    <div class="process-row">
+                        <div class="process-step">02 / 04</div>
+                        <div class="process-title">Outreach &amp; Seat Confirmations</div>
+                        <div class="process-desc">Personal multi-channel outreach and concierge follow-ups until 15 to 20 decision makers confirm their seat, with zero competing carriers in the room.</div>
+                    </div>
+                    <div class="process-row">
+                        <div class="process-step">03 / 04</div>
+                        <div class="process-title">Private Venue &amp; Hosting</div>
+                        <div class="process-desc">Restaurant selection, private dining booking, custom menu, strategic seating next to priority accounts, and moderated dinner dialogue with zero slide decks.</div>
+                    </div>
+                    <div class="process-row">
+                        <div class="process-step">04 / 04</div>
+                        <div class="process-title">Post-Dinner Follow-Up &amp; Repeat</div>
+                        <div class="process-desc">Structured 48-hour follow-ups into CSV rate audits and 3PL introductions, then running the same room formula three times over six months as referrals build.</div>
+                    </div>
+                </div>
+
+                <div class="referral-strip">
+                    <div>
+                        <span class="sec-eyebrow" style="margin-bottom: 6px;">6-Month Campaign Output</span>
+                        <div class="referral-strip-title">
+                            3 dinners × 15–20 guests → <em>45 to 60 vetted relationships.</em>
+                        </div>
+                    </div>
+                    <a href="#scope" class="mo-cta mo-cta-ghost">Review campaign scope →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 05 — EVENING FLOW -->
+        <section class="mo-section" id="evening-flow">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 05 · Evening Run of Show</span>
+                    <h2 class="sec-title">How the Evening Moves. <em>No Decks on Screens.</em></h2>
+                    <p class="sec-sub">
+                        Structured like a private dinner party so Tony and Dilbir have genuine one-on-one time with every guest.
+                    </p>
+                </div>
+
+                <div class="schedule-list">
+                    <div class="schedule-row">
+                        <div class="schedule-time">6:30 PM</div>
+                        <div class="schedule-title">Arrival &amp; Pre-Dinner Drinks</div>
+                        <div class="schedule-desc">Guests gather in the private dining lounge for warm initial intros between brand founders, 3PL operators, and agency heads.</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">7:15 PM</div>
+                        <div class="schedule-title">Curated Seating &amp; Opening Framing</div>
+                        <div class="schedule-desc">Strategic seat placement puts top 3PL and DTC accounts directly beside Tony and Dilbir. Brief 2-minute peer welcome, zero pitch.</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">7:45 PM</div>
+                        <div class="schedule-title">Multi-Course Dinner &amp; Peer Roundtable</div>
+                        <div class="schedule-desc">Candid peer benchmarking on U.S. customs friction, DDP checkout conversion, and scaling Canadian fulfillment cleanly.</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">9:30 PM</div>
+                        <div class="schedule-title">Coffee, Wrap-Up &amp; Follow-Up Handoff</div>
+                        <div class="schedule-desc">Side conversations turn naturally into promised CSV rate comparisons and 1-on-1 calls booked inside 48 hours.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 06 — PAST DINNERS & GUEST VOICES (Reused verbatim from index.html) -->
+        <section class="mo-section" id="past-dinners">
+            <div class="shell">
+                <div class="sec-head">
+                    <span class="sec-eyebrow">N° 06 · Past Dinners</span>
+                    <h2 class="sec-title">Real rooms. <em>Real relationships.</em></h2>
+                    <p class="sec-sub">
+                        Every photograph on this page comes from a real Occasia dinner.
+                    </p>
+                </div>
+
+                <div class="lookbook-grid">
+                    <div class="lookbook-card">
+                        <div class="lookbook-media">
+                            <img src="../assets/images/dinner_ecom_vip.png" alt="E-Commerce and Retail VIP Dinner" loading="lazy">
+                        </div>
+                        <div class="lookbook-body">
+                            <span class="lookbook-client">E-Commerce &amp; Retail</span>
+                            <h3 class="lookbook-title">Retail &amp; DTC Leaders Dinner</h3>
+                            <p class="lookbook-desc">16 seven- and eight-figure retail founders gathered in a private room for four hours of candid conversation.</p>
+                            <div class="lookbook-meta-row">
+                                <span>RESULT</span>
+                                <span class="stat">28 Intros · 3 New Clients</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lookbook-card">
+                        <div class="lookbook-media">
+                            <img src="../assets/images/dinner_tech_toronto.png" alt="Tech and SaaS Leaders Dinner" loading="lazy">
+                        </div>
+                        <div class="lookbook-body">
+                            <span class="lookbook-client">B2B Software &amp; AI</span>
+                            <h3 class="lookbook-title">Tech &amp; SaaS Founders Table</h3>
+                            <p class="lookbook-desc">15 CEOs, CTOs, and VPs of Engineering connected over a multi-course dinner focused on enterprise growth.</p>
+                            <div class="lookbook-meta-row">
+                                <span>RESULT</span>
+                                <span class="stat">31 Intros · 2 New Clients</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lookbook-card">
+                        <div class="lookbook-media">
+                            <img src="../assets/images/dinner_retail_vip.png" alt="Private Wine Cellar Executive Dinner" loading="lazy">
+                        </div>
+                        <div class="lookbook-body">
+                            <span class="lookbook-client">Financial &amp; Advisory</span>
+                            <h3 class="lookbook-title">Private Cellar Executive Table</h3>
+                            <p class="lookbook-desc">Managing partners and enterprise operators seated in a stone wine cellar, leading to follow-up calls the same week.</p>
+                            <div class="lookbook-meta-row">
+                                <span>RESULT</span>
+                                <span class="stat">26 Intros · 3 New Clients</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voices-grid">
+                    <div class="voice-card">
+                        <p class="voice-quote">
+                            "This is such an original approach. Let's work together and put something in place for Tooly."
+                        </p>
+                        <div class="voice-author">
+                            <img src="../assets/images/olivier_brassard.jpg" alt="Olivier Brassard" class="voice-avatar" loading="lazy">
+                            <div class="voice-info">
+                                <strong>Olivier Brassard</strong>
+                                <span>Co-Founder &amp; CEO · Tooly (Zoho Premium Partner)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="voice-card">
+                        <p class="voice-quote">
+                            "I loved this dinner, thanks so much for the invitation Kevin Leumassi. I used this exact same model to scale my business and build the relationships to raise capital for my private equity firm."
+                        </p>
+                        <div class="voice-author">
+                            <img src="../assets/images/damiano_raveenthiran.jpg" alt="Damiano Raveenthiran" class="voice-avatar" loading="lazy">
+                            <div class="voice-info">
+                                <strong>Damiano Raveenthiran</strong>
+                                <span>Founder &amp; CEO · Startup Slang &amp; Rave Ventures</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="voice-card">
+                        <p class="voice-quote">
+                            "Thank you Kevin for always organizing such great events that really allow folks to share and be inspired. So many great conversations and connections."
+                        </p>
+                        <div class="voice-author">
+                            <img src="../assets/images/natalia_kaplan.jpg" alt="Natalia Kaplan" class="voice-avatar" loading="lazy">
+                            <div class="voice-info">
+                                <strong>Natalia Kaplan</strong>
+                                <span>Founder · On Point Agency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- N° 07 — 6-MONTH PARTNERSHIP SCOPE STAMP CARD -->
+        <section class="mo-section" id="scope">
+            <div class="shell">
+                <div class="mo-stamp-card">
+                    <span class="stamp-corner stamp-tl"></span>
+                    <span class="stamp-corner stamp-tr"></span>
+                    <span class="stamp-corner stamp-bl"></span>
+                    <span class="stamp-corner stamp-br"></span>
+
+                    <div class="stamp-copy">
+                        <span class="sec-eyebrow">N° 07 · 6-Month Partnership</span>
+                        <h2>The 3-Dinner <em>Campaign.</em></h2>
+                        <p>
+                            Full execution for all three Toronto dinners across six months.
+                        </p>
+                        <div class="event-meta-line" style="justify-content: flex-start; margin-bottom: 0;">
+                            <span>15–20 Decision Makers / Night</span>
+                            <span class="sep">·</span>
+                            <span>Handled End-to-End</span>
+                        </div>
+                    </div>
+
+                    <div class="deliverables-ledger">
+                        <div class="deliverables-header">
+                            <h3>Included Deliverables</h3>
+                            <span>ShipSavvy × Occasia</span>
+                        </div>
+
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">01</span>
+                            <div><strong>3 private Toronto dinners over 6 months</strong> (15 to 20 vetted guests per night, 45 to 60 total).</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">02</span>
+                            <div><strong>Exact repeatable room mix</strong>: 8–10 DTCs ($10K+/mo), 4–5 Canadian 3PLs, 3–4 e-com multipliers.</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">03</span>
+                            <div><strong>Full target bank curation</strong> with complete ShipSavvy veto rights before any invite goes out.</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">04</span>
+                            <div><strong>Zero carrier or customs competitors</strong> ever seated in any of the three rooms.</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">05</span>
+                            <div><strong>Venue booking, private menu &amp; concierge reminders</strong> handled end-to-end by Occasia.</div>
+                        </div>
+                        <div class="deliverable-row">
+                            <span class="deliverable-check">06</span>
+                            <div><strong>On-site moderation &amp; 48-hour post-dinner handoff</strong> into CSV rate audits and 3PL intros.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Editorial Footer -->
+    <footer class="mo-footer">
+        <div class="shell footer-bottom">
+            <span>SHIPSAVVY × OCCASIA © 2026 · THE EXECUTIVE DINNER SERIES · TORONTO</span>
+            <span>CONFIDENTIAL PROPOSAL · PREPARED FOR TONY HOLBROOK &amp; DILBIR KALIRON</span>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const c = document.getElementById('curtain');
+                if (c) c.classList.add('loaded');
+            }, 300);
+        });
+        setTimeout(() => {
+            const c = document.getElementById('curtain');
+            if (c) c.classList.add('loaded');
+        }, 900);
+
+        (() => {
+            const btn = document.getElementById('themeBtn');
+            const meta = document.querySelector('meta[name="color-scheme"]');
+            const mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+            function effectiveScheme() {
+                if (meta.content === 'dark' || meta.content === 'light') return meta.content;
+                return mq.matches ? 'dark' : 'light';
+            }
+
+            function syncLabel() {
+                btn.innerText = effectiveScheme() === 'dark' ? 'Film' : 'Nocturne';
+            }
+
+            window.toggleTheme = () => {
+                const next = effectiveScheme() === 'dark' ? 'light' : 'dark';
+                meta.content = next;
+                try {
+                    localStorage.setItem('shipsavvy_color_scheme', next);
+                } catch (e) {}
+                syncLabel();
+            };
+
+            mq.addEventListener('change', syncLabel);
+            syncLabel();
+        })();
+    </script>
+</body>
+
+</html>
