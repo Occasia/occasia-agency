@@ -1,11 +1,13 @@
 // ==========================================
 // OCCASIA AGENCY - LEAD SUBMISSION HANDLER
 // Serverless Function for Vercel / Node.js
-// Creates an Opportunity directly in Notion (Occasia — Opportunities Pipeline)
+// Upserts Contact + creates linked Opportunity in Notion
 // ==========================================
 
 const NOTION_VERSION = '2022-06-28';
 const DEFAULT_OPPORTUNITIES_DB_ID = '41ccd2c2-707d-807f-a243-cbb21ddb7efe';
+const DEFAULT_CONTACTS_DB_ID = '41ccd2c2-707d-8174-ad6d-d22588a39e36';
+const DEFAULT_METRICS_ALL_TIME_ID = '41ccd2c2-707d-819d-92e1-f0a2d48d07ba';
 
 function normalizeUrl(raw) {
     if (!raw || typeof raw !== 'string') return null;
@@ -22,6 +24,78 @@ function normalizeUrl(raw) {
 
 function buildRichText(content) {
     return [{ type: 'text', text: { content: String(content).slice(0, 2000) } }];
+}
+
+async function notionFetch(path, token, method = 'GET', body = null) {
+    const res = await fetch(`https://api.notion.com/v1${path}`, {
+        method,
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Notion-Version': NOTION_VERSION,
+            'Content-Type': 'application/json'
+        },
+        body: body ? JSON.stringify(body) : undefined
+    });
+    const data = await res.json();
+    if (!res.ok) {
+        throw new Error(`Notion ${method} ${path} failed (${res.status}): ${data.message || 'Unknown error'}`);
+    }
+    return data;
+}
+
+async function upsertNotionContact({
+    notionToken,
+    contactsDbId,
+    metricsAllTimeId,
+    cleanName,
+    cleanEmail,
+    cleanPhone,
+    cleanCompany,
+    cleanWebsite,
+    isDinner,
+    tags,
+    timestamp
+}) {
+    if (!contactsDbId) return null;
+
+    const existing = await notionFetch(`/databases/${contactsDbId}/query`, notionToken, 'POST', {
+        filter: { property: 'Email', email: { equals: cleanEmail } },
+        page_size: 1
+    });
+
+    if (existing.results && existing.results.length > 0) {
+        return existing.results[0].id;
+    }
+
+    const contactProps = {
+        Name: { title: buildRichText(cleanName) },
+        Email: { email: cleanEmail },
+        Phone: { phone_number: cleanPhone },
+        'Relationship Tier': { select: { name: isDinner ? 'Dinner Candidate' : 'Warm Lead' } },
+        Source: { select: { name: isDinner ? 'Dinner RSVP' : 'Website Form' } },
+        Tags: { multi_select: tags.map((name) => ({ name })) },
+        'Date Added': { date: { start: timestamp.slice(0, 10) } }
+    };
+
+    if (cleanCompany) {
+        contactProps.Company = { rich_text: buildRichText(cleanCompany) };
+    }
+    if (cleanWebsite) {
+        if (cleanWebsite.toLowerCase().includes('linkedin.com')) {
+            contactProps.LinkedIn = { url: cleanWebsite };
+        } else {
+            contactProps.Website = { url: cleanWebsite };
+        }
+    }
+    if (metricsAllTimeId) {
+        contactProps['Metrics Period'] = { relation: [{ id: metricsAllTimeId }] };
+    }
+
+    const created = await notionFetch('/pages', notionToken, 'POST', {
+        parent: { database_id: contactsDbId },
+        properties: contactProps
+    });
+    return created.id;
 }
 
 module.exports = async function handler(req, res) {
@@ -42,7 +116,9 @@ module.exports = async function handler(req, res) {
     }
 
     const notionToken = process.env.NOTION_API_KEY;
-    const databaseId = process.env.NOTION_OPPORTUNITIES_DB_ID || DEFAULT_OPPORTUNITIES_DB_ID;
+    const opportunitiesDbId = process.env.NOTION_OPPORTUNITIES_DB_ID || DEFAULT_OPPORTUNITIES_DB_ID;
+    const contactsDbId = process.env.NOTION_CONTACTS_DB_ID || DEFAULT_CONTACTS_DB_ID;
+    const metricsAllTimeId = process.env.NOTION_METRICS_ALLTIME_PAGE_ID || DEFAULT_METRICS_ALL_TIME_ID;
 
     if (!notionToken) {
         console.error('Missing NOTION_API_KEY environment variable');
@@ -92,6 +168,25 @@ module.exports = async function handler(req, res) {
             : ['website-lead', 'executive-dinners'];
         if (cleanDealSize) {
             tags.push(cleanDealSize.replace(/,/g, ''));
+        }
+
+        let contactPageId = null;
+        try {
+            contactPageId = await upsertNotionContact({
+                notionToken,
+                contactsDbId,
+                metricsAllTimeId,
+                cleanName,
+                cleanEmail,
+                cleanPhone,
+                cleanCompany,
+                cleanWebsite,
+                isDinner,
+                tags,
+                timestamp
+            });
+        } catch (contactErr) {
+            console.error('Contact upsert failed (continuing with opportunity):', contactErr.message);
         }
 
         const opportunityTitle = cleanCompany
@@ -144,37 +239,27 @@ module.exports = async function handler(req, res) {
         if (cleanDealSize) {
             properties['Deal Size / ACV'] = { rich_text: buildRichText(cleanDealSize) };
         }
-
-        const notionRes = await fetch('https://api.notion.com/v1/pages', {
-            method: 'POST',
-            headers: {
-                Authorization: `Bearer ${notionToken}`,
-                'Notion-Version': NOTION_VERSION,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                parent: { database_id: databaseId },
-                properties,
-                children: summaryLines.map((line) => ({
-                    object: 'block',
-                    type: 'paragraph',
-                    paragraph: { rich_text: buildRichText(line) }
-                }))
-            })
-        });
-
-        const notionData = await notionRes.json();
-        if (!notionRes.ok) {
-            console.error('Notion API error:', notionRes.status, notionData);
-            return res.status(502).json({
-                error: 'Failed to create opportunity in Notion',
-                details: notionData.message || 'Upstream Notion error'
-            });
+        if (contactPageId) {
+            properties.Contact = { relation: [{ id: contactPageId }] };
         }
+        if (metricsAllTimeId) {
+            properties['Metrics Period'] = { relation: [{ id: metricsAllTimeId }] };
+        }
+
+        const notionData = await notionFetch('/pages', notionToken, 'POST', {
+            parent: { database_id: opportunitiesDbId },
+            properties,
+            children: summaryLines.map((line) => ({
+                object: 'block',
+                type: 'paragraph',
+                paragraph: { rich_text: buildRichText(line) }
+            }))
+        });
 
         return res.status(200).json({
             success: true,
             pageId: notionData.id,
+            contactPageId,
             message: 'Lead successfully captured in Occasia Notion Pipeline'
         });
     } catch (error) {
