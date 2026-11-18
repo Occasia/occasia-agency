@@ -93,6 +93,7 @@ async function upsertNotionContact({
 
     const created = await notionFetch('/pages', notionToken, 'POST', {
         parent: { database_id: contactsDbId },
+        icon: { type: 'emoji', emoji: isDinner ? '🍽️' : '🔥' },
         properties: contactProps
     });
     return created.id;
@@ -248,6 +249,7 @@ module.exports = async function handler(req, res) {
 
         const notionData = await notionFetch('/pages', notionToken, 'POST', {
             parent: { database_id: opportunitiesDbId },
+            icon: { type: 'emoji', emoji: isDinner ? '🍽️' : '🔥' },
             properties,
             children: summaryLines.map((line) => ({
                 object: 'block',
