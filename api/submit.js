@@ -1,14 +1,30 @@
 // ==========================================
 // OCCASIA AGENCY - LEAD SUBMISSION HANDLER
 // Serverless Function for Vercel / Node.js
-// Integrates directly with GoHighLevel (Location: jHbmtYzLJIFF9GbAX6mz)
+// Creates an Opportunity directly in Notion (Occasia — Opportunities Pipeline)
 // ==========================================
 
-const GHL_API_KEY = process.env.GHL_API_KEY || 'pit-e987338e-f698-4158-886a-49e83c50c78e';
-const LOCATION_ID = process.env.GHL_LOCATION_ID || 'jHbmtYzLJIFF9GbAX6mz';
+const NOTION_VERSION = '2022-06-28';
+const DEFAULT_OPPORTUNITIES_DB_ID = '41ccd2c2-707d-807f-a243-cbb21ddb7efe';
+
+function normalizeUrl(raw) {
+    if (!raw || typeof raw !== 'string') return null;
+    const trimmed = raw.trim();
+    if (!trimmed) return null;
+    const candidate = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+    try {
+        const parsed = new URL(candidate);
+        return parsed.href;
+    } catch {
+        return null;
+    }
+}
+
+function buildRichText(content) {
+    return [{ type: 'text', text: { content: String(content).slice(0, 2000) } }];
+}
 
 module.exports = async function handler(req, res) {
-    // CORS headers
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -25,98 +41,147 @@ module.exports = async function handler(req, res) {
         return res.status(405).json({ error: 'Method Not Allowed' });
     }
 
+    const notionToken = process.env.NOTION_API_KEY;
+    const databaseId = process.env.NOTION_OPPORTUNITIES_DB_ID || DEFAULT_OPPORTUNITIES_DB_ID;
+
+    if (!notionToken) {
+        console.error('Missing NOTION_API_KEY environment variable');
+        return res.status(500).json({ error: 'Server configuration error: NOTION_API_KEY is not set.' });
+    }
+
     try {
         let body = req.body;
         if (typeof body === 'string') {
             try {
                 body = JSON.parse(body);
-            } catch (e) {
-                // Ignore parse error
+            } catch {
+                return res.status(400).json({ error: 'Invalid JSON request body.' });
             }
         }
 
-        const { fullName, workEmail, phone, companyName, companyWebsite, dealSize, targetClients, type, notes } = body || {};
+        const {
+            fullName,
+            workEmail,
+            phone,
+            companyName,
+            companyWebsite,
+            dealSize,
+            targetClients,
+            type,
+            notes,
+            submittedAt
+        } = body || {};
 
         if (!fullName || !workEmail || !phone) {
-            return res.status(400).json({ 
-                error: 'Missing required contact fields: fullName, workEmail, and phone are mandatory.' 
+            return res.status(400).json({
+                error: 'Missing required contact fields: fullName, workEmail, and phone are mandatory.'
             });
         }
 
-        // Determine tags and source based on submission type
+        const cleanName = fullName.trim();
+        const cleanEmail = workEmail.trim();
+        const cleanPhone = phone.trim();
+        const cleanCompany = (companyName || '').trim();
+        const cleanDealSize = (dealSize || '').trim();
+        const cleanWebsite = normalizeUrl(companyWebsite);
         const isDinner = type === 'dinner';
-        const tags = isDinner 
-            ? ['dinner-candidate', 'executive-dinner'] 
-            : ['website-lead', 'executive-dinners'];
+        const timestamp = submittedAt || new Date().toISOString();
 
-        // Add average contract size / deal size as a tag
-        if (dealSize && dealSize.trim()) {
-            tags.push(dealSize.trim());
+        const tags = isDinner
+            ? ['dinner-candidate', 'executive-dinner']
+            : ['website-lead', 'executive-dinners'];
+        if (cleanDealSize) {
+            tags.push(cleanDealSize.replace(/,/g, ''));
         }
 
-        // 1. Upsert contact in GoHighLevel
-        const upsertResponse = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
+        const opportunityTitle = cleanCompany
+            ? `${cleanCompany} — ${isDinner ? 'Dinner RSVP' : 'Strategy Call'}`
+            : `${cleanName} — ${isDinner ? 'Dinner RSVP' : 'Strategy Call'}`;
+
+        const summaryLines = [
+            isDinner
+                ? 'NEW DINNER INVITATION REQUEST (occasia.agency/dinner)'
+                : 'NEW STRATEGY CONSULTATION REQUEST (occasia.agency)',
+            `• Full Name: ${cleanName}`,
+            `• Work Email: ${cleanEmail}`,
+            `• Direct Phone: ${cleanPhone}`,
+            `• Company Name: ${cleanCompany || 'Not specified'}`,
+            cleanWebsite ? `• Company Website: ${cleanWebsite}` : null,
+            `• Deal Size / ACV: ${cleanDealSize || 'Not specified'}`,
+            isDinner && notes ? `• Additional Notes / Dietary: ${notes.trim()}` : null,
+            !isDinner && targetClients ? `• Target Dream Clients: ${targetClients.trim()}` : null,
+            !isDinner && notes ? `• Additional Notes: ${notes.trim()}` : null,
+            `• Submitted At: ${timestamp}`
+        ].filter(Boolean);
+
+        const properties = {
+            Opportunity: { title: buildRichText(opportunityTitle) },
+            Stage: { select: { name: 'Qualified lead' } },
+            Status: { select: { name: 'Open' } },
+            Probability: { number: 0.1429 },
+            Source: { select: { name: isDinner ? 'Dinner RSVP' : 'Website Form' } },
+            'Contact Name': { rich_text: buildRichText(cleanName) },
+            Email: { email: cleanEmail },
+            Phone: { phone_number: cleanPhone },
+            Tags: { multi_select: tags.map((name) => ({ name })) },
+            Notes: { rich_text: buildRichText(summaryLines.join('\n')) },
+            'Next Action': {
+                rich_text: buildRichText(
+                    isDinner
+                        ? 'Review dinner fit & confirm seat within 24h'
+                        : 'Confirm Cal.com booking & prep sample guest list'
+                )
+            },
+            'Created Date': { date: { start: timestamp.slice(0, 10) } }
+        };
+
+        if (cleanCompany) {
+            properties.Company = { rich_text: buildRichText(cleanCompany) };
+        }
+        if (cleanWebsite) {
+            properties.Website = { url: cleanWebsite };
+        }
+        if (cleanDealSize) {
+            properties['Deal Size / ACV'] = { rich_text: buildRichText(cleanDealSize) };
+        }
+
+        const notionRes = await fetch('https://api.notion.com/v1/pages', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${GHL_API_KEY}`,
-                'Version': '2021-07-28',
+                Authorization: `Bearer ${notionToken}`,
+                'Notion-Version': NOTION_VERSION,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                locationId: LOCATION_ID,
-                name: fullName.trim(),
-                email: workEmail.trim(),
-                phone: phone.trim(),
-                companyName: (companyName || '').trim(),
-                website: companyWebsite ? companyWebsite.trim() : undefined,
-                tags: tags,
-                source: isDinner ? 'occasia.agency next dinner RSVP' : 'occasia.agency website'
+                parent: { database_id: databaseId },
+                properties,
+                children: summaryLines.map((line) => ({
+                    object: 'block',
+                    type: 'paragraph',
+                    paragraph: { rich_text: buildRichText(line) }
+                }))
             })
         });
 
-        const upsertData = await upsertResponse.json();
-        const contactId = upsertData?.contact?.id;
-
-        // 2. Attach detailed note with deal and company details
-        if (contactId) {
-            const noteHeading = isDinner 
-                ? '🍷 NEW DINNER INVITATION REQUEST (occasia.agency/dinner):' 
-                : '🎯 NEW STRATEGY CONSULTATION REQUEST (occasia.agency):';
-
-            const noteBody = [
-                noteHeading,
-                `• Full Name: ${fullName}`,
-                `• Work Email: ${workEmail}`,
-                `• Direct Phone: ${phone}`,
-                `• Company Name: ${companyName || 'Not specified'}`,
-                companyWebsite ? `• Company Website: ${companyWebsite}` : null,
-                `• Deal Size / ACV: ${dealSize || 'Not specified'}`,
-                isDinner && notes ? `• Additional Notes / Dietary: ${notes}` : null,
-                !isDinner && targetClients ? `• Target Dream Clients: ${targetClients}` : null,
-                `• Submitted At: ${new Date().toISOString()}`
-            ].filter(Boolean).join('\n');
-
-            await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${GHL_API_KEY}`,
-                    'Version': '2021-07-28',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ body: noteBody })
+        const notionData = await notionRes.json();
+        if (!notionRes.ok) {
+            console.error('Notion API error:', notionRes.status, notionData);
+            return res.status(502).json({
+                error: 'Failed to create opportunity in Notion',
+                details: notionData.message || 'Upstream Notion error'
             });
         }
 
-        return res.status(200).json({ 
-            success: true, 
-            contactId, 
-            message: 'Lead successfully captured in Occasia CRM' 
+        return res.status(200).json({
+            success: true,
+            pageId: notionData.id,
+            message: 'Lead successfully captured in Occasia Notion Pipeline'
         });
     } catch (error) {
-        console.error('Server error submitting to GHL:', error);
-        return res.status(500).json({ 
-            error: 'Failed to process lead in CRM', 
-            details: error.message 
+        console.error('Server error submitting to Notion:', error);
+        return res.status(500).json({
+            error: 'Failed to process lead in CRM',
+            details: error.message
         });
     }
 };

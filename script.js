@@ -64,75 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // GoHighLevel Direct Configuration (fallback for static hosting / local testing)
-    const GHL_FALLBACK_API_KEY = 'pit-e987338e-f698-4158-886a-49e83c50c78e';
-    const GHL_LOCATION_ID = 'jHbmtYzLJIFF9GbAX6mz';
-
-    async function submitToGHLDirectly(formData) {
-        const isDinner = formData.type === 'dinner';
-        const tags = isDinner 
-            ? ['dinner-candidate', 'executive-dinner'] 
-            : ['website-lead', 'executive-dinners'];
-
-        if (formData.dealSize && formData.dealSize.trim()) {
-            tags.push(formData.dealSize.trim());
-        }
-
-        // Upsert contact in GoHighLevel
-        const upsertRes = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${GHL_FALLBACK_API_KEY}`,
-                'Version': '2021-07-28',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                locationId: GHL_LOCATION_ID,
-                name: formData.fullName,
-                email: formData.workEmail,
-                phone: formData.phone,
-                companyName: formData.companyName || '',
-                website: formData.companyWebsite || undefined,
-                tags: tags,
-                source: isDinner ? 'occasia.agency next dinner RSVP' : 'occasia.agency website'
-            })
-        });
-
-        const upsertData = await upsertRes.json();
-        const contactId = upsertData?.contact?.id;
-
-        // Attach consultation notes
-        if (contactId) {
-            const noteHeading = isDinner 
-                ? '🍷 NEW DINNER INVITATION REQUEST (occasia.agency/dinner):' 
-                : '🎯 NEW STRATEGY CONSULTATION REQUEST (occasia.agency):';
-
-            const noteBody = [
-                noteHeading,
-                `• Full Name: ${formData.fullName}`,
-                `• Work Email: ${formData.workEmail}`,
-                `• Direct Phone: ${formData.phone}`,
-                `• Company Name: ${formData.companyName || 'Not specified'}`,
-                formData.companyWebsite ? `• Company Website: ${formData.companyWebsite}` : null,
-                `• Deal Size / ACV: ${formData.dealSize || 'Not specified'}`,
-                formData.notes ? `• Additional Notes: ${formData.notes}` : null,
-                `• Submitted At: ${formData.submittedAt}`
-            ].filter(Boolean).join('\n');
-
-            await fetch(`https://services.leadconnectorhq.com/contacts/${contactId}/notes`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${GHL_FALLBACK_API_KEY}`,
-                    'Version': '2021-07-28',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ body: noteBody })
-            });
-        }
-
-        return contactId;
-    }
-
     // Strategy Form Submission Handler
     if (strategyForm) {
         strategyForm.addEventListener('submit', async (e) => {
@@ -165,48 +96,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 submittedAt: new Date().toISOString()
             };
 
-            // Build pre-filled LeadConnector booking URL
-            const nameParts = formData.fullName.split(/\s+/);
-            const firstName = nameParts[0] || '';
-            const lastName = nameParts.slice(1).join(' ') || '';
+            // Build pre-filled Cal.com fallback link
             const bookingParams = new URLSearchParams();
             if (formData.fullName) bookingParams.set('name', formData.fullName);
-            if (firstName) bookingParams.set('first_name', firstName);
-            if (lastName) bookingParams.set('last_name', lastName);
             if (formData.workEmail) bookingParams.set('email', formData.workEmail);
-            if (formData.phone) bookingParams.set('phone', formData.phone);
 
-            const baseCalendarUrl = 'https://api.leadconnectorhq.com/widget/bookings/kevinleumassi';
+            const baseCalendarUrl = 'https://cal.com/kevin-leumassi/30min';
             const calendarUrl = bookingParams.toString()
                 ? `${baseCalendarUrl}?${bookingParams.toString()}`
                 : baseCalendarUrl;
 
-            // Fire CRM sync in background so the user sees the calendar immediately
+            // Fire Notion CRM sync in background so the user sees the calendar immediately
             (async () => {
                 try {
-                    let submissionSuccessful = false;
-                    try {
-                        const apiRes = await fetch('/api/submit', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(formData)
-                        });
-                        if (apiRes.ok) {
-                            submissionSuccessful = true;
-                        }
-                    } catch (apiErr) {
-                        // /api/submit not available on static server, fallback to direct GHL
-                    }
-
-                    if (!submissionSuccessful) {
-                        await submitToGHLDirectly(formData);
+                    const apiRes = await fetch('/api/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                    if (!apiRes.ok) {
+                        const errBody = await apiRes.text();
+                        console.error('CRM sync failed:', apiRes.status, errBody);
                     }
                 } catch (err) {
                     console.error('Background CRM sync failed:', err);
                 }
             })();
 
-            // Immediately show Kevin's live booking calendar inside the modal
+            // Immediately show Kevin's live Cal.com booking widget inside the modal
             if (modalContainer) {
                 modalContainer.style.width = 'min(880px, 100%)';
                 modalContainer.style.padding = 'clamp(20px, 3vw, 32px)';
@@ -221,23 +138,54 @@ document.addEventListener('DOMContentLoaded', () => {
                             Open in new tab ↗
                         </a>
                     </div>
-                    <div style="width: 100%; min-height: 660px; border-radius: 12px; overflow: hidden; background: #FFFFFF; border: 1px solid var(--hair-strong, rgba(20,22,26,0.16));">
-                        <iframe
-                            src="${calendarUrl}"
-                            style="width: 100%; min-height: 660px; height: 72vh; border: none; display: block;"
-                            scrolling="yes"
-                            id="kevinleumassi_calendar_iframe"
-                            title="Book a Strategy Call with Kevin Leumassi"
-                        ></iframe>
+                    <div style="width: 100%; min-height: 620px; max-height: 74vh; overflow-y: auto; border-radius: 12px; background: #FFFFFF; border: 1px solid var(--hair-strong, rgba(20,22,26,0.16));">
+                        <div id="cal-inline-booking" style="width: 100%; min-height: 620px;"></div>
                     </div>
                 `;
 
-                if (!document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) {
-                    const embedScript = document.createElement('script');
-                    embedScript.src = 'https://link.msgsndr.com/js/form_embed.js';
-                    embedScript.type = 'text/javascript';
-                    document.body.appendChild(embedScript);
-                }
+                (function (C, A, L) {
+                    const p = function (a, ar) { a.q.push(ar); };
+                    const d = C.document;
+                    C.Cal = C.Cal || function () {
+                        const cal = C.Cal;
+                        const ar = arguments;
+                        if (!cal.loaded) {
+                            cal.ns = {};
+                            cal.q = cal.q || [];
+                            d.head.appendChild(d.createElement('script')).src = A;
+                            cal.loaded = true;
+                        }
+                        if (ar[0] === L) {
+                            const api = function () { p(api, arguments); };
+                            const namespace = ar[1];
+                            api.q = api.q || [];
+                            if (typeof namespace === 'string') {
+                                cal.ns[namespace] = cal.ns[namespace] || api;
+                                p(cal.ns[namespace], ar);
+                                p(cal, ['initNamespace', namespace]);
+                            } else {
+                                p(cal, ar);
+                            }
+                            return;
+                        }
+                        p(cal, ar);
+                    };
+                })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+                const calConfig = { layout: 'month_view' };
+                if (formData.fullName) calConfig.name = formData.fullName;
+                if (formData.workEmail) calConfig.email = formData.workEmail;
+
+                window.Cal('init', { origin: 'https://app.cal.com' });
+                window.Cal('inline', {
+                    elementOrSelector: '#cal-inline-booking',
+                    calLink: 'kevin-leumassi/30min',
+                    config: calConfig
+                });
+                window.Cal('ui', {
+                    theme: 'light',
+                    hideEventTypeDetails: false
+                });
 
                 document.getElementById('closeModalAfter')?.addEventListener('click', closeModal);
             } else {
