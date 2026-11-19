@@ -241,7 +241,7 @@ module.exports = async function handler(req, res) {
             properties['Deal Size / ACV'] = { rich_text: buildRichText(cleanDealSize) };
         }
         if (contactPageId) {
-            properties.Contact = { relation: [{ id: contactPageId }] };
+            properties.Contacts = { relation: [{ id: contactPageId }] };
         }
         if (metricsAllTimeId) {
             properties['Metrics Period'] = { relation: [{ id: metricsAllTimeId }] };
