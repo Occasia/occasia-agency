@@ -6,8 +6,8 @@
 
 const NOTION_VERSION = '2022-06-28';
 const DEFAULT_OPPORTUNITIES_DB_ID = '41ccd2c2-707d-807f-a243-cbb21ddb7efe';
-const DEFAULT_CONTACTS_DB_ID = '41ccd2c2-707d-8174-ad6d-d22588a39e36';
-const DEFAULT_METRICS_ALL_TIME_ID = '41ccd2c2-707d-819d-92e1-f0a2d48d07ba';
+const DEFAULT_CONTACTS_DB_ID = '41dcd2c2-707d-80b3-a106-fb512300708e';
+const DEFAULT_METRICS_ALL_TIME_ID = '0e4cd2c2-707d-823f-b9f2-01516c139832';
 
 function normalizeUrl(raw) {
     if (!raw || typeof raw !== 'string') return null;
