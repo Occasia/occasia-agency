@@ -45,6 +45,21 @@
       "source": "/technumia.html",
       "destination": "/technumia",
       "permanent": true
+    },
+    {
+      "source": "/cyberdefense-ai-dinner.html",
+      "destination": "/cyberdefense-ai-dinner",
+      "permanent": true
+    },
+    {
+      "source": "/shipsavvy-dinner.html",
+      "destination": "/shipsavvy-dinner",
+      "permanent": true
+    },
+    {
+      "source": "/tooly-dinner.html",
+      "destination": "/tooly-dinner",
+      "permanent": true
     }
   ]
 }
