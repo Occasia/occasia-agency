@@ -57,8 +57,8 @@
       "permanent": true
     },
     {
-      "source": "/tooly-dinner.html",
-      "destination": "/tooly-dinner",
+      "source": "/croissance-et-operations.html",
+      "destination": "/croissance-et-operations",
       "permanent": true
     }
   ]
