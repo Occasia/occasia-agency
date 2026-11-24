@@ -974,6 +974,211 @@
                 gap: 24px;
             }
         }
+
+        /* Invite Request Modal Dialog */
+        dialog.mo-dialog {
+            margin: auto;
+            width: min(560px, calc(100% - 24px));
+            max-height: min(88dvh, 760px);
+            border: 1px solid var(--hair-strong);
+            border-radius: 16px;
+            background: var(--bg);
+            color: var(--text);
+            padding: 0;
+            box-shadow: 0 32px 72px rgba(9, 10, 15, 0.36);
+        }
+
+        dialog.mo-dialog:modal {
+            overscroll-behavior: contain;
+        }
+
+        dialog.mo-dialog::backdrop {
+            overflow: hidden;
+            overscroll-behavior: contain;
+            background: rgba(9, 10, 15, 0.62);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .dialog-inner {
+            padding: clamp(24px, 4vw, 36px);
+            position: relative;
+        }
+
+        .dialog-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 22px;
+        }
+
+        .dialog-eyebrow {
+            font-family: var(--f-mono);
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .dialog-title {
+            font-family: var(--f-serif);
+            font-size: clamp(30px, 3.6vw, 40px);
+            font-weight: 400;
+            line-height: 1.06;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        .dialog-title em {
+            font-style: italic;
+            color: var(--crimson);
+        }
+
+        .dialog-sub {
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--ink-dim);
+        }
+
+        .dialog-close {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid var(--hair-strong);
+            background: var(--bg-1);
+            color: var(--ink);
+            font-size: 22px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dialog-close:hover {
+            border-color: var(--crimson);
+            color: var(--crimson);
+        }
+
+        .dialog-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .dialog-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .dialog-field label {
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .dialog-hint {
+            font-family: var(--f-mono);
+            font-size: 11px;
+            color: var(--ink-faint);
+        }
+
+        .dialog-field input,
+        .dialog-field textarea {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--hair-strong);
+            background: var(--bg-1);
+            color: var(--ink);
+            font-family: var(--f-sans);
+            font-size: 16px;
+            line-height: 1.4;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .dialog-field textarea {
+            min-height: 84px;
+            resize: vertical;
+        }
+
+        .dialog-field input:focus,
+        .dialog-field textarea:focus {
+            outline: 2px solid var(--crimson);
+            outline-offset: 1px;
+            border-color: var(--crimson);
+        }
+
+        .dialog-field input:is(:user-invalid, .user-invalid-fallback) {
+            border-color: var(--crimson);
+            background: var(--crimson-dim);
+        }
+
+        .dialog-field input:is(:user-valid, .user-valid-fallback) {
+            border-color: #15803D;
+        }
+
+        .dialog-error {
+            display: none;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--crimson-hi);
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dialog-field:has(:is(:user-invalid, .user-invalid-fallback)) .dialog-error {
+            display: flex;
+        }
+
+        .dialog-submit {
+            width: 100%;
+            min-height: 48px;
+            justify-content: center;
+            margin-top: 4px;
+        }
+
+        .dialog-submit:disabled {
+            opacity: 0.7;
+            cursor: wait;
+        }
+
+        .dialog-status {
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            line-height: 1.5;
+            display: none;
+        }
+
+        .dialog-status.is-visible {
+            display: block;
+        }
+
+        .dialog-status.is-error {
+            background: var(--crimson-dim);
+            border: 1px solid var(--crimson);
+            color: var(--crimson-hi);
+        }
+
+        .dialog-status.is-success {
+            background: rgba(21, 128, 61, 0.12);
+            border: 1px solid #15803D;
+            color: #166534;
+        }
+
+        html.nocturne .dialog-status.is-success {
+            color: #86EFAC;
+            border-color: #4ADE80;
+        }
     </style>
 </head>
 
@@ -1066,10 +1271,10 @@
                 </div>
 
                 <div class="mo-hero-actions">
-                    <a href="mailto:kevin@occasia.agency?subject=Demande%20d%27invitation%20-%20Diner%20executif%20Croissance%20%26%20Operations%20(Tooly)" class="mo-cta mo-cta-crimson">
+                    <button type="button" command="show-modal" commandfor="inviteDialog" id="openInviteBtn" class="mo-cta mo-cta-crimson">
                         <span class="lang-fr">Demander une invitation →</span>
                         <span class="lang-en">Request invite →</span>
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -1429,6 +1634,171 @@
         </div>
     </footer>
 
+    <!-- Invite Request Modal Dialog -->
+    <dialog id="inviteDialog" class="mo-dialog" closedby="any" aria-labelledby="inviteDialogTitle">
+        <div class="dialog-inner">
+            <div class="dialog-head">
+                <div>
+                    <span class="dialog-eyebrow">
+                        <span class="lang-fr">21 janvier 2027 · Montréal</span>
+                        <span class="lang-en">January 21, 2027 · Montreal</span>
+                    </span>
+                    <h1 id="inviteDialogTitle" class="dialog-title">
+                        <span class="lang-fr">Demander une <em>invitation</em></span>
+                        <span class="lang-en">Request your <em>invitation</em></span>
+                    </h1>
+                    <p class="dialog-sub">
+                        <span class="lang-fr">Table privée limitée à 15 dirigeants de firmes de services B2B. Chaque demande est validée pour garder l'équilibre entre secteurs.</span>
+                        <span class="lang-en">Private table limited to 15 B2B service-firm leaders. Every request is reviewed to preserve industry balance.</span>
+                    </p>
+                </div>
+                <button type="button" command="close" commandfor="inviteDialog" id="closeInviteBtn" class="dialog-close" aria-label="Fermer / Close">×</button>
+            </div>
+
+            <form id="inviteForm" class="dialog-form" novalidate>
+                <div class="dialog-field">
+                    <label for="inviteFullName">
+                        <span class="lang-fr">Nom complet *</span>
+                        <span class="lang-en">Full name *</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="inviteFullName"
+                        name="fullName"
+                        required
+                        autofocus
+                        autocomplete="name"
+                        enterkeyhint="next"
+                        data-error="inviteFullNameError">
+                    <span id="inviteFullNameError" class="dialog-error">
+                        <span class="lang-fr">Erreur : veuillez indiquer votre nom complet.</span>
+                        <span class="lang-en">Error: please enter your full name.</span>
+                    </span>
+                </div>
+
+                <div class="dialog-field">
+                    <label for="inviteRole">
+                        <span class="lang-fr">Titre / Poste *</span>
+                        <span class="lang-en">Role / Title *</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="inviteRole"
+                        name="role"
+                        required
+                        autocomplete="organization-title"
+                        enterkeyhint="next"
+                        data-error="inviteRoleError"
+                        aria-describedby="inviteRoleHint">
+                    <span id="inviteRoleHint" class="dialog-hint">
+                        <span class="lang-fr">Ex. Président, DG, COO, Associé directeur</span>
+                        <span class="lang-en">E.g. Founder, CEO, COO, Managing Partner</span>
+                    </span>
+                    <span id="inviteRoleError" class="dialog-error">
+                        <span class="lang-fr">Erreur : veuillez préciser votre poste.</span>
+                        <span class="lang-en">Error: please enter your title or role.</span>
+                    </span>
+                </div>
+
+                <div class="dialog-field">
+                    <label for="inviteCompany">
+                        <span class="lang-fr">Entreprise *</span>
+                        <span class="lang-en">Company *</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="inviteCompany"
+                        name="companyName"
+                        required
+                        autocomplete="organization"
+                        enterkeyhint="next"
+                        data-error="inviteCompanyError">
+                    <span id="inviteCompanyError" class="dialog-error">
+                        <span class="lang-fr">Erreur : veuillez entrer le nom de votre entreprise.</span>
+                        <span class="lang-en">Error: please enter your company name.</span>
+                    </span>
+                </div>
+
+                <div class="dialog-field">
+                    <label for="inviteEmail">
+                        <span class="lang-fr">Courriel professionnel *</span>
+                        <span class="lang-en">Work email *</span>
+                    </label>
+                    <span id="inviteEmailHint" class="dialog-hint">
+                        <span class="lang-fr">Format : prenom@entreprise.ca</span>
+                        <span class="lang-en">Format: name@company.com</span>
+                    </span>
+                    <input
+                        type="email"
+                        id="inviteEmail"
+                        name="workEmail"
+                        required
+                        autocomplete="email"
+                        inputmode="email"
+                        enterkeyhint="next"
+                        data-error="inviteEmailError"
+                        aria-describedby="inviteEmailHint">
+                    <span id="inviteEmailError" class="dialog-error">
+                        <span class="lang-fr">Erreur : veuillez entrer une adresse courriel valide (ex. prenom@entreprise.ca).</span>
+                        <span class="lang-en">Error: enter an email address in the format name@company.com.</span>
+                    </span>
+                </div>
+
+                <div class="dialog-field">
+                    <label for="invitePhone">
+                        <span class="lang-fr">Téléphone direct *</span>
+                        <span class="lang-en">Direct phone number *</span>
+                    </label>
+                    <span id="invitePhoneHint" class="dialog-hint">
+                        <span class="lang-fr">Ex. 514-555-0192</span>
+                        <span class="lang-en">E.g. 514-555-0192</span>
+                    </span>
+                    <input
+                        type="tel"
+                        id="invitePhone"
+                        name="phone"
+                        required
+                        autocomplete="tel"
+                        inputmode="tel"
+                        enterkeyhint="next"
+                        data-error="invitePhoneError"
+                        aria-describedby="invitePhoneHint">
+                    <span id="invitePhoneError" class="dialog-error">
+                        <span class="lang-fr">Erreur : veuillez indiquer votre numéro de téléphone.</span>
+                        <span class="lang-en">Error: please enter your direct phone number.</span>
+                    </span>
+                </div>
+
+                <div class="dialog-field">
+                    <label for="inviteLinkedIn">
+                        <span class="lang-fr">Profil LinkedIn (optionnel)</span>
+                        <span class="lang-en">LinkedIn profile (optional)</span>
+                    </label>
+                    <span id="inviteLinkedInHint" class="dialog-hint">https://linkedin.com/in/...</span>
+                    <input
+                        type="url"
+                        id="inviteLinkedIn"
+                        name="linkedinUrl"
+                        inputmode="url"
+                        enterkeyhint="done"
+                        data-error="inviteLinkedInError"
+                        aria-describedby="inviteLinkedInHint">
+                    <span id="inviteLinkedInError" class="dialog-error">
+                        <span class="lang-fr">Erreur : entrez une URL valide commençant par https://.</span>
+                        <span class="lang-en">Error: please enter a valid URL starting with https://.</span>
+                    </span>
+                </div>
+
+                <button type="submit" id="inviteSubmitBtn" class="mo-cta mo-cta-crimson dialog-submit">
+                    <span class="lang-fr">Envoyer ma demande →</span>
+                    <span class="lang-en">Send request →</span>
+                </button>
+
+                <div id="inviteFormStatus" class="dialog-status" role="status" aria-live="polite"></div>
+            </form>
+        </div>
+    </dialog>
+
     <!-- Preloader, Theme & Bilingual Engine -->
     <script>
         window.addEventListener('load', () => {
@@ -1497,6 +1867,155 @@
 
             const initialLang = detectInitialLanguage();
             setLanguage(initialLang);
+
+            // Accessible Modal Dialog & Invite Submission Engine
+            const dialog = document.getElementById('inviteDialog');
+            const openBtn = document.getElementById('openInviteBtn');
+            const closeBtn = document.getElementById('closeInviteBtn');
+            const inviteForm = document.getElementById('inviteForm');
+            const statusBox = document.getElementById('inviteFormStatus');
+            const submitBtn = document.getElementById('inviteSubmitBtn');
+
+            if (dialog && inviteForm) {
+                if (!('commandForElement' in HTMLButtonElement.prototype)) {
+                    if (openBtn) openBtn.addEventListener('click', () => dialog.showModal());
+                    if (closeBtn) closeBtn.addEventListener('click', () => dialog.close('dismiss'));
+                }
+
+                if (!('closedBy' in HTMLDialogElement.prototype)) {
+                    const outsideDialog = (e) => {
+                        const r = dialog.getBoundingClientRect();
+                        return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+                    };
+                    let pressedOutside = false;
+                    dialog.addEventListener('pointerdown', (e) => {
+                        pressedOutside = outsideDialog(e);
+                    });
+                    dialog.addEventListener('pointerup', (e) => {
+                        if (pressedOutside && outsideDialog(e)) dialog.close('backdrop');
+                    });
+                }
+
+                dialog.addEventListener('close', () => {
+                    dialog.returnValue = '';
+                });
+
+                const validatedFields = Array.from(inviteForm.querySelectorAll('input'));
+                const hintDefaults = new Map();
+                validatedFields.forEach((field) => {
+                    hintDefaults.set(field, field.getAttribute('aria-describedby') || '');
+                });
+
+                function syncFieldValidation(field) {
+                    const errorId = field.getAttribute('data-error');
+                    const baseTokens = (hintDefaults.get(field) || '').split(/\s+/).filter(Boolean);
+                    const valid = field.checkValidity();
+
+                    if (field.dataset.interacted === 'true') {
+                        field.classList.toggle('user-invalid-fallback', !valid);
+                        field.classList.toggle('user-valid-fallback', valid && field.value.trim() !== '');
+                        if (!valid) {
+                            field.setAttribute('aria-invalid', 'true');
+                            if (errorId) baseTokens.push(errorId);
+                        } else {
+                            field.removeAttribute('aria-invalid');
+                        }
+                        if (baseTokens.length) {
+                            field.setAttribute('aria-describedby', baseTokens.join(' '));
+                        } else {
+                            field.removeAttribute('aria-describedby');
+                        }
+                    }
+                    return valid;
+                }
+
+                validatedFields.forEach((field) => {
+                    field.addEventListener('blur', (e) => {
+                        if (e.relatedTarget === submitBtn) return;
+                        if (field.required || field.value.trim() !== '') {
+                            field.dataset.interacted = 'true';
+                            syncFieldValidation(field);
+                        }
+                    });
+                    field.addEventListener('input', () => {
+                        if (field.dataset.interacted === 'true') {
+                            syncFieldValidation(field);
+                        }
+                    });
+                });
+
+                inviteForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    let firstInvalid = null;
+                    validatedFields.forEach((field) => {
+                        if (field.required || field.value.trim() !== '') {
+                            field.dataset.interacted = 'true';
+                            const ok = syncFieldValidation(field);
+                            if (!ok && !firstInvalid) firstInvalid = field;
+                        }
+                    });
+
+                    const isFr = document.documentElement.getAttribute('lang') !== 'en';
+                    if (firstInvalid) {
+                        statusBox.className = 'dialog-status is-visible is-error';
+                        statusBox.textContent = isFr
+                            ? 'Erreur : veuillez vérifier les champs indiqués ci-dessus.'
+                            : 'Error: please review the highlighted fields above.';
+                        firstInvalid.focus();
+                        return;
+                    }
+
+                    statusBox.className = 'dialog-status';
+                    statusBox.textContent = '';
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = isFr ? 'Envoi en cours...' : 'Sending request...';
+
+                    const payload = {
+                        dinnerTarget: 'tooly',
+                        type: 'dinner',
+                        language: isFr ? 'FR' : 'EN',
+                        fullName: document.getElementById('inviteFullName').value.trim(),
+                        role: document.getElementById('inviteRole').value.trim(),
+                        companyName: document.getElementById('inviteCompany').value.trim(),
+                        workEmail: document.getElementById('inviteEmail').value.trim(),
+                        phone: document.getElementById('invitePhone').value.trim(),
+                        linkedinUrl: document.getElementById('inviteLinkedIn').value.trim(),
+                        submittedAt: new Date().toISOString()
+                    };
+
+                    try {
+                        const res = await fetch('/api/submit', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (!res.ok) throw new Error('Request failed');
+
+                        inviteForm.reset();
+                        validatedFields.forEach((field) => {
+                            delete field.dataset.interacted;
+                            field.classList.remove('user-invalid-fallback', 'user-valid-fallback');
+                            field.removeAttribute('aria-invalid');
+                            const base = hintDefaults.get(field);
+                            if (base) field.setAttribute('aria-describedby', base);
+                            else field.removeAttribute('aria-describedby');
+                        });
+
+                        statusBox.className = 'dialog-status is-visible is-success';
+                        statusBox.textContent = isFr
+                            ? 'Demande reçue ! Kevin examinera votre profil et vous confirmera votre place par courriel sous peu.'
+                            : 'Request received! Kevin will review your profile and follow up by email shortly to confirm your seat.';
+                    } catch (err) {
+                        statusBox.className = 'dialog-status is-visible is-error';
+                        statusBox.textContent = isFr
+                            ? 'Erreur lors de l\'envoi. Vous pouvez écrire directement à kevin@occasia.agency.'
+                            : 'Submission failed. Please email kevin@occasia.agency directly.';
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<span class="lang-fr">Envoyer ma demande →</span><span class="lang-en">Send request →</span>';
+                    }
+                });
+            }
         });
     </script>
 </body>
